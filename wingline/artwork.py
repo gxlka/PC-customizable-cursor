@@ -12,7 +12,7 @@ SUPPORTED_SIZES = (32, 48, 64, 96, 128, 192, 256)
 SUPERSAMPLE = 8
 ANIMATION_FRAMES = 8
 ARROW_SCALE = 0.64
-ROLE_SCALE = 2.0
+ROLE_SCALE = 1.4
 
 
 def _point(point: tuple[float, float], scale: int) -> tuple[int, int]:
@@ -90,7 +90,7 @@ def _outlined_line(
     scale: int,
 ) -> None:
     points = list(points)
-    _rounded_line(draw, points, theme.edge, width + max(2, width // 2), scale)
+    _rounded_line(draw, points, theme.edge, width + max(1, width // 3), scale)
     _rounded_line(draw, points, theme.fill, width, scale)
 
 
@@ -143,7 +143,7 @@ def _draw_arrowheads(
         )
         return [left, tip, right]
 
-    width = max(5, round(scale * 0.045))
+    width = max(4, round(scale * 0.03))
     _outlined_line(draw, head(start, angle + math.pi), theme, width, scale)
     _outlined_line(draw, head(end, angle), theme, width, scale)
 
@@ -163,8 +163,8 @@ def _draw_spinner(
             center[0] + math.cos(angle) * radius,
             center[1] + math.sin(angle) * radius,
         )
-        alpha = 150 + ((index - frame) % 8) * 15
-        rgb = tuple(int(theme.fill[i : i + 2], 16) for i in (1, 3, 5))
+        alpha = 185 + ((index - frame) % 8) * 10
+        rgb = tuple(int(theme.edge[i : i + 2], 16) for i in (1, 3, 5))
         _draw_circle(
             draw,
             location,
@@ -195,11 +195,11 @@ def _draw_role_mark(
     elif role.glyph == "appstarting":
         progress = frame / (ANIMATION_FRAMES - 1)
         outline_width = max(4, round(scale * 0.035))
-        track = tuple(_point(point, scale) for point in ((0.18, 0.38), (0.82, 0.62)))
+        track = tuple(_point(point, scale) for point in ((0.32, 0.43), (0.68, 0.57)))
         radius = max(4, round(scale * 0.045))
         draw.rounded_rectangle(track, radius=radius, outline=theme.edge, width=outline_width)
-        x = 0.24 + progress * 0.48
-        slider = tuple(_point(point, scale) for point in ((x, 0.40), (x + 0.12, 0.60)))
+        x = 0.35 + progress * 0.19
+        slider = tuple(_point(point, scale) for point in ((x, 0.44), (x + 0.08, 0.56)))
         draw.rounded_rectangle(slider, radius=radius, fill=theme.fill, outline=theme.edge, width=outline_width)
     elif role.glyph == "wait":
         _draw_spinner(draw, theme, scale, frame)

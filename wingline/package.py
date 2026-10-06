@@ -422,13 +422,20 @@ def verify_pack(output_root: Path) -> bool:
             f"{theme.key} active cursor settings are incomplete.",
         )
         _require(_copy_files(inf_text) == filenames, f"{theme.key} copy list is wrong.")
+        role_payloads: set[bytes] = set()
         for role, filename in zip(ROLE_ORDER, filenames):
             asset = theme_dir / filename
             _require(asset.is_file(), f"Installer references a missing cursor: {filename}.")
+            payload = asset.read_bytes()
+            _require(
+                payload not in role_payloads,
+                f"{theme.key} assigns identical cursor artwork to more than one role.",
+            )
+            role_payloads.add(payload)
             if role.key in ANIMATED_ROLES:
-                _check_ani(asset.read_bytes())
+                _check_ani(payload)
             else:
-                _check_cur(asset.read_bytes(), set(SUPPORTED_SIZES))
+                _check_cur(payload, set(SUPPORTED_SIZES))
         _require((theme_dir / "INSTALL.txt").is_file(), f"{theme.key} install notes are missing.")
         preview = theme_dir / "preview.png"
         _require(preview.is_file(), f"{theme.key} preview is missing.")

@@ -65,6 +65,15 @@ class ArtworkTests(unittest.TestCase):
                     self.assertLess(hotspot[0], 32)
                     self.assertLess(hotspot[1], 32)
 
+    def test_every_role_has_its_own_distinct_artwork(self):
+        for theme in THEMES.values():
+            with self.subTest(theme=theme.key):
+                rendered = [
+                    render_cursor(role, theme, 64, frame=0)[0].tobytes()
+                    for role in ROLE_ORDER
+                ]
+                self.assertEqual(len(ROLE_ORDER), len(set(rendered)))
+
     def test_arrow_hotspot_is_at_the_top_corner(self):
         self.assertIsNotNone(render_cursor)
         arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
@@ -115,6 +124,7 @@ class ArtworkTests(unittest.TestCase):
                     image, _ = render_cursor(role, theme, 32, frame=0)
                     left, top, right, bottom = image.getchannel("A").getbbox()
                     self.assertGreaterEqual(max(right - left, bottom - top), 12)
+                    self.assertLessEqual(max(right - left, bottom - top), 26)
 
 
 if __name__ == "__main__":
