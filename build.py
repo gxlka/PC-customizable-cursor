@@ -26,7 +26,7 @@ def main(argv: list[str] | None = None) -> int:
             print("Wingline cursor packs verified.")
         else:
             build(OUTPUT_DIR)
-            print("Built and verified Wingline White, Wingline Black, and combined ZIP packs.")
+            print("Built and verified all cursor themes and the combined ZIP pack.")
     except (OSError, ValueError, zipfile.BadZipFile) as error:
         print(f"Build check failed: {error}", file=sys.stderr)
         return 1

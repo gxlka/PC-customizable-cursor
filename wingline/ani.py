@@ -89,3 +89,4 @@ def encode_ani(frames: Sequence[bytes], frame_jiffies: int = 7) -> bytes:
     if len(body) > 0xFFFFFFFF:
         raise ValueError("ANI file is too large for a RIFF size field.")
     return b"RIFF" + struct.pack("<I", len(body)) + body
+

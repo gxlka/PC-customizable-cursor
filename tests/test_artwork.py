@@ -43,7 +43,12 @@ class ArtworkTests(unittest.TestCase):
 
     def test_two_theme_keys_share_the_full_role_set(self):
         self.assertEqual(
-            {"Wingline-White", "Wingline-Black"},
+            {
+                "Wingline-White",
+                "Wingline-Black",
+                "Windows-Smooth-White",
+                "Windows-Smooth-Black",
+            },
             set(THEMES),
         )
         self.assertTrue(all(THEMES.values()))
@@ -80,12 +85,19 @@ class ArtworkTests(unittest.TestCase):
         image, hotspot = render_cursor(arrow, THEMES["Wingline-White"], 64)
         self.assertEqual((64, 64), image.size)
         self.assertEqual((22, 6), hotspot)
-        image, _ = render_cursor(arrow, THEMES["Wingline-White"], 32)
+        image, hotspot = render_cursor(arrow, THEMES["Wingline-White"], 32)
         alpha = image.getchannel("A")
         bounds = alpha.getbbox()
         self.assertLessEqual(bounds[2] - bounds[0], 24)
         self.assertLessEqual(bounds[3] - bounds[1], 23)
-        self.assertGreater(alpha.getpixel((11, 3)), 0)
+        self.assertEqual((11, 3), hotspot)
+        self.assertGreater(alpha.getpixel(hotspot), 0)
+
+    def test_windows_smooth_pointer_uses_the_upper_left_arrow_tip(self):
+        arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
+        image, hotspot = render_cursor(arrow, THEMES["Windows-Smooth-White"], 64)
+        self.assertEqual((6, 3), hotspot)
+        self.assertGreater(image.getchannel("A").getpixel(hotspot), 0)
 
     def test_renderer_rejects_unsupported_canvas_sizes(self):
         self.assertIsNotNone(render_cursor)
@@ -124,7 +136,7 @@ class ArtworkTests(unittest.TestCase):
                     image, _ = render_cursor(role, theme, 32, frame=0)
                     left, top, right, bottom = image.getchannel("A").getbbox()
                     self.assertGreaterEqual(max(right - left, bottom - top), 12)
-                    self.assertLessEqual(max(right - left, bottom - top), 26)
+                    self.assertLessEqual(max(right - left, bottom - top), 28)
 
 
 if __name__ == "__main__":

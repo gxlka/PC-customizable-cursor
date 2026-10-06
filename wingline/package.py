@@ -1,462 +1,108 @@
-from __future__ import annotations
+YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éíëŸuN‹Z–‹­¦ëeŠw¬Õ™É½´}}™ÕÑÕÉ•}|¥µÁ½ÉĞ…¹¹½Ñ…Ñ¥½¹Ì()¥µÁ½ÉĞÍØ)¥µÁ½ÉĞÉ”)¥µÁ½ÉĞÍ¡ÕÑ¥°)¥µÁ½ÉĞÍÑÉÕĞ)¥µÁ½ÉĞé¥Á™¥±”)™É½´Á…Ñ¡±¥ˆ¥µÁ½ÉĞA…Ñ °AÕÉ•]¥¹‘½İÍA…Ñ ()™É½´A%0¥µÁ½ÉĞ%µ…”°%µ…•É…Ü°%µ…•½¹Ğ()™É½´€¹…¹¤¥µÁ½ÉĞ•¹½‘•}…¹¤)™É½´€¹…ÉÑİ½É¬¥µÁ½ÉĞ9%5Q%=9}I5L°MUAA=IQ}M%iL°É•¹‘•É}ÕÉÍ½È)™É½´€¹ÕÈ¥µÁ½ÉĞ•¹½‘•}ÕÈ)™É½´€¹É½±•Ì¥µÁ½ÉĞI=1}=IH°Q!5L°ÕÉÍ½ÉI½±”°Q¡•µ”(()9%5Q}I=1L€ôì‰…ÁÁÍÑ…ÉÑ¥¹œˆ°€‰İ…¥Ğ‰ô)%9MQ11}QaP€ô€ˆˆ‰]¥¹±¥¹”ÕÉÍ½ÈA…¬ƒŠP]¥¹‘½İÌ¥¹ÍÑ…±°()áÑÉ…ĞÑ¡¥Ì™½±‘•È…¹‘½Õ‰±”µ±¥¬%¹ÍÑ…±°µ]¥¹±¥¹”¹µ¸%Ğ½Á¥•ÌÑ¡”)ÕÉÍ½È™¥±•Ì¥¹Ñ¼å½ÕÈÕÍ•ÈÁÉ½™¥±”°É•…ÁÁ±¥•ÌÑ¡”Í¡•µ”•Ù•¸¥˜]¥¹‘½İÌ)…±É•…‘ä¡…Ì…¸½±‘•ÈÉ•¥ÍÑÉ…Ñ¥½¸°…¹É•±½…‘ÌÑ¡”…Ñ¥Ù”ÕÉÍ½ÉÌ¸%Ğ‘½•Ì)¹½Ğ¹••…‘µ¥¹¥ÍÑÉ…Ñ½È…•ÍÌ¸()Q¡”€¹¥¹˜É•µ…¥¹Ì…Ù…¥±…‰±”™½Èµ…¹Õ…°¥µÁ½ÉĞ¸%˜]¥¹‘½İÌÉ•Á½ÉÑÌÑ¡…Ğ…¸%9)¥Ì…±É•…‘ä¥¹ÍÑ…±±•°ÉÕ¸%¹ÍÑ…±°µ]¥¹±¥¹”¹µÑ¼É•…ÁÁ±ä…¹…Ñ¥Ù…Ñ”¥Ğ¸)ÕÉÍ½È™¥±•Ì¥¹±Õ‘”Í¥é•ÌÑ¡É½Õ €ÈÔØÁà¸()Q¡”¥¹±Õ‘•ÁÉ•Ù¥•Ü¹Á¹œÍ¡½İÌÑ¡”€ĞàÁà…ÉÑİ½É¬½¸±¥¡Ğ…¹‘…É¬‰…­É½Õ¹‘Ì¸(ˆˆˆ(()‘•˜ÕÉÍ½É}™¥±•¹…µ”¡Ñ¡•µ”èQ¡•µ”°É½±”èÕÉÍ½ÉI½±”¤€´øÍÑÈè(€€€•áÑ•¹Í¥½¸€ô€ˆ¹…¹¤ˆ¥˜É½±”¹­•ä¥¸9%5Q}I=1L•±Í”€ˆ¹ÕÈˆ(€€€É•ÑÕÉ¸˜‰íÑ¡•µ”¹­•åôµíÉ½±”¹­•åõí•áÑ•¹Í¥½¹ôˆ(()‘•˜}É½±•}ÕÉÍ½É}‰åÑ•Ì¡É½±”èÕÉÍ½ÉI½±”°Ñ¡•µ”èQ¡•µ”¤€´ø‰åÑ•Ìè(€€€¥˜É½±”¹­•ä¥¸9%5Q}I=1Lè(€€€€€€€™É…µ•Ì€ômt(€€€€€€€™½È™É…µ•}¥¹‘•à¥¸É…¹”¡9%5Q%=9}I5L¤è(€€€€€€€€€€€¥µ…”°¡½ÑÍÁ½Ğ€ôÉ•¹‘•É}ÕÉÍ½È¡É½±”°Ñ¡•µ”°µ…à¡MUAA=IQ}M%iL¤°™É…µ”õ™É…µ•}¥¹‘•à¤(€€€€€€€€€€€™É…µ•Ì¹…ÁÁ•¹¡•¹½‘•}ÕÈ¡l¡¥µ…”°¡½ÑÍÁ½Ğ¥t¤¤(€€€€€€€É•ÑÕÉ¸•¹½‘•}…¹¤¡™É…µ•Ì¤((€€€¥µ…•Ì€ômÉ•¹‘•É}ÕÉÍ½È¡É½±”°Ñ¡•µ”°Í¥é”¤™½ÈÍ¥é”¥¸MUAA=IQ}M%iMt(€€€É•ÑÕÉ¸•¹½‘•}ÕÈ¡¥µ…•Ì¤(()‘•˜}¥¹ÍÑ…±±•É}Ñ•áĞ¡Ñ¡•µ”èQ¡•µ”°™¥±•¹…µ•Ìè±¥ÍÑmÍÑÉt¤€´øÍÑÈè(€€€Í¡•µ•}Á…Ñ¡Ì€ôl(€€€€€€€˜ˆ”ÄÀ•qqÕÉÍ½ÉÍqqíÑ¡•µ”¹­•åõqqí™¥±•¹…µ•ôˆ™½È™¥±•¹…µ”¥¸™¥±•¹…µ•Ì(€€€t(€€€Í¡•µ•}Ù…±Õ”€ô€ˆ°ˆ¹©½¥¸¡Í¡•µ•}Á…Ñ¡Ì¤(€€€…Ñ¥Ù•}ÕÉÍ½É}Ù…±Õ•Ì€ôl(€€€€€€€€!-T°‰½¹ÑÉ½°A…¹•±qqÕÉÍ½ÉÌˆ°°ÁàÀÀÀÀÀÀÀÀ°ˆ•M¡•µ•9…µ””ˆœ°(€€€€€€€€!-T°‰½¹ÑÉ½°A…¹•±qqÕÉÍ½ÉÌˆ°‰M¡•µ”M½ÕÉ”ˆ°ÁàÀÀÀÄÀÀÀÄ°Äœ°(€€€t(€€€…Ñ¥Ù•}ÕÉÍ½É}Ù…±Õ•Ì¹•áÑ•¹ (€€€€€€€˜!-T°‰½¹ÑÉ½°A…¹•±qqÕÉÍ½ÉÌˆ°‰íÉ½±”¹É•¥ÍÑÉå}Ù…±Õ•ôˆ°ÁàÀÀÀÀÀÀÀÀ°œ(€€€€€€€˜œˆ”ÄÀ•qqÕÉÍ½ÉÍqqíÑ¡•µ”¹­•åõqqí™¥±•¹…µ•ôˆœ(€€€€€€€™½ÈÉ½±”°™¥±•¹…µ”¥¸é¥À¡I=1}=IH°™¥±•¹…µ•Ì¤(€€€€¤(€€€Í½ÕÉ•}™¥±•Ì€ô€‰q¸ˆ¹©½¥¸¡˜‰í™¥±•¹…µ•ôôÄˆ™½È™¥±•¹…µ”¥¸™¥±•¹…µ•Ì¤(€€€½Áå}™¥±•Ì€ô€‰q¸ˆ¹©½¥¸¡™¥±•¹…µ•Ì¤(€€€É•ÑÕÉ¸€ (€€€€€€€€‰mY•ÉÍ¥½¹uq¸ˆ(€€€€€€€€M¥¹…ÑÕÉ”ôˆ‘]¥¹‘½İÌ9P‰q¸œ(€€€€€€€€‰q¸ˆ(€€€€€€€€‰m•™…Õ±Ñ%¹ÍÑ…±±uq¸ˆ(€€€€€€€€‰½Áå¥±•ÌõÕÉÍ½É¥±•Íq¸ˆ(€€€€€€€€‰‘‘I•œõÕÉÍ½ÉM¡•µ”±Ñ¥Ù•ÕÉÍ½ÉÍq¸ˆ(€€€€€€€€‰q¸ˆ(€€€€€€€€‰mM½ÕÉ•¥Í­Í9…µ•Íuq¸ˆ(€€€€€€€˜ˆÄô•¥Í­9…µ””°°°¹q¸ˆ(€€€€€€€€‰q¸ˆ(€€€€€€€€‰mM½ÕÉ•¥Í­Í¥±•Íuq¸ˆ(€€€€€€€˜‰íÍ½ÕÉ•}™¥±•Íõq¸ˆ(€€€€€€€€‰q¸ˆ(€€€€€€€€‰m•ÍÑ¥¹…Ñ¥½¹¥ÉÍuq¸ˆ(€€€€€€€˜ÕÉÍ½É¥±•ÌôÄÀ°‰ÕÉÍ½ÉÍqqíÑ¡•µ”¹­•åô‰q¸œ(€€€€€€€€‰q¸ˆ(€€€€€€€€‰mÕÉÍ½É¥±•Íuq¸ˆ(€€€€€€€˜‰í½Áå}™¥±•Íõq¸ˆ(€€€€€€€€‰q¸ˆ(€€€€€€€€‰mÕÉÍ½ÉM¡•µ•uq¸ˆ(€€€€€€€€!-T°‰½¹ÑÉ½°A…¹•±qqÕÉÍ½ÉÍqqM¡•µ•Ìˆ°ˆ•M¡•µ•9…µ””ˆ°œ(€€€€€€€˜œÁàÀÀÀÀÀÀÀÀ°‰íÍ¡•µ•}Ù…±Õ•ô‰q¸œ(€€€€€€€€‰q¸ˆ(€€€€€€€€¬€‰mÑ¥Ù•ÕÉÍ½ÉÍuq¸ˆ(€€€€€€€€¬€‰q¸ˆ¹©½¥¸¡…Ñ¥Ù•}ÕÉÍ½É}Ù…±Õ•Ì¤(€€€€€€€€¬€‰q¹q¸ˆ(€€€€€€€€¬€‰mMÑÉ¥¹Íuq¸ˆ(€€€€€€€˜¥Í­9…µ”ô‰íÑ¡•µ”¹±…‰•±ôÕÉÍ½ÈA…¬‰q¸œ(€€€€€€€˜M¡•µ•9…µ”ô‰íÑ¡•µ”¹±…‰•±ô‰q¸œ(€€€€¤(()‘•˜}™½¹Ğ¡Í¥é”è¥¹Ğ¤€´ø%µ…•½¹Ğ¹%µ…•½¹Ğè(€€€ÑÉäè(€€€€€€€É•ÑÕÉ¸%µ…•½¹Ğ¹±½…‘}‘•™…Õ±Ğ¡Í¥é”õÍ¥é”¤(€€€•á•ÁĞQåÁ•ÉÉ½Èè(€€€€€€€€ŒA¥±±½Ü…‘‘•Ñ¡”Í¥é”…ÉÕµ•¹ĞÑ¼±½…‘}‘•™…Õ±Ğ¥¸Ù•ÉÍ¥½¸€ÄÀ¸Ä¸(€€€€€€€É•ÑÕÉ¸%µ…•½¹Ğ¹±½…‘}‘•™…Õ±Ğ ¤(()‘•˜}‘É…İ}Ñ¡•µ•}ÁÉ•Ù¥•Ü¡Ñ¡•µ”èQ¡•µ”°½ÕÑÁÕÑ}Á…Ñ èA…Ñ ¤€´ø%µ…”¹%µ…”è(€€€İ¥‘Ñ €ô€ÌÔĞ(€€€É½İ}¡•¥¡Ğ€ô€Ôà(€€€¡•…‘•É}¡•¥¡Ğ€ô€äĞ(€€€¥µ…”€ô%µ…”¹¹•Ü ‰Iˆ°€¡İ¥‘Ñ °¡•…‘•É}¡•¥¡Ğ€¬±•¸¡I=1}=IH¤€¨É½İ}¡•¥¡Ğ€¬€Äà¤°€ˆÅØˆ¤(€€€‘É…Ü€ô%µ…•É…Ü¹É…Ü¡¥µ…”¤(€€€Ñ¥Ñ±•}™½¹Ğ€ô}™½¹Ğ Ää¤(€€€±…‰•±}™½¹Ğ€ô}™½¹Ğ ÄÈ¤(€€€Íµ…±±}™½¹Ğ€ô}™½¹Ğ ÄÀ¤(€€€‘É…Ü¹Ñ•áĞ  Äà°€ÄØ¤°Ñ¡•µ”¹±…‰•°°™¥±°ôˆŒÄÔÄäÈÈˆ°™½¹ĞõÑ¥Ñ±•}™½¹Ğ¤(€€€‘É…Ü¹Ñ•áĞ  Äà°€Ğà¤°€ˆĞàÁàÕÉÍ½ÈÁÉ•Ù¥•İÌ½¸±¥¡Ğ…¹‘…É¬ÍÕÉ™…•Ìˆ°™¥±°ôˆŒÑÔÌØÈˆ°™½¹ĞõÍµ…±±}™½¹Ğ¤(€€€‘É…Ü¹Ñ•áĞ  ÈÈÔ°€ÜÈ¤°€‰1%!Pˆ°™¥±°ôˆŒÌäĞÈÔÈˆ°™½¹ĞõÍµ…±±}™½¹Ğ¤(€€€‘É…Ü¹Ñ•áĞ  ÈàÈ°€ÜÈ¤°€‰I,ˆ°™¥±°ôˆŒÌäĞÈÔÈˆ°™½¹ĞõÍµ…±±}™½¹Ğ¤((€€€™½È¥¹‘•à°É½±”¥¸•¹Õµ•É…Ñ”¡I=1}=IH¤è(€€€€€€€Ñ½À€ô¡•…‘•É}¡•¥¡Ğ€¬¥¹‘•à€¨É½İ}¡•¥¡Ğ(€€€€€€€‘É…Ü¹É½Õ¹‘•‘}É•Ñ…¹±”  ÄÈ°Ñ½À°İ¥‘Ñ €´€ÄÈ°Ñ½À€¬É½İ}¡•¥¡Ğ€´€Ğ¤°É…‘¥ÕÌôà°™¥±°ôˆˆ¤(€€€€€€€‘É…Ü¹Ñ•áĞ  ÈÈ°Ñ½À€¬€ÈÄ¤°É½±”¹±…‰•°°™¥±°ôˆŒÈÀÈØÌÌˆ°™½¹Ğõ±…‰•±}™½¹Ğ¤(€€€€€€€™½Èà°‰…­É½Õ¹¥¸€  ÈÈÈ°€ˆáˆ¤°€ ÈÜà°€ˆŒÄÜÅÈÀˆ¤¤è(€€€€€€€€€€€‘É…Ü¹É½Õ¹‘•‘}É•Ñ…¹±” ¡à°Ñ½À€¬€Ô°à€¬€Ğà°Ñ½À€¬€ÔÌ¤°É…‘¥ÕÌôØ°™¥±°õ‰…­É½Õ¹¤(€€€€€€€€€€€ÕÉÍ½È°|€ôÉ•¹‘•É}ÕÉÍ½È¡É½±”°Ñ¡•µ”°€Ğà°™É…µ”ôÀ¤(€€€€€€€€€€€¥µ…”¹…±Á¡…}½µÁ½Í¥Ñ”¡ÕÉÍ½È°€¡à°Ñ½À€¬€Ô¤¤¥˜¥µ…”¹µ½‘”€ôô€‰I	ˆ•±Í”¥µ…”¹Á…ÍÑ” (€€€€€€€€€€€€€€€ÕÉÍ½È°€¡à°Ñ½À€¬€Ô¤°ÕÉÍ½È(€€€€€€€€€€€€¤((€€€¥µ…”¹Í…Ù”¡½ÕÑÁÕÑ}Á…Ñ °™½Éµ…Ğô‰A9ˆ°½ÁÑ¥µ¥é”õQÉÕ”¤(€€€É•ÑÕÉ¸¥µ…”(()‘•˜‰Õ¥±‘}Ñ¡•µ”¡Ñ¡•µ”èQ¡•µ”°½ÕÑÁÕÑ}‘¥ÈèA…Ñ ¤€´ø±¥ÍÑmA…Ñ¡tè(€€€€ˆˆ‰]É¥Ñ”½¹”½µÁ±•Ñ”Í¡•µ”°¥ÑÌ¥¹ÍÑ…±±•È°¥¹ÍÑ…±°¹½Ñ•Ì°…¹ÁÉ•Ù¥•Ü¸ˆˆˆ(€€€½ÕÑÁÕÑ}‘¥È€ôA…Ñ ¡½ÕÑÁÕÑ}‘¥È¤(€€€½ÕÑÁÕÑ}‘¥È¹µ­‘¥È¡Á…É•¹ÑÌõQÉÕ”°•á¥ÍÑ}½¬õQÉÕ”¤(€€€•¹•É…Ñ•è±¥ÍÑmA…Ñ¡t€ômt(€€€™¥±•¹…µ•Ìè±¥ÍÑmÍÑÉt€ômt(€€€™½ÈÉ½±”¥¸I=1}=IHè(€€€€€€€™¥±•¹…µ”€ôÕÉÍ½É}™¥±•¹…µ”¡Ñ¡•µ”°É½±”¤(€€€€€€€Á…Ñ €ô½ÕÑÁÕÑ}‘¥È€¼™¥±•¹…µ”(€€€€€€€Á…Ñ ¹İÉ¥Ñ•}‰åÑ•Ì¡}É½±•}ÕÉÍ½É}‰åÑ•Ì¡É½±”°Ñ¡•µ”¤¤(€€€€€€€•¹•É…Ñ•¹…ÁÁ•¹¡Á…Ñ ¤(€€€€€€€™¥±•¹…µ•Ì¹…ÁÁ•¹¡™¥±•¹…µ”¤((€€€¥¹™}Á…Ñ €ô½ÕÑÁÕÑ}‘¥È€¼˜‰íÑ¡•µ”¹­•åô¹¥¹˜ˆ(€€€¥¹™}Á…Ñ ¹İÉ¥Ñ•}Ñ•áĞ¡}¥¹ÍÑ…±±•É}Ñ•áĞ¡Ñ¡•µ”°™¥±•¹…µ•Ì¤°•¹½‘¥¹œô‰…Í¥¤ˆ°¹•İ±¥¹”ô‰q¸ˆ¤(€€€•¹•É…Ñ•¹…ÁÁ•¹¡¥¹™}Á…Ñ ¤(€€€¥¹ÍÑ…±±}Á…Ñ €ô½ÕÑÁÕÑ}‘¥È€¼€‰%9MQ10¹ÑáĞˆ(€€€¥¹ÍÑ…±±}Á…Ñ ¹İÉ¥Ñ•}Ñ•áĞ¡%9MQ11}QaP°•¹½‘¥¹œô‰ÕÑ˜´àˆ°¹•İ±¥¹”ô‰q¸ˆ¤(€€€•¹•É…Ñ•¹…ÁÁ•¹¡¥¹ÍÑ…±±}Á…Ñ ¤(€€€¥¹ÍÑ…±±•É}‘¥È€ôA…Ñ ¡}}™¥±•}|¤¹É•Í½±Ù” ¤¹Á…É•¹ÑÍlÅt€¼€‰¥¹ÍÑ…±±•Èˆ(€€€™½È¥¹ÍÑ…±±•É}¹…µ”¥¸€ ‰%¹ÍÑ…±°µ]¥¹±¥¹”¹µˆ°€‰%¹ÍÑ…±°µ]¥¹±¥¹”¹ÁÌÄˆ¤è(€€€€€€€¥¹ÍÑ…±±•É}Á…Ñ €ô½ÕÑÁÕÑ}‘¥È€¼¥¹ÍÑ…±±•É}¹…µ”(€€€€€€€Í¡ÕÑ¥°¹½ÁäÈ¡¥¹ÍÑ…±±•É}‘¥È€¼¥¹ÍÑ…±±•É}¹…µ”°¥¹ÍÑ…±±•É}Á…Ñ ¤(€€€€€€€•¹•É…Ñ•¹…ÁÁ•¹¡¥¹ÍÑ…±±•É}Á…Ñ ¤(€€€ÁÉ•Ù¥•İ}Á…Ñ €ô½ÕÑÁÕÑ}‘¥È€¼€‰ÁÉ•Ù¥•Ü¹Á¹œˆ(€€€}‘É…İ}Ñ¡•µ•}ÁÉ•Ù¥•Ü¡Ñ¡•µ”°ÁÉ•Ù¥•İ}Á…Ñ ¤(€€€•¹•É…Ñ•¹…ÁÁ•¹¡ÁÉ•Ù¥•İ}Á…Ñ ¤(€€€É•ÑÕÉ¸•¹•É…Ñ•(()‘•˜}…É¡¥Ù•}Ñ¡•µ”¡…É¡¥Ù”èé¥Á™¥±”¹i¥Á¥±”°Ñ¡•µ”èQ¡•µ”°Ñ¡•µ•}‘¥ÈèA…Ñ ¤€´ø9½¹”è(€€€™½ÈÁ…Ñ ¥¸Í½ÉÑ•¡Ñ¡•µ•}‘¥È¹¥Ñ•É‘¥È ¤°­•äõ±…µ‰‘„¥Ñ•´è¥Ñ•´¹¹…µ”¤è(€€€€€€€¥˜Á…Ñ ¹¥Í}™¥±” ¤è(€€€€€€€€€€€…É¡¥Ù”¹İÉ¥Ñ”¡Á…Ñ °˜‰íÑ¡•µ”¹­•åô½íÁ…Ñ ¹¹…µ•ôˆ¤(()‘•˜‰Õ¥±‘}Á…¬¡½ÕÑÁÕÑ}É½½ĞèA…Ñ ¤€´ø±¥ÍÑmA…Ñ¡tè(€€€€ˆˆ‰	Õ¥±‰½Ñ ÕÉÍ½ÈÍ¡•µ•Ì°Ñ¡•¥ÈÁÉ•Ù¥•İÌ°…¹Ñ¡É•”i%@…É¡¥Ù•Ì¸ˆˆˆ(€€€½ÕÑÁÕÑ}É½½Ğ€ôA…Ñ ¡½ÕÑÁÕÑ}É½½Ğ¤(€€€½ÕÑÁÕÑ}É½½Ğ¹µ­‘¥È¡Á…É•¹ÑÌõQÉÕ”°•á¥ÍÑ}½¬õQÉÕ”¤(€€€•¹•É…Ñ•è±¥ÍÑmA…Ñ¡t€ômt(€€€Ñ¡•µ•}‘¥ÉÌè‘¥ÑmÍÑÈ°A…Ñ¡t€ôíô(€€€™½ÈÑ¡•µ”¥¸Q!5L¹Ù…±Õ•Ì ¤è(€€€€€€€Ñ¡•µ•}‘¥È€ô½ÕÑÁÕÑ}É½½Ğ€¼Ñ¡•µ”¹­•ä(€€€€€€€¥˜Ñ¡•µ•}‘¥È¹•á¥ÍÑÌ ¤è(€€€€€€€€€€€Í¡ÕÑ¥°¹ÉµÑÉ•”¡Ñ¡•µ•}‘¥È¤(€€€€€€€Ñ¡•µ•}‘¥ÉÍmÑ¡•µ”¹­•åt€ôÑ¡•µ•}‘¥È(€€€€€€€•¹•É…Ñ•¹•áÑ•¹¡‰Õ¥±‘}Ñ¡•µ”¡Ñ¡•µ”°Ñ¡•µ•}‘¥È¤¤((€€€™½ÈÑ¡•µ”¥¸Q!5L¹Ù…±Õ•Ì ¤è(€€€€€€€…É¡¥Ù•}Á…Ñ €ô½ÕÑÁÕÑ}É½½Ğ€¼˜‰íÑ¡•µ”¹­•åô¹é¥Àˆ(€€€€€€€İ¥Ñ é¥Á™¥±”¹i¥Á¥±”¡…É¡¥Ù•}Á…Ñ °€‰Üˆ°½µÁÉ•ÍÍ¥½¸õé¥Á™¥±”¹i%A}1Q¤…Ì…É¡¥Ù”è(€€€€€€€€€€€}…É¡¥Ù•}Ñ¡•µ”¡…É¡¥Ù”°Ñ¡•µ”°Ñ¡•µ•}‘¥ÉÍmÑ¡•µ”¹­•åt¤(€€€€€€€•¹•É…Ñ•¹…ÁÁ•¹¡…É¡¥Ù•}Á…Ñ ¤((€€€½µ‰¥¹•‘}Á…Ñ €ô½ÕÑÁÕÑ}É½½Ğ€¼€‰]¥¹±¥¹”µÕÉÍ½ÈµA…¬¹é¥Àˆ(€€€İ¥Ñ é¥Á™¥±”¹i¥Á¥±”¡½µ‰¥¹•‘}Á…Ñ °€‰Üˆ°½µÁÉ•ÍÍ¥½¸õé¥Á™¥±”¹i%A}1Q¤…Ì…É¡¥Ù”è(€€€€€€€™½ÈÑ¡•µ”¥¸Q!5L¹Ù…±Õ•Ì ¤è(€€€€€€€€€€€}…É¡¥Ù•}Ñ¡•µ”¡…É¡¥Ù”°Ñ¡•µ”°Ñ¡•µ•}‘¥ÉÍmÑ¡•µ”¹­•ç^}ÖÚ$z{-®éÜj×ˆœ˜[YWÛ\İHœ˜[YWÛ\İÖÌBˆÜ™\]Z\™Jœ˜[YWÛ\İÎHOHˆ™œ˜[H‹S’Hœ˜[YH\İ\È[ˆ[˜[Y\KˆŠBˆœ˜[Y\ÈHÜ™XYÜšY™—ØÚ[šÜÊœ˜[YWÛ\İ[Šœ˜[YWÛ\İ
+JBˆÜ™\]Z\™J[Šœ˜[Y\ÊHOH[™[
+Ú[š×ÚYOHˆšXÛÛˆˆ›ÜˆÚ[š×ÚYÈ[ˆœ˜[Y\ÊKS’Hœ˜[YH\İ\È[˜[YˆŠBˆ›ÜˆËœ˜[YH[ˆœ˜[Y\Î‚ˆØÚXÚ×Øİ\Šœ˜[YKÛX^
+ÕTÔ•QÔÒV‘TÊ_JB‚‚™YˆÜØÚ[YWÜ]Ê[™—İ^ˆİŠHOˆ\İÜİ—N‚ˆÙXİ[ÛˆH™KœÙX\˜Ú
+ˆŠÛ\ÊW—Ğİ\œÛÜ”ØÚ[YWWÊ—ŠŠÊJÏW—ßŠH‹[™—İ^
+BˆÜ™\]Z\™JÙXİ[Ûˆ\È›İ›Û™K’S‘ˆ\ÈZ\ÜÚ[™È]Èİ\œÛÜ”ØÚ[YHÙXİ[Û‹ˆŠBˆ[™\ÈHÛ[™Kœİš\
 
-import csv
-import re
-import shutil
-import struct
-import zipfile
-from pathlib import Path, PureWindowsPath
+H›Üˆ[™H[ˆÙXİ[Û‹™Ü›İ\
+JKœÜ][™\Ê
+HYˆ[™Kœİš\
 
-from PIL import Image, ImageDraw, ImageFont
+WBˆÜ™\]Z\™J[Š[™\ÊHOHK’S‘ˆ]\İYš[™H^XİHÛ™Hİ\œÛÜ”ØÚ[YH˜[YKˆŠBˆX]ÚH™K™[X]Ú
+ˆ‰ÒĞÕKÛÛ›Û[™[İ\œÛÜœ×ØÚ[Y\È‹‰TØÚ[YS˜[YIH‹ŠŠŠH‰Ëˆ[™\ÖÌKˆ
+BˆÜ™\]Z\™JX]Ú\È›İ›Û™K’S‘ˆİ\œÛÜ”ØÚ[YH]\İ™HH][İY™YÚ\İH˜[YKˆŠBˆ™]\›ˆX]Ú™Ü›İ\
+JKœÜ]
+‹ŠB‚‚™YˆØXİ]™WØİ\œÛÜ—ÜÙ][™ÜÊ[™—İ^ˆİŠHOˆXİÜİ‹\VÜİ‹İ—WN‚ˆÙXİ[ÛˆH™KœÙX\˜Ú
+ˆŠÛ\ÊW—ĞXİ]™Pİ\œÛÜœ×WÊ—ŠŠÊJÏW—ßŠH‹[™—İ^
+BˆÜ™\]Z\™JÙXİ[Ûˆ\È›İ›Û™K’S‘ˆ\ÈZ\ÜÚ[™È]ÈXİ]™Pİ\œÛÜœÈÙXİ[Û‹ˆŠBˆÙ][™ÜÎˆXİÜİ‹\VÜİ‹İ—WHHßBˆ›Üˆ[™H[ˆÙXİ[Û‹™Ü›İ\
+JKœÜ][™\Ê
+N‚ˆYˆ›İ[™Kœİš\
 
-from .ani import encode_ani
-from .artwork import ANIMATION_FRAMES, SUPPORTED_SIZES, render_cursor
-from .cur import encode_cur
-from .roles import ROLE_ORDER, THEMES, CursorRole, Theme
+N‚ˆÛÛ[YBˆN‚ˆšY[ÈH™^
+Üİ‹œ™XY\ŠÛ[™WJJBˆ^Ù\Üİ‹‘\œ›Üˆ\È\œ›Ü‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ’S‘ˆXİ]™Pİ\œÛÜœÈ[H\È[˜[YˆŠHœ›ÛH\œ›Ü‚ˆÜ™\]Z\™Jˆ[ŠšY[ÊHOHBˆ[™šY[ÖÌHOH’ĞÕH‚ˆ[™šY[ÖÌWHOHÛÛ›Û[™[İ\œÛÜœÈ‹ˆ’S‘ˆXİ]™Pİ\œÛÜœÈ[H\È[˜[Yˆ‹ˆ
+BˆÜ™\]Z\™JšY[ÖÌ—H›İ[ˆÙ][™ÜË’S‘ˆ\È\XØ]HXİ]™Hİ\œÛÜˆ˜[Y\ËˆŠBˆÙ][™ÜÖÙšY[ÖÌ—WHH
+šY[ÖÌ×KšY[ÖÍJBˆ™]\›ˆÙ][™ÜÂ‚‚™YˆØÛÜWÙš[\Ê[™—İ^ˆİŠHOˆ\İÜİ—N‚ˆX]ÚH™KœÙX\˜Ú
+ˆŠÛ\ÊW—Ğİ\œÛÜ‘š[\×WÊ—ŠŠÊJÏW—ßŠH‹[™—İ^
+BˆÜ™\]Z\™JX]Ú\È›İ›Û™K’S‘ˆ\ÈZ\ÜÚ[™È]Èİ\œÛÜ‘š[\ÈÙXİ[Û‹ˆŠBˆ™]\›ˆÛ[™Kœİš\
 
+H›Üˆ[™H[ˆX]Ú™Ü›İ\
+JKœÜ][™\Ê
+HYˆ[™Kœİš\
 
-ANIMATED_ROLES = {"appstarting", "wait"}
-INSTALL_TEXT = """Wingline Cursor Pack â€” Windows install
+WB‚‚™YˆÙY˜][Ú[œİ[ØY™Y×ÜÙXİ[ÛœÊ[™—İ^ˆİŠHOˆ\İÜİ—N‚ˆÙXİ[ÛˆH™KœÙX\˜Ú
+ˆŠÛ\ÊW—ÑY˜][[œİ[WÊ—ŠŠÊJÏW—ßŠH‹[™—İ^
+BˆÜ™\]Z\™JÙXİ[Ûˆ\È›İ›Û™K’S‘ˆ\ÈZ\ÜÚ[™È]ÈY˜][[œİ[ÙXİ[Û‹ˆŠBˆ\™Xİ]™\ÈHÂˆ[™Kœ\][ÛŠHŠVÌ—Bˆ›Üˆ[™H[ˆÙXİ[Û‹™Ü›İ\
+JKœÜ][™\Ê
+BˆYˆ[™Kœ\][ÛŠHŠVÌKœİš\
 
-Extract this folder and double-click Install-Wingline.cmd. It copies the
-cursor files into your user profile, reapplies the scheme even if Windows
-already has an older registration, and reloads the active cursors. It does
-not need administrator access.
+K˜Ø\ÙY›Û
 
-The .inf remains available for manual import. If Windows reports that an INF
-is already installed, run Install-Wingline.cmd to reapply and activate it.
-Cursor files include sizes through 256 px.
+HOH˜Y™YÈ‚ˆBˆÜ™\]Z\™J[Š\™Xİ]™\ÊHOHK’S‘ˆ]\İ]™HÛ™HY™YÈ\™Xİ]™KˆŠBˆ™]\›ˆÛ˜[YKœİš\
 
-The included preview.png shows the 48 px artwork on light and dark backgrounds.
-"""
+H›Üˆ˜[YH[ˆ\™Xİ]™\ÖÌKœÜ]
+‹ŠWB‚‚™YˆÙ^XİYØ\˜Ú]™WÙ[šY\Ê[YNˆ[YJHOˆÙ]Üİ—N‚ˆ™Yš^Hˆİ[YKšÙ^_KÈ‚ˆ˜[Y\ÈHÂˆ™Yš^
+Èˆİ[YKšÙ^_Kš[™ˆ‹ˆ™Yš^
+È’S”ÕS‹ˆ™Yš^
+È’[œİ[UÚ[™Û[™K˜ÛY‹ˆ™Yš^
+È’[œİ[UÚ[™Û[™KœÌH‹ˆ™Yš^
+Èœ™]šY]Ëœ™È‹ˆBˆ˜[Y\Ë\]J™Yš^
+Èİ\œÛÜ—Ùš[[˜[YJ[YK›ÛJH›Üˆ›ÛH[ˆ“ÓWÓÔ‘TŠBˆ™]\›ˆ˜[Y\Â‚‚™YˆÙ^XİYØ\˜Ú]™WÙš[\Ê[YNˆ[YK[YWÙ\ˆ]
+HOˆXİÜİ‹]N‚ˆ™Yš^Hˆİ[YKšÙ^_KÈ‚ˆ™]\›ˆÂˆ\˜Ú]™WÛ˜[YNˆ[YWÙ\ˆÈ\˜Ú]™WÛ˜[YKœ™[[İ™\™Yš^
+™Yš^
+Bˆ›Üˆ\˜Ú]™WÛ˜[YH[ˆÙ^XİYØ\˜Ú]™WÙ[šY\Ê[YJBˆB‚‚™YˆØÚXÚ×Ø\˜Ú]™J\˜Ú]™WÜ]ˆ]^XİYÙš[\ÎˆXİÜİ‹]JHOˆ›Û™N‚ˆÜ™\]Z\™J\˜Ú]™WÜ]š\×Ùš[J
+Kˆ\˜Ú]™H\ÈZ\ÜÚ[™ÎˆØ\˜Ú]™WÜ]›˜[Y_KˆŠBˆÚ]š\š[K–š\š[J\˜Ú]™WÜ]
+H\È\˜Ú]™N‚ˆ˜[Y\ÈH\˜Ú]™K›˜[Y[\İ
 
+BˆÜ™\]Z\™J\˜Ú]™K\İš\
 
-def cursor_filename(theme: Theme, role: CursorRole) -> str:
-    extension = ".ani" if role.key in ANIMATED_ROLES else ".cur"
-    return f"{theme.key}-{role.key}{extension}"
+H\È›Û™Kˆ\˜Ú]™H\ÈÛÜœ\ˆØ\˜Ú]™WÜ]›˜[Y_KˆŠBˆÜ™\]Z\™Jˆ[Š˜[Y\ÊHOH[Š^XİYÙš[\ÊH[™Ù]
+˜[Y\ÊHOHÙ]
+^XİYÙš[\ÊKˆˆ\˜Ú]™H\ÈZ\ÜÚ[™ÈÜˆ[™^XİYš[\ÎˆØ\˜Ú]™WÜ]›˜[Y_Kˆ‹ˆ
+Bˆ›Üˆ˜[YKÛİ\˜ÙWÜ][ˆ^XİYÙš[\Ëš][\Ê
+N‚ˆÜ™\]Z\™Jˆ\˜Ú]™Kœ™XY
+˜[YJHOHÛİ\˜ÙWÜ]œ™XYØ]\Ê
+Kˆˆ\˜Ú]™HY[X™\ˆY™™\œÈœ›ÛHZ[š[\ÎˆÛ˜[Y_Kˆ‹ˆ
+B‚‚™Yˆ™\šYWÜXÚÊİ]]Ü›Ûİˆ]
+HOˆ›ÛÛ‚ˆˆˆÚXÚÈ›ÛHX\[™ÜËİ\œÛÜˆš[˜\šY\Ë™]šY]ÜË[™’T[YÜš]Kˆˆˆ‚ˆİ]]Ü›ÛİH]
+İ]]Ü›Ûİ
+BˆÜ™\]Z\™J
+İ]]Ü›ÛİÈœ™]šY]Ëœ™ÈŠKš\×Ùš[J
+KÛÛXš[™Y™]šY]È\ÈZ\ÜÚ[™ËˆŠBˆ›Üˆ[YH[ˆSQTË˜[Y\Ê
+N‚ˆ[YWÙ\ˆHİ]]Ü›ÛİÈ[YKšÙ^BˆÜ™\]Z\™J[YWÙ\‹š\×Ù\Š
+Kˆ•[YHİ]]\ÈZ\ÜÚ[™Îˆİ[YKšÙ^_KˆŠBˆš[[˜[Y\ÈHØİ\œÛÜ—Ùš[[˜[YJ[YK›ÛJH›Üˆ›ÛH[ˆ“ÓWÓÔ‘T—Bˆ[™—Ü]H[YWÙ\ˆÈˆİ[YKšÙ^_Kš[™ˆ‚ˆÜ™\]Z\™J[™—Ü]š\×Ùš[J
+Kˆ’[œİ[\ˆ\ÈZ\ÜÚ[™ÎˆÚ[™—Ü]›˜[Y_KˆŠBˆ[™—İ^H[™—Ü]œ™XYİ^
+[˜ÛÙ[™ÏH˜\ØÚZHŠBˆÜ™\]Z\™JˆÙY˜][Ú[œİ[ØY™Y×ÜÙXİ[ÛœÊ[™—İ^
+HOHÈİ\œÛÜ”ØÚ[YH‹Xİ]™Pİ\œÛÜœÈ—Kˆˆİ[YKšÙ^_H[œİ[\ˆÙ\È›İ\H]ÈXİ]™Hİ\œÛÜˆÙ][™ÜËˆ‹ˆ
+Bˆ^XİYÜØÚ[YWÜ]ÈHÙˆ‰LL	Wİ\œÛÜœ×İ[YKšÙ^_WÙš[[˜[Y_Hˆ›Üˆš[[˜[YH[ˆš[[˜[Y\×BˆÜ™\]Z\™JˆÜØÚ[YWÜ]Ê[™—İ^
+HOH^XİYÜØÚ[YWÜ]Ëˆˆİ[YKšÙ^_H›ÛHX\[™ÈÜ™\ˆ\ÈÜ›Û™Ëˆ‹ˆ
+Bˆ^XİYØXİ]™WÜÙ][™ÜÈHÂˆˆˆ
+Œ‹‰TØÚ[YS˜[YIHŠKˆ”ØÚ[YHÛİ\˜ÙHˆ
+ŒLH‹ŒHŠKˆBˆ^XİYØXİ]™WÜÙ][™ÜË\]JˆÂˆ›ÛKœ™YÚ\İWİ˜[YNˆ
+ˆŒ‹ˆˆ‰LL	Wİ\œÛÜœ×İ[YKšÙ^_WÙš[[˜[Y_H‹ˆ
+Bˆ›Üˆ›ÛKš[[˜[YH[ˆš\
+“ÓWÓÔ‘T‹š[[˜[Y\ÊBˆBˆ
+BˆÜ™\]Z\™JˆØXİ]™WØİ\œÛÜ—ÜÙ][™ÜÊ[™—İ^
+HOH^XİYØXİ]™WÜÙ][™ÜËˆˆİ[YKšÙ^_HXİ]™Hİ\œÛÜˆÙ][™ÜÈ\™H[˜ÛÛ\]Kˆ‹ˆ
+BˆÜ™\]Z\™JØÛÜWÙš[\Ê[™—İ^
+HOHš[[˜[Y\Ëˆİ[YKšÙ^_HÛÜH\İ\ÈÜ›Û™ËˆŠBˆ›ÛWÜ^[ØYÎˆÙ]Ø]\×HHÙ]
 
-
-def _role_cursor_bytes(role: CursorRole, theme: Theme) -> bytes:
-    if role.key in ANIMATED_ROLES:
-        frames = []
-        for frame_index in range(ANIMATION_FRAMES):
-            image, hotspot = render_cursor(role, theme, max(SUPPORTED_SIZES), frame=frame_index)
-            frames.append(encode_cur([(image, hotspot)]))
-        return encode_ani(frames)
-
-    images = [render_cursor(role, theme, size) for size in SUPPORTED_SIZES]
-    return encode_cur(images)
-
-
-def _installer_text(theme: Theme, filenames: list[str]) -> str:
-    scheme_paths = [
-        f"%10%\\Cursors\\{theme.key}\\{filename}" for filename in filenames
-    ]
-    scheme_value = ",".join(scheme_paths)
-    active_cursor_values = [
-        'HKCU,"Control Panel\\Cursors",,0x00000000,"%SchemeName%"',
-        'HKCU,"Control Panel\\Cursors","Scheme Source",0x00010001,1',
-    ]
-    active_cursor_values.extend(
-        f'HKCU,"Control Panel\\Cursors","{role.registry_value}",0x00000000,'
-        f'"%10%\\Cursors\\{theme.key}\\{filename}"'
-        for role, filename in zip(ROLE_ORDER, filenames)
-    )
-    source_files = "\n".join(f"{filename}=1" for filename in filenames)
-    copy_files = "\n".join(filenames)
-    return (
-        "[Version]\n"
-        'Signature="$Windows NT$"\n'
-        "\n"
-        "[DefaultInstall]\n"
-        "CopyFiles=CursorFiles\n"
-        "AddReg=CursorScheme,ActiveCursors\n"
-        "\n"
-        "[SourceDisksNames]\n"
-        f"1=%DiskName%,,,.\n"
-        "\n"
-        "[SourceDisksFiles]\n"
-        f"{source_files}\n"
-        "\n"
-        "[DestinationDirs]\n"
-        f'CursorFiles=10,"Cursors\\{theme.key}"\n'
-        "\n"
-        "[CursorFiles]\n"
-        f"{copy_files}\n"
-        "\n"
-        "[CursorScheme]\n"
-        'HKCU,"Control Panel\\Cursors\\Schemes","%SchemeName%",'
-        f'0x00000000,"{scheme_value}"\n'
-        "\n"
-        + "[ActiveCursors]\n"
-        + "\n".join(active_cursor_values)
-        + "\n\n"
-        + "[Strings]\n"
-        f'DiskName="{theme.label} Cursor Pack"\n'
-        f'SchemeName="{theme.label}"\n'
-    )
-
-
-def _font(size: int) -> ImageFont.ImageFont:
-    try:
-        return ImageFont.load_default(size=size)
-    except TypeError:
-        # Pillow added the size argument to load_default in version 10.1.
-        return ImageFont.load_default()
-
-
-def _draw_theme_preview(theme: Theme, output_path: Path) -> Image.Image:
-    width = 354
-    row_height = 58
-    header_height = 94
-    image = Image.new("RGB", (width, header_height + len(ROLE_ORDER) * row_height + 18), "#EEF1F6")
-    draw = ImageDraw.Draw(image)
-    title_font = _font(19)
-    label_font = _font(12)
-    small_font = _font(10)
-    draw.text((18, 16), theme.label, fill="#151922", font=title_font)
-    draw.text((18, 48), "48 px cursor previews on light and dark surfaces", fill="#4A5362", font=small_font)
-    draw.text((225, 72), "LIGHT", fill="#394252", font=small_font)
-    draw.text((282, 72), "DARK", fill="#394252", font=small_font)
-
-    for index, role in enumerate(ROLE_ORDER):
-        top = header_height + index * row_height
-        draw.rounded_rectangle((12, top, width - 12, top + row_height - 4), radius=8, fill="#FFFFFF")
-        draw.text((22, top + 21), role.label, fill="#202633", font=label_font)
-        for x, background in ((222, "#F8FAFC"), (278, "#171A20")):
-            draw.rounded_rectangle((x, top + 5, x + 48, top + 53), radius=6, fill=background)
-            cursor, _ = render_cursor(role, theme, 48, frame=0)
-            image.alpha_composite(cursor, (x, top + 5)) if image.mode == "RGBA" else image.paste(
-                cursor, (x, top + 5), cursor
-            )
-
-    image.save(output_path, format="PNG", optimize=True)
-    return image
-
-
-def build_theme(theme: Theme, output_dir: Path) -> list[Path]:
-    """Write one complete scheme, its installer, install notes, and preview."""
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    generated: list[Path] = []
-    filenames: list[str] = []
-    for role in ROLE_ORDER:
-        filename = cursor_filename(theme, role)
-        path = output_dir / filename
-        path.write_bytes(_role_cursor_bytes(role, theme))
-        generated.append(path)
-        filenames.append(filename)
-
-    inf_path = output_dir / f"{theme.key}.inf"
-    inf_path.write_text(_installer_text(theme, filenames), encoding="ascii", newline="\n")
-    generated.append(inf_path)
-    install_path = output_dir / "INSTALL.txt"
-    install_path.write_text(INSTALL_TEXT, encoding="utf-8", newline="\n")
-    generated.append(install_path)
-    installer_dir = Path(__file__).resolve().parents[1] / "installer"
-    for installer_name in ("Install-Wingline.cmd", "Install-Wingline.ps1"):
-        installer_path = output_dir / installer_name
-        shutil.copy2(installer_dir / installer_name, installer_path)
-        generated.append(installer_path)
-    preview_path = output_dir / "preview.png"
-    _draw_theme_preview(theme, preview_path)
-    generated.append(preview_path)
-    return generated
-
-
-def _archive_theme(archive: zipfile.ZipFile, theme: Theme, theme_dir: Path) -> None:
-    for path in sorted(theme_dir.iterdir(), key=lambda item: item.name):
-        if path.is_file():
-            archive.write(path, f"{theme.key}/{path.name}")
-
-
-def build_pack(output_root: Path) -> list[Path]:
-    """Build both cursor schemes, their previews, and three ZIP archives."""
-    output_root = Path(output_root)
-    output_root.mkdir(parents=True, exist_ok=True)
-    generated: list[Path] = []
-    theme_dirs: dict[str, Path] = {}
-    for theme in THEMES.values():
-        theme_dir = output_root / theme.key
-        if theme_dir.exists():
-            shutil.rmtree(theme_dir)
-        theme_dirs[theme.key] = theme_dir
-        generated.extend(build_theme(theme, theme_dir))
-
-    for theme in THEMES.values():
-        archive_path = output_root / f"{theme.key}.zip"
-        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-            _archive_theme(archive, theme, theme_dirs[theme.key])
-        generated.append(archive_path)
-
-    combined_path = output_root / "Wingline-Cursor-Pack.zip"
-    with zipfile.ZipFile(combined_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for theme in THEMES.values():
-            _archive_theme(archive, theme, theme_dirs[theme.key])
-    generated.append(combined_path)
-
-    previews = [Image.open(theme_dirs[theme.key] / "preview.png").convert("RGB") for theme in THEMES.values()]
-    gutter = 18
-    overview = Image.new(
-        "RGB",
-        (sum(preview.width for preview in previews) + gutter * (len(previews) + 1), max(p.height for p in previews) + 2 * gutter),
-        "#DDE2EA",
-    )
-    x = gutter
-    for preview in previews:
-        overview.paste(preview, (x, gutter))
-        x += preview.width + gutter
-    preview_path = output_root / "preview.png"
-    overview.save(preview_path, format="PNG", optimize=True)
-    generated.append(preview_path)
-    return generated
-
-
-def _require(condition: bool, message: str) -> None:
-    if not condition:
-        raise ValueError(message)
-
-
-def _check_cur(data: bytes, expected_sizes: set[int]) -> None:
-    _require(len(data) >= 6, "CUR is shorter than its directory header.")
-    reserved, file_type, count = struct.unpack_from("<HHH", data, 0)
-    _require((reserved, file_type) == (0, 2), "CUR header has an invalid type.")
-    _require(count == len(expected_sizes), "CUR has the wrong number of images.")
-    found_sizes: set[int] = set()
-    for index in range(count):
-        entry_offset = 6 + index * 16
-        _require(entry_offset + 16 <= len(data), "CUR directory entry is truncated.")
-        width, height, _, _, hot_x, hot_y, length, offset = struct.unpack_from(
-            "<BBBBHHII", data, entry_offset
-        )
-        width = width or 256
-        height = height or 256
-        _require(width == height and width in expected_sizes, "CUR entry has an unexpected size.")
-        _require(width not in found_sizes, "CUR contains duplicate image sizes.")
-        _require(hot_x < width and hot_y < height, "CUR hotspot lies outside its image.")
-        _require(offset >= 6 + 16 * count, "CUR image data overlaps the directory.")
-        _require(length > 40 and offset + length <= len(data), "CUR image data is truncated.")
-        dib_size, dib_width, doubled_height, planes, bit_count = struct.unpack_from(
-            "<IiiHH", data, offset
-        )
-        _require(
-            (dib_size, dib_width, doubled_height, planes, bit_count)
-            == (40, width, height * 2, 1, 32),
-            "CUR DIB header is invalid.",
-        )
-        xor_stride = ((width * bit_count + 31) // 32) * 4
-        mask_stride = ((width + 31) // 32) * 4
-        expected_length = dib_size + (xor_stride + mask_stride) * height
-        _require(length == expected_length, "CUR pixel and mask data is truncated.")
-        found_sizes.add(width)
-    _require(found_sizes == expected_sizes, "CUR does not include every expected size.")
-
-
-def _read_riff_chunks(data: bytes, start: int, end: int) -> list[tuple[bytes, bytes]]:
-    chunks = []
-    offset = start
-    while offset < end:
-        _require(offset + 8 <= end, "RIFF chunk header is truncated.")
-        chunk_id = data[offset : offset + 4]
-        size = struct.unpack_from("<I", data, offset + 4)[0]
-        payload_start = offset + 8
-        payload_end = payload_start + size
-        _require(payload_end <= end, "RIFF chunk data is truncated.")
-        chunks.append((chunk_id, data[payload_start:payload_end]))
-        offset = payload_end + (size & 1)
-        _require(offset <= end, "RIFF chunk padding is truncated.")
-    return chunks
-
-
-def _check_ani(data: bytes) -> None:
-    _require(len(data) >= 12 and data[:4] == b"RIFF", "ANI RIFF header is invalid.")
-    _require(struct.unpack_from("<I", data, 4)[0] == len(data) - 8, "ANI RIFF length is invalid.")
-    _require(data[8:12] == b"ACON", "ANI form type is not ACON.")
-    chunks = _read_riff_chunks(data, 12, len(data))
-    headers = [payload for chunk_id, payload in chunks if chunk_id == b"anih"]
-    rates = [payload for chunk_id, payload in chunks if chunk_id == b"rate"]
-    sequences = [payload for chunk_id, payload in chunks if chunk_id == b"seq "]
-    frame_lists = [payload for chunk_id, payload in chunks if chunk_id == b"LIST"]
-    _require(len(headers) == len(rates) == len(sequences) == len(frame_lists) == 1, "ANI chunks are incomplete.")
-    _require(len(headers[0]) == 36, "ANI header size is invalid.")
-    _, frame_count, step_count, width, height, bit_count, planes, _, flags = struct.unpack(
-        "<9I", headers[0]
-    )
-    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (8, 8, max(SUPPORTED_SIZES), max(SUPPORTED_SIZES), 32, 1, 3), "ANI header values are invalid.")
-    _require(len(rates[0]) == 32 and len(sequences[0]) == 32, "ANI timing chunks have invalid lengths.")
-    _require(struct.unpack("<8I", rates[0]) == (7,) * 8, "ANI frame rates are invalid.")
-    _require(struct.unpack("<8I", sequences[0]) == tuple(range(8)), "ANI sequence is invalid.")
-    frame_list = frame_lists[0]
-    _require(frame_list[:4] == b"fram", "ANI frame list has an invalid type.")
-    frames = _read_riff_chunks(frame_list, 4, len(frame_list))
-    _require(len(frames) == 8 and all(chunk_id == b"icon" for chunk_id, _ in frames), "ANI frame list is invalid.")
-    for _, frame in frames:
-        _check_cur(frame, {max(SUPPORTED_SIZES)})
-
-
-def _scheme_paths(inf_text: str) -> list[str]:
-    section = re.search(r"(?ms)^\[CursorScheme\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
-    _require(section is not None, "INF is missing its CursorScheme section.")
-    lines = [line.strip() for line in section.group(1).splitlines() if line.strip()]
-    _require(len(lines) == 1, "INF must define exactly one CursorScheme value.")
-    match = re.fullmatch(
-        r'HKCU,"Control Panel\\Cursors\\Schemes","%SchemeName%",0x00000000,"(.*)"',
-        lines[0],
-    )
-    _require(match is not None, "INF CursorScheme must be a quoted registry value.")
-    return match.group(1).split(",")
-
-
-def _active_cursor_settings(inf_text: str) -> dict[str, tuple[str, str]]:
-    section = re.search(r"(?ms)^\[ActiveCursors\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
-    _require(section is not None, "INF is missing its ActiveCursors section.")
-    settings: dict[str, tuple[str, str]] = {}
-    for line in section.group(1).splitlines():
-        if not line.strip():
-            continue
-        try:
-            fields = next(csv.reader([line]))
-        except csv.Error as error:
-            raise ValueError("INF ActiveCursors entry is invalid.") from error
-        _require(
-            len(fields) == 5
-            and fields[0] == "HKCU"
-            and fields[1] == "Control Panel\\Cursors",
-            "INF ActiveCursors entry is invalid.",
-        )
-        _require(fields[2] not in settings, "INF has duplicate active cursor values.")
-        settings[fields[2]] = (fields[3], fields[4])
-    return settings
-
-
-def _copy_files(inf_text: str) -> list[str]:
-    match = re.search(r"(?ms)^\[CursorFiles\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
-    _require(match is not None, "INF is missing its CursorFiles section.")
-    return [line.strip() for line in match.group(1).splitlines() if line.strip()]
-
-
-def _default_install_addreg_sections(inf_text: str) -> list[str]:
-    section = re.search(r"(?ms)^\[DefaultInstall\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
-    _require(section is not None, "INF is missing its DefaultInstall section.")
-    directives = [
-        line.partition("=")[2]
-        for line in section.group(1).splitlines()
-        if line.partition("=")[0].strip().casefold() == "addreg"
-    ]
-    _require(len(directives) == 1, "INF must have one AddReg directive.")
-    return [name.strip() for name in directives[0].split(",")]
-
-
-def _expected_archive_entries(theme: Theme) -> set[str]:
-    prefix = f"{theme.key}/"
-    names = {
-        prefix + f"{theme.key}.inf",
-        prefix + "INSTALL.txt",
-        prefix + "Install-Wingline.cmd",
-        prefix + "Install-Wingline.ps1",
-        prefix + "preview.png",
-    }
-    names.update(prefix + cursor_filename(theme, role) for role in ROLE_ORDER)
-    return names
-
-
-def _expected_archive_files(theme: Theme, theme_dir: Path) -> dict[str, Path]:
-    prefix = f"{theme.key}/"
-    return {
-        archive_name: theme_dir / archive_name.removeprefix(prefix)
-        for archive_name in _expected_archive_entries(theme)
-    }
-
-
-def _check_archive(archive_path: Path, expected_files: dict[str, Path]) -> None:
-    _require(archive_path.is_file(), f"Archive is missing: {archive_path.name}.")
-    with zipfile.ZipFile(archive_path) as archive:
-        names = archive.namelist()
-        _require(archive.testzip() is None, f"Archive is corrupt: {archive_path.name}.")
-        _require(
-            len(names) == len(expected_files) and set(names) == set(expected_files),
-            f"Archive has missing or unexpected files: {archive_path.name}.",
-        )
-        for name, source_path in expected_files.items():
-            _require(
-                archive.read(name) == source_path.read_bytes(),
-                f"Archive member differs from built files: {name}.",
-            )
-
-
-def verify_pack(output_root: Path) -> bool:
-    """Check role mappings, cursor binaries, previews, and ZIP integrity."""
-    output_root = Path(output_root)
-    _require((output_root / "preview.png").is_file(), "Combined preview is missing.")
-    for theme in THEMES.values():
-        theme_dir = output_root / theme.key
-        _require(theme_dir.is_dir(), f"Theme output is missing: {theme.key}.")
-        filenames = [cursor_filename(theme, role) for role in ROLE_ORDER]
-        inf_path = theme_dir / f"{theme.key}.inf"
-        _require(inf_path.is_file(), f"Installer is missing: {inf_path.name}.")
-        inf_text = inf_path.read_text(encoding="ascii")
-        _require(
-            _default_install_addreg_sections(inf_text) == ["CursorScheme", "ActiveCursors"],
-            f"{theme.key} installer does not apply its active cursor settings.",
-        )
-        expected_scheme_paths = [f"%10%\\Cursors\\{theme.key}\\{filename}" for filename in filenames]
-        _require(
-            _scheme_paths(inf_text) == expected_scheme_paths,
-            f"{theme.key} role mapping order is wrong.",
-        )
-        expected_active_settings = {
-            "": ("0x00000000", "%SchemeName%"),
-            "Scheme Source": ("0x00010001", "1"),
-        }
-        expected_active_settings.update(
-            {
-                role.registry_value: (
-                    "0x00000000",
-                    f"%10%\\Cursors\\{theme.key}\\{filename}",
-                )
-                for role, filename in zip(ROLE_ORDER, filenames)
-            }
-        )
-        _require(
-            _active_cursor_settings(inf_text) == expected_active_settings,
-            f"{theme.key} active cursor settings are incomplete.",
-        )
-        _require(_copy_files(inf_text) == filenames, f"{theme.key} copy list is wrong.")
-        role_payloads: set[bytes] = set()
-        for role, filename in zip(ROLE_ORDER, filenames):
-            asset = theme_dir / filename
-            _require(asset.is_file(), f"Installer references a missing cursor: {filename}.")
-            payload = asset.read_bytes()
-            _require(
-                payload not in role_payloads,
-                f"{theme.key} assigns identical cursor artwork to more than one role.",
-            )
-            role_payloads.add(payload)
-            if role.key in ANIMATED_ROLES:
-                _check_ani(payload)
-            else:
-                _check_cur(payload, set(SUPPORTED_SIZES))
-        _require((theme_dir / "INSTALL.txt").is_file(), f"{theme.key} install notes are missing.")
-        preview = theme_dir / "preview.png"
-        _require(preview.is_file(), f"{theme.key} preview is missing.")
-        with Image.open(preview) as image:
-            image.verify()
-
-        archive_path = output_root / f"{theme.key}.zip"
-        _check_archive(archive_path, _expected_archive_files(theme, theme_dir))
-
-    combined_path = output_root / "Wingline-Cursor-Pack.zip"
-    combined_files = {}
-    for theme in THEMES.values():
-        combined_files.update(
-            _expected_archive_files(theme, output_root / theme.key)
-        )
-    _check_archive(combined_path, combined_files)
-    return True
-
-
-def build(output_root: Path) -> list[Path]:
-    """Build and validate all downloadable pack files."""
-    generated = build_pack(output_root)
-    verify_pack(output_root)
-    return generated
+Bˆ›Üˆ›ÛKš[[˜[YH[ˆš\
+“ÓWÓÔ‘T‹š[[˜[Y\ÊN‚ˆ\ÜÙ]H[YWÙ\ˆÈš[[˜[YBˆÜ™\]Z\™J\ÜÙ]š\×Ùš[J
+Kˆ’[œİ[\ˆ™Y™\™[˜Ù\ÈHZ\ÜÚ[™Èİ\œÛÜˆÙš[[˜[Y_KˆŠBˆ^[ØYH\ÜÙ]œ™XYØ]\Ê
+BˆÜ™\]Z\™Jˆ^[ØY›İ[ˆ›ÛWÜ^[ØYËˆˆİ[YKšÙ^_H\ÜÚYÛœÈY[XØ[İ\œÛÜˆ\ÛÜšÈÈ[Ü™H[ˆÛ™H›ÛKˆ‹ˆ
+Bˆ›ÛWÜ^[ØYË˜Y
+^[ØY
+BˆYˆ›ÛKšÙ^H[ˆS’SPUQÔ“ÓTÎ‚ˆØÚXÚ×Ø[šJ^[ØY
+Bˆ[ÙN‚ˆØÚXÚ×Øİ\Š^[ØYÙ]
+ÕTÔ•QÔÒV‘TÊJBˆÜ™\]Z\™J
+[YWÙ\ˆÈ’S”ÕSŠKš\×Ùš[J
+Kˆİ[YKšÙ^_H[œİ[›İ\È\™HZ\ÜÚ[™ËˆŠBˆ™]šY]ÈH[YWÙ\ˆÈœ™]šY]Ëœ™È‚ˆÜ™\]Z\™J™]šY]Ëš\×Ùš[J
+Kˆİ[YKšÙ^_H™]šY]È\ÈZ\ÜÚ[™ËˆŠBˆÚ][XYÙK›Ü[Š™]šY]ÊH\È[XYÙN‚ˆ[XYÙK™\šYJ
+B‚ˆ\˜Ú]™WÜ]Hİ]]Ü›ÛİÈˆİ[YKšÙ^_Kš\‚ˆØÚXÚ×Ø\˜Ú]™J\˜Ú]™WÜ]Ù^XİYØ\˜Ú]™WÙš[\Ê[YK[YWÙ\ŠJB‚ˆÛÛXš[™YÜ]Hİ]]Ü›ÛİÈ•Ú[™Û[™KPİ\œÛÜ‹TXÚËš\‚ˆÛÛXš[™YÙš[\ÈHßBˆ›Üˆ[YH[ˆSQTË˜[Y\Ê
+N‚ˆÛÛXš[™YÙš[\Ë\]JˆÙ^XİYØ\˜Ú]™WÙš[\Ê[YKİ]]Ü›ÛİÈ[YKšÙ^JBˆ
+BˆØÚXÚ×Ø\˜Ú]™JÛÛXš[™YÜ]ÛÛXš[™YÙš[\ÊBˆ™]\›ˆYB‚‚™YˆZ[
+İ]]Ü›Ûİˆ]
+HOˆ\İÔ]N‚ˆˆˆZ[[™˜[Y]H[İÛ›ØYX›HXÚÈš[\Ëˆˆˆ‚ˆÙ[™\˜]YHZ[ÜXÚÊİ]]Ü›Ûİ
+Bˆ™\šYWÜXÚÊİ]]Ü›Ûİ
+Bˆ™]\›ˆÙ[™\˜]Y

@@ -12,7 +12,7 @@ SUPPORTED_SIZES = (32, 48, 64, 96, 128, 192, 256)
 SUPERSAMPLE = 8
 ANIMATION_FRAMES = 8
 ARROW_SCALE = 0.64
-ROLE_SCALE = 1.4
+ROLE_SCALE = 1.55
 
 
 def _point(point: tuple[float, float], scale: int) -> tuple[int, int]:
@@ -66,6 +66,27 @@ def _arrow_path() -> list[tuple[float, float]]:
     ]
 
 
+def _windows_arrow_path() -> list[tuple[float, float]]:
+    segments = (
+        ((0.10, 0.05), (0.095, 0.17), (0.095, 0.70), (0.10, 0.88)),
+        ((0.10, 0.88), (0.17, 0.82), (0.25, 0.72), (0.34, 0.65)),
+        ((0.34, 0.65), (0.39, 0.74), (0.44, 0.88), (0.48, 0.95)),
+        ((0.48, 0.95), (0.53, 0.98), (0.59, 0.94), (0.62, 0.88)),
+        ((0.62, 0.88), (0.58, 0.78), (0.53, 0.68), (0.49, 0.60)),
+        ((0.49, 0.60), (0.59, 0.60), (0.71, 0.60), (0.80, 0.60)),
+        ((0.80, 0.60), (0.64, 0.45), (0.30, 0.17), (0.10, 0.05)),
+    )
+    points: list[tuple[float, float]] = []
+    for index, segment in enumerate(segments):
+        curve = _cubic(*segment)
+        points.extend(curve if index == 0 else curve[1:])
+    tip = (0.10, 0.05)
+    return [
+        (tip[0] + (x - tip[0]) * ARROW_SCALE, tip[1] + (y - tip[1]) * ARROW_SCALE)
+        for x, y in points
+    ]
+
+
 def _rounded_line(
     draw: ImageDraw.ImageDraw,
     points: Iterable[tuple[float, float]],
@@ -95,7 +116,7 @@ def _outlined_line(
 
 
 def _draw_arrow(draw: ImageDraw.ImageDraw, theme: Theme, scale: int) -> None:
-    path = _arrow_path()
+    path = _windows_arrow_path() if theme.style == "windows" else _arrow_path()
     pixels = [_point(point, scale) for point in path]
     outline = max(4, round(scale * ARROW_SCALE * 0.055))
     draw.polygon(pixels, fill=theme.fill)
@@ -164,7 +185,7 @@ def _draw_spinner(
             center[1] + math.sin(angle) * radius,
         )
         alpha = 185 + ((index - frame) % 8) * 10
-        rgb = tuple(int(theme.edge[i : i + 2], 16) for i in (1, 3, 5))
+        rgb = tuple(int(theme.fill[i : i + 2], 16) for i in (1, 3, 5))
         _draw_circle(
             draw,
             location,
@@ -172,7 +193,7 @@ def _draw_spinner(
             theme,
             scale,
             fill=(*rgb, min(alpha, 255)),
-            width=1,
+            width=max(3, round(scale * 0.025)),
         )
 
 
@@ -191,7 +212,15 @@ def _draw_role_mark(
         path += _cubic((0.52, 0.33), (0.57, 0.37), (0.54, 0.41), (0.49, 0.45), 8)[1:]
         path += [(0.49, 0.49)]
         _outlined_line(draw, path, theme, width, scale)
-        _draw_circle(draw, (0.49, 0.55), 0.012, theme, scale, fill=theme.fill, width=1)
+        _draw_circle(
+            draw,
+            (0.49, 0.55),
+            0.016,
+            theme,
+            scale,
+            fill=theme.fill,
+            width=max(2, round(scale * 0.018)),
+        )
     elif role.glyph == "appstarting":
         progress = frame / (ANIMATION_FRAMES - 1)
         outline_width = max(4, round(scale * 0.035))
@@ -270,7 +299,15 @@ def _draw_role_mark(
     elif role.glyph == "pin":
         _draw_circle(draw, (0.47, 0.42), 0.095, theme, scale, fill=theme.fill, width=width)
         _outlined_line(draw, [(0.40, 0.48), (0.47, 0.60), (0.54, 0.48)], theme, width, scale)
-        _draw_circle(draw, (0.47, 0.42), 0.025, theme, scale, fill=theme.fill, width=1)
+        _draw_circle(
+            draw,
+            (0.47, 0.42),
+            0.025,
+            theme,
+            scale,
+            fill=theme.fill,
+            width=max(2, round(scale * 0.018)),
+        )
     elif role.glyph == "person":
         _draw_circle(draw, (0.47, 0.38), 0.05, theme, scale, fill=theme.fill, width=width)
         shoulders = _cubic((0.35, 0.58), (0.35, 0.48), (0.59, 0.48), (0.59, 0.58), 12)
@@ -303,7 +340,10 @@ def render_cursor(
         image.alpha_composite(role_image.crop((crop_offset, crop_offset, crop_offset + canvas, crop_offset + canvas)))
     image = image.resize((size, size), Image.Resampling.LANCZOS)
     if role.glyph == "arrow":
-        hotspot = (round(size * 0.35), round(size * 0.09))
+        if theme.style == "windows":
+            hotspot = (round(size * 0.10), round(size * 0.05))
+        else:
+            hotspot = (round(size * 0.35), round(size * 0.09))
     else:
         hotspot = (size // 2, size // 2)
     return image, hotspot

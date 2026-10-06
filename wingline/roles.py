@@ -15,6 +15,7 @@ class Theme:
     label: str
     fill: str
     edge: str
+    style: str = "wingline"
 
 
 ROLE_ORDER = (
@@ -49,5 +50,19 @@ THEMES = {
         "Wingline Black",
         fill="#171A20",
         edge="#F8F9FC",
+    ),
+    "Windows-Smooth-White": Theme(
+        "Windows-Smooth-White",
+        "Windows Smooth White",
+        fill="#FCFDFF",
+        edge="#151922",
+        style="windows",
+    ),
+    "Windows-Smooth-Black": Theme(
+        "Windows-Smooth-Black",
+        "Windows Smooth Black",
+        fill="#171A20",
+        edge="#F8F9FC",
+        style="windows",
     ),
 }

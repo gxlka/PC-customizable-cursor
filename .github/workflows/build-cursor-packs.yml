@@ -34,3 +34,4 @@ jobs:
             git commit -m "Build high resolution cursor packs"
             git push
           fi
+

@@ -58,6 +58,7 @@ class CurEncodingTests(unittest.TestCase):
 
         self.assertEqual((25, 50, 100, 128), struct.unpack_from("<4B", data, pixel_start))
         self.assertEqual((0, 0, 0, 0), struct.unpack_from("<4B", data, pixel_start + 4))
+
     def test_cur_directory_has_all_sizes_and_valid_hotspots_and_offsets(self):
         self.assertIsNotNone(encode_cur)
         data = encode_cur(sample_images())
