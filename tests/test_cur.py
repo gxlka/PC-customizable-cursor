@@ -52,7 +52,7 @@ class CurEncodingTests(unittest.TestCase):
         data = encode_cur(sample_images())
         header, entries = parse_cur(data)
 
-        self.assertEqual((0, 2, 4), header)
+        self.assertEqual((0, 2, len(CURSOR_SIZES)), header)
         self.assertEqual(list(CURSOR_SIZES), [entry["width"] for entry in entries])
         for size, entry in zip(CURSOR_SIZES, entries):
             with self.subTest(size=size):

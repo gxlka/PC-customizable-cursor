@@ -229,7 +229,8 @@ class PackageTests(unittest.TestCase):
             shutil.copytree(self.output_root, output_root)
             cursor_path = output_root / "Wingline-White" / "Wingline-White-arrow.cur"
             data = bytearray(cursor_path.read_bytes())
-            last_entry = 6 + 3 * 16
+            image_count = struct.unpack_from("<H", data, 4)[0]
+            last_entry = 6 + (image_count - 1) * 16
             data_length, data_offset = struct.unpack_from("<II", data, last_entry + 8)
             self.assertEqual(data_offset + data_length, len(data))
             struct.pack_into("<I", data, last_entry + 8, data_length - 1)

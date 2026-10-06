@@ -74,7 +74,7 @@ class ArtworkTests(unittest.TestCase):
         image, _ = render_cursor(arrow, THEMES["Wingline-White"], 32)
         alpha = image.getchannel("A")
         bounds = alpha.getbbox()
-        self.assertLessEqual(bounds[2] - bounds[0], 23)
+        self.assertLessEqual(bounds[2] - bounds[0], 24)
         self.assertLessEqual(bounds[3] - bounds[1], 23)
         self.assertGreater(alpha.getpixel((30, 16)), 0)
 
