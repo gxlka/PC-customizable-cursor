@@ -66,3 +66,9 @@ THEMES = {
         style="windows",
     ),
 }
+
+# Additional complete families, each with light and dark palettes.
+for style, name in (("hand", "Hand"), ("macos", "macOS"), ("beam", "I-Beam")):
+    for variant, fill, edge in (("White", "#FCFDFF", "#151922"), ("Black", "#171A20", "#F8F9FC")):
+        key=f"{name}-{variant}"
+        THEMES[key]=Theme(key, f"{name} {variant}", fill, edge, style)

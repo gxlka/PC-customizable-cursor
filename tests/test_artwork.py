@@ -48,6 +48,9 @@ class ArtworkTests(unittest.TestCase):
                 "Wingline-Black",
                 "Windows-Smooth-White",
                 "Windows-Smooth-Black",
+                "Hand-White", "Hand-Black",
+                "macOS-White", "macOS-Black",
+                "I-Beam-White", "I-Beam-Black",
             },
             set(THEMES),
         )
@@ -96,6 +99,26 @@ class ArtworkTests(unittest.TestCase):
                 wing = render_cursor(role, THEMES["Wingline-White"], 64)[0]
                 windows = render_cursor(role, THEMES["Windows-Smooth-White"], 64)[0]
                 self.assertNotEqual(wing.getchannel("A").tobytes(), windows.getchannel("A").tobytes())
+
+    def test_all_five_styles_have_unique_silhouettes_for_all_roles(self):
+        silhouettes = {}
+        for theme in THEMES.values():
+            if not theme.key.endswith("-White"):
+                continue
+            for role in ROLE_ORDER:
+                silhouette = render_cursor(role, theme, 64)[0].getchannel("A").tobytes()
+                label = f"{theme.key}/{role.key}"
+                self.assertNotIn(silhouette, silhouettes, f"{label} repeats {silhouettes.get(silhouette)}")
+                silhouettes[silhouette] = label
+        self.assertEqual(85, len(silhouettes))
+
+    def test_new_normal_pointer_hotspots_are_on_visible_artwork(self):
+        arrow = ROLE_ORDER[0]
+        for name in ("Hand", "macOS", "I-Beam"):
+            for size in (32, 48, 64, 96, 128, 192, 256):
+                with self.subTest(style=name, size=size):
+                    image, hotspot = render_cursor(arrow, THEMES[f"{name}-White"], size)
+                    self.assertGreater(image.getchannel("A").getpixel(hotspot), 0)
 
     def test_visible_artwork_stays_large_and_unclipped_at_every_native_size(self):
         from wingline.artwork import SUPPORTED_SIZES

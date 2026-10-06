@@ -1,13 +1,14 @@
-# Wingline & Windows Smooth Cursor Pack
+# Wingline Cursor Pack
 
-A complete Windows cursor pack in two styles: **Wingline**, with an angled wing-shaped pointer, and **Windows Smooth**, with clean rounded curves. Each style has its own matching icons and comes in white and black themes.
+Five complete Windows cursor styles, each with independent artwork and white and black themes.
 
-Includes all 17 Windows cursor roles, animated Busy and Working in Background cursors, consistent visible sizes, thin outlines, and sharp 32–256 px variants for different display scales.
+- **Wingline:** an angled wing-shaped pointer.
+- **Windows Smooth:** a familiar Windows-style arrow with smooth curves.
+- **Hand:** a fingertip main pointer, with separate role icons including a chain for links.
+- **macOS:** a macOS-inspired arrow and matching icons for Windows.
+- **I-Beam:** a text-selection main pointer, with a separate insertion caret and unique role icons.
 
-## Themes
-
-- **Wingline White** and **Wingline Black** keep the original Wingline design in light and dark palettes.
-- **Windows Smooth White** and **Windows Smooth Black** use the separate familiar Windows-style arrow and a complete set of distinct role cursors in light and dark palettes.
+All ten schemes include 17 distinct roles, animated Busy and Working in Background cursors, consistent visible sizes, thin outlines, and sharp 32–256 px variants for different display scales.
 
 ## Download and install
 

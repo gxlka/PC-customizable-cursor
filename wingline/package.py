@@ -136,7 +136,7 @@ def _draw_theme_preview(theme: Theme, output_path: Path) -> Image.Image:
 
 def _draw_native_preview(output_path: Path) -> None:
     """Render exports at their actual 32px size on both background colors."""
-    width, header, row = 750, 82, 42
+    width, header, row = 200 + len(THEMES)*138, 82, 42
     image = Image.new("RGB", (width, header + len(ROLE_ORDER)*row + 10), "#EEF1F6")
     draw = ImageDraw.Draw(image)
     draw.text((16, 12), "Actual 32 px cursor exports", fill="#151922", font=_font(17))

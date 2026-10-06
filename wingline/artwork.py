@@ -128,7 +128,10 @@ def render_cursor(
     canvas = size * SUPERSAMPLE
     image = Image.new("RGBA", (canvas, canvas), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image, "RGBA")
-    if role.glyph == "arrow":
+    custom_hotspot = None
+    if theme.style in {"hand", "macos", "beam"}:
+        image, custom_hotspot = render_role(role.glyph, theme, canvas, frame, with_hotspot=True)
+    elif role.glyph == "arrow":
         _draw_arrow(draw, theme, canvas)
     else:
         image = render_role(role.glyph, theme, canvas, frame)
@@ -139,7 +142,9 @@ def render_cursor(
         if pixels[index + 3] < 8:
             pixels[index:index + 4] = b"\x00\x00\x00\x00"
     image = Image.frombytes("RGBA", (size, size), bytes(pixels))
-    if role.glyph == "arrow":
+    if custom_hotspot is not None and role.glyph == "arrow":
+        hotspot = tuple(max(0,min(size-1,round(value/SUPERSAMPLE))) for value in custom_hotspot)
+    elif role.glyph == "arrow":
         if theme.style == "windows":
             hotspot = (round(size * 0.10), round(size * 0.05))
         else:

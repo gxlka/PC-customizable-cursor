@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cursor-release-v1
+  group: cursor-release-v1-1
   cancel-in-progress: false
 
 jobs:
@@ -24,6 +24,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -r requirements.txt
+      - name: Verify all styles and exports
+        run: python -m unittest discover -s tests -v
       - name: Build the full download
         run: python build.py
       - name: Verify the built download
@@ -34,11 +36,11 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.0.0
+          RELEASE_TAG: v1.1.0
         run: |
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" dist/Wingline-Cursor-Pack.zip --clobber
-            gh release edit "$RELEASE_TAG" --title "Wingline & Windows Smooth Cursor Pack" --notes-file release-notes.md --latest
+            gh release edit "$RELEASE_TAG" --title "Wingline Cursor Pack — Five Styles" --notes-file release-notes.md --latest
           else
-            gh release create "$RELEASE_TAG" dist/Wingline-Cursor-Pack.zip --target "$GITHUB_SHA" --title "Wingline & Windows Smooth Cursor Pack" --notes-file release-notes.md --latest
+            gh release create "$RELEASE_TAG" dist/Wingline-Cursor-Pack.zip --target "$GITHUB_SHA" --title "Wingline Cursor Pack — Five Styles" --notes-file release-notes.md --latest
           fi

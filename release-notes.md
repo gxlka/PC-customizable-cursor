@@ -1,8 +1,11 @@
-Wingline & Windows Smooth is a complete Windows cursor pack with two distinct styles:
+A complete Windows cursor pack with **five distinct styles**, each in white and black:
 
-- **Wingline:** an angled, wing-shaped pointer with its own matching cursor icons.
-- **Windows Smooth:** a familiar Windows-style pointer with smooth curves and a separate set of rounded icons.
+- **Wingline:** an angled, wing-shaped pointer with matching icons.
+- **Windows Smooth:** a familiar Windows-style pointer with clean, rounded curves.
+- **Hand:** a fingertip as the main pointer, with its own role icons and a chain-link cursor for links.
+- **macOS:** a macOS-inspired arrow and an independent set of role icons, designed for Windows.
+- **I-Beam:** a text-selection shape as the main pointer, with separate insertion, link, resize, and other role icons.
 
-Both styles include **white and black themes**, all **17 Windows cursor roles**, animated Busy and Working in Background cursors, thin outlines, and consistent visible sizes. High-resolution variants from **32 to 256 px** keep the artwork sharp at different display scales.
+All ten schemes include **17 distinct cursor roles**, animated Busy and Working in Background cursors, thin outlines, consistent visible sizes, and sharp **32–256 px** artwork. The three new families have separate silhouettes from the existing styles.
 
 **Install:** download `Wingline-Cursor-Pack.zip`, extract it, open your preferred theme folder, and double-click `Install-Wingline.cmd`. No administrator access is needed.

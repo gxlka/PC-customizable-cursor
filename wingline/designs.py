@@ -207,10 +207,12 @@ def draw_windows(p, glyph, frame):
         p.shape(pts)
 
 
-def render_role(glyph: str, theme: Theme, canvas: int, frame: int):
+def render_role(glyph: str, theme: Theme, canvas: int, frame: int, with_hotspot=False):
     image=Image.new('RGBA',(canvas,canvas))
     p=Pen(image,theme)
-    (draw_windows if theme.style=='windows' else draw_wingline)(p,glyph,frame)
+    from .extra_designs import DRAW_STYLES, NORMAL_HOTSPOTS
+    renderer = DRAW_STYLES.get(theme.style, draw_windows if theme.style=='windows' else draw_wingline)
+    renderer(p,glyph,frame)
     # Fit actual opaque artwork, not the empty source canvas. Each role gets
     # a fixed 24px visible extent on a 32px Windows cursor canvas.
     bounds=image.getchannel('A').getbbox()
@@ -222,4 +224,9 @@ def render_role(glyph: str, theme: Theme, canvas: int, frame: int):
     fitted=cropped.resize((max(1,round(cropped.width*ratio)),max(1,round(cropped.height*ratio))),Image.Resampling.LANCZOS)
     result=Image.new('RGBA',(canvas,canvas))
     result.alpha_composite(fitted,((canvas-fitted.width)//2,(canvas-fitted.height)//2))
+    if with_hotspot:
+        x,y=NORMAL_HOTSPOTS[theme.style] if glyph == 'arrow' else (.5,.5)
+        hotspot=((canvas-fitted.width)//2 + (x*canvas-bounds[0])*fitted.width/cropped.width,
+                 (canvas-fitted.height)//2 + (y*canvas-bounds[1])*fitted.height/cropped.height)
+        return result, hotspot
     return result
