@@ -170,6 +170,8 @@ class PackageTests(unittest.TestCase):
                 expected = {
                     prefix + f"{theme.key}.inf",
                     prefix + "INSTALL.txt",
+                    prefix + "Install-Wingline.cmd",
+                    prefix + "Install-Wingline.ps1",
                     prefix + "preview.png",
                     *(prefix + filename for filename in expected_cursor_files(theme)),
                 }

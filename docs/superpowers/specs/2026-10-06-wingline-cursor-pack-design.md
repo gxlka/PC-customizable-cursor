@@ -6,7 +6,7 @@
 
 ## Goal
 
-Create a polished Windows cursor pack based on the supplied sketch. The main pointer should retain the sketch's right-facing silhouette, with smooth corners and a subtle curve at the rear. The pack must include the other standard Windows cursor roles so it installs as a complete scheme rather than a single pointer. Each non-default role uses its own cursor shape without the normal pointer underneath; no trailing wing lines are drawn.
+Create a polished Windows cursor pack based on the supplied sketch. The main pointer should retain the sketch's upper-pointed silhouette, with smooth corners and a subtle curve at the rear. The pack must include the other standard Windows cursor roles so it installs as a complete scheme rather than a single pointer. Each non-default role uses its own cursor shape without the normal pointer underneath; no trailing wing lines are drawn.
 
 ## Visual system
 

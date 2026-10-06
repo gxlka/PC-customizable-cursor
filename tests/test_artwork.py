@@ -65,12 +65,12 @@ class ArtworkTests(unittest.TestCase):
                     self.assertLess(hotspot[0], 32)
                     self.assertLess(hotspot[1], 32)
 
-    def test_arrow_hotspot_is_at_the_right_facing_tip(self):
+    def test_arrow_hotspot_is_at_the_top_corner(self):
         self.assertIsNotNone(render_cursor)
         arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
         image, hotspot = render_cursor(arrow, THEMES["Wingline-White"], 64)
         self.assertEqual((64, 64), image.size)
-        self.assertEqual((61, 31), hotspot)
+        self.assertEqual((22, 6), hotspot)
         image, _ = render_cursor(arrow, THEMES["Wingline-White"], 32)
         alpha = image.getchannel("A")
         bounds = alpha.getbbox()

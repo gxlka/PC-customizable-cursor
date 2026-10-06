@@ -26,6 +26,8 @@ INSTALL_TEXT = """Wingline Cursor Pack — Windows install
    Bluetooth & devices > Mouse > Additional mouse settings. On the Pointers
    tab, choose this Wingline scheme, select Apply, then OK.
 
+Run Install-Wingline.cmd to install and activate the theme immediately for your account. The .inf remains available for manual import. Cursor images include sizes through 256 px.
+
 The included preview.png shows the 32 px artwork on light and dark backgrounds.
 """
 
@@ -39,7 +41,7 @@ def _role_cursor_bytes(role: CursorRole, theme: Theme) -> bytes:
     if role.key in ANIMATED_ROLES:
         frames = []
         for frame_index in range(ANIMATION_FRAMES):
-            image, hotspot = render_cursor(role, theme, 64, frame=frame_index)
+            image, hotspot = render_cursor(role, theme, max(SUPPORTED_SIZES), frame=frame_index)
             frames.append(encode_cur([(image, hotspot)]))
         return encode_ani(frames)
 
@@ -152,6 +154,11 @@ def build_theme(theme: Theme, output_dir: Path) -> list[Path]:
     install_path = output_dir / "INSTALL.txt"
     install_path.write_text(INSTALL_TEXT, encoding="utf-8", newline="\n")
     generated.append(install_path)
+    installer_dir = Path(__file__).resolve().parents[1] / "installer"
+    for installer_name in ("Install-Wingline.cmd", "Install-Wingline.ps1"):
+        installer_path = output_dir / installer_name
+        shutil.copy2(installer_dir / installer_name, installer_path)
+        generated.append(installer_path)
     preview_path = output_dir / "preview.png"
     _draw_theme_preview(theme, preview_path)
     generated.append(preview_path)
@@ -276,7 +283,7 @@ def _check_ani(data: bytes) -> None:
     _, frame_count, step_count, width, height, bit_count, planes, _, flags = struct.unpack(
         "<9I", headers[0]
     )
-    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (8, 8, 64, 64, 32, 1, 3), "ANI header values are invalid.")
+    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (8, 8, max(SUPPORTED_SIZES), max(SUPPORTED_SIZES), 32, 1, 3), "ANI header values are invalid.")
     _require(len(rates[0]) == 32 and len(sequences[0]) == 32, "ANI timing chunks have invalid lengths.")
     _require(struct.unpack("<8I", rates[0]) == (7,) * 8, "ANI frame rates are invalid.")
     _require(struct.unpack("<8I", sequences[0]) == tuple(range(8)), "ANI sequence is invalid.")
@@ -285,7 +292,7 @@ def _check_ani(data: bytes) -> None:
     frames = _read_riff_chunks(frame_list, 4, len(frame_list))
     _require(len(frames) == 8 and all(chunk_id == b"icon" for chunk_id, _ in frames), "ANI frame list is invalid.")
     for _, frame in frames:
-        _check_cur(frame, {64})
+        _check_cur(frame, {max(SUPPORTED_SIZES)})
 
 
 def _scheme_paths(inf_text: str) -> list[str]:
@@ -346,6 +353,8 @@ def _expected_archive_entries(theme: Theme) -> set[str]:
     names = {
         prefix + f"{theme.key}.inf",
         prefix + "INSTALL.txt",
+        prefix + "Install-Wingline.cmd",
+        prefix + "Install-Wingline.ps1",
         prefix + "preview.png",
     }
     names.update(prefix + cursor_filename(theme, role) for role in ROLE_ORDER)

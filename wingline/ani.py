@@ -5,7 +5,7 @@ from collections.abc import Sequence
 
 
 _FRAME_COUNT = 8
-_FRAME_SIZE = 64
+_FRAME_SIZE = 256
 _ANI_HEADER_SIZE = 36
 _FLAG_ICON = 0x1
 _FLAG_SEQUENCE = 0x2
@@ -22,10 +22,10 @@ def _chunk(chunk_id: bytes, payload: bytes) -> bytes:
 
 def _validate_cursor_frame(frame: bytes) -> None:
     if len(frame) < 22:
-        raise ValueError("ANI frames must contain a single 64x64 CUR image.")
+        raise ValueError("ANI frames must contain a single 256x256 CUR image.")
     reserved, file_type, image_count = struct.unpack_from("<HHH", frame, 0)
     if reserved != 0 or file_type != 2 or image_count != 1:
-        raise ValueError("ANI frames must contain a single 64x64 CUR image.")
+        raise ValueError("ANI frames must contain a single 256x256 CUR image.")
 
     width, height, _, _, hot_x, hot_y, data_length, data_offset = struct.unpack_from(
         "<BBBBHHII", frame, 6
@@ -46,17 +46,17 @@ def _validate_cursor_frame(frame: bytes) -> None:
     dib_size, dib_width, doubled_height, planes, bit_count = struct.unpack_from(
         "<IiiHH", frame, data_offset
     )
-    if (dib_size, dib_width, doubled_height, planes, bit_count) != (40, 64, 128, 1, 32):
+    if (dib_size, dib_width, doubled_height, planes, bit_count) != (40, 256, 512, 1, 32):
         raise ValueError("ANI frames must contain a complete 64x64 CUR image.")
-    xor_stride = ((64 * bit_count + 31) // 32) * 4
-    mask_stride = ((64 + 31) // 32) * 4
-    expected_data_length = dib_size + (xor_stride + mask_stride) * 64
+    xor_stride = ((_FRAME_SIZE * bit_count + 31) // 32) * 4
+    mask_stride = ((_FRAME_SIZE + 31) // 32) * 4
+    expected_data_length = dib_size + (xor_stride + mask_stride) * _FRAME_SIZE
     if data_length != expected_data_length:
         raise ValueError("ANI frames must contain a complete 64x64 CUR image.")
 
 
 def encode_ani(frames: Sequence[bytes], frame_jiffies: int = 7) -> bytes:
-    """Wrap eight single-image 64 px CUR frames in a looping RIFF ANI file."""
+    """Wrap eight single-image 256 px CUR frames in a looping RIFF ANI file."""
     if len(frames) != _FRAME_COUNT:
         raise ValueError("ANI files require exactly eight cursor frames.")
     if (

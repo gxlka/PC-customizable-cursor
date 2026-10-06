@@ -303,7 +303,7 @@ def render_cursor(
         image.alpha_composite(role_image.crop((crop_offset, crop_offset, crop_offset + canvas, crop_offset + canvas)))
     image = image.resize((size, size), Image.Resampling.LANCZOS)
     if role.glyph == "arrow":
-        hotspot = (min(size - 1, round(size * 0.95)), min(size - 1, round(size * 0.49)))
+        hotspot = (round(size * 0.35), round(size * 0.09))
     else:
         hotspot = (size // 2, size // 2)
     return image, hotspot

@@ -4,7 +4,7 @@
 
 **Goal:** Build and package two complete, high-contrast Wingline cursor schemes for Windows.
 
-**Architecture:** Keep the editable vector-style drawing and role definitions in a small Python package. Render at high resolution and downsample to 32, 48, 64, and 96 px CUR entries; encode Busy and Working in Background as RIFF ANI animations. A build entry point then generates role mappings, INF installers, previews, and ZIPs from the same manifest.
+**Architecture:** Keep the editable vector-style drawing and role definitions in a small Python package. Render at high resolution and downsample to 32, 48, 64, 96, 128, 192, and 256 px CUR entries; encode Busy and Working in Background as RIFF ANI animations. A build entry point then generates role mappings, INF installers, previews, and ZIPs from the same manifest.
 
 **Tech Stack:** Python 3.11+, Pillow for RGBA rasterization, Python standard library for CUR/ANI encoding, INF/ZIP creation, and unittest.
 
@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- The main pointer should retain the sketch's right-facing silhouette, with smooth corners and a subtle curve at the rear. It has no trailing lines.
+- The main pointer should retain the sketch's upper-pointed silhouette, with smooth corners and a subtle curve at the rear. It has no trailing lines.
 - Two themes share the same shapes for each cursor role:
   - Wingline White: white body with a dark defining outline.
   - Wingline Black: near-black body with a pale defining outline.

@@ -10,8 +10,8 @@ from wingline.cur import encode_cur
 def sample_frames():
     frames = []
     for index in range(8):
-        image = Image.new("RGBA", (64, 64), (20 + index, 30, 40, 255))
-        frames.append(encode_cur([(image, (60, 31))]))
+        image = Image.new("RGBA", (256, 256), (20 + index, 30, 40, 255))
+        frames.append(encode_cur([(image, (128, 128))]))
     return frames
 
 
@@ -41,7 +41,7 @@ class AniEncodingTests(unittest.TestCase):
         self.assertEqual(len(data), offset)
 
         anih = next(payload for chunk_id, payload in chunks if chunk_id == b"anih")
-        self.assertEqual((36, 8, 8, 64, 64, 32, 1, 7, 3), struct.unpack("<9I", anih))
+        self.assertEqual((36, 8, 8, 256, 256, 32, 1, 7, 3), struct.unpack("<9I", anih))
 
         rate = next(payload for chunk_id, payload in chunks if chunk_id == b"rate")
         self.assertEqual((7,) * 8, struct.unpack("<8I", rate))
@@ -76,7 +76,7 @@ class AniEncodingTests(unittest.TestCase):
         frames = sample_frames()
         frames[0] = bytes(frame[:-1])
 
-        with self.assertRaisesRegex(ValueError, "complete 64x64 CUR image"):
+        with self.assertRaisesRegex(ValueError, "complete 256x256 CUR image"):
             encode_ani(frames)
 
 

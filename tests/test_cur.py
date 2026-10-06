@@ -9,7 +9,7 @@ except ImportError:
     encode_cur = None
 
 
-CURSOR_SIZES = (32, 48, 64, 96)
+CURSOR_SIZES = (32, 48, 64, 96, 128, 192, 256)
 
 
 def sample_images():
