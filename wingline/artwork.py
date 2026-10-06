@@ -12,14 +12,24 @@ SUPPORTED_SIZES = (32, 48, 64, 96, 128, 192, 256)
 SUPERSAMPLE = 8
 ANIMATION_FRAMES = 8
 ARROW_SCALE = 0.70
-ROLE_SCALE = 1.70
+ROLE_SCALE = 1.85
 ROLE_SCALE_BY_GLYPH = {
-    "help": 1.85,
-    "appstarting": 1.90,
-    "wait": 1.90,
-    "pen": 1.85,
-    "pin": 1.85,
-    "person": 1.95,
+    "help": 2.20,
+    "appstarting": 1.85,
+    "wait": 2.05,
+    "crosshair": 1.85,
+    "ibeam": 1.90,
+    "pen": 1.65,
+    "no": 2.25,
+    "resize_vertical": 1.85,
+    "resize_horizontal": 1.85,
+    "resize_nwse": 1.68,
+    "resize_nesw": 1.68,
+    "move": 1.55,
+    "up": 1.68,
+    "hand": 1.65,
+    "pin": 1.80,
+    "person": 1.85,
 }
 
 
@@ -159,7 +169,7 @@ def _draw_arrowheads(
 ) -> None:
     dx, dy = end[0] - start[0], end[1] - start[1]
     angle = math.atan2(dy, dx)
-    size = 0.075
+    size = 0.12
 
     def head(tip: tuple[float, float], direction: float) -> list[tuple[float, float]]:
         left = (
@@ -172,7 +182,7 @@ def _draw_arrowheads(
         )
         return [left, tip, right]
 
-    width = max(4, round(scale * 0.03))
+    width = max(4, round(scale * 0.022))
     _outlined_line(draw, head(start, angle + math.pi), theme, width, scale)
     _outlined_line(draw, head(end, angle), theme, width, scale)
 
@@ -185,7 +195,7 @@ def _draw_spinner(
 ) -> None:
     center = (0.50, 0.50)
     radius = 0.115
-    dot_radius = 0.032
+    dot_radius = 0.038
     for index in range(8):
         angle = 2 * math.pi * index / 8 - math.pi / 2
         location = (
@@ -201,7 +211,7 @@ def _draw_spinner(
             theme,
             scale,
             fill=(*rgb, min(alpha, 255)),
-            width=max(3, round(scale * 0.025)),
+            width=max(3, round(scale * 0.017)),
         )
 
 
@@ -212,7 +222,7 @@ def _draw_role_mark(
     scale: int,
     frame: int,
 ) -> None:
-    width = max(4, round(scale * 0.03))
+    width = max(4, round(scale * 0.022))
     if role.glyph == "arrow":
         return
     if role.glyph == "help":
@@ -231,7 +241,7 @@ def _draw_role_mark(
         )
     elif role.glyph == "appstarting":
         progress = frame / (ANIMATION_FRAMES - 1)
-        outline_width = max(4, round(scale * 0.028))
+        outline_width = max(4, round(scale * 0.022))
         track = tuple(_point(point, scale) for point in ((0.32, 0.43), (0.68, 0.57)))
         radius = max(4, round(scale * 0.045))
         draw.rounded_rectangle(track, radius=radius, outline=theme.edge, width=outline_width)
@@ -245,16 +255,16 @@ def _draw_role_mark(
         _outlined_line(draw, [(0.34, 0.50), (0.66, 0.50)], theme, width, scale)
         _outlined_line(draw, [(0.50, 0.34), (0.50, 0.66)], theme, width, scale)
     elif role.glyph == "ibeam":
-        _outlined_line(draw, [(0.50, 0.30), (0.50, 0.70)], theme, width, scale)
-        _outlined_line(draw, [(0.40, 0.30), (0.60, 0.30)], theme, width, scale)
-        _outlined_line(draw, [(0.40, 0.70), (0.60, 0.70)], theme, width, scale)
+        _outlined_line(draw, [(0.50, 0.35), (0.50, 0.65)], theme, width, scale)
+        _outlined_line(draw, [(0.34, 0.35), (0.66, 0.35)], theme, width, scale)
+        _outlined_line(draw, [(0.34, 0.65), (0.66, 0.65)], theme, width, scale)
     elif role.glyph == "pen":
-        _outlined_line(draw, [(0.35, 0.57), (0.55, 0.34)], theme, width + 1, scale)
-        _outlined_line(draw, [(0.34, 0.61), (0.39, 0.56)], theme, width, scale)
-        _outlined_line(draw, [(0.53, 0.36), (0.57, 0.32)], theme, width, scale)
+        _outlined_line(draw, [(0.28, 0.62), (0.62, 0.25)], theme, width + 1, scale)
+        _outlined_line(draw, [(0.27, 0.66), (0.35, 0.58)], theme, width, scale)
+        _outlined_line(draw, [(0.59, 0.29), (0.65, 0.22)], theme, width, scale)
     elif role.glyph == "no":
-        _draw_circle(draw, (0.50, 0.50), 0.10, theme, scale, width=width)
-        _outlined_line(draw, [(0.43, 0.57), (0.57, 0.43)], theme, width, scale)
+        _draw_circle(draw, (0.50, 0.50), 0.12, theme, scale, width=width)
+        _outlined_line(draw, [(0.41, 0.59), (0.59, 0.41)], theme, width, scale)
     elif role.glyph == "resize_vertical":
         start, end = (0.50, 0.68), (0.50, 0.32)
         _outlined_line(draw, [start, end], theme, width, scale)
@@ -265,9 +275,9 @@ def _draw_role_mark(
         _draw_arrowheads(draw, start, end, theme, scale)
     elif role.glyph in ("resize_nwse", "resize_nesw"):
         if role.glyph == "resize_nwse":
-            start, end = (0.32, 0.32), (0.68, 0.68)
+            start, end = (0.34, 0.34), (0.66, 0.66)
         else:
-            start, end = (0.68, 0.32), (0.32, 0.68)
+            start, end = (0.66, 0.34), (0.34, 0.66)
         _outlined_line(draw, [start, end], theme, width, scale)
         _draw_arrowheads(draw, start, end, theme, scale)
     elif role.glyph == "move":
@@ -283,30 +293,30 @@ def _draw_role_mark(
             _outlined_line(draw, [start, end], theme, width, scale)
     elif role.glyph == "up":
         _outlined_line(draw, [(0.50, 0.70), (0.50, 0.30)], theme, width, scale)
-        _outlined_line(draw, [(0.39, 0.42), (0.50, 0.30), (0.61, 0.42)], theme, width, scale)
+        _outlined_line(draw, [(0.32, 0.42), (0.50, 0.30), (0.68, 0.42)], theme, width, scale)
     elif role.glyph == "hand":
         palm = [
-            (0.39, 0.46),
-            (0.40, 0.37),
-            (0.45, 0.35),
-            (0.47, 0.43),
-            (0.48, 0.31),
-            (0.53, 0.31),
-            (0.54, 0.44),
-            (0.56, 0.36),
-            (0.60, 0.37),
-            (0.59, 0.49),
-            (0.56, 0.59),
-            (0.48, 0.62),
-            (0.42, 0.58),
+            (0.34, 0.46),
+            (0.35, 0.34),
+            (0.42, 0.32),
+            (0.45, 0.43),
+            (0.47, 0.27),
+            (0.54, 0.27),
+            (0.55, 0.43),
+            (0.58, 0.34),
+            (0.65, 0.35),
+            (0.64, 0.50),
+            (0.60, 0.63),
+            (0.48, 0.67),
+            (0.39, 0.61),
         ]
         pixels = [_point(point, scale) for point in palm]
         draw.polygon(pixels, fill=theme.fill)
         _rounded_line(draw, pixels + [pixels[0]], theme.edge, width, 1)
         _outlined_line(draw, [(0.40, 0.49), (0.35, 0.45)], theme, width, scale)
     elif role.glyph == "pin":
-        _draw_circle(draw, (0.47, 0.42), 0.095, theme, scale, fill=theme.fill, width=width)
-        _outlined_line(draw, [(0.40, 0.48), (0.47, 0.60), (0.54, 0.48)], theme, width, scale)
+        _draw_circle(draw, (0.47, 0.42), 0.115, theme, scale, fill=theme.fill, width=width)
+        _outlined_line(draw, [(0.38, 0.49), (0.47, 0.66), (0.56, 0.49)], theme, width, scale)
         _draw_circle(
             draw,
             (0.47, 0.42),
@@ -317,8 +327,8 @@ def _draw_role_mark(
             width=max(2, round(scale * 0.018)),
         )
     elif role.glyph == "person":
-        _draw_circle(draw, (0.47, 0.38), 0.05, theme, scale, fill=theme.fill, width=width)
-        shoulders = _cubic((0.35, 0.58), (0.35, 0.48), (0.59, 0.48), (0.59, 0.58), 12)
+        _draw_circle(draw, (0.47, 0.36), 0.065, theme, scale, fill=theme.fill, width=width)
+        shoulders = _cubic((0.30, 0.62), (0.31, 0.45), (0.63, 0.45), (0.65, 0.62), 12)
         _outlined_line(draw, shoulders, theme, width, scale)
 
 

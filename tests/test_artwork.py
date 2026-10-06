@@ -149,6 +149,24 @@ class ArtworkTests(unittest.TestCase):
                     self.assertGreaterEqual(max(right - left, bottom - top), 12)
                     self.assertLessEqual(max(right - left, bottom - top), 28)
 
+    def test_non_pointer_roles_render_near_main_pointer_scale_at_64px(self):
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                if role.key == "arrow":
+                    continue
+                with self.subTest(theme=theme.key, role=role.key):
+                    image, _ = render_cursor(role, theme, 64, frame=0)
+                    left, top, right, bottom = image.getchannel("A").getbbox()
+                    largest_dimension = max(right - left, bottom - top)
+                    self.assertGreaterEqual(largest_dimension, 40)
+                    self.assertLessEqual(largest_dimension, 56)
+
+    def test_working_in_background_remains_a_horizontal_progress_cursor(self):
+        role = next(role for role in ROLE_ORDER if role.key == "appstarting")
+        image, _ = render_cursor(role, THEMES["Windows-Smooth-White"], 64, frame=0)
+        left, top, right, bottom = image.getchannel("A").getbbox()
+        self.assertGreater(right - left, (bottom - top) * 1.5)
+
 
 if __name__ == "__main__":
     unittest.main()
