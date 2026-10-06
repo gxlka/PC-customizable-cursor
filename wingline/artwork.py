@@ -85,18 +85,7 @@ def _outlined_line(
 ) -> None:
     points = list(points)
     _rounded_line(draw, points, theme.edge, width + max(2, width // 2), scale)
-    _rounded_line(draw, points, theme.wing, width, scale)
-
-
-def _draw_wings(draw: ImageDraw.ImageDraw, theme: Theme, scale: int) -> None:
-    width = max(4, round(scale * 0.035))
-    paths = (
-        _cubic((0.015, 0.27), (0.055, 0.30), (0.11, 0.31), (0.18, 0.29)),
-        _cubic((0.005, 0.48), (0.055, 0.47), (0.11, 0.47), (0.18, 0.48)),
-        _cubic((0.02, 0.70), (0.06, 0.66), (0.11, 0.64), (0.18, 0.65)),
-    )
-    for path in paths:
-        _outlined_line(draw, path, theme, width, scale)
+    _rounded_line(draw, points, theme.fill, width, scale)
 
 
 def _draw_arrow(draw: ImageDraw.ImageDraw, theme: Theme, scale: int) -> None:
@@ -121,7 +110,7 @@ def _draw_circle(
     draw.ellipse(
         (cx - r, cy - r, cx + r, cy + r),
         fill=fill,
-        outline=theme.wing if fill is None else theme.edge,
+        outline=theme.edge,
         width=width or max(3, round(scale * 0.035)),
     )
 
@@ -169,7 +158,7 @@ def _draw_spinner(
             center[1] + math.sin(angle) * radius,
         )
         alpha = 80 + ((index - frame) % 8) * 22
-        rgb = tuple(int(theme.wing[i : i + 2], 16) for i in (1, 3, 5))
+        rgb = tuple(int(theme.fill[i : i + 2], 16) for i in (1, 3, 5))
         _draw_circle(
             draw,
             location,
@@ -196,7 +185,7 @@ def _draw_role_mark(
         path += _cubic((0.52, 0.33), (0.57, 0.37), (0.54, 0.41), (0.49, 0.45), 8)[1:]
         path += [(0.49, 0.49)]
         _outlined_line(draw, path, theme, width, scale)
-        _draw_circle(draw, (0.49, 0.55), 0.012, theme, scale, fill=theme.wing, width=1)
+        _draw_circle(draw, (0.49, 0.55), 0.012, theme, scale, fill=theme.fill, width=1)
     elif role.glyph == "appstarting":
         progress = frame / (ANIMATION_FRAMES - 1)
         x = 0.30 + progress * 0.39
@@ -277,15 +266,15 @@ def _draw_role_mark(
             (0.42, 0.58),
         ]
         pixels = [_point(point, scale) for point in palm]
-        draw.polygon(pixels, fill=theme.wing)
+        draw.polygon(pixels, fill=theme.fill)
         _rounded_line(draw, pixels + [pixels[0]], theme.edge, width, 1)
         _outlined_line(draw, [(0.40, 0.49), (0.35, 0.45)], theme, width, scale)
     elif role.glyph == "pin":
-        _draw_circle(draw, (0.47, 0.42), 0.095, theme, scale, fill=theme.wing, width=width)
+        _draw_circle(draw, (0.47, 0.42), 0.095, theme, scale, fill=theme.fill, width=width)
         _outlined_line(draw, [(0.40, 0.48), (0.47, 0.60), (0.54, 0.48)], theme, width, scale)
         _draw_circle(draw, (0.47, 0.42), 0.025, theme, scale, fill=theme.fill, width=1)
     elif role.glyph == "person":
-        _draw_circle(draw, (0.47, 0.38), 0.05, theme, scale, fill=theme.wing, width=width)
+        _draw_circle(draw, (0.47, 0.38), 0.05, theme, scale, fill=theme.fill, width=width)
         shoulders = _cubic((0.35, 0.58), (0.35, 0.48), (0.59, 0.48), (0.59, 0.58), 12)
         _outlined_line(draw, shoulders, theme, width, scale)
 
@@ -306,9 +295,12 @@ def render_cursor(
     canvas = size * SUPERSAMPLE
     image = Image.new("RGBA", (canvas, canvas), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image, "RGBA")
-    _draw_wings(draw, theme, canvas)
-    _draw_arrow(draw, theme, canvas)
+    if role.glyph == "arrow":
+        _draw_arrow(draw, theme, canvas)
     _draw_role_mark(draw, role, theme, canvas, frame)
     image = image.resize((size, size), Image.Resampling.LANCZOS)
-    hotspot = (min(size - 1, round(size * 0.94)), min(size - 1, round(size * 0.49)))
+    if role.glyph == "arrow":
+        hotspot = (min(size - 1, round(size * 0.94)), min(size - 1, round(size * 0.49)))
+    else:
+        hotspot = (size // 2, size // 2)
     return image, hotspot

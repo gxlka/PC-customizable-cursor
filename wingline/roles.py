@@ -15,7 +15,6 @@ class Theme:
     label: str
     fill: str
     edge: str
-    wing: str
 
 
 ROLE_ORDER = (
@@ -44,13 +43,11 @@ THEMES = {
         "Wingline White",
         fill="#FCFDFF",
         edge="#151922",
-        wing="#293241",
     ),
     "Wingline-Black": Theme(
         "Wingline-Black",
         "Wingline Black",
         fill="#171A20",
         edge="#F8F9FC",
-        wing="#E5E9F1",
     ),
 }

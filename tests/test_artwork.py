@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 try:
     from wingline.roles import ROLE_ORDER, THEMES
@@ -76,6 +77,28 @@ class ArtworkTests(unittest.TestCase):
         arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
         with self.assertRaises(ValueError):
             render_cursor(arrow, THEMES["Wingline-White"], 40)
+
+    def test_normal_pointer_has_no_trailing_wing_lines(self):
+        self.assertIsNotNone(render_cursor)
+        arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
+        image, _ = render_cursor(arrow, THEMES["Wingline-White"], 64)
+        self.assertGreaterEqual(image.getchannel("A").getbbox()[0], 2)
+
+    def test_role_cursors_do_not_use_the_normal_pointer_underlay(self):
+        self.assertIsNotNone(render_cursor)
+        help_role = next(role for role in ROLE_ORDER if role.key == "help")
+        with patch("wingline.artwork._draw_arrow") as draw_arrow:
+            render_cursor(help_role, THEMES["Wingline-White"], 64)
+        draw_arrow.assert_not_called()
+
+    def test_non_pointer_cursor_hotspots_are_centered(self):
+        self.assertIsNotNone(render_cursor)
+        for role in ROLE_ORDER:
+            if role.key == "arrow":
+                continue
+            with self.subTest(role=role.key):
+                _, hotspot = render_cursor(role, THEMES["Wingline-White"], 64)
+                self.assertEqual((32, 32), hotspot)
 
 
 if __name__ == "__main__":

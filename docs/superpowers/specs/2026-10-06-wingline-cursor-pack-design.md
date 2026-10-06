@@ -6,16 +6,16 @@
 
 ## Goal
 
-Create a polished Windows cursor pack based on the supplied sketch. The main pointer should retain the sketch's right-facing silhouette, with smooth corners, a subtle curve at the rear, and small wing-like lines trailing from its left side. The pack must include the other standard Windows cursor roles so it installs as a complete scheme rather than a single pointer.
+Create a polished Windows cursor pack based on the supplied sketch. The main pointer should retain the sketch's right-facing silhouette, with smooth corners and a subtle curve at the rear. The pack must include the other standard Windows cursor roles so it installs as a complete scheme rather than a single pointer. Each non-default role uses its own cursor shape without the normal pointer underneath; no trailing wing lines are drawn.
 
 ## Visual system
 
-Two themes share the same shapes and role symbols:
+Two themes share the same shapes for each cursor role:
 
-- **Wingline White:** white body, dark defining outline, and restrained light/dark wing marks.
-- **Wingline Black:** near-black body, pale defining outline, and matching wing marks.
+- **Wingline White:** white body and dark defining outline.
+- **Wingline Black:** near-black body and pale defining outline.
 
-The contrasting edge should keep each cursor legible over both light and dark backgrounds. Every role should remain recognizable at ordinary cursor sizes; decorative details must not obscure its shape or hotspot.
+The contrasting edge should keep each cursor legible over both light and dark backgrounds. Every role should remain recognizable at ordinary cursor sizes. Role artwork is drawn on its own rather than layered over the normal pointer.
 
 ## Cursor roles
 
