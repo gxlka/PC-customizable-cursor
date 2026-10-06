@@ -6,6 +6,7 @@ class CursorRole:
     key: str
     label: str
     glyph: str
+    registry_value: str
 
 
 @dataclass(frozen=True)
@@ -18,23 +19,23 @@ class Theme:
 
 
 ROLE_ORDER = (
-    CursorRole("arrow", "Normal Select", "arrow"),
-    CursorRole("help", "Help Select", "help"),
-    CursorRole("appstarting", "Working in Background", "appstarting"),
-    CursorRole("wait", "Busy", "wait"),
-    CursorRole("crosshair", "Precision Select", "crosshair"),
-    CursorRole("ibeam", "Text Select", "ibeam"),
-    CursorRole("nwpen", "Handwriting", "pen"),
-    CursorRole("no", "Unavailable", "no"),
-    CursorRole("sizens", "Vertical Resize", "resize_vertical"),
-    CursorRole("sizewe", "Horizontal Resize", "resize_horizontal"),
-    CursorRole("sizenwse", "Diagonal Resize 1", "resize_nwse"),
-    CursorRole("sizenesw", "Diagonal Resize 2", "resize_nesw"),
-    CursorRole("sizeall", "Move", "move"),
-    CursorRole("uparrow", "Alternate Select", "up"),
-    CursorRole("hand", "Link Select", "hand"),
-    CursorRole("pin", "Location Select", "pin"),
-    CursorRole("person", "Person Select", "person"),
+    CursorRole("arrow", "Normal Select", "arrow", "Arrow"),
+    CursorRole("help", "Help Select", "help", "Help"),
+    CursorRole("appstarting", "Working in Background", "appstarting", "AppStarting"),
+    CursorRole("wait", "Busy", "wait", "Wait"),
+    CursorRole("crosshair", "Precision Select", "crosshair", "Crosshair"),
+    CursorRole("ibeam", "Text Select", "ibeam", "IBeam"),
+    CursorRole("nwpen", "Handwriting", "pen", "NWPen"),
+    CursorRole("no", "Unavailable", "no", "No"),
+    CursorRole("sizens", "Vertical Resize", "resize_vertical", "SizeNS"),
+    CursorRole("sizewe", "Horizontal Resize", "resize_horizontal", "SizeWE"),
+    CursorRole("sizenwse", "Diagonal Resize 1", "resize_nwse", "SizeNWSE"),
+    CursorRole("sizenesw", "Diagonal Resize 2", "resize_nesw", "SizeNESW"),
+    CursorRole("sizeall", "Move", "move", "SizeAll"),
+    CursorRole("uparrow", "Alternate Select", "up", "UpArrow"),
+    CursorRole("hand", "Link Select", "hand", "Hand"),
+    CursorRole("pin", "Location Select", "pin", "Pin"),
+    CursorRole("person", "Person Select", "person", "Person"),
 )
 
 THEMES = {

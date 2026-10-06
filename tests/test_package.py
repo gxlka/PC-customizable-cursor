@@ -1,3 +1,4 @@
+import csv
 import re
 import shutil
 import struct
@@ -32,7 +33,22 @@ def read_scheme_paths(inf_text):
     )
     if match is None:
         raise AssertionError("INF must define a literal quoted cursor scheme value.")
-    return [path.replace("%%", "%") for path in match.group(1).split(",")]
+    return match.group(1).split(",")
+
+
+def read_active_settings(inf_text):
+    match = re.search(r"(?ms)^\[ActiveCursors\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
+    if match is None:
+        raise AssertionError("INF must define active cursor settings.")
+    settings = {}
+    for line in match.group(1).splitlines():
+        if not line.strip():
+            continue
+        row = next(csv.reader([line]))
+        if len(row) != 5 or row[0] != "HKCU" or row[1] != "Control Panel\\Cursors":
+            raise AssertionError(f"Invalid active cursor setting: {line}")
+        settings[row[2]] = (row[3], row[4])
+    return settings
 
 
 def read_copy_files(inf_text):
@@ -67,21 +83,65 @@ class PackageTests(unittest.TestCase):
                 self.assertEqual(17, len(filenames))
                 self.assertTrue(
                     all(
-                        path.startswith(f"%SystemRoot%\\Cursors\\{theme.key}\\")
+                        path.startswith(f"%10%\\Cursors\\{theme.key}\\")
                         for path in scheme_paths
                     )
                 )
                 for filename in filenames:
                     self.assertTrue((theme_dir / filename).is_file(), filename)
 
-    def test_verifier_rejects_an_installer_with_doubled_systemroot_paths(self):
+    def test_installers_select_the_scheme_and_set_every_active_cursor_role(self):
+        registry_values = {
+            "arrow": "Arrow",
+            "help": "Help",
+            "appstarting": "AppStarting",
+            "wait": "Wait",
+            "crosshair": "Crosshair",
+            "ibeam": "IBeam",
+            "nwpen": "NWPen",
+            "no": "No",
+            "sizens": "SizeNS",
+            "sizewe": "SizeWE",
+            "sizenwse": "SizeNWSE",
+            "sizenesw": "SizeNESW",
+            "sizeall": "SizeAll",
+            "uparrow": "UpArrow",
+            "hand": "Hand",
+            "pin": "Pin",
+            "person": "Person",
+        }
+        for theme in THEMES.values():
+            with self.subTest(theme=theme.key):
+                inf_text = (self.output_root / theme.key / f"{theme.key}.inf").read_text(
+                    encoding="ascii"
+                )
+                settings = read_active_settings(inf_text)
+
+                self.assertEqual(("0x00000000", "%SchemeName%"), settings[""])
+                self.assertEqual(("0x00010001", "1"), settings["Scheme Source"])
+                self.assertEqual(17, len(settings) - 2)
+                for role in ROLE_ORDER:
+                    extension = ".ani" if role.key in {"appstarting", "wait"} else ".cur"
+                    filename = f"{theme.key}-{role.key}{extension}"
+                    self.assertEqual(
+                        (
+                            "0x00000000",
+                            f"%10%\\Cursors\\{theme.key}\\{filename}",
+                        ),
+                        settings[registry_values[role.key]],
+                    )
+
+    def test_verifier_rejects_an_installer_with_unexpanded_dirid(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             output_root = Path(temporary_directory) / "dist"
             shutil.copytree(self.output_root, output_root)
             inf_path = output_root / "Wingline-White" / "Wingline-White.inf"
             inf_text = inf_path.read_text(encoding="ascii")
             inf_path.write_text(
-                inf_text.replace("%%SystemRoot%%", "%%%%SystemRoot%%%%"),
+                inf_text.replace(
+                    "%10%\\Cursors\\Wingline-White\\Wingline-White-arrow.cur",
+                    "%%10%%\\Cursors\\Wingline-White\\Wingline-White-arrow.cur",
+                ),
                 encoding="ascii",
             )
 

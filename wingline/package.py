@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import re
 import shutil
 import struct
@@ -19,15 +20,13 @@ INSTALL_TEXT = """Wingline Cursor Pack — Windows install
 
 1. Extract this folder somewhere you can find it again.
 2. Right-click the theme's .inf file and choose Install. Approve the Windows
-   permission prompt if one appears; the installer copies cursor files into
-   the Windows Cursors folder and registers this scheme for your account.
-3. Open Settings > Bluetooth & devices > Mouse > Additional mouse settings.
-4. On the Pointers tab, choose the Wingline scheme from the Scheme list,
-   select Apply, then OK.
+   permission prompt if one appears. The installer copies the files and sets
+   this theme as the current cursor scheme for your account.
+3. If Windows does not refresh the pointer immediately, open Settings >
+   Bluetooth & devices > Mouse > Additional mouse settings. On the Pointers
+   tab, choose this Wingline scheme, select Apply, then OK.
 
-The INF installer registers the scheme. Selecting it on the Pointers tab
-activates it. The included preview.png shows the 32 px artwork on light and
-dark backgrounds.
+The included preview.png shows the 32 px artwork on light and dark backgrounds.
 """
 
 
@@ -50,10 +49,18 @@ def _role_cursor_bytes(role: CursorRole, theme: Theme) -> bytes:
 
 def _installer_text(theme: Theme, filenames: list[str]) -> str:
     scheme_paths = [
-        f"%%SystemRoot%%\\Cursors\\{theme.key}\\{filename}"
-        for filename in filenames
+        f"%10%\\Cursors\\{theme.key}\\{filename}" for filename in filenames
     ]
     scheme_value = ",".join(scheme_paths)
+    active_cursor_values = [
+        'HKCU,"Control Panel\\Cursors",,0x00000000,"%SchemeName%"',
+        'HKCU,"Control Panel\\Cursors","Scheme Source",0x00010001,1',
+    ]
+    active_cursor_values.extend(
+        f'HKCU,"Control Panel\\Cursors","{role.registry_value}",0x00000000,'
+        f'"%10%\\Cursors\\{theme.key}\\{filename}"'
+        for role, filename in zip(ROLE_ORDER, filenames)
+    )
     source_files = "\n".join(f"{filename}=1" for filename in filenames)
     copy_files = "\n".join(filenames)
     return (
@@ -62,7 +69,7 @@ def _installer_text(theme: Theme, filenames: list[str]) -> str:
         "\n"
         "[DefaultInstall]\n"
         "CopyFiles=CursorFiles\n"
-        "AddReg=CursorScheme\n"
+        "AddReg=CursorScheme,ActiveCursors\n"
         "\n"
         "[SourceDisksNames]\n"
         f"1=%DiskName%,,,.\n"
@@ -80,7 +87,10 @@ def _installer_text(theme: Theme, filenames: list[str]) -> str:
         'HKCU,"Control Panel\\Cursors\\Schemes","%SchemeName%",'
         f'0x00000000,"{scheme_value}"\n'
         "\n"
-        "[Strings]\n"
+        + "[ActiveCursors]\n"
+        + "\n".join(active_cursor_values)
+        + "\n\n"
+        + "[Strings]\n"
         f'DiskName="{theme.label} Cursor Pack"\n'
         f'SchemeName="{theme.label}"\n'
     )
@@ -288,13 +298,47 @@ def _scheme_paths(inf_text: str) -> list[str]:
         lines[0],
     )
     _require(match is not None, "INF CursorScheme must be a quoted registry value.")
-    return [path.replace("%%", "%") for path in match.group(1).split(",")]
+    return match.group(1).split(",")
+
+
+def _active_cursor_settings(inf_text: str) -> dict[str, tuple[str, str]]:
+    section = re.search(r"(?ms)^\[ActiveCursors\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
+    _require(section is not None, "INF is missing its ActiveCursors section.")
+    settings: dict[str, tuple[str, str]] = {}
+    for line in section.group(1).splitlines():
+        if not line.strip():
+            continue
+        try:
+            fields = next(csv.reader([line]))
+        except csv.Error as error:
+            raise ValueError("INF ActiveCursors entry is invalid.") from error
+        _require(
+            len(fields) == 5
+            and fields[0] == "HKCU"
+            and fields[1] == "Control Panel\\Cursors",
+            "INF ActiveCursors entry is invalid.",
+        )
+        _require(fields[2] not in settings, "INF has duplicate active cursor values.")
+        settings[fields[2]] = (fields[3], fields[4])
+    return settings
 
 
 def _copy_files(inf_text: str) -> list[str]:
     match = re.search(r"(?ms)^\[CursorFiles\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
     _require(match is not None, "INF is missing its CursorFiles section.")
     return [line.strip() for line in match.group(1).splitlines() if line.strip()]
+
+
+def _default_install_addreg_sections(inf_text: str) -> list[str]:
+    section = re.search(r"(?ms)^\[DefaultInstall\]\s*\n(.*?)(?=^\[|\Z)", inf_text)
+    _require(section is not None, "INF is missing its DefaultInstall section.")
+    directives = [
+        line.partition("=")[2]
+        for line in section.group(1).splitlines()
+        if line.partition("=")[0].strip().casefold() == "addreg"
+    ]
+    _require(len(directives) == 1, "INF must have one AddReg directive.")
+    return [name.strip() for name in directives[0].split(",")]
 
 
 def _expected_archive_entries(theme: Theme) -> set[str]:
@@ -343,12 +387,31 @@ def verify_pack(output_root: Path) -> bool:
         inf_path = theme_dir / f"{theme.key}.inf"
         _require(inf_path.is_file(), f"Installer is missing: {inf_path.name}.")
         inf_text = inf_path.read_text(encoding="ascii")
-        expected_scheme_paths = [
-            f"%SystemRoot%\\Cursors\\{theme.key}\\{filename}" for filename in filenames
-        ]
+        _require(
+            _default_install_addreg_sections(inf_text) == ["CursorScheme", "ActiveCursors"],
+            f"{theme.key} installer does not apply its active cursor settings.",
+        )
+        expected_scheme_paths = [f"%10%\\Cursors\\{theme.key}\\{filename}" for filename in filenames]
         _require(
             _scheme_paths(inf_text) == expected_scheme_paths,
             f"{theme.key} role mapping order is wrong.",
+        )
+        expected_active_settings = {
+            "": ("0x00000000", "%SchemeName%"),
+            "Scheme Source": ("0x00010001", "1"),
+        }
+        expected_active_settings.update(
+            {
+                role.registry_value: (
+                    "0x00000000",
+                    f"%10%\\Cursors\\{theme.key}\\{filename}",
+                )
+                for role, filename in zip(ROLE_ORDER, filenames)
+            }
+        )
+        _require(
+            _active_cursor_settings(inf_text) == expected_active_settings,
+            f"{theme.key} active cursor settings are incomplete.",
         )
         _require(_copy_files(inf_text) == filenames, f"{theme.key} copy list is wrong.")
         for role, filename in zip(ROLE_ORDER, filenames):

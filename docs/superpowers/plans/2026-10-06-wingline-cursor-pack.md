@@ -24,7 +24,7 @@
 - The build should produce individual theme ZIPs and a combined ZIP under `dist/`.
 - Include a README with build instructions and the Windows install steps.
 - The pack will use Windows' built-in cursor installer and will not add a separate running application.
-- The build/check command should verify that both themes contain all 17 role mappings; every INF reference resolves to a packaged cursor; static cursor hotspots are within their images; animated cursor containers are well-formed; and all ZIP archives pass an integrity check.
+- The build/check command should verify that both themes contain all 17 role mappings; each INF registers the named scheme and writes every active cursor value for the user; every INF reference resolves to a packaged cursor; static cursor hotspots are within their images; animated cursor containers are well-formed; and all ZIP archives pass an integrity check.
 - A live Windows installation check is outside the available build environment and must not be claimed unless performed separately.
 
 ## Review Focus
@@ -47,7 +47,7 @@
 - Create: `tests/test_artwork.py`
 
 **Interfaces:**
-- `CursorRole(key: str, label: str, glyph: str)` stores a Windows role ID, display label, and artwork symbol.
+- `CursorRole(key: str, label: str, glyph: str, registry_value: str)` stores a Windows role ID, display label, artwork symbol, and corresponding Control Panel Cursors value name.
 - `Theme(key: str, label: str, fill: str, edge: str, wing: str)` stores a stable theme key and its three palette colors.
 - `ROLE_ORDER: tuple[CursorRole, ...]` defines the 17 ordered roles in the spec.
 - `THEMES: dict[str, Theme]` contains keys `Wingline-White` and `Wingline-Black`.

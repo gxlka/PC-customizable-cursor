@@ -26,13 +26,14 @@ Choose one of the ZIPs in `dist/`:
 - `Wingline-Cursor-Pack.zip` for both themes.
 
 Extract the ZIP, open the theme folder, then right-click its `.inf` file and
-select **Install**. Windows copies the cursor files into its Cursors folder and
-registers the scheme for your account. Approve the Windows permission prompt if
-one appears.
+select **Install**. Windows copies the cursor files into its Cursors folder,
+registers the scheme, and sets it as the current scheme for your account.
+Approve the Windows permission prompt if one appears.
 
-To activate the scheme, open **Settings → Bluetooth & devices → Mouse →
-Additional mouse settings → Pointers**. Choose **Wingline White** or
-**Wingline Black** from the Scheme list, then select **Apply** and **OK**.
+If Windows does not refresh the pointer immediately, open **Settings →
+Bluetooth & devices → Mouse → Additional mouse settings → Pointers**. Choose
+**Wingline White** or **Wingline Black** from the Scheme list, then select
+**Apply** and **OK**.
 
 The `preview.png` file shows the 32 px designs against light and dark
 backgrounds. Each theme ZIP also includes its own preview and `INSTALL.txt`.
