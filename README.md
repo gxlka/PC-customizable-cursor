@@ -1,8 +1,9 @@
 # Wingline Cursor Pack
 
 Wingline is a complete native Windows cursor scheme built from the supplied
-sketch. Its right-facing pointer keeps the curved rear and three small trailing
-wing lines, with rounded antialiased edges and a contrasting outline.
+sketch. Its right-facing pointer keeps the curved rear, with rounded
+antialiased edges and a contrasting outline. Other roles use their own shapes
+without the normal pointer underneath.
 
 ## Themes
 
