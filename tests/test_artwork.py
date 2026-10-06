@@ -120,6 +120,14 @@ class ArtworkTests(unittest.TestCase):
                     image, hotspot = render_cursor(arrow, THEMES[f"{name}-White"], size)
                     self.assertGreater(image.getchannel("A").getpixel(hotspot), 0)
 
+    def test_macos_pointer_has_a_broader_silhouette_than_windows_smooth(self):
+        widths = []
+        for style in ("Windows-Smooth", "macOS"):
+            image, _ = render_cursor(ROLE_ORDER[0], THEMES[f"{style}-White"], 32)
+            bounds = image.getchannel("A").point(lambda value: 255 if value >= 128 else 0).getbbox()
+            widths.append(bounds[2]-bounds[0])
+        self.assertGreaterEqual(widths[1], widths[0]+3)
+
     def test_visible_artwork_stays_large_and_unclipped_at_every_native_size(self):
         from wingline.artwork import SUPPORTED_SIZES
         for theme in THEMES.values():

@@ -97,7 +97,8 @@ def draw_hand(p, glyph, frame):
 def draw_macos(p, glyph, frame):
     from .designs import curve
     if glyph=='arrow':
-        p.shape([(.17,.08),(.17,.84),(.37,.66),(.51,.93),(.65,.85),(.51,.59),(.79,.59)])
+        # Broad triangular head, a deep sharp notch and short straight stem.
+        p.shape([(.17,.08),(.17,.88),(.38,.65),(.48,.83),(.61,.75),(.51,.58),(.89,.58)])
     elif glyph=='help':
         p.disk(.5,.5,.38);question(p,scale=.88)
     elif glyph=='appstarting':
