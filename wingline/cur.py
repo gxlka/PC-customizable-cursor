@@ -25,7 +25,16 @@ def _dib_image(image: Image.Image) -> bytes:
     for y in range(height - 1, -1, -1):
         for x in range(width):
             red, green, blue, alpha = pixels[x, y]
-            xor_mask.extend((blue, green, red, alpha))
+            # Windows alpha cursor bitmaps use premultiplied BGRA. This also
+            # clears color from fully transparent pixels to prevent fringes.
+            xor_mask.extend(
+                (
+                    (blue * alpha + 127) // 255,
+                    (green * alpha + 127) // 255,
+                    (red * alpha + 127) // 255,
+                    alpha,
+                )
+            )
 
     and_stride = ((width + 31) // 32) * 4
     and_mask = bytearray(and_stride * height)

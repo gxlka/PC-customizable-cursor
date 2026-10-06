@@ -131,6 +131,16 @@ class PackageTests(unittest.TestCase):
                         settings[registry_values[role.key]],
                     )
 
+    def test_one_click_installer_reapplies_registered_cursors_idempotently(self):
+        installer = (Path(__file__).resolve().parents[1] / "installer" / "Install-Wingline.ps1").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertIn("Copy-Item -LiteralPath $matches.FullName -Destination $destination -Force", installer)
+        self.assertIn("$cursorKey.SetValue($entry.Key, $destination", installer)
+        self.assertIn("SystemParametersInfo(0x0057", installer)
+        self.assertIn("was reapplied and is active", installer)
+
     def test_verifier_rejects_an_installer_with_unexpanded_dirid(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             output_root = Path(temporary_directory) / "dist"

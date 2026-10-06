@@ -18,17 +18,16 @@ from .roles import ROLE_ORDER, THEMES, CursorRole, Theme
 ANIMATED_ROLES = {"appstarting", "wait"}
 INSTALL_TEXT = """Wingline Cursor Pack — Windows install
 
-1. Extract this folder somewhere you can find it again.
-2. Right-click the theme's .inf file and choose Install. Approve the Windows
-   permission prompt if one appears. The installer copies the files and sets
-   this theme as the current cursor scheme for your account.
-3. If Windows does not refresh the pointer immediately, open Settings >
-   Bluetooth & devices > Mouse > Additional mouse settings. On the Pointers
-   tab, choose this Wingline scheme, select Apply, then OK.
+Extract this folder and double-click Install-Wingline.cmd. It copies the
+cursor files into your user profile, reapplies the scheme even if Windows
+already has an older registration, and reloads the active cursors. It does
+not need administrator access.
 
-Run Install-Wingline.cmd to install and activate the theme immediately for your account. The .inf remains available for manual import. Cursor images include sizes through 256 px.
+The .inf remains available for manual import. If Windows reports that an INF
+is already installed, run Install-Wingline.cmd to reapply and activate it.
+Cursor files include sizes through 256 px.
 
-The included preview.png shows the 32 px artwork on light and dark backgrounds.
+The included preview.png shows the 48 px artwork on light and dark backgrounds.
 """
 
 
@@ -116,7 +115,7 @@ def _draw_theme_preview(theme: Theme, output_path: Path) -> Image.Image:
     label_font = _font(12)
     small_font = _font(10)
     draw.text((18, 16), theme.label, fill="#151922", font=title_font)
-    draw.text((18, 48), "32 px cursors on both light and dark surfaces", fill="#4A5362", font=small_font)
+    draw.text((18, 48), "48 px cursor previews on light and dark surfaces", fill="#4A5362", font=small_font)
     draw.text((225, 72), "LIGHT", fill="#394252", font=small_font)
     draw.text((282, 72), "DARK", fill="#394252", font=small_font)
 
@@ -125,10 +124,10 @@ def _draw_theme_preview(theme: Theme, output_path: Path) -> Image.Image:
         draw.rounded_rectangle((12, top, width - 12, top + row_height - 4), radius=8, fill="#FFFFFF")
         draw.text((22, top + 21), role.label, fill="#202633", font=label_font)
         for x, background in ((222, "#F8FAFC"), (278, "#171A20")):
-            draw.rounded_rectangle((x, top + 7, x + 48, top + 51), radius=6, fill=background)
-            cursor, _ = render_cursor(role, theme, 32, frame=0)
-            image.alpha_composite(cursor, (x + 8, top + 13)) if image.mode == "RGBA" else image.paste(
-                cursor, (x + 8, top + 13), cursor
+            draw.rounded_rectangle((x, top + 5, x + 48, top + 53), radius=6, fill=background)
+            cursor, _ = render_cursor(role, theme, 48, frame=0)
+            image.alpha_composite(cursor, (x, top + 5)) if image.mode == "RGBA" else image.paste(
+                cursor, (x, top + 5), cursor
             )
 
     image.save(output_path, format="PNG", optimize=True)

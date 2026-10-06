@@ -47,6 +47,17 @@ def parse_cur(data):
 
 
 class CurEncodingTests(unittest.TestCase):
+    def test_xor_pixels_use_premultiplied_alpha_and_clear_transparent_rgb(self):
+        image = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
+        image.putpixel((0, 31), (200, 100, 50, 128))
+        image.putpixel((1, 31), (255, 200, 20, 0))
+
+        data = encode_cur([(image, (0, 0))])
+        _, entries = parse_cur(data)
+        pixel_start = entries[0]["offset"] + 40
+
+        self.assertEqual((25, 50, 100, 128), struct.unpack_from("<4B", data, pixel_start))
+        self.assertEqual((0, 0, 0, 0), struct.unpack_from("<4B", data, pixel_start + 4))
     def test_cur_directory_has_all_sizes_and_valid_hotspots_and_offsets(self):
         self.assertIsNotNone(encode_cur)
         data = encode_cur(sample_images())
