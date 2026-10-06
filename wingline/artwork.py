@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw
 from .roles import CursorRole, ROLE_ORDER, Theme
 
 
-SUPPORTED_SIZES = (32, 48, 64, 96)
+SUPPORTED_SIZES = (32, 48, 64, 96, 128, 192, 256)
 SUPERSAMPLE = 4
 ANIMATION_FRAMES = 8
 ARROW_SCALE = 0.64
@@ -59,7 +59,7 @@ def _arrow_path() -> list[tuple[float, float]]:
     for index, segment in enumerate(segments):
         curve = _cubic(*segment)
         points.extend(curve if index == 0 else curve[1:])
-    tip = (0.95, 0.49)
+    tip = (0.35, 0.09)
     return [
         (tip[0] + (x - tip[0]) * ARROW_SCALE, tip[1] + (y - tip[1]) * ARROW_SCALE)
         for x, y in points

@@ -40,19 +40,19 @@ def _validate_cursor_frame(frame: bytes) -> None:
         or data_length == 0
         or data_offset + data_length > len(frame)
     ):
-        raise ValueError("ANI frames must contain a valid single 64x64 CUR image.")
+        raise ValueError("ANI frames must contain a valid single 256x256 CUR image.")
     if data_offset + 40 > len(frame):
-        raise ValueError("ANI frames must contain a complete 64x64 CUR image.")
+        raise ValueError("ANI frames must contain a complete 256x256 CUR image.")
     dib_size, dib_width, doubled_height, planes, bit_count = struct.unpack_from(
         "<IiiHH", frame, data_offset
     )
     if (dib_size, dib_width, doubled_height, planes, bit_count) != (40, 256, 512, 1, 32):
-        raise ValueError("ANI frames must contain a complete 64x64 CUR image.")
+        raise ValueError("ANI frames must contain a complete 256x256 CUR image.")
     xor_stride = ((_FRAME_SIZE * bit_count + 31) // 32) * 4
     mask_stride = ((_FRAME_SIZE + 31) // 32) * 4
     expected_data_length = dib_size + (xor_stride + mask_stride) * _FRAME_SIZE
     if data_length != expected_data_length:
-        raise ValueError("ANI frames must contain a complete 64x64 CUR image.")
+        raise ValueError("ANI frames must contain a complete 256x256 CUR image.")
 
 
 def encode_ani(frames: Sequence[bytes], frame_jiffies: int = 7) -> bytes:
