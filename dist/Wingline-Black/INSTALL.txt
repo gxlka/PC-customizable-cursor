@@ -1,13 +1,12 @@
 Wingline Cursor Pack — Windows install
 
-1. Extract this folder somewhere you can find it again.
-2. Right-click the theme's .inf file and choose Install. Approve the Windows
-   permission prompt if one appears. The installer copies the files and sets
-   this theme as the current cursor scheme for your account.
-3. If Windows does not refresh the pointer immediately, open Settings >
-   Bluetooth & devices > Mouse > Additional mouse settings. On the Pointers
-   tab, choose this Wingline scheme, select Apply, then OK.
+Extract this folder and double-click Install-Wingline.cmd. It copies the
+cursor files into your user profile, reapplies the scheme even if Windows
+already has an older registration, and reloads the active cursors. It does
+not need administrator access.
 
-Run Install-Wingline.cmd to install and activate the theme immediately for your account. The .inf remains available for manual import. Cursor images include sizes through 256 px.
+The .inf remains available for manual import. If Windows reports that an INF
+is already installed, run Install-Wingline.cmd to reapply and activate it.
+Cursor files include sizes through 256 px.
 
-The included preview.png shows the 32 px artwork on light and dark backgrounds.
+The included preview.png shows the 48 px artwork on light and dark backgrounds.

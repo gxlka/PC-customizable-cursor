@@ -47,4 +47,4 @@ if (-not ("WinglineCursor.NativeMethods" -as [type])) {
 if (-not [WinglineCursor.NativeMethods]::SystemParametersInfo(0x0057, 0, [IntPtr]::Zero, 0)) {
     throw "Windows saved the theme but could not reload the cursor settings."
 }
-[System.Windows.Forms.MessageBox]::Show("$schemeName is installed and active.", "Wingline Cursor Pack") | Out-Null
+[System.Windows.Forms.MessageBox]::Show("$schemeName was reapplied and is active.", "Wingline Cursor Pack") | Out-Null
