@@ -1,0 +1,57 @@
+[Version]
+Signature="$Windows NT$"
+
+[DefaultInstall]
+CopyFiles=CursorFiles
+AddReg=CursorScheme
+
+[SourceDisksNames]
+1=%DiskName%,,,.
+
+[SourceDisksFiles]
+Wingline-White-arrow.cur=1
+Wingline-White-help.cur=1
+Wingline-White-appstarting.ani=1
+Wingline-White-wait.ani=1
+Wingline-White-crosshair.cur=1
+Wingline-White-ibeam.cur=1
+Wingline-White-nwpen.cur=1
+Wingline-White-no.cur=1
+Wingline-White-sizens.cur=1
+Wingline-White-sizewe.cur=1
+Wingline-White-sizenwse.cur=1
+Wingline-White-sizenesw.cur=1
+Wingline-White-sizeall.cur=1
+Wingline-White-uparrow.cur=1
+Wingline-White-hand.cur=1
+Wingline-White-pin.cur=1
+Wingline-White-person.cur=1
+
+[DestinationDirs]
+CursorFiles=10,"Cursors\Wingline-White"
+
+[CursorFiles]
+Wingline-White-arrow.cur
+Wingline-White-help.cur
+Wingline-White-appstarting.ani
+Wingline-White-wait.ani
+Wingline-White-crosshair.cur
+Wingline-White-ibeam.cur
+Wingline-White-nwpen.cur
+Wingline-White-no.cur
+Wingline-White-sizens.cur
+Wingline-White-sizewe.cur
+Wingline-White-sizenwse.cur
+Wingline-White-sizenesw.cur
+Wingline-White-sizeall.cur
+Wingline-White-uparrow.cur
+Wingline-White-hand.cur
+Wingline-White-pin.cur
+Wingline-White-person.cur
+
+[CursorScheme]
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-arrow.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-help.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-appstarting.ani,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-wait.ani,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-crosshair.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-ibeam.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-nwpen.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-no.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-sizens.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-sizewe.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-sizenwse.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-sizenesw.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-sizeall.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-uparrow.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-hand.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-pin.cur,%%SystemRoot%%\Cursors\Wingline-White\Wingline-White-person.cur"
+
+[Strings]
+DiskName="Wingline White Cursor Pack"
+SchemeName="Wingline White"

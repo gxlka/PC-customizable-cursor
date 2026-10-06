@@ -1,0 +1,57 @@
+[Version]
+Signature="$Windows NT$"
+
+[DefaultInstall]
+CopyFiles=CursorFiles
+AddReg=CursorScheme
+
+[SourceDisksNames]
+1=%DiskName%,,,.
+
+[SourceDisksFiles]
+Wingline-Black-arrow.cur=1
+Wingline-Black-help.cur=1
+Wingline-Black-appstarting.ani=1
+Wingline-Black-wait.ani=1
+Wingline-Black-crosshair.cur=1
+Wingline-Black-ibeam.cur=1
+Wingline-Black-nwpen.cur=1
+Wingline-Black-no.cur=1
+Wingline-Black-sizens.cur=1
+Wingline-Black-sizewe.cur=1
+Wingline-Black-sizenwse.cur=1
+Wingline-Black-sizenesw.cur=1
+Wingline-Black-sizeall.cur=1
+Wingline-Black-uparrow.cur=1
+Wingline-Black-hand.cur=1
+Wingline-Black-pin.cur=1
+Wingline-Black-person.cur=1
+
+[DestinationDirs]
+CursorFiles=10,"Cursors\Wingline-Black"
+
+[CursorFiles]
+Wingline-Black-arrow.cur
+Wingline-Black-help.cur
+Wingline-Black-appstarting.ani
+Wingline-Black-wait.ani
+Wingline-Black-crosshair.cur
+Wingline-Black-ibeam.cur
+Wingline-Black-nwpen.cur
+Wingline-Black-no.cur
+Wingline-Black-sizens.cur
+Wingline-Black-sizewe.cur
+Wingline-Black-sizenwse.cur
+Wingline-Black-sizenesw.cur
+Wingline-Black-sizeall.cur
+Wingline-Black-uparrow.cur
+Wingline-Black-hand.cur
+Wingline-Black-pin.cur
+Wingline-Black-person.cur
+
+[CursorScheme]
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-arrow.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-help.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-appstarting.ani,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-wait.ani,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-crosshair.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-ibeam.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-nwpen.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-no.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-sizens.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-sizewe.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-sizenwse.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-sizenesw.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-sizeall.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-uparrow.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-hand.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-pin.cur,%%SystemRoot%%\Cursors\Wingline-Black\Wingline-Black-person.cur"
+
+[Strings]
+DiskName="Wingline Black Cursor Pack"
+SchemeName="Wingline Black"
