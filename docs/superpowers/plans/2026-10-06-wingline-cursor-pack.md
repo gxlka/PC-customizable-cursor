@@ -12,14 +12,14 @@
 
 ## Global Constraints
 
-- Preserve the supplied sketch's right-facing silhouette, smooth corners, subtle rear curve, and small wing-like lines trailing from its left side.
-- Create Wingline White and Wingline Black with the same shapes and role symbols.
-- Use a contrasting edge so each cursor remains legible over both light and dark backgrounds.
-- Each theme covers the 17 Windows roles listed in the spec.
+- The main pointer should retain the sketch's right-facing silhouette, with smooth corners, a subtle curve at the rear, and small wing-like lines trailing from its left side.
+- Each theme covers these 17 Windows roles: Normal Select (`arrow`), Help Select (`help`), Working in Background (`appstarting`), Busy (`wait`), Precision Select (`crosshair`), Text Select (`ibeam`), Handwriting (`nwpen`), Unavailable (`no`), Vertical Resize (`sizens`), Horizontal Resize (`sizewe`), Diagonal Resize 1 (`sizenwse`), Diagonal Resize 2 (`sizenesw`), Move (`sizeall`), Alternate Select (`uparrow`), Link Select (`hand`), Location Select (`pin`), and Person Select (`person`).
 - Generate multi-size static `.cur` files, animated `.ani` files for Busy and Working in Background, one `.inf` installer per theme, and a preview sheet.
-- Produce individual theme ZIPs and a combined ZIP under `dist/`; include build and Windows install instructions in README.
-- Verify all 17 mappings, every INF reference, cursor hotspot bounds, ANI structure, and ZIP integrity.
-- Do not claim a live Windows installation check unless performed separately.
+- The build should produce individual theme ZIPs and a combined ZIP under `dist/`.
+- Include a README with build instructions and the Windows install steps.
+- The pack will use Windows' built-in cursor installer and will not add a separate running application.
+- The build/check command should verify that both themes contain all 17 role mappings; every INF reference resolves to a packaged cursor; static cursor hotspots are within their images; animated cursor containers are well-formed; and all ZIP archives pass an integrity check.
+- A live Windows installation check is outside the available build environment and must not be claimed unless performed separately.
 
 ## Review Focus
 
