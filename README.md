@@ -1,8 +1,8 @@
-# Wingline Cursor Pack
+# Wingline & Windows Smooth Cursor Pack
 
-Wingline is a complete native Windows cursor pack with two separate visual styles. Wingline keeps its own angled arrow design. Windows Smooth adds a familiar upper-left Windows arrow with a rounded, antialiased edge and the click hotspot at its tip. Both styles have white and black themes. Every role in Windows Smooth has independent vector artwork: none of its role icons reuse Wingline artwork. Within each scheme, all 17 roles have distinct silhouettes.
+A complete Windows cursor pack in two styles: **Wingline**, with an angled wing-shaped pointer, and **Windows Smooth**, with clean rounded curves. Each style has its own matching icons and comes in white and black themes.
 
-Every Windows cursor role has its own artwork; none reuse the main pointer. Busy and Working in Background use looping animations. Static cursors contain multiple Windows size variants from 32 px through 256 px, rendered with 8x supersampling and premultiplied alpha for clean edges at high DPI. Role artwork is fitted to a fixed visible extent of 24 px on a 32 px canvas (36 px on a 48 px canvas), with thin contrast edges. Each native size is rendered independently; the build also checks every animation frame and checks for duplicate silhouettes between schemes. The previews show larger 48 px renders.
+Includes all 17 Windows cursor roles, animated Busy and Working in Background cursors, consistent visible sizes, thin outlines, and sharp 32–256 px variants for different display scales.
 
 ## Themes
 
@@ -11,7 +11,7 @@ Every Windows cursor role has its own artwork; none reuse the main pointer. Busy
 
 ## Download and install
 
-Choose the ZIP for the theme you want in `dist/`, extract it, open the theme folder, and double-click `Install-Wingline.cmd`. It copies the files to your user profile, updates your cursor scheme, and tells Windows to reload the cursors immediately. It does not require administrator access. The `.inf` is included for manual import through Windows; Windows may require selecting Apply in Mouse Properties after an INF install.
+[Download the full cursor pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/Wingline-Cursor-Pack.zip), extract it, open your preferred theme folder, and double-click `Install-Wingline.cmd`. It copies the files to your user profile, updates your cursor scheme, and tells Windows to reload the cursors immediately. It does not require administrator access. The `.inf` is included for manual import through Windows; Windows may require selecting Apply in Mouse Properties after an INF install.
 
 The pack contains a preview and `INSTALL.txt` in each theme folder.
 
