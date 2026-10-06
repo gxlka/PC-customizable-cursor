@@ -79,6 +79,17 @@ class ArtworkTests(unittest.TestCase):
                 ]
                 self.assertEqual(len(ROLE_ORDER), len(set(rendered)))
 
+    def test_every_role_has_a_distinct_silhouette_not_just_a_different_color(self):
+        for theme in THEMES.values():
+            with self.subTest(theme=theme.key):
+                silhouettes = [
+                    render_cursor(role, theme, 64, frame=0)[0]
+                    .getchannel("A")
+                    .tobytes()
+                    for role in ROLE_ORDER
+                ]
+                self.assertEqual(len(ROLE_ORDER), len(set(silhouettes)))
+
     def test_arrow_hotspot_is_at_the_top_corner(self):
         self.assertIsNotNone(render_cursor)
         arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
@@ -88,8 +99,8 @@ class ArtworkTests(unittest.TestCase):
         image, hotspot = render_cursor(arrow, THEMES["Wingline-White"], 32)
         alpha = image.getchannel("A")
         bounds = alpha.getbbox()
-        self.assertLessEqual(bounds[2] - bounds[0], 24)
-        self.assertLessEqual(bounds[3] - bounds[1], 23)
+        self.assertLessEqual(bounds[2] - bounds[0], 26)
+        self.assertLessEqual(bounds[3] - bounds[1], 25)
         self.assertEqual((11, 3), hotspot)
         self.assertGreater(alpha.getpixel(hotspot), 0)
 

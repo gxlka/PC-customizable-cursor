@@ -11,15 +11,15 @@ from .roles import CursorRole, ROLE_ORDER, Theme
 SUPPORTED_SIZES = (32, 48, 64, 96, 128, 192, 256)
 SUPERSAMPLE = 8
 ANIMATION_FRAMES = 8
-ARROW_SCALE = 0.64
-ROLE_SCALE = 1.55
+ARROW_SCALE = 0.70
+ROLE_SCALE = 1.70
 ROLE_SCALE_BY_GLYPH = {
-    "help": 1.75,
-    "appstarting": 1.85,
-    "wait": 1.85,
-    "pen": 1.75,
-    "pin": 1.70,
-    "person": 1.90,
+    "help": 1.85,
+    "appstarting": 1.90,
+    "wait": 1.90,
+    "pen": 1.85,
+    "pin": 1.85,
+    "person": 1.95,
 }
 
 
@@ -126,7 +126,7 @@ def _outlined_line(
 def _draw_arrow(draw: ImageDraw.ImageDraw, theme: Theme, scale: int) -> None:
     path = _windows_arrow_path() if theme.style == "windows" else _arrow_path()
     pixels = [_point(point, scale) for point in path]
-    outline = max(4, round(scale * ARROW_SCALE * 0.055))
+    outline = max(4, round(scale * ARROW_SCALE * 0.05))
     draw.polygon(pixels, fill=theme.fill)
     _rounded_line(draw, pixels + [pixels[0]], theme.edge, outline, 1)
 
@@ -185,7 +185,7 @@ def _draw_spinner(
 ) -> None:
     center = (0.50, 0.50)
     radius = 0.115
-    dot_radius = 0.025
+    dot_radius = 0.032
     for index in range(8):
         angle = 2 * math.pi * index / 8 - math.pi / 2
         location = (
@@ -212,7 +212,7 @@ def _draw_role_mark(
     scale: int,
     frame: int,
 ) -> None:
-    width = max(4, round(scale * 0.04))
+    width = max(4, round(scale * 0.03))
     if role.glyph == "arrow":
         return
     if role.glyph == "help":
@@ -231,7 +231,7 @@ def _draw_role_mark(
         )
     elif role.glyph == "appstarting":
         progress = frame / (ANIMATION_FRAMES - 1)
-        outline_width = max(4, round(scale * 0.035))
+        outline_width = max(4, round(scale * 0.028))
         track = tuple(_point(point, scale) for point in ((0.32, 0.43), (0.68, 0.57)))
         radius = max(4, round(scale * 0.045))
         draw.rounded_rectangle(track, radius=radius, outline=theme.edge, width=outline_width)
