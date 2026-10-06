@@ -8,4 +8,6 @@ Wingline Cursor Pack — Windows install
    Bluetooth & devices > Mouse > Additional mouse settings. On the Pointers
    tab, choose this Wingline scheme, select Apply, then OK.
 
+Run Install-Wingline.cmd to install and activate the theme immediately for your account. The .inf remains available for manual import. Cursor images include sizes through 256 px.
+
 The included preview.png shows the 32 px artwork on light and dark backgrounds.
