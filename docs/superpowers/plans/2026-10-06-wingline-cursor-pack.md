@@ -13,7 +13,13 @@
 ## Global Constraints
 
 - The main pointer should retain the sketch's right-facing silhouette, with smooth corners, a subtle curve at the rear, and small wing-like lines trailing from its left side.
+- Two themes share the same shapes and role symbols:
+  - Wingline White: white body, dark defining outline, and restrained light/dark wing marks.
+  - Wingline Black: near-black body, pale defining outline, and matching wing marks.
+- The contrasting edge should keep each cursor legible over both light and dark backgrounds.
+- Every role should remain recognizable at ordinary cursor sizes; decorative details must not obscure its shape or hotspot.
 - Each theme covers these 17 Windows roles: Normal Select (`arrow`), Help Select (`help`), Working in Background (`appstarting`), Busy (`wait`), Precision Select (`crosshair`), Text Select (`ibeam`), Handwriting (`nwpen`), Unavailable (`no`), Vertical Resize (`sizens`), Horizontal Resize (`sizewe`), Diagonal Resize 1 (`sizenwse`), Diagonal Resize 2 (`sizenesw`), Move (`sizeall`), Alternate Select (`uparrow`), Link Select (`hand`), Location Select (`pin`), and Person Select (`person`).
+- Keep editable vector-style source in the repository and use a Python build script to render the cursor assets.
 - Generate multi-size static `.cur` files, animated `.ani` files for Busy and Working in Background, one `.inf` installer per theme, and a preview sheet.
 - The build should produce individual theme ZIPs and a combined ZIP under `dist/`.
 - Include a README with build instructions and the Windows install steps.
@@ -45,6 +51,7 @@
 - `Theme(key: str, label: str, fill: str, edge: str, wing: str)` stores a stable theme key and its three palette colors.
 - `ROLE_ORDER: tuple[CursorRole, ...]` defines the 17 ordered roles in the spec.
 - `THEMES: dict[str, Theme]` contains keys `Wingline-White` and `Wingline-Black`.
+- `requirements.txt` lists the raster dependency as `Pillow>=10,<13`.
 - `render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0) -> tuple[Image.Image, tuple[int, int]]` returns an RGBA image and its click hotspot.
 - The renderer accepts only 32, 48, 64, or 96 px. It draws at 4x resolution before downsampling. The rightmost arrow tip is the `arrow` hotspot. Animated role frames use indices 0–7.
 
