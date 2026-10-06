@@ -90,6 +90,46 @@ class ArtworkTests(unittest.TestCase):
                 ]
                 self.assertEqual(len(ROLE_ORDER), len(set(silhouettes)))
 
+    def test_windows_smooth_uses_separate_artwork_for_every_role(self):
+        for role in ROLE_ORDER:
+            with self.subTest(role=role.key):
+                wing = render_cursor(role, THEMES["Wingline-White"], 64)[0]
+                windows = render_cursor(role, THEMES["Windows-Smooth-White"], 64)[0]
+                self.assertNotEqual(wing.getchannel("A").tobytes(), windows.getchannel("A").tobytes())
+
+    def test_visible_artwork_stays_large_and_unclipped_at_every_native_size(self):
+        from wingline.artwork import SUPPORTED_SIZES
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                for size in SUPPORTED_SIZES:
+                    with self.subTest(theme=theme.key, role=role.key, size=size):
+                        image, _ = render_cursor(role, theme, size)
+                        alpha = image.getchannel("A")
+                        # Count visible pixels, so a faint antialiasing fringe
+                        # cannot disguise an undersized icon.
+                        bounds = alpha.point(lambda value: 255 if value >= 128 else 0).getbbox()
+                        self.assertIsNotNone(bounds)
+                        left, top, right, bottom = bounds
+                        extent = max(right-left, bottom-top)
+                        self.assertGreaterEqual(extent, round(size*.70)-1)
+                        self.assertLessEqual(extent, round(size*.80)+1)
+                        self.assertGreater(left, 0)
+                        self.assertGreater(top, 0)
+                        self.assertLess(right, size)
+                        self.assertLess(bottom, size)
+
+    def test_all_animated_frames_keep_the_fixed_visible_size(self):
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                if role.key not in {"wait", "appstarting"}:
+                    continue
+                for frame in range(8):
+                    with self.subTest(theme=theme.key, role=role.key, frame=frame):
+                        image, _ = render_cursor(role, theme, 32, frame=frame)
+                        x0, y0, x1, y1 = image.getchannel("A").getbbox()
+                        self.assertGreaterEqual(max(x1-x0, y1-y0), 23)
+                        self.assertLessEqual(max(x1-x0, y1-y0), 28)
+
     def test_arrow_hotspot_is_at_the_top_corner(self):
         self.assertIsNotNone(render_cursor)
         arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
@@ -146,7 +186,7 @@ class ArtworkTests(unittest.TestCase):
                 with self.subTest(theme=theme.key, role=role.key):
                     image, _ = render_cursor(role, theme, 32, frame=0)
                     left, top, right, bottom = image.getchannel("A").getbbox()
-                    self.assertGreaterEqual(max(right - left, bottom - top), 12)
+                    self.assertGreaterEqual(max(right - left, bottom - top), 23)
                     self.assertLessEqual(max(right - left, bottom - top), 28)
 
     def test_non_pointer_roles_render_near_main_pointer_scale_at_64px(self):

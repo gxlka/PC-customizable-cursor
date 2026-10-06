@@ -134,6 +134,27 @@ def _draw_theme_preview(theme: Theme, output_path: Path) -> Image.Image:
     return image
 
 
+def _draw_native_preview(output_path: Path) -> None:
+    """Render exports at their actual 32px size on both background colors."""
+    width, header, row = 750, 82, 42
+    image = Image.new("RGB", (width, header + len(ROLE_ORDER)*row + 10), "#EEF1F6")
+    draw = ImageDraw.Draw(image)
+    draw.text((16, 12), "Actual 32 px cursor exports", fill="#151922", font=_font(17))
+    draw.text((16, 37), "Each role fitted to a 24 px visible extent; light and dark surfaces", fill="#4A5362", font=_font(11))
+    for column, theme in enumerate(THEMES.values()):
+        x = 190 + column*138
+        draw.text((x, 62), theme.label, fill="#151922", font=_font(10))
+        for index, role in enumerate(ROLE_ORDER):
+            y = header + index*row
+            if column == 0:
+                draw.text((16,y+13), role.label, fill="#202633", font=_font(11))
+            for offset, background in ((0,"#F8FAFC"),(48,"#171A20")):
+                draw.rounded_rectangle((x+offset,y,x+offset+40,y+38),radius=4,fill=background)
+                cursor, _ = render_cursor(role,theme,32,frame=0)
+                image.paste(cursor,(x+offset+4,y+3),cursor)
+    image.save(output_path, optimize=True)
+
+
 def build_theme(theme: Theme, output_dir: Path) -> list[Path]:
     """Write one complete scheme, its installer, install notes, and preview."""
     output_dir = Path(output_dir)
@@ -208,6 +229,7 @@ def build_pack(output_root: Path) -> list[Path]:
         x += preview.width + gutter
     preview_path = output_root / "preview.png"
     overview.save(preview_path, format="PNG", optimize=True)
+    _draw_native_preview(output_root / "preview-32px.png")
     generated.append(preview_path)
     return generated
 

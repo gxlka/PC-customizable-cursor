@@ -22,6 +22,7 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python build.py
       - run: python build.py --check
+      - run: python verify_windows.py dist
       - name: Commit built downloads
         shell: bash
         run: |
