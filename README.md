@@ -5,6 +5,10 @@ sketch. Its right-facing pointer keeps the curved rear, with rounded
 antialiased edges and a contrasting outline. Other roles use their own shapes
 without the normal pointer underneath.
 
+The main pointer uses a compact silhouette with its hotspot on the pointed tip.
+The other role shapes are enlarged for visibility at 32 px and use centered
+hotspots.
+
 ## Themes
 
 - **Wingline White** uses a white body with dark details.

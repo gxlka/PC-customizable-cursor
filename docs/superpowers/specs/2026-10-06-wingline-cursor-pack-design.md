@@ -15,7 +15,7 @@ Two themes share the same shapes for each cursor role:
 - **Wingline White:** white body and dark defining outline.
 - **Wingline Black:** near-black body and pale defining outline.
 
-The contrasting edge should keep each cursor legible over both light and dark backgrounds. Every role should remain recognizable at ordinary cursor sizes. Role artwork is drawn on its own rather than layered over the normal pointer.
+The contrasting edge should keep each cursor legible over both light and dark backgrounds. The normal pointer should use a compact silhouette with its hotspot on the pointed tip. Other role artwork is drawn on its own, enlarged for visibility at 32 px, and centered on its hotspot.
 
 ## Cursor roles
 

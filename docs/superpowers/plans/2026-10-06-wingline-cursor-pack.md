@@ -1,16 +1,119 @@
-YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éíß_yN‹Z–‹­¦ëeŠw¬ÔŒ]¥¹±¥¹”ÕÉÍ½ÈA…¬%µÁ±•µ•¹Ñ…Ñ¥½¸A±…¸((ø€¨©½È…•¹Ñ¥ŒÝ½É­•ÉÌè¨¨IEU%IMUµM-%10èUÍ”ÍÕÁ•ÉÁ½Ý•ÉÌéÍÕ‰…•¹Ðµ‘É¥Ù•¸µ‘•Ù•±½Áµ•¹Ð€¡É•½µµ•¹‘•¤½ÈÍÕÁ•ÉÁ½Ý•ÉÌé•á•ÕÑ¥¹œµÁ±…¹ÌÑ¼¥µÁ±•µ•¹ÐÑ¡¥ÌÁ±…¸Ñ…Í¬µ‰äµÑ…Í¬¸MÑ•ÁÌÕÍ”¡•­‰½à€¡€´lu€¤Íå¹Ñ…à™½ÈÑÉ…­¥¹œ¸((¨©½…°è¨¨	Õ¥±…¹Á…­…”ÑÝ¼½µÁ±•Ñ”°¡¥ µ½¹ÑÉ…ÍÐ]¥¹±¥¹”ÕÉÍ½ÈÍ¡•µ•Ì™½È]¥¹‘½ÝÌ¸((¨©É¡¥Ñ•ÑÕÉ”è¨¨-••ÀÑ¡”•‘¥Ñ…‰±”Ù•Ñ½ÈµÍÑå±”‘É…Ý¥¹œ…¹É½±”‘•™¥¹¥Ñ¥½¹Ì¥¸„Íµ…±°AåÑ¡½¸Á…­…”¸I•¹‘•È…Ð¡¥ É•Í½±ÕÑ¥½¸…¹‘½Ý¹Í…µÁ±”Ñ¼€ÌÈ°€Ðà°€ØÐ°…¹€äØÁàUH•¹ÑÉ¥•Ìì•¹½‘”	ÕÍä…¹]½É­¥¹œ¥¸	…­É½Õ¹…ÌI%9$…¹¥µ…Ñ¥½¹Ì¸‰Õ¥±•¹ÑÉäÁ½¥¹ÐÑ¡•¸•¹•É…Ñ•ÌÉ½±”µ…ÁÁ¥¹Ì°%9¥¹ÍÑ…±±•ÉÌ°ÁÉ•Ù¥•ÝÌ°…¹i%AÌ™É½´Ñ¡”Í…µ”µ…¹¥™•ÍÐ¸((¨©Q• MÑ…¬è¨¨AåÑ¡½¸€Ì¸ÄÄ¬°A¥±±½Ü™½ÈI	É…ÍÑ•É¥é…Ñ¥½¸°AåÑ¡½¸ÍÑ…¹‘…É±¥‰É…Éä™½ÈUH½9$•¹½‘¥¹œ°%9½i%@É•…Ñ¥½¸°…¹Õ¹¥ÑÑ•ÍÐ¸((¨©MÁ•Œè¨¨‘½Ì½ÍÕÁ•ÉÁ½Ý•ÉÌ½ÍÁ•Ì¼ÈÀÈØ´ÄÀ´ÀØµÝ¥¹±¥¹”µÕÉÍ½ÈµÁ…¬µ‘•Í¥¸¹µ‘€((ŒŒ±½‰…°½¹ÍÑÉ…¥¹ÑÌ((´Q¡”µ…¥¸Á½¥¹Ñ•ÈÍ¡½Õ±É•Ñ…¥¸Ñ¡”Í­•Ñ ÌÉ¥¡Ðµ™…¥¹œÍ¥±¡½Õ•ÑÑ”°Ý¥Ñ Íµ½½Ñ ½É¹•ÉÌ…¹„ÍÕ‰Ñ±”ÕÉÙ”…ÐÑ¡”É•…È¸%Ð¡…Ì¹¼ÑÉ…¥±¥¹œ±¥¹•Ì¸(´QÝ¼Ñ¡•µ•ÌÍ¡…É”Ñ¡”Í…µ”Í¡…Á•Ì™½È•… ÕÉÍ½ÈÉ½±”è(€€´]¥¹±¥¹”]¡¥Ñ”èÝ¡¥Ñ”‰½‘äÝ¥Ñ „‘…É¬‘•™¥¹¥¹œ½ÕÑ±¥¹”¸(€€´]¥¹±¥¹”	±…¬è¹•…Èµ‰±…¬‰½‘äÝ¥Ñ „Á…±”‘•™¥¹¥¹œ½ÕÑ±¥¹”¸(´… ¹½¸µ‘•™…Õ±ÐÕÉÍ½ÈÉ½±”ÕÍ•Ì¥ÑÌ½Ý¸Í¡…Á”Ý¥Ñ¡½ÕÐÑ¡”¹½Éµ…°Á½¥¹Ñ•ÈÕ¹‘•É¹•…Ñ ¸(´Q¡”½¹ÑÉ…ÍÑ¥¹œ•‘”Í¡½Õ±­••À•… ÕÉÍ½È±•¥‰±”½Ù•È‰½Ñ ±¥¡Ð…¹‘…É¬‰…­É½Õ¹‘Ì¸(´Ù•ÉäÉ½±”Í¡½Õ±É•µ…¥¸É•½¹¥é…‰±”…Ð½É‘¥¹…ÉäÕÉÍ½ÈÍ¥é•Ì…¹ÕÍ”„¡½ÑÍÁ½Ð…ÁÁÉ½ÁÉ¥…Ñ”Ñ¼¥ÑÌÍ¡…Á”¸(´… Ñ¡•µ”½Ù•ÉÌÑ¡•Í”€ÄÜ]¥¹‘½ÝÌÉ½±•Ìè9½Éµ…°M•±•Ð€¡…ÉÉ½Ý€¤°!•±ÀM•±•Ð€¡¡•±Á€¤°]½É­¥¹œ¥¸	…­É½Õ¹€¡…ÁÁÍÑ…ÉÑ¥¹€¤°	ÕÍä€¡Ý…¥Ñ€¤°AÉ•¥Í¥½¸M•±•Ð€¡É½ÍÍ¡…¥É€¤°Q•áÐM•±•Ð€¡¥‰•…µ€¤°!…¹‘ÝÉ¥Ñ¥¹œ€¡¹ÝÁ•¹€¤°U¹…Ù…¥±…‰±”€¡¹½€¤°Y•ÉÑ¥…°I•Í¥é”€¡Í¥é•¹Í€¤°!½É¥é½¹Ñ…°I•Í¥é”€¡Í¥é•Ý•€¤°¥…½¹…°I•Í¥é”€Ä€¡Í¥é•¹ÝÍ•€¤°¥…½¹…°I•Í¥é”€È€¡Í¥é•¹•ÍÝ€¤°5½Ù”€¡Í¥é•…±±€¤°±Ñ•É¹…Ñ”M•±•Ð€¡ÕÁ…ÉÉ½Ý€¤°1¥¹¬M•±•Ð€¡¡…¹‘€¤°1½…Ñ¥½¸M•±•Ð€¡Á¥¹€¤°…¹A•ÉÍ½¸M•±•Ð€¡Á•ÉÍ½¹€¤¸(´-••À•‘¥Ñ…‰±”Ù•Ñ½ÈµÍÑå±”Í½ÕÉ”¥¸Ñ¡”É•Á½Í¥Ñ½Éä…¹ÕÍ”„AåÑ¡½¸‰Õ¥±ÍÉ¥ÁÐÑ¼É•¹‘•ÈÑ¡”ÕÉÍ½È…ÍÍ•ÑÌ¸(´•¹•É…Ñ”µÕ±Ñ¤µÍ¥é”ÍÑ…Ñ¥Œ€¹ÕÉ€™¥±•Ì°…¹¥µ…Ñ•€¹…¹¥€™¥±•Ì™½È	ÕÍä…¹]½É­¥¹œ¥¸	…­É½Õ¹°½¹”€¹¥¹™€¥¹ÍÑ…±±•ÈÁ•ÈÑ¡•µ”°…¹„ÁÉ•Ù¥•ÜÍ¡••Ð¸(´Q¡”‰Õ¥±Í¡½Õ±ÁÉ½‘Õ”¥¹‘¥Ù¥‘Õ…°Ñ¡•µ”i%AÌ…¹„½µ‰¥¹•i%@Õ¹‘•È‘¥ÍÐ½€¸(´%¹±Õ‘”„I5Ý¥Ñ ‰Õ¥±¥¹ÍÑÉÕÑ¥½¹Ì…¹Ñ¡”]¥¹‘½ÝÌ¥¹ÍÑ…±°ÍÑ•ÁÌ¸(´Q¡”Á…¬Ý¥±°ÕÍ”]¥¹‘½ÝÌœ‰Õ¥±Ðµ¥¸ÕÉÍ½È¥¹ÍÑ…±±•È…¹Ý¥±°¹½Ð…‘„Í•Á…É…Ñ”ÉÕ¹¹¥¹œ…ÁÁ±¥…Ñ¥½¸¸(´Q¡”‰Õ¥±½¡•¬½µµ…¹Í¡½Õ±Ù•É¥™äÑ¡…Ð‰½Ñ Ñ¡•µ•Ì½¹Ñ…¥¸…±°€ÄÜÉ½±”µ…ÁÁ¥¹Ìì•… %9É•¥ÍÑ•ÉÌÑ¡”¹…µ•Í¡•µ”…¹ÝÉ¥Ñ•Ì•Ù•Éä…Ñ¥Ù”ÕÉÍ½ÈÙ…±Õ”™½ÈÑ¡”ÕÍ•Èì•Ù•Éä%9É•™•É•¹”É•Í½±Ù•ÌÑ¼„Á…­…•ÕÉÍ½ÈìÍÑ…Ñ¥ŒÕÉÍ½È¡½ÑÍÁ½ÑÌ…É”Ý¥Ñ¡¥¸Ñ¡•¥È¥µ…•Ìì…¹¥µ…Ñ•ÕÉÍ½È½¹Ñ…¥¹•ÉÌ…É”Ý•±°µ™½Éµ•ì…¹…±°i%@…É¡¥Ù•ÌÁ…ÍÌ…¸¥¹Ñ•É¥Ñä¡•¬¸(´±¥Ù”]¥¹‘½ÝÌ¥¹ÍÑ…±±…Ñ¥½¸¡•¬ƒ]}æÚ$z{-®éÜj×Ú[™Û[™KØÝ\‹œXŠŠ‚‹HÞH
-Š”Ý\ˆ[ˆ]Ûˆ[H[š]\Ý\ØÛÝ™\ˆ\È\ÝÈ\\ÝØÝ\‹œH]˜ŠŠˆ^XÝYˆTÔÈ›Üˆ˜[YXÛÛœÈ[™™Z™XÝY[˜[Y[œ]‚‹HÞH
-Š”Ý\NˆÛÛ[Z]HÕTˆ[˜ÛÙ\ˆ[™\ÝËŠŠ‚‚ˆÈÈÈ\ÚÈÎˆ[˜ÛÙH[š[X]YS’HÝ\œÛÜœÂ‚ŠŠ‘š[\ÎŠŠ‚‹HÜ™X]NˆÚ[™Û[™KØ[šKœX‹HÜ™X]Nˆ\ÝËÝ\ÝØ[šKœX‚ŠŠ’[\™˜XÙ\ÎŠŠ‚‹H[˜ÛÙWØ[šJœ˜[Y\ÎˆÙ\]Y[˜ÙVØž]\×Kœ˜[YWÚšY™šY\Îˆ[HÊHOˆž]\ØÜ˜\ÈZYÚÚ[™ÛK\Ú^™HÕTˆœ˜[Y\È[ˆHÛÜ[™È’Q‘ˆS’Hš[K‚‹HH\ÞH[š[X][Ûˆ›Ý]\È]ÈÝ[™[Û™H\ÞH[™XØ]ÜŽÈÛÜšÚ[™È[ˆ˜XÚÙÜ›Ý[™[š[X]\È]ÈÝ[™[Û™H›ÙÜ™\ÜÈX\šË‚‚‹HÞH
-Š”Ý\NˆÜš]H˜Z[[™ÈS’H\ÝËŠŠˆ\œÙHHÝ]][™\ÜÙ\’Q‘‹ÐPÓÓˆY[]KXÛ\™Yœ˜[YH[™Ý\ÛÝ[ÈÙˆÜ™\™YÙ\]Y[˜ÙH8 $ÍËÙ]™[‹ZšY™žH˜]\Ë[X™YYÕTˆœ˜[Y\Ë[™ÛÛœÚ\Ý[Ú[šÈ[™ÝËˆ™Z™XÝ[ˆ[\Hœ˜[YH\Ý‚‹HÞH
-Š”Ý\Žˆ[ˆ]Ûˆ[H[š]\Ý\ØÛÝ™\ˆ\È\ÝÈ\\ÝØ[šKœH]˜ŠŠˆ^XÝYˆRS™XØ]\ÙH[˜ÛÙWØ[šX\ÈZ\ÜÚ[™Ë‚‹HÞH
-Š”Ý\Îˆ[\[Y[’Q‘ˆS’H[˜ÛÙ[™È[ˆÚ[™Û[™KØ[šKœXŠŠ‚‹HÞH
-Š”Ý\ˆ[ˆ]Ûˆ[H[š]\Ý\ØÛÝ™\ˆ\È\ÝÈ\\ÝØ[šKœH]˜ŠŠˆ^XÝYˆTÔË[˜ÛY[™È›Ý[™\žH[™[™ÝÚXÚÜË‚‹HÞH
-Š”Ý\NˆÛÛ[Z]HS’H[˜ÛÙ\ˆ[™\ÝËŠŠ‚‚ˆÈÈÈ\ÚÈˆZ[[œÝ[\œË™]šY]ÜË[™ÝÛ›ØYX›HXÚÜÂ‚ŠŠ‘š[\ÎŠŠ‚‹HÜ™X]NˆZ[œX‹HÜ™X]NˆÚ[™Û[™KÜXÚØYÙKœX‹HÜ™X]Nˆ\ÝËÝ\ÝÜXÚØYÙKœX‹HÜ™X]Nˆ‘PQQK›Y‹HÜ™X]Nˆ™Ú]YÛ›Ü™X‹HÙ[™\˜]Nˆ\ÝÕÚ[™Û[™KUÚ]Kžš\‹HÙ[™\˜]Nˆ\ÝÕÚ[™Û[™KP›XÚËžš\‹HÙ[™\˜]Nˆ\ÝÕÚ[™Û[™KPÝ\œÛÜ‹TXÚËžš\‹HÙ[™\˜]Nˆ\ÝÜ™]šY]Ëœ™Ø‚ŠŠ’[\™˜XÙ\ÎŠŠ‚‹HZ[œX[œÈ]ÛˆZ[œXÈÙ[™\˜]HÝ]]È[™]ÛˆZ[œHKXÚXÚØÈ™\šYžH[HÚ]Ý]™XZ[[™Ë‚‹HZ[Ý[YJ[YNˆ[YKÝ]]Ù\Žˆ]
-HOˆ\ÝÔ]XÜš]\ÈHMÈ›ÛHX\[™ÜËÕT‹ÐS’H\ÜÙ]ËS‘‹[™\‹][YH™]šY]Ë‚‹HHÛÛXš[™Y’TÛÛZ[œÈ›Ý˜[YY[YH\™XÝÜšY\ÎÈH[™]šYX[’TÈXXÚÛÛZ[ˆÛ™H[YIÜÈS‘‹Ý\œÛÜˆ\ÜÙ]Ë[™[œÝ[›Ý\Ë‚‚‹HÞH
-Š”Ý\NˆÜš]H˜Z[[™ÈXÚØYÙH\ÝËŠŠˆ\ÜÙ\]™\žH[YIÜÈS‘ˆX\È[MÈ›Û\È[ˆÚ[™ÝÜÈÜ™\‹[™Y™\™[˜ÙYš[\È^\ÝHÛÈ[YH’TÈÛÛZ[ˆZ\ˆS‘ˆ[™\ÜÙ]Ë[™[™YH’TÈ\ÜÈš\š[K\Ýš\
+# Wingline Cursor Pack Implementation Plan
 
-X‚‹HÞH
-Š”Ý\Žˆ[ˆ]Ûˆ[H[š]\Ý\ØÛÝ™\ˆ\È\ÝÈ\\ÝÜXÚØYÙKœH]˜ŠŠˆ^XÝYˆRS™XØ]\ÙHHXÚØYÙ\ˆ[™Z[[žHÚ[\™HZ\ÜÚ[™Ë‚‹HÞH
-Š”Ý\Îˆ[\[Y[S‘ˆÙ[™\˜][Û‹™]šY]ÜË’TÝ]][™Z[ØÚXÚÈÛÛ[X[™ËŠŠˆ\ÙHH›ÛHX[šY™\Ý\ÈHÚ[™ÛHÛÝ\˜ÙHÙˆ]ˆØÝ[Y[šYÚXÛXÚÈ[œÝ[Ý\È[™HÚ[™ÝÜÈÝ\œÛÜ‹\ØÚ[YHÙ[XÝ[ÛˆÝ\[ˆ‘PQQK‚‹HÞH
-Š”Ý\ˆ[ˆ]ÛˆZ[œX[ˆ]ÛˆZ[œHKXÚXÚØ[ˆ]Ûˆ[H[š]\Ý\ØÛÝ™\ˆ\È\ÝÈ]˜ŠŠˆ^XÝYˆ[Z[ÈÛÛ\]NÈ]™\žHX\[™Ëš[˜\žHÝXÝ\™K[™\˜Ú]™HÚXÚÈ\ÜÙ\Ë‚‹HÞH
-Š”Ý\Nˆ[œÜXÝHÙ[™\˜]Y™]šY]ÈÚY]]ÌˆØØ[H[™›Ý[YH’TÛÛ[Ë[ˆÛÛ[Z]ÛÝ\˜ÙK\ÝËØÝ[Y[][Û‹[™™\šYšYYÝ]]ËŠŠ‚
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Build and package two complete, high-contrast Wingline cursor schemes for Windows.
+
+**Architecture:** Keep the editable vector-style drawing and role definitions in a small Python package. Render at high resolution and downsample to 32, 48, 64, and 96 px CUR entries; encode Busy and Working in Background as RIFF ANI animations. A build entry point then generates role mappings, INF installers, previews, and ZIPs from the same manifest.
+
+**Tech Stack:** Python 3.11+, Pillow for RGBA rasterization, Python standard library for CUR/ANI encoding, INF/ZIP creation, and unittest.
+
+**Spec:** `docs/superpowers/specs/2026-10-06-wingline-cursor-pack-design.md`
+
+## Global Constraints
+
+- The main pointer should retain the sketch's right-facing silhouette, with smooth corners and a subtle curve at the rear. It has no trailing lines.
+- Two themes share the same shapes for each cursor role:
+  - Wingline White: white body with a dark defining outline.
+  - Wingline Black: near-black body with a pale defining outline.
+- Each non-default cursor role uses its own shape without the normal pointer underneath.
+- The contrasting edge should keep each cursor legible over both light and dark backgrounds.
+- The normal pointer should be compact and place its hotspot on the pointed tip. Other role symbols should be enlarged for visibility at 32 px and centered on their hotspots.
+- Each theme covers these 17 Windows roles: Normal Select (`arrow`), Help Select (`help`), Working in Background (`appstarting`), Busy (`wait`), Precision Select (`crosshair`), Text Select (`ibeam`), Handwriting (`nwpen`), Unavailable (`no`), Vertical Resize (`sizens`), Horizontal Resize (`sizewe`), Diagonal Resize 1 (`sizenwse`), Diagonal Resize 2 (`sizenesw`), Move (`sizeall`), Alternate Select (`uparrow`), Link Select (`hand`), Location Select (`pin`), and Person Select (`person`).
+- Keep editable vector-style source in the repository and use a Python build script to render the cursor assets.
+- Generate multi-size static `.cur` files, animated `.ani` files for Busy and Working in Background, one `.inf` installer per theme, and a preview sheet.
+- The build should produce individual theme ZIPs and a combined ZIP under `dist/`.
+- Include a README with build instructions and the Windows install steps.
+- The pack will use Windows' built-in cursor installer and will not add a separate running application.
+- The build/check command should verify that both themes contain all 17 role mappings; each INF registers the named scheme and writes every active cursor value for the user; every INF reference resolves to a packaged cursor; static cursor hotspots are within their images; animated cursor containers are well-formed; and all ZIP archives pass an integrity check.
+- A live Windows installation check is outside the available build environment and must not be claimed unless performed separately.
+
+## Review Focus
+
+- **Tiny-size readability:** role shapes remain visible at 32 px; inspect representative 32 px samples in the final preview sheet.
+- **Invalid canvas size:** unsupported sizes fail clearly before rendering or CUR encoding; cover in the artwork/CUR tests.
+- **Hotspot outside the image:** each hotspot remains inside every CUR entry; cover in CUR tests.
+- **Malformed animation sequence:** ANI frame and step counts, references, and RIFF lengths agree; cover in ANI tests.
+- **Broken scheme package:** an INF cannot name a missing cursor and each ZIP contains its installer and mapped files; cover in package tests.
+
+---
+
+### Task 1: Define roles, themes, and cursor artwork
+
+**Files:**
+- Create: `requirements.txt`
+- Create: `wingline/__init__.py`
+- Create: `wingline/roles.py`
+- Create: `wingline/artwork.py`
+- Create: `tests/test_artwork.py`
+
+**Interfaces:**
+- `CursorRole(key: str, label: str, glyph: str, registry_value: str)` stores a Windows role ID, display label, artwork symbol, and corresponding Control Panel Cursors value name.
+- `Theme(key: str, label: str, fill: str, edge: str, wing: str)` stores a stable theme key and its three palette colors.
+- `ROLE_ORDER: tuple[CursorRole, ...]` defines the 17 ordered roles in the spec.
+- `THEMES: dict[str, Theme]` contains keys `Wingline-White` and `Wingline-Black`.
+- `requirements.txt` lists the raster dependency as `Pillow>=10,<13`.
+- `render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0) -> tuple[Image.Image, tuple[int, int]]` returns an RGBA image and its click hotspot.
+- The renderer accepts only 32, 48, 64, or 96 px. It draws at 4x resolution before downsampling. The rightmost arrow tip is the `arrow` hotspot. Animated role frames use indices 0â€“7.
+
+- [x] **Step 1: Write failing role and artwork tests.** Assert the ordered IDs are exactly the 17 in the spec; every role/theme renders a non-empty RGBA image at 32 px; images preserve transparent background; hotspots fit the canvas; unsupported sizes raise `ValueError`.
+- [x] **Step 2: Run `python -m unittest discover -s tests -p test_artwork.py -v`.** Expected: FAIL because the role manifest and renderer are not implemented.
+- [x] **Step 3: Implement role metadata and vector-style drawing.** Use shared geometry for the arrow and theme outlines; add recognizable role-specific marks for help, busy/loading, crosshair, text, pen, unavailable, resize, move, alternate select, link, location, and person.
+- [x] **Step 4: Run `python -m unittest discover -s tests -p test_artwork.py -v`.** Expected: PASS with valid RGBA images, visible art, and in-bounds hotspots.
+- [x] **Step 5: Commit the role manifest and artwork renderer.**
+
+### Task 2: Encode multi-size CUR files
+
+**Files:**
+- Create: `wingline/cur.py`
+- Create: `tests/test_cur.py`
+
+**Interfaces:**
+- `encode_cur(images: Sequence[tuple[Image.Image, tuple[int, int]]]) -> bytes` writes one CUR container from images at 32, 48, 64, and 96 px.
+- Each image entry stores its own in-bounds hotspot and a 32-bit color DIB plus transparency mask.
+
+- [x] **Step 1: Write failing CUR tests.** Independently parse the directory and assert four sizes, correct hotspot values, valid offsets/lengths, and transparent pixels encoded in the mask; assert out-of-bounds hotspots are rejected.
+- [x] **Step 2: Run `python -m unittest discover -s tests -p test_cur.py -v`.** Expected: FAIL because `encode_cur` is missing.
+- [x] **Step 3: Implement CUR directory and DIB encoding in `wingline/cur.py`.**
+- [x] **Step 4: Run `python -m unittest discover -s tests -p test_cur.py -v`.** Expected: PASS for valid icons and rejected invalid input.
+- [x] **Step 5: Commit the CUR encoder and tests.**
+
+### Task 3: Encode animated ANI cursors
+
+**Files:**
+- Create: `wingline/ani.py`
+- Create: `tests/test_ani.py`
+
+**Interfaces:**
+- `encode_ani(frames: Sequence[bytes], frame_jiffies: int = 7) -> bytes` wraps eight single-size CUR frames in a looping RIFF ANI file.
+- The Busy animation rotates its enlarged standalone busy indicator; Working in Background animates a standalone progress bar.
+
+- [x] **Step 1: Write failing ANI tests.** Parse the output and assert RIFF/ACON identity, declared frame and step counts of 8, ordered sequence 0â€“7, seven-jiffy rates, embedded CUR frames, and consistent chunk lengths. Reject an empty frame list.
+- [x] **Step 2: Run `python -m unittest discover -s tests -p test_ani.py -v`.** Expected: FAIL because `encode_ani` is missing.
+- [x] **Step 3: Implement RIFF ANI encoding in `wingline/ani.py`.**
+- [x] **Step 4: Run `python -m unittest discover -s tests -p test_ani.py -v`.** Expected: PASS, including boundary and length checks.
+- [x] **Step 5: Commit the ANI encoder and tests.**
+
+### Task 4: Build installers, previews, and downloadable packs
+
+**Files:**
+- Create: `build.py`
+- Create: `wingline/package.py`
+- Create: `tests/test_package.py`
+- Create: `README.md`
+- Create: `.gitignore`
+- Generate: `dist/Wingline-White.zip`
+- Generate: `dist/Wingline-Black.zip`
+- Generate: `dist/Wingline-Cursor-Pack.zip`
+- Generate: `dist/preview.png`
+
+**Interfaces:**
+- `build.py` runs `python build.py` to generate outputs and `python build.py --check` to verify them without rebuilding.
+- `build_theme(theme: Theme, output_dir: Path) -> list[Path]` writes the 17 role mappings, CUR/ANI assets, INF, and per-theme preview.
+- The combined ZIP contains both named theme directories; the individual ZIPs each contain one theme's INF, cursor assets, and install notes.
+
+- [x] **Step 1: Write failing package tests.** Assert every theme's INF maps all 17 roles in Windows order, all referenced files exist, the two theme ZIPs contain their INF and assets, and all three ZIPs pass `ZipFile.testzip()`.
+- [x] **Step 2: Run `python -m unittest discover -s tests -p test_package.py -v`.** Expected: FAIL because the packager and build entry point are missing.
+- [x] **Step 3: Implement INF generation, previews, ZIP output, and build/check commands.** Use the role manifest as the single source of truth. Document right-click install steps and the Windows cursor-scheme selection step in README.
+- [x] **Step 4: Run `python build.py`, then `python build.py --check`, then `python -m unittest discover -s tests -v`.** Expected: all builds complete; every mapping, binary structure, and archive check passes.
+- [x] **Step 5: Inspect the generated preview sheet at 32 px scale and both theme ZIP contents, then commit source, tests, documentation, and verified outputs.**

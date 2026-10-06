@@ -70,7 +70,13 @@ class ArtworkTests(unittest.TestCase):
         arrow = next(role for role in ROLE_ORDER if role.key == "arrow")
         image, hotspot = render_cursor(arrow, THEMES["Wingline-White"], 64)
         self.assertEqual((64, 64), image.size)
-        self.assertGreaterEqual(hotspot[0], 56)
+        self.assertEqual((61, 31), hotspot)
+        image, _ = render_cursor(arrow, THEMES["Wingline-White"], 32)
+        alpha = image.getchannel("A")
+        bounds = alpha.getbbox()
+        self.assertLessEqual(bounds[2] - bounds[0], 23)
+        self.assertLessEqual(bounds[3] - bounds[1], 23)
+        self.assertGreater(alpha.getpixel((30, 16)), 0)
 
     def test_renderer_rejects_unsupported_canvas_sizes(self):
         self.assertIsNotNone(render_cursor)
@@ -99,6 +105,16 @@ class ArtworkTests(unittest.TestCase):
             with self.subTest(role=role.key):
                 _, hotspot = render_cursor(role, THEMES["Wingline-White"], 64)
                 self.assertEqual((32, 32), hotspot)
+
+    def test_every_non_pointer_role_is_large_enough_to_see_at_32px(self):
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                if role.key == "arrow":
+                    continue
+                with self.subTest(theme=theme.key, role=role.key):
+                    image, _ = render_cursor(role, theme, 32, frame=0)
+                    left, top, right, bottom = image.getchannel("A").getbbox()
+                    self.assertGreaterEqual(max(right - left, bottom - top), 12)
 
 
 if __name__ == "__main__":
