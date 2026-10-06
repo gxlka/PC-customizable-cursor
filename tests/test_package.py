@@ -135,6 +135,8 @@ class PackageTests(unittest.TestCase):
         installer = (Path(__file__).resolve().parents[1] / "installer" / "Install-Wingline.ps1").read_text(
             encoding="utf-8"
         )
+        self.assertIn('Get-ChildItem -LiteralPath $PSScriptRoot -Filter "*.inf" -File', installer)
+        self.assertNotIn('Filter "Wingline-*.inf"', installer)
 
         self.assertIn("Copy-Item -LiteralPath $matches.FullName -Destination $destination -Force", installer)
         self.assertIn("$cursorKey.SetValue($entry.Key, $destination", installer)

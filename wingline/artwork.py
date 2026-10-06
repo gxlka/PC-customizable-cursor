@@ -13,6 +13,14 @@ SUPERSAMPLE = 8
 ANIMATION_FRAMES = 8
 ARROW_SCALE = 0.64
 ROLE_SCALE = 1.55
+ROLE_SCALE_BY_GLYPH = {
+    "help": 1.75,
+    "appstarting": 1.85,
+    "wait": 1.85,
+    "pen": 1.75,
+    "pin": 1.70,
+    "person": 1.90,
+}
 
 
 def _point(point: tuple[float, float], scale: int) -> tuple[int, int]:
@@ -111,7 +119,7 @@ def _outlined_line(
     scale: int,
 ) -> None:
     points = list(points)
-    _rounded_line(draw, points, theme.edge, width + max(1, width // 3), scale)
+    _rounded_line(draw, points, theme.edge, width + max(1, width // 5), scale)
     _rounded_line(draw, points, theme.fill, width, scale)
 
 
@@ -333,7 +341,8 @@ def render_cursor(
     if role.glyph == "arrow":
         _draw_arrow(draw, theme, canvas)
     else:
-        enlarged_canvas = round(canvas * ROLE_SCALE)
+        role_scale = ROLE_SCALE_BY_GLYPH.get(role.glyph, ROLE_SCALE)
+        enlarged_canvas = round(canvas * role_scale)
         role_image = Image.new("RGBA", (enlarged_canvas, enlarged_canvas), (0, 0, 0, 0))
         _draw_role_mark(ImageDraw.Draw(role_image, "RGBA"), role, theme, enlarged_canvas, frame)
         crop_offset = (enlarged_canvas - canvas) // 2

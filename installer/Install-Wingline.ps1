@@ -1,8 +1,9 @@
 $ErrorActionPreference = "Stop"
 Add-Type -AssemblyName System.Windows.Forms
 
-$inf = Get-ChildItem -LiteralPath $PSScriptRoot -Filter "Wingline-*.inf" | Select-Object -First 1
-if (-not $inf) { throw "The theme INF was not found beside this installer." }
+$infFiles = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter "*.inf" -File)
+if ($infFiles.Count -ne 1) { throw "Expected exactly one theme INF beside this installer; found $($infFiles.Count)." }
+$inf = $infFiles[0]
 $themeKey = [IO.Path]::GetFileNameWithoutExtension($inf.Name)
 $schemeName = $themeKey.Replace("-", " ")
 $target = Join-Path $env:LOCALAPPDATA ("WinglineCursorPack\" + $themeKey)
