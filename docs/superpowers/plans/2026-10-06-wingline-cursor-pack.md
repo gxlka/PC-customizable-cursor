@@ -29,7 +29,7 @@
 
 ## Review Focus
 
-- **Tiny-size readability:** role shape and wing marks remain visible at 32 px; pin representative preview samples in the artwork tests and inspect the final sheet.
+- **Tiny-size readability:** role shape and wing marks remain visible at 32 px; inspect representative 32 px samples in the final preview sheet.
 - **Invalid canvas size:** unsupported sizes fail clearly before rendering or CUR encoding; cover in the artwork/CUR tests.
 - **Hotspot outside the image:** each hotspot remains inside every CUR entry; cover in CUR tests.
 - **Malformed animation sequence:** ANI frame and step counts, references, and RIFF lengths agree; cover in ANI tests.
@@ -58,7 +58,7 @@
 - [ ] **Step 1: Write failing role and artwork tests.** Assert the ordered IDs are exactly the 17 in the spec; every role/theme renders a non-empty RGBA image at 32 px; images preserve transparent background; hotspots fit the canvas; unsupported sizes raise `ValueError`.
 - [ ] **Step 2: Run `python -m unittest discover -s tests -p test_artwork.py -v`.** Expected: FAIL because the role manifest and renderer are not implemented.
 - [ ] **Step 3: Implement role metadata and vector-style drawing.** Use shared geometry for the arrow and theme outlines; add recognizable role-specific marks for help, busy/loading, crosshair, text, pen, unavailable, resize, move, alternate select, link, location, and person.
-- [ ] **Step 4: Run `python -m unittest discover -s tests -p test_artwork.py -v`.** Expected: PASS; inspect the test-generated 32 px role sheet for clipped marks and legibility.
+- [ ] **Step 4: Run `python -m unittest discover -s tests -p test_artwork.py -v`.** Expected: PASS with valid RGBA images, visible art, and in-bounds hotspots.
 - [ ] **Step 5: Commit the role manifest and artwork renderer.**
 
 ### Task 2: Encode multi-size CUR files
@@ -115,4 +115,4 @@
 - [ ] **Step 2: Run `python -m unittest discover -s tests -p test_package.py -v`.** Expected: FAIL because the packager and build entry point are missing.
 - [ ] **Step 3: Implement INF generation, previews, ZIP output, and build/check commands.** Use the role manifest as the single source of truth. Document right-click install steps and the Windows cursor-scheme selection step in README.
 - [ ] **Step 4: Run `python build.py`, then `python build.py --check`, then `python -m unittest discover -s tests -v`.** Expected: all builds complete; every mapping, binary structure, and archive check passes.
-- [ ] **Step 5: Review the generated preview sheet and both theme ZIP contents, then commit source, tests, documentation, and verified outputs.**
+- [ ] **Step 5: Inspect the generated preview sheet at 32 px scale and both theme ZIP contents, then commit source, tests, documentation, and verified outputs.**
