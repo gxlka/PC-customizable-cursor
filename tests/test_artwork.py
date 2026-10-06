@@ -76,7 +76,7 @@ class ArtworkTests(unittest.TestCase):
         bounds = alpha.getbbox()
         self.assertLessEqual(bounds[2] - bounds[0], 24)
         self.assertLessEqual(bounds[3] - bounds[1], 23)
-        self.assertGreater(alpha.getpixel((30, 16)), 0)
+        self.assertGreater(alpha.getpixel((11, 3)), 0)
 
     def test_renderer_rejects_unsupported_canvas_sizes(self):
         self.assertIsNotNone(render_cursor)
