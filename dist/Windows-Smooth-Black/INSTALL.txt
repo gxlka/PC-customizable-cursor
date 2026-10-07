@@ -1,4 +1,4 @@
-Wingline Cursor Pack — Windows install
+curs0r pack — Windows install
 
 Extract this folder and double-click Install-Wingline.cmd. It copies the
 cursor files into your user profile, reapplies the scheme even if Windows
