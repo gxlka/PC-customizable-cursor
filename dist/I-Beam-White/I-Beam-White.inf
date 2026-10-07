@@ -9,69 +9,69 @@ AddReg=CursorScheme,ActiveCursors
 1=%DiskName%,,,.
 
 [SourceDisksFiles]
-I-Beam-White-arrow.cur=1
-I-Beam-White-help.cur=1
+I-Beam-White-arrow.ani=1
+I-Beam-White-help.ani=1
 I-Beam-White-appstarting.ani=1
 I-Beam-White-wait.ani=1
-I-Beam-White-crosshair.cur=1
-I-Beam-White-ibeam.cur=1
-I-Beam-White-nwpen.cur=1
-I-Beam-White-no.cur=1
-I-Beam-White-sizens.cur=1
-I-Beam-White-sizewe.cur=1
-I-Beam-White-sizenwse.cur=1
-I-Beam-White-sizenesw.cur=1
-I-Beam-White-sizeall.cur=1
-I-Beam-White-uparrow.cur=1
-I-Beam-White-hand.cur=1
-I-Beam-White-pin.cur=1
-I-Beam-White-person.cur=1
+I-Beam-White-crosshair.ani=1
+I-Beam-White-ibeam.ani=1
+I-Beam-White-nwpen.ani=1
+I-Beam-White-no.ani=1
+I-Beam-White-sizens.ani=1
+I-Beam-White-sizewe.ani=1
+I-Beam-White-sizenwse.ani=1
+I-Beam-White-sizenesw.ani=1
+I-Beam-White-sizeall.ani=1
+I-Beam-White-uparrow.ani=1
+I-Beam-White-hand.ani=1
+I-Beam-White-pin.ani=1
+I-Beam-White-person.ani=1
 
 [DestinationDirs]
 CursorFiles=10,"Cursors\I-Beam-White"
 
 [CursorFiles]
-I-Beam-White-arrow.cur
-I-Beam-White-help.cur
+I-Beam-White-arrow.ani
+I-Beam-White-help.ani
 I-Beam-White-appstarting.ani
 I-Beam-White-wait.ani
-I-Beam-White-crosshair.cur
-I-Beam-White-ibeam.cur
-I-Beam-White-nwpen.cur
-I-Beam-White-no.cur
-I-Beam-White-sizens.cur
-I-Beam-White-sizewe.cur
-I-Beam-White-sizenwse.cur
-I-Beam-White-sizenesw.cur
-I-Beam-White-sizeall.cur
-I-Beam-White-uparrow.cur
-I-Beam-White-hand.cur
-I-Beam-White-pin.cur
-I-Beam-White-person.cur
+I-Beam-White-crosshair.ani
+I-Beam-White-ibeam.ani
+I-Beam-White-nwpen.ani
+I-Beam-White-no.ani
+I-Beam-White-sizens.ani
+I-Beam-White-sizewe.ani
+I-Beam-White-sizenwse.ani
+I-Beam-White-sizenesw.ani
+I-Beam-White-sizeall.ani
+I-Beam-White-uparrow.ani
+I-Beam-White-hand.ani
+I-Beam-White-pin.ani
+I-Beam-White-person.ani
 
 [CursorScheme]
-HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-arrow.cur,%10%\Cursors\I-Beam-White\I-Beam-White-help.cur,%10%\Cursors\I-Beam-White\I-Beam-White-appstarting.ani,%10%\Cursors\I-Beam-White\I-Beam-White-wait.ani,%10%\Cursors\I-Beam-White\I-Beam-White-crosshair.cur,%10%\Cursors\I-Beam-White\I-Beam-White-ibeam.cur,%10%\Cursors\I-Beam-White\I-Beam-White-nwpen.cur,%10%\Cursors\I-Beam-White\I-Beam-White-no.cur,%10%\Cursors\I-Beam-White\I-Beam-White-sizens.cur,%10%\Cursors\I-Beam-White\I-Beam-White-sizewe.cur,%10%\Cursors\I-Beam-White\I-Beam-White-sizenwse.cur,%10%\Cursors\I-Beam-White\I-Beam-White-sizenesw.cur,%10%\Cursors\I-Beam-White\I-Beam-White-sizeall.cur,%10%\Cursors\I-Beam-White\I-Beam-White-uparrow.cur,%10%\Cursors\I-Beam-White\I-Beam-White-hand.cur,%10%\Cursors\I-Beam-White\I-Beam-White-pin.cur,%10%\Cursors\I-Beam-White\I-Beam-White-person.cur"
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-arrow.ani,%10%\Cursors\I-Beam-White\I-Beam-White-help.ani,%10%\Cursors\I-Beam-White\I-Beam-White-appstarting.ani,%10%\Cursors\I-Beam-White\I-Beam-White-wait.ani,%10%\Cursors\I-Beam-White\I-Beam-White-crosshair.ani,%10%\Cursors\I-Beam-White\I-Beam-White-ibeam.ani,%10%\Cursors\I-Beam-White\I-Beam-White-nwpen.ani,%10%\Cursors\I-Beam-White\I-Beam-White-no.ani,%10%\Cursors\I-Beam-White\I-Beam-White-sizens.ani,%10%\Cursors\I-Beam-White\I-Beam-White-sizewe.ani,%10%\Cursors\I-Beam-White\I-Beam-White-sizenwse.ani,%10%\Cursors\I-Beam-White\I-Beam-White-sizenesw.ani,%10%\Cursors\I-Beam-White\I-Beam-White-sizeall.ani,%10%\Cursors\I-Beam-White\I-Beam-White-uparrow.ani,%10%\Cursors\I-Beam-White\I-Beam-White-hand.ani,%10%\Cursors\I-Beam-White\I-Beam-White-pin.ani,%10%\Cursors\I-Beam-White\I-Beam-White-person.ani"
 
 [ActiveCursors]
 HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
 HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
-HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-arrow.cur"
-HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-help.cur"
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-help.ani"
 HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-appstarting.ani"
 HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-wait.ani"
-HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-crosshair.cur"
-HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-ibeam.cur"
-HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-nwpen.cur"
-HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-no.cur"
-HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizens.cur"
-HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizewe.cur"
-HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizenwse.cur"
-HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizenesw.cur"
-HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizeall.cur"
-HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-uparrow.cur"
-HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-hand.cur"
-HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-pin.cur"
-HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-person.cur"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\I-Beam-White\I-Beam-White-person.ani"
 
 [Strings]
 DiskName="I-Beam White Cursor Pack"

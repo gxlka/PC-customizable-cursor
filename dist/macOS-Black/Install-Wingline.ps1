@@ -56,8 +56,7 @@ $schemePaths = @()
 $cursorKey = [Microsoft.Win32.Registry]::CurrentUser.CreateSubKey("Control Panel\Cursors")
 try {
     foreach ($entry in $roles.GetEnumerator()) {
-        $suffix = if ($entry.Value -in @("appstarting", "wait")) { ".ani" } else { ".cur" }
-        if ($suffix -eq ".ani") { $suffix = Get-WinglineAnimationSuffix $requiredSize }
+        $suffix = Get-WinglineAnimationSuffix $requiredSize
         $matches = Get-Item -LiteralPath (Join-Path $PSScriptRoot ($themeKey + "-" + $entry.Value + $suffix)) -ErrorAction SilentlyContinue
         if (-not $matches) { throw ("Missing cursor for role " + $entry.Key) }
         $destination = Join-Path $target $matches.Name

@@ -9,69 +9,69 @@ AddReg=CursorScheme,ActiveCursors
 1=%DiskName%,,,.
 
 [SourceDisksFiles]
-Wingline-White-arrow.cur=1
-Wingline-White-help.cur=1
+Wingline-White-arrow.ani=1
+Wingline-White-help.ani=1
 Wingline-White-appstarting.ani=1
 Wingline-White-wait.ani=1
-Wingline-White-crosshair.cur=1
-Wingline-White-ibeam.cur=1
-Wingline-White-nwpen.cur=1
-Wingline-White-no.cur=1
-Wingline-White-sizens.cur=1
-Wingline-White-sizewe.cur=1
-Wingline-White-sizenwse.cur=1
-Wingline-White-sizenesw.cur=1
-Wingline-White-sizeall.cur=1
-Wingline-White-uparrow.cur=1
-Wingline-White-hand.cur=1
-Wingline-White-pin.cur=1
-Wingline-White-person.cur=1
+Wingline-White-crosshair.ani=1
+Wingline-White-ibeam.ani=1
+Wingline-White-nwpen.ani=1
+Wingline-White-no.ani=1
+Wingline-White-sizens.ani=1
+Wingline-White-sizewe.ani=1
+Wingline-White-sizenwse.ani=1
+Wingline-White-sizenesw.ani=1
+Wingline-White-sizeall.ani=1
+Wingline-White-uparrow.ani=1
+Wingline-White-hand.ani=1
+Wingline-White-pin.ani=1
+Wingline-White-person.ani=1
 
 [DestinationDirs]
 CursorFiles=10,"Cursors\Wingline-White"
 
 [CursorFiles]
-Wingline-White-arrow.cur
-Wingline-White-help.cur
+Wingline-White-arrow.ani
+Wingline-White-help.ani
 Wingline-White-appstarting.ani
 Wingline-White-wait.ani
-Wingline-White-crosshair.cur
-Wingline-White-ibeam.cur
-Wingline-White-nwpen.cur
-Wingline-White-no.cur
-Wingline-White-sizens.cur
-Wingline-White-sizewe.cur
-Wingline-White-sizenwse.cur
-Wingline-White-sizenesw.cur
-Wingline-White-sizeall.cur
-Wingline-White-uparrow.cur
-Wingline-White-hand.cur
-Wingline-White-pin.cur
-Wingline-White-person.cur
+Wingline-White-crosshair.ani
+Wingline-White-ibeam.ani
+Wingline-White-nwpen.ani
+Wingline-White-no.ani
+Wingline-White-sizens.ani
+Wingline-White-sizewe.ani
+Wingline-White-sizenwse.ani
+Wingline-White-sizenesw.ani
+Wingline-White-sizeall.ani
+Wingline-White-uparrow.ani
+Wingline-White-hand.ani
+Wingline-White-pin.ani
+Wingline-White-person.ani
 
 [CursorScheme]
-HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-arrow.cur,%10%\Cursors\Wingline-White\Wingline-White-help.cur,%10%\Cursors\Wingline-White\Wingline-White-appstarting.ani,%10%\Cursors\Wingline-White\Wingline-White-wait.ani,%10%\Cursors\Wingline-White\Wingline-White-crosshair.cur,%10%\Cursors\Wingline-White\Wingline-White-ibeam.cur,%10%\Cursors\Wingline-White\Wingline-White-nwpen.cur,%10%\Cursors\Wingline-White\Wingline-White-no.cur,%10%\Cursors\Wingline-White\Wingline-White-sizens.cur,%10%\Cursors\Wingline-White\Wingline-White-sizewe.cur,%10%\Cursors\Wingline-White\Wingline-White-sizenwse.cur,%10%\Cursors\Wingline-White\Wingline-White-sizenesw.cur,%10%\Cursors\Wingline-White\Wingline-White-sizeall.cur,%10%\Cursors\Wingline-White\Wingline-White-uparrow.cur,%10%\Cursors\Wingline-White\Wingline-White-hand.cur,%10%\Cursors\Wingline-White\Wingline-White-pin.cur,%10%\Cursors\Wingline-White\Wingline-White-person.cur"
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-arrow.ani,%10%\Cursors\Wingline-White\Wingline-White-help.ani,%10%\Cursors\Wingline-White\Wingline-White-appstarting.ani,%10%\Cursors\Wingline-White\Wingline-White-wait.ani,%10%\Cursors\Wingline-White\Wingline-White-crosshair.ani,%10%\Cursors\Wingline-White\Wingline-White-ibeam.ani,%10%\Cursors\Wingline-White\Wingline-White-nwpen.ani,%10%\Cursors\Wingline-White\Wingline-White-no.ani,%10%\Cursors\Wingline-White\Wingline-White-sizens.ani,%10%\Cursors\Wingline-White\Wingline-White-sizewe.ani,%10%\Cursors\Wingline-White\Wingline-White-sizenwse.ani,%10%\Cursors\Wingline-White\Wingline-White-sizenesw.ani,%10%\Cursors\Wingline-White\Wingline-White-sizeall.ani,%10%\Cursors\Wingline-White\Wingline-White-uparrow.ani,%10%\Cursors\Wingline-White\Wingline-White-hand.ani,%10%\Cursors\Wingline-White\Wingline-White-pin.ani,%10%\Cursors\Wingline-White\Wingline-White-person.ani"
 
 [ActiveCursors]
 HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
 HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
-HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-arrow.cur"
-HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-help.cur"
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-help.ani"
 HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-appstarting.ani"
 HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-wait.ani"
-HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-crosshair.cur"
-HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-ibeam.cur"
-HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-nwpen.cur"
-HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-no.cur"
-HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizens.cur"
-HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizewe.cur"
-HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizenwse.cur"
-HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizenesw.cur"
-HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizeall.cur"
-HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-uparrow.cur"
-HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-hand.cur"
-HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-pin.cur"
-HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-person.cur"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Wingline-White\Wingline-White-person.ani"
 
 [Strings]
 DiskName="Wingline White Cursor Pack"

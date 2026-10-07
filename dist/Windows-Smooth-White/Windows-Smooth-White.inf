@@ -9,69 +9,69 @@ AddReg=CursorScheme,ActiveCursors
 1=%DiskName%,,,.
 
 [SourceDisksFiles]
-Windows-Smooth-White-arrow.cur=1
-Windows-Smooth-White-help.cur=1
+Windows-Smooth-White-arrow.ani=1
+Windows-Smooth-White-help.ani=1
 Windows-Smooth-White-appstarting.ani=1
 Windows-Smooth-White-wait.ani=1
-Windows-Smooth-White-crosshair.cur=1
-Windows-Smooth-White-ibeam.cur=1
-Windows-Smooth-White-nwpen.cur=1
-Windows-Smooth-White-no.cur=1
-Windows-Smooth-White-sizens.cur=1
-Windows-Smooth-White-sizewe.cur=1
-Windows-Smooth-White-sizenwse.cur=1
-Windows-Smooth-White-sizenesw.cur=1
-Windows-Smooth-White-sizeall.cur=1
-Windows-Smooth-White-uparrow.cur=1
-Windows-Smooth-White-hand.cur=1
-Windows-Smooth-White-pin.cur=1
-Windows-Smooth-White-person.cur=1
+Windows-Smooth-White-crosshair.ani=1
+Windows-Smooth-White-ibeam.ani=1
+Windows-Smooth-White-nwpen.ani=1
+Windows-Smooth-White-no.ani=1
+Windows-Smooth-White-sizens.ani=1
+Windows-Smooth-White-sizewe.ani=1
+Windows-Smooth-White-sizenwse.ani=1
+Windows-Smooth-White-sizenesw.ani=1
+Windows-Smooth-White-sizeall.ani=1
+Windows-Smooth-White-uparrow.ani=1
+Windows-Smooth-White-hand.ani=1
+Windows-Smooth-White-pin.ani=1
+Windows-Smooth-White-person.ani=1
 
 [DestinationDirs]
 CursorFiles=10,"Cursors\Windows-Smooth-White"
 
 [CursorFiles]
-Windows-Smooth-White-arrow.cur
-Windows-Smooth-White-help.cur
+Windows-Smooth-White-arrow.ani
+Windows-Smooth-White-help.ani
 Windows-Smooth-White-appstarting.ani
 Windows-Smooth-White-wait.ani
-Windows-Smooth-White-crosshair.cur
-Windows-Smooth-White-ibeam.cur
-Windows-Smooth-White-nwpen.cur
-Windows-Smooth-White-no.cur
-Windows-Smooth-White-sizens.cur
-Windows-Smooth-White-sizewe.cur
-Windows-Smooth-White-sizenwse.cur
-Windows-Smooth-White-sizenesw.cur
-Windows-Smooth-White-sizeall.cur
-Windows-Smooth-White-uparrow.cur
-Windows-Smooth-White-hand.cur
-Windows-Smooth-White-pin.cur
-Windows-Smooth-White-person.cur
+Windows-Smooth-White-crosshair.ani
+Windows-Smooth-White-ibeam.ani
+Windows-Smooth-White-nwpen.ani
+Windows-Smooth-White-no.ani
+Windows-Smooth-White-sizens.ani
+Windows-Smooth-White-sizewe.ani
+Windows-Smooth-White-sizenwse.ani
+Windows-Smooth-White-sizenesw.ani
+Windows-Smooth-White-sizeall.ani
+Windows-Smooth-White-uparrow.ani
+Windows-Smooth-White-hand.ani
+Windows-Smooth-White-pin.ani
+Windows-Smooth-White-person.ani
 
 [CursorScheme]
-HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-arrow.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-help.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-appstarting.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-wait.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-crosshair.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-ibeam.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-nwpen.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-no.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizens.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizewe.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenwse.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenesw.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizeall.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-uparrow.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-hand.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-pin.cur,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-person.cur"
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-arrow.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-help.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-appstarting.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-wait.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-crosshair.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-ibeam.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-nwpen.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-no.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizens.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizewe.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenwse.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenesw.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizeall.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-uparrow.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-hand.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-pin.ani,%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-person.ani"
 
 [ActiveCursors]
 HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
 HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
-HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-arrow.cur"
-HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-help.cur"
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-help.ani"
 HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-appstarting.ani"
 HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-wait.ani"
-HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-crosshair.cur"
-HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-ibeam.cur"
-HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-nwpen.cur"
-HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-no.cur"
-HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizens.cur"
-HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizewe.cur"
-HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenwse.cur"
-HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenesw.cur"
-HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizeall.cur"
-HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-uparrow.cur"
-HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-hand.cur"
-HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-pin.cur"
-HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-person.cur"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Windows-Smooth-White\Windows-Smooth-White-person.ani"
 
 [Strings]
 DiskName="Windows Smooth White Cursor Pack"

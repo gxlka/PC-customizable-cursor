@@ -9,69 +9,69 @@ AddReg=CursorScheme,ActiveCursors
 1=%DiskName%,,,.
 
 [SourceDisksFiles]
-Hand-White-arrow.cur=1
-Hand-White-help.cur=1
+Hand-White-arrow.ani=1
+Hand-White-help.ani=1
 Hand-White-appstarting.ani=1
 Hand-White-wait.ani=1
-Hand-White-crosshair.cur=1
-Hand-White-ibeam.cur=1
-Hand-White-nwpen.cur=1
-Hand-White-no.cur=1
-Hand-White-sizens.cur=1
-Hand-White-sizewe.cur=1
-Hand-White-sizenwse.cur=1
-Hand-White-sizenesw.cur=1
-Hand-White-sizeall.cur=1
-Hand-White-uparrow.cur=1
-Hand-White-hand.cur=1
-Hand-White-pin.cur=1
-Hand-White-person.cur=1
+Hand-White-crosshair.ani=1
+Hand-White-ibeam.ani=1
+Hand-White-nwpen.ani=1
+Hand-White-no.ani=1
+Hand-White-sizens.ani=1
+Hand-White-sizewe.ani=1
+Hand-White-sizenwse.ani=1
+Hand-White-sizenesw.ani=1
+Hand-White-sizeall.ani=1
+Hand-White-uparrow.ani=1
+Hand-White-hand.ani=1
+Hand-White-pin.ani=1
+Hand-White-person.ani=1
 
 [DestinationDirs]
 CursorFiles=10,"Cursors\Hand-White"
 
 [CursorFiles]
-Hand-White-arrow.cur
-Hand-White-help.cur
+Hand-White-arrow.ani
+Hand-White-help.ani
 Hand-White-appstarting.ani
 Hand-White-wait.ani
-Hand-White-crosshair.cur
-Hand-White-ibeam.cur
-Hand-White-nwpen.cur
-Hand-White-no.cur
-Hand-White-sizens.cur
-Hand-White-sizewe.cur
-Hand-White-sizenwse.cur
-Hand-White-sizenesw.cur
-Hand-White-sizeall.cur
-Hand-White-uparrow.cur
-Hand-White-hand.cur
-Hand-White-pin.cur
-Hand-White-person.cur
+Hand-White-crosshair.ani
+Hand-White-ibeam.ani
+Hand-White-nwpen.ani
+Hand-White-no.ani
+Hand-White-sizens.ani
+Hand-White-sizewe.ani
+Hand-White-sizenwse.ani
+Hand-White-sizenesw.ani
+Hand-White-sizeall.ani
+Hand-White-uparrow.ani
+Hand-White-hand.ani
+Hand-White-pin.ani
+Hand-White-person.ani
 
 [CursorScheme]
-HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Hand-White\Hand-White-arrow.cur,%10%\Cursors\Hand-White\Hand-White-help.cur,%10%\Cursors\Hand-White\Hand-White-appstarting.ani,%10%\Cursors\Hand-White\Hand-White-wait.ani,%10%\Cursors\Hand-White\Hand-White-crosshair.cur,%10%\Cursors\Hand-White\Hand-White-ibeam.cur,%10%\Cursors\Hand-White\Hand-White-nwpen.cur,%10%\Cursors\Hand-White\Hand-White-no.cur,%10%\Cursors\Hand-White\Hand-White-sizens.cur,%10%\Cursors\Hand-White\Hand-White-sizewe.cur,%10%\Cursors\Hand-White\Hand-White-sizenwse.cur,%10%\Cursors\Hand-White\Hand-White-sizenesw.cur,%10%\Cursors\Hand-White\Hand-White-sizeall.cur,%10%\Cursors\Hand-White\Hand-White-uparrow.cur,%10%\Cursors\Hand-White\Hand-White-hand.cur,%10%\Cursors\Hand-White\Hand-White-pin.cur,%10%\Cursors\Hand-White\Hand-White-person.cur"
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Hand-White\Hand-White-arrow.ani,%10%\Cursors\Hand-White\Hand-White-help.ani,%10%\Cursors\Hand-White\Hand-White-appstarting.ani,%10%\Cursors\Hand-White\Hand-White-wait.ani,%10%\Cursors\Hand-White\Hand-White-crosshair.ani,%10%\Cursors\Hand-White\Hand-White-ibeam.ani,%10%\Cursors\Hand-White\Hand-White-nwpen.ani,%10%\Cursors\Hand-White\Hand-White-no.ani,%10%\Cursors\Hand-White\Hand-White-sizens.ani,%10%\Cursors\Hand-White\Hand-White-sizewe.ani,%10%\Cursors\Hand-White\Hand-White-sizenwse.ani,%10%\Cursors\Hand-White\Hand-White-sizenesw.ani,%10%\Cursors\Hand-White\Hand-White-sizeall.ani,%10%\Cursors\Hand-White\Hand-White-uparrow.ani,%10%\Cursors\Hand-White\Hand-White-hand.ani,%10%\Cursors\Hand-White\Hand-White-pin.ani,%10%\Cursors\Hand-White\Hand-White-person.ani"
 
 [ActiveCursors]
 HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
 HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
-HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Hand-White\Hand-White-arrow.cur"
-HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Hand-White\Hand-White-help.cur"
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Hand-White\Hand-White-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Hand-White\Hand-White-help.ani"
 HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\Hand-White\Hand-White-appstarting.ani"
 HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\Hand-White\Hand-White-wait.ani"
-HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Hand-White\Hand-White-crosshair.cur"
-HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Hand-White\Hand-White-ibeam.cur"
-HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Hand-White\Hand-White-nwpen.cur"
-HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Hand-White\Hand-White-no.cur"
-HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizens.cur"
-HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizewe.cur"
-HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizenwse.cur"
-HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizenesw.cur"
-HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizeall.cur"
-HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Hand-White\Hand-White-uparrow.cur"
-HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Hand-White\Hand-White-hand.cur"
-HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Hand-White\Hand-White-pin.cur"
-HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Hand-White\Hand-White-person.cur"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Hand-White\Hand-White-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Hand-White\Hand-White-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Hand-White\Hand-White-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Hand-White\Hand-White-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Hand-White\Hand-White-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Hand-White\Hand-White-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Hand-White\Hand-White-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Hand-White\Hand-White-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Hand-White\Hand-White-person.ani"
 
 [Strings]
 DiskName="Hand White Cursor Pack"

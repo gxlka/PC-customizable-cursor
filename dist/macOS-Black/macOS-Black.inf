@@ -9,69 +9,69 @@ AddReg=CursorScheme,ActiveCursors
 1=%DiskName%,,,.
 
 [SourceDisksFiles]
-macOS-Black-arrow.cur=1
-macOS-Black-help.cur=1
+macOS-Black-arrow.ani=1
+macOS-Black-help.ani=1
 macOS-Black-appstarting.ani=1
 macOS-Black-wait.ani=1
-macOS-Black-crosshair.cur=1
-macOS-Black-ibeam.cur=1
-macOS-Black-nwpen.cur=1
-macOS-Black-no.cur=1
-macOS-Black-sizens.cur=1
-macOS-Black-sizewe.cur=1
-macOS-Black-sizenwse.cur=1
-macOS-Black-sizenesw.cur=1
-macOS-Black-sizeall.cur=1
-macOS-Black-uparrow.cur=1
-macOS-Black-hand.cur=1
-macOS-Black-pin.cur=1
-macOS-Black-person.cur=1
+macOS-Black-crosshair.ani=1
+macOS-Black-ibeam.ani=1
+macOS-Black-nwpen.ani=1
+macOS-Black-no.ani=1
+macOS-Black-sizens.ani=1
+macOS-Black-sizewe.ani=1
+macOS-Black-sizenwse.ani=1
+macOS-Black-sizenesw.ani=1
+macOS-Black-sizeall.ani=1
+macOS-Black-uparrow.ani=1
+macOS-Black-hand.ani=1
+macOS-Black-pin.ani=1
+macOS-Black-person.ani=1
 
 [DestinationDirs]
 CursorFiles=10,"Cursors\macOS-Black"
 
 [CursorFiles]
-macOS-Black-arrow.cur
-macOS-Black-help.cur
+macOS-Black-arrow.ani
+macOS-Black-help.ani
 macOS-Black-appstarting.ani
 macOS-Black-wait.ani
-macOS-Black-crosshair.cur
-macOS-Black-ibeam.cur
-macOS-Black-nwpen.cur
-macOS-Black-no.cur
-macOS-Black-sizens.cur
-macOS-Black-sizewe.cur
-macOS-Black-sizenwse.cur
-macOS-Black-sizenesw.cur
-macOS-Black-sizeall.cur
-macOS-Black-uparrow.cur
-macOS-Black-hand.cur
-macOS-Black-pin.cur
-macOS-Black-person.cur
+macOS-Black-crosshair.ani
+macOS-Black-ibeam.ani
+macOS-Black-nwpen.ani
+macOS-Black-no.ani
+macOS-Black-sizens.ani
+macOS-Black-sizewe.ani
+macOS-Black-sizenwse.ani
+macOS-Black-sizenesw.ani
+macOS-Black-sizeall.ani
+macOS-Black-uparrow.ani
+macOS-Black-hand.ani
+macOS-Black-pin.ani
+macOS-Black-person.ani
 
 [CursorScheme]
-HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-arrow.cur,%10%\Cursors\macOS-Black\macOS-Black-help.cur,%10%\Cursors\macOS-Black\macOS-Black-appstarting.ani,%10%\Cursors\macOS-Black\macOS-Black-wait.ani,%10%\Cursors\macOS-Black\macOS-Black-crosshair.cur,%10%\Cursors\macOS-Black\macOS-Black-ibeam.cur,%10%\Cursors\macOS-Black\macOS-Black-nwpen.cur,%10%\Cursors\macOS-Black\macOS-Black-no.cur,%10%\Cursors\macOS-Black\macOS-Black-sizens.cur,%10%\Cursors\macOS-Black\macOS-Black-sizewe.cur,%10%\Cursors\macOS-Black\macOS-Black-sizenwse.cur,%10%\Cursors\macOS-Black\macOS-Black-sizenesw.cur,%10%\Cursors\macOS-Black\macOS-Black-sizeall.cur,%10%\Cursors\macOS-Black\macOS-Black-uparrow.cur,%10%\Cursors\macOS-Black\macOS-Black-hand.cur,%10%\Cursors\macOS-Black\macOS-Black-pin.cur,%10%\Cursors\macOS-Black\macOS-Black-person.cur"
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-arrow.ani,%10%\Cursors\macOS-Black\macOS-Black-help.ani,%10%\Cursors\macOS-Black\macOS-Black-appstarting.ani,%10%\Cursors\macOS-Black\macOS-Black-wait.ani,%10%\Cursors\macOS-Black\macOS-Black-crosshair.ani,%10%\Cursors\macOS-Black\macOS-Black-ibeam.ani,%10%\Cursors\macOS-Black\macOS-Black-nwpen.ani,%10%\Cursors\macOS-Black\macOS-Black-no.ani,%10%\Cursors\macOS-Black\macOS-Black-sizens.ani,%10%\Cursors\macOS-Black\macOS-Black-sizewe.ani,%10%\Cursors\macOS-Black\macOS-Black-sizenwse.ani,%10%\Cursors\macOS-Black\macOS-Black-sizenesw.ani,%10%\Cursors\macOS-Black\macOS-Black-sizeall.ani,%10%\Cursors\macOS-Black\macOS-Black-uparrow.ani,%10%\Cursors\macOS-Black\macOS-Black-hand.ani,%10%\Cursors\macOS-Black\macOS-Black-pin.ani,%10%\Cursors\macOS-Black\macOS-Black-person.ani"
 
 [ActiveCursors]
 HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
 HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
-HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-arrow.cur"
-HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-help.cur"
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-help.ani"
 HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-appstarting.ani"
 HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-wait.ani"
-HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-crosshair.cur"
-HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-ibeam.cur"
-HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-nwpen.cur"
-HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-no.cur"
-HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizens.cur"
-HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizewe.cur"
-HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizenwse.cur"
-HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizenesw.cur"
-HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizeall.cur"
-HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-uparrow.cur"
-HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-hand.cur"
-HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-pin.cur"
-HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-person.cur"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\macOS-Black\macOS-Black-person.ani"
 
 [Strings]
 DiskName="macOS Black Cursor Pack"

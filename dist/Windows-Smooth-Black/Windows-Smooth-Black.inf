@@ -9,69 +9,69 @@ AddReg=CursorScheme,ActiveCursors
 1=%DiskName%,,,.
 
 [SourceDisksFiles]
-Windows-Smooth-Black-arrow.cur=1
-Windows-Smooth-Black-help.cur=1
+Windows-Smooth-Black-arrow.ani=1
+Windows-Smooth-Black-help.ani=1
 Windows-Smooth-Black-appstarting.ani=1
 Windows-Smooth-Black-wait.ani=1
-Windows-Smooth-Black-crosshair.cur=1
-Windows-Smooth-Black-ibeam.cur=1
-Windows-Smooth-Black-nwpen.cur=1
-Windows-Smooth-Black-no.cur=1
-Windows-Smooth-Black-sizens.cur=1
-Windows-Smooth-Black-sizewe.cur=1
-Windows-Smooth-Black-sizenwse.cur=1
-Windows-Smooth-Black-sizenesw.cur=1
-Windows-Smooth-Black-sizeall.cur=1
-Windows-Smooth-Black-uparrow.cur=1
-Windows-Smooth-Black-hand.cur=1
-Windows-Smooth-Black-pin.cur=1
-Windows-Smooth-Black-person.cur=1
+Windows-Smooth-Black-crosshair.ani=1
+Windows-Smooth-Black-ibeam.ani=1
+Windows-Smooth-Black-nwpen.ani=1
+Windows-Smooth-Black-no.ani=1
+Windows-Smooth-Black-sizens.ani=1
+Windows-Smooth-Black-sizewe.ani=1
+Windows-Smooth-Black-sizenwse.ani=1
+Windows-Smooth-Black-sizenesw.ani=1
+Windows-Smooth-Black-sizeall.ani=1
+Windows-Smooth-Black-uparrow.ani=1
+Windows-Smooth-Black-hand.ani=1
+Windows-Smooth-Black-pin.ani=1
+Windows-Smooth-Black-person.ani=1
 
 [DestinationDirs]
 CursorFiles=10,"Cursors\Windows-Smooth-Black"
 
 [CursorFiles]
-Windows-Smooth-Black-arrow.cur
-Windows-Smooth-Black-help.cur
+Windows-Smooth-Black-arrow.ani
+Windows-Smooth-Black-help.ani
 Windows-Smooth-Black-appstarting.ani
 Windows-Smooth-Black-wait.ani
-Windows-Smooth-Black-crosshair.cur
-Windows-Smooth-Black-ibeam.cur
-Windows-Smooth-Black-nwpen.cur
-Windows-Smooth-Black-no.cur
-Windows-Smooth-Black-sizens.cur
-Windows-Smooth-Black-sizewe.cur
-Windows-Smooth-Black-sizenwse.cur
-Windows-Smooth-Black-sizenesw.cur
-Windows-Smooth-Black-sizeall.cur
-Windows-Smooth-Black-uparrow.cur
-Windows-Smooth-Black-hand.cur
-Windows-Smooth-Black-pin.cur
-Windows-Smooth-Black-person.cur
+Windows-Smooth-Black-crosshair.ani
+Windows-Smooth-Black-ibeam.ani
+Windows-Smooth-Black-nwpen.ani
+Windows-Smooth-Black-no.ani
+Windows-Smooth-Black-sizens.ani
+Windows-Smooth-Black-sizewe.ani
+Windows-Smooth-Black-sizenwse.ani
+Windows-Smooth-Black-sizenesw.ani
+Windows-Smooth-Black-sizeall.ani
+Windows-Smooth-Black-uparrow.ani
+Windows-Smooth-Black-hand.ani
+Windows-Smooth-Black-pin.ani
+Windows-Smooth-Black-person.ani
 
 [CursorScheme]
-HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-arrow.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-help.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-appstarting.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-wait.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-crosshair.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-ibeam.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-nwpen.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-no.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizens.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizewe.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenwse.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenesw.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizeall.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-uparrow.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-hand.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-pin.cur,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-person.cur"
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-arrow.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-help.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-appstarting.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-wait.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-crosshair.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-ibeam.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-nwpen.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-no.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizens.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizewe.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenwse.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenesw.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizeall.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-uparrow.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-hand.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-pin.ani,%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-person.ani"
 
 [ActiveCursors]
 HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
 HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
-HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-arrow.cur"
-HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-help.cur"
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-help.ani"
 HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-appstarting.ani"
 HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-wait.ani"
-HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-crosshair.cur"
-HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-ibeam.cur"
-HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-nwpen.cur"
-HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-no.cur"
-HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizens.cur"
-HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizewe.cur"
-HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenwse.cur"
-HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenesw.cur"
-HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizeall.cur"
-HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-uparrow.cur"
-HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-hand.cur"
-HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-pin.cur"
-HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-person.cur"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Windows-Smooth-Black\Windows-Smooth-Black-person.ani"
 
 [Strings]
 DiskName="Windows Smooth Black Cursor Pack"

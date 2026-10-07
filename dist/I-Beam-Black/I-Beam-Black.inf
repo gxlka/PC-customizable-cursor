@@ -9,69 +9,69 @@ AddReg=CursorScheme,ActiveCursors
 1=%DiskName%,,,.
 
 [SourceDisksFiles]
-I-Beam-Black-arrow.cur=1
-I-Beam-Black-help.cur=1
+I-Beam-Black-arrow.ani=1
+I-Beam-Black-help.ani=1
 I-Beam-Black-appstarting.ani=1
 I-Beam-Black-wait.ani=1
-I-Beam-Black-crosshair.cur=1
-I-Beam-Black-ibeam.cur=1
-I-Beam-Black-nwpen.cur=1
-I-Beam-Black-no.cur=1
-I-Beam-Black-sizens.cur=1
-I-Beam-Black-sizewe.cur=1
-I-Beam-Black-sizenwse.cur=1
-I-Beam-Black-sizenesw.cur=1
-I-Beam-Black-sizeall.cur=1
-I-Beam-Black-uparrow.cur=1
-I-Beam-Black-hand.cur=1
-I-Beam-Black-pin.cur=1
-I-Beam-Black-person.cur=1
+I-Beam-Black-crosshair.ani=1
+I-Beam-Black-ibeam.ani=1
+I-Beam-Black-nwpen.ani=1
+I-Beam-Black-no.ani=1
+I-Beam-Black-sizens.ani=1
+I-Beam-Black-sizewe.ani=1
+I-Beam-Black-sizenwse.ani=1
+I-Beam-Black-sizenesw.ani=1
+I-Beam-Black-sizeall.ani=1
+I-Beam-Black-uparrow.ani=1
+I-Beam-Black-hand.ani=1
+I-Beam-Black-pin.ani=1
+I-Beam-Black-person.ani=1
 
 [DestinationDirs]
 CursorFiles=10,"Cursors\I-Beam-Black"
 
 [CursorFiles]
-I-Beam-Black-arrow.cur
-I-Beam-Black-help.cur
+I-Beam-Black-arrow.ani
+I-Beam-Black-help.ani
 I-Beam-Black-appstarting.ani
 I-Beam-Black-wait.ani
-I-Beam-Black-crosshair.cur
-I-Beam-Black-ibeam.cur
-I-Beam-Black-nwpen.cur
-I-Beam-Black-no.cur
-I-Beam-Black-sizens.cur
-I-Beam-Black-sizewe.cur
-I-Beam-Black-sizenwse.cur
-I-Beam-Black-sizenesw.cur
-I-Beam-Black-sizeall.cur
-I-Beam-Black-uparrow.cur
-I-Beam-Black-hand.cur
-I-Beam-Black-pin.cur
-I-Beam-Black-person.cur
+I-Beam-Black-crosshair.ani
+I-Beam-Black-ibeam.ani
+I-Beam-Black-nwpen.ani
+I-Beam-Black-no.ani
+I-Beam-Black-sizens.ani
+I-Beam-Black-sizewe.ani
+I-Beam-Black-sizenwse.ani
+I-Beam-Black-sizenesw.ani
+I-Beam-Black-sizeall.ani
+I-Beam-Black-uparrow.ani
+I-Beam-Black-hand.ani
+I-Beam-Black-pin.ani
+I-Beam-Black-person.ani
 
 [CursorScheme]
-HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-arrow.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-help.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-appstarting.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-wait.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-crosshair.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-ibeam.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-nwpen.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-no.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizens.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizewe.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenwse.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenesw.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizeall.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-uparrow.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-hand.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-pin.cur,%10%\Cursors\I-Beam-Black\I-Beam-Black-person.cur"
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-arrow.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-help.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-appstarting.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-wait.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-crosshair.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-ibeam.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-nwpen.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-no.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizens.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizewe.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenwse.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenesw.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-sizeall.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-uparrow.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-hand.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-pin.ani,%10%\Cursors\I-Beam-Black\I-Beam-Black-person.ani"
 
 [ActiveCursors]
 HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
 HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
-HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-arrow.cur"
-HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-help.cur"
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-help.ani"
 HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-appstarting.ani"
 HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-wait.ani"
-HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-crosshair.cur"
-HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-ibeam.cur"
-HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-nwpen.cur"
-HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-no.cur"
-HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizens.cur"
-HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizewe.cur"
-HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenwse.cur"
-HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenesw.cur"
-HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizeall.cur"
-HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-uparrow.cur"
-HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-hand.cur"
-HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-pin.cur"
-HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-person.cur"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\I-Beam-Black\I-Beam-Black-person.ani"
 
 [Strings]
 DiskName="I-Beam Black Cursor Pack"
