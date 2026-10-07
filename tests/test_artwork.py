@@ -153,8 +153,6 @@ class ArtworkTests(unittest.TestCase):
     def test_all_animated_frames_keep_the_fixed_visible_size(self):
         for theme in THEMES.values():
             for role in ROLE_ORDER:
-                if role.key not in {"wait", "appstarting"}:
-                    continue
                 for frame in range(ANIMATION_FRAMES):
                     with self.subTest(theme=theme.key, role=role.key, frame=frame):
                         image, _ = render_cursor(role, theme, 32, frame=frame)
@@ -168,8 +166,6 @@ class ArtworkTests(unittest.TestCase):
             if not theme.key.endswith("-White"):
                 continue
             for role in ROLE_ORDER:
-                if role.key not in {"wait", "appstarting"}:
-                    continue
                 with self.subTest(theme=theme.key, role=role.key):
                     frames=[render_cursor(role,theme,64,frame=i)[0] for i in range(ANIMATION_FRAMES)]
                     self.assertGreater(len({image.tobytes() for image in frames}),8)
@@ -177,6 +173,18 @@ class ArtworkTests(unittest.TestCase):
                              for i in range(ANIMATION_FRAMES)]
                     self.assertGreater(sum(changes),0)
                     self.assertLessEqual(changes[-1],max(changes[:-1])*1.25+.1)
+
+    def test_state_sheen_keeps_shape_hotspot_and_alpha_constant(self):
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                if role.key in {"wait", "appstarting"}:
+                    continue
+                with self.subTest(theme=theme.key, role=role.key):
+                    first, hotspot = render_cursor(role, theme, 32, 0)
+                    for frame in range(ANIMATION_FRAMES):
+                        image, actual_hotspot = render_cursor(role, theme, 32, frame)
+                        self.assertEqual(hotspot, actual_hotspot)
+                        self.assertEqual(first.getchannel("A").tobytes(), image.getchannel("A").tobytes())
 
     def test_arrow_hotspot_is_at_the_top_corner(self):
         self.assertIsNotNone(render_cursor)

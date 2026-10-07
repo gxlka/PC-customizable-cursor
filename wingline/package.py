@@ -11,12 +11,13 @@ from PIL import Image, ImageDraw, ImageFont
 
 from .ani import encode_ani
 from .timing import FRAME_JIFFIES
-from .artwork import ANIMATION_FRAMES, SUPPORTED_SIZES, render_cursor
+from .artwork import ANIMATION_FRAMES, SUPPORTED_SIZES, render_cursor, _render_base_cursor
 from .cur import encode_cur
 from .roles import ROLE_ORDER, THEMES, CursorRole, Theme
 
 
-ANIMATED_ROLES = {"appstarting", "wait"}
+ANIMATED_ROLES = {role.key for role in ROLE_ORDER}
+STATIC_ROLES = ANIMATED_ROLES - {"appstarting", "wait"}
 INSTALL_TEXT = """Wingline Cursor Pack — Windows install
 
 Extract this folder and double-click Install-Wingline.cmd. It copies the
@@ -26,7 +27,12 @@ not need administrator access.
 
 The .inf remains available for manual import. If Windows reports that an INF
 is already installed, run Install-Wingline.cmd to reapply and activate it.
-Cursor files include sizes through 256 px.
+All 17 active roles are animated at 30 fps. Text Select, Link Select, resize
+and other states use a subtle moving sheen with a stable shape and hotspot.
+Windows selects the active role; loops do not react to individual clicks or
+keystrokes. The installer exits; no background application is needed.
+Normal animations use 64 px source frames, with 256 px large-size fallbacks.
+Static .cur alternatives are included for manual selection in Mouse settings.
 
 The included preview.png shows the 48 px artwork on light and dark backgrounds.
 """
@@ -172,6 +178,10 @@ def build_theme(theme: Theme, output_dir: Path) -> list[Path]:
             large = output_dir / f"{theme.key}-{role.key}-large.ani"
             large.write_bytes(_role_cursor_bytes(role, theme, animation_size=256))
             generated.append(large)
+        if role.key in STATIC_ROLES:
+            static = output_dir / f"{theme.key}-{role.key}.cur"
+            static.write_bytes(encode_cur([_render_base_cursor(role, theme, size) for size in SUPPORTED_SIZES]))
+            generated.append(static)
 
     inf_path = output_dir / f"{theme.key}.inf"
     inf_path.write_text(_installer_text(theme, filenames), encoding="ascii", newline="\n")
@@ -385,6 +395,7 @@ def _expected_archive_entries(theme: Theme) -> set[str]:
     }
     names.update(prefix + cursor_filename(theme, role) for role in ROLE_ORDER)
     names.update(prefix + f"{theme.key}-{key}-large.ani" for key in ANIMATED_ROLES)
+    names.update(prefix + f"{theme.key}-{key}.cur" for key in STATIC_ROLES)
     return names
 
 
@@ -465,8 +476,9 @@ def verify_pack(output_root: Path) -> bool:
                 large = theme_dir / f"{theme.key}-{role.key}-large.ani"
                 _require(large.is_file(), f"Missing high-DPI animation: {large.name}")
                 _check_ani(large.read_bytes(), expected_size=256)
-            else:
-                _check_cur(payload, set(SUPPORTED_SIZES))
+            if role.key in STATIC_ROLES:
+                _check_cur((theme_dir / f"{theme.key}-{role.key}.cur").read_bytes(), set(SUPPORTED_SIZES))
+
         _require((theme_dir / "INSTALL.txt").is_file(), f"{theme.key} install notes are missing.")
         preview = theme_dir / "preview.png"
         _require(preview.is_file(), f"{theme.key} preview is missing.")

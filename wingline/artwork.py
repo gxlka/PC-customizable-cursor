@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import math
 from typing import Iterable
+from functools import lru_cache
 
 from PIL import Image, ImageDraw
 
@@ -112,7 +113,8 @@ def _draw_arrow(draw: ImageDraw.ImageDraw, theme: Theme, scale: int) -> None:
     _rounded_line(draw, pixels + [pixels[0]], theme.edge, outline, 1)
 
 
-def render_cursor(
+@lru_cache(maxsize=1400)
+def _render_base_cursor(
     role: CursorRole,
     theme: Theme,
     size: int,
@@ -151,4 +153,33 @@ def render_cursor(
             hotspot = (round(size * 0.35), round(size * 0.09))
     else:
         hotspot = (size // 2, size // 2)
+    return image, hotspot
+
+
+def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
+    """Animate the active native role without moving its silhouette or hotspot."""
+    if not 0 <= frame < ANIMATION_FRAMES:
+        raise ValueError(f"Animated cursor frame must be between 0 and {ANIMATION_FRAMES-1}.")
+    if role.glyph in ("wait", "appstarting"):
+        image, hotspot = _render_base_cursor(role, theme, size, frame)
+        return image.copy(), hotspot
+    base, hotspot = _render_base_cursor(role, theme, size, 0)
+    # A restrained traveling sheen, clipped to the original alpha. It changes
+    # color only: tip, outlines, size and hit testing stay exactly stationary.
+    phase = frame * math.tau / ANIMATION_FRAMES
+    offset = ROLE_ORDER.index(role) * .37
+    values = [round(255 * ((1 + math.cos(i / max(1, size-1) * math.tau - phase + offset)) / 2)**4)
+              for i in range(size)]
+    mask = Image.new("L", (size, 1))
+    mask.putdata(values)
+    mask = mask.resize((size, size))
+    if role.key in {"ibeam", "sizens", "uparrow", "nwpen"}:
+        mask = mask.transpose(Image.Transpose.TRANSPOSE)
+    rgb = base.convert("RGB")
+    tint = Image.blend(rgb, Image.new("RGB", base.size, (112, 145, 177)), .22)
+    image = Image.composite(tint, rgb, mask).convert("RGBA")
+    image.putalpha(base.getchannel("A"))
+    # Keep RGB in fully transparent pixels zero as in the source CUR renderer.
+    transparent = base.getchannel("A").point(lambda a: 255 if a == 0 else 0)
+    image.paste((0, 0, 0, 0), mask=transparent)
     return image, hotspot

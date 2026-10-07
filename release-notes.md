@@ -1,13 +1,11 @@
-A complete Windows cursor pack with **five distinct styles**, each in white and black:
+# Wingline Cursor Pack — Animated States
 
-- **Wingline:** an angled, wing-shaped pointer with matching icons.
-- **Windows Smooth:** a familiar Windows-style pointer with clean, rounded curves.
-- **Hand:** a fingertip as the main pointer, with its own role icons and a chain-link cursor for links.
-- **macOS:** a broad, sharp-edged arrow with a deep notch and short stem, plus an independent set of role icons for Windows.
-- **I-Beam:** a text-selection shape as the main pointer, with separate insertion, link, resize, and other role icons.
+Five distinct styles: Wingline, Windows Smooth, Hand, macOS, and I-Beam, each in light and dark themes.
 
-All ten schemes include **17 distinct cursor roles**, smooth 30 fps Busy and Working in Background animations (32 frames per loop), thin outlines, consistent visible sizes, and sharp **32–256 px** artwork. All animation loops use periodic motion and a fixed size and position to prevent reset jumps and size jitter. Other cursor roles use static artwork.
+All 17 cursor roles now animate at 30 fps. Normal selection, text selection, links, resizing, precision, help, and other states use a subtle moving sheen, preserving their shape, thin outlines, and click hotspots. Busy and Working keep their distinct progress animations.
 
-The installer automatically selects smaller animation files for normal cursor sizes and full-resolution files for large cursors or high-DPI displays. Both retain 30 fps and 32 frames. Installation does not create a resident app, service, or scheduled task.
+Windows selects the current role in applications that use system cursors. Loops play while that role is visible; they do not react to individual clicks or keystrokes. No background app or service is needed. The installer selects smaller 64 px source animations for normal sizes, with 256 px versions for larger settings. Static CUR alternatives are included for manual selection.
 
-**Install:** download `Wingline-Cursor-Pack.zip`, extract it, open your preferred theme folder, and double-click `Install-Wingline.cmd`. No administrator access is needed.
+Download Wingline-Cursor-Pack.zip, extract a theme, and run Install-Wingline.cmd. Re-run the installer to update an existing installation.
+
+The release requires passing artwork and loop tests, archive integrity, installer checks, native Windows loading of every asset and frame, and a native drawing benchmark covering all 17 roles.

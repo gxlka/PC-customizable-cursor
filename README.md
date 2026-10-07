@@ -30,3 +30,7 @@ python -m unittest discover -s tests -v
 ```
 
 The build writes theme folders, individual ZIPs, the combined ZIP, and a combined preview under `dist/`. The check command validates role mappings, installer files, CUR hotspots and bitmap data, ANI frame structure, previews, and ZIP integrity. Windows CI also loads every CUR and ANI through the Windows native cursor API at all seven included sizes, validates the dimensions and hotspots, and releases the ZIPs only after that check passes. Applying the scheme to a desktop is not automated by the build.
+
+## Animated cursor states
+
+Windows and the active application select Text Select over text fields, Link Select over links, Resize at supported edges, and Busy/Working during work. All 17 roles animate at 30 fps. These are state loops, not reactions to individual clicks or keystrokes. Some applications hide the pointer while typing or supply their own cursors. No companion app runs in the background. Static CUR alternatives are included for manual selection through Mouse Properties.

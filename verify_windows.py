@@ -7,7 +7,7 @@ import tempfile
 
 from wingline.artwork import SUPPORTED_SIZES
 from wingline.roles import THEMES, ROLE_ORDER
-from wingline.package import _read_riff_chunks
+from wingline.package import _read_riff_chunks, ANIMATED_ROLES, STATIC_ROLES
 
 
 def verify(root):
@@ -33,7 +33,7 @@ def verify(root):
     gdi32.DeleteObject.argtypes=[wintypes.HANDLE]
     gdi32.DeleteObject.restype=wintypes.BOOL
     files=sorted(list(root.glob('*/*.cur'))+list(root.glob('*/*.ani')))
-    expected = len(THEMES)*(len(ROLE_ORDER)+2)
+    expected = len(THEMES)*(2*len(ANIMATED_ROLES)+len(STATIC_ROLES))
     if len(files)!=expected:
         raise ValueError(f'Expected {expected} cursor assets across {len(THEMES)} schemes; found {len(files)}.')
     checks=0

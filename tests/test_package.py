@@ -20,7 +20,7 @@ from wingline.roles import ROLE_ORDER, THEMES
 def expected_cursor_files(theme):
     files = []
     for role in ROLE_ORDER:
-        extension = ".ani" if role.key in {"appstarting", "wait"} else ".cur"
+        extension = ".ani"
         files.append(f"{theme.key}-{role.key}{extension}")
     return files
 
@@ -121,7 +121,7 @@ class PackageTests(unittest.TestCase):
                 self.assertEqual(("0x00010001", "1"), settings["Scheme Source"])
                 self.assertEqual(17, len(settings) - 2)
                 for role in ROLE_ORDER:
-                    extension = ".ani" if role.key in {"appstarting", "wait"} else ".cur"
+                    extension = ".ani"
                     filename = f"{theme.key}-{role.key}{extension}"
                     self.assertEqual(
                         (
@@ -151,8 +151,8 @@ class PackageTests(unittest.TestCase):
             inf_text = inf_path.read_text(encoding="ascii")
             inf_path.write_text(
                 inf_text.replace(
-                    "%10%\\Cursors\\Wingline-White\\Wingline-White-arrow.cur",
-                    "%%10%%\\Cursors\\Wingline-White\\Wingline-White-arrow.cur",
+                    "%10%\\Cursors\\Wingline-White\\Wingline-White-arrow.ani",
+                    "%%10%%\\Cursors\\Wingline-White\\Wingline-White-arrow.ani",
                 ),
                 encoding="ascii",
             )
