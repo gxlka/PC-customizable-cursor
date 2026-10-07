@@ -19,7 +19,7 @@ def curve(a, b, c, d, steps=24):
 class Pen:
     def __init__(self, image, theme, glyph=None):
         self.draw=ImageDraw.Draw(image); self.n=image.width; self.theme=theme
-        self.strong_edge = glyph != "arrow" or theme.style == "beam"
+        self.strong_edge = True
         self.text = glyph == "ibeam" or (theme.style == "beam" and glyph == "arrow")
     def pixels(self, pts):
         return [(round(x*self.n),round(y*self.n)) for x,y in pts]
@@ -161,9 +161,12 @@ def draw_windows(p, glyph, frame):
         p.line(curve((.23,.12),(.37,.20),(.63,.20),(.77,.12)),.048)
         p.line(curve((.23,.88),(.37,.80),(.63,.80),(.77,.88)),.048)
     elif glyph=='pen':
-        p.shape([(.14,.86),(.30,.35),(.70,.14),(.86,.30),(.65,.70)])
-        p.line([(.14,.86),(.55,.45)],.022);p.disk(.55,.45,.043)
-        p.line([(.30,.35),(.65,.70)],.022)
+        # A recognizable fountain nib with rounded shoulders and a clear tip.
+        pts=curve((.16,.85),(.20,.54),(.39,.24),(.64,.15))
+        pts+=curve((.64,.15),(.75,.13),(.87,.25),(.85,.36))[1:]
+        pts+=curve((.85,.36),(.76,.61),(.46,.80),(.16,.85))[1:]
+        p.shape(pts);p.line([(.16,.85),(.60,.41)],.024)
+        p.disk(.60,.41,.046)
     elif glyph=='no':
         pts=[]
         for a,b,c,d in [((.22,.16),(.1,.2),(.1,.8),(.22,.84)),((.22,.84),(.35,.91),(.65,.91),(.78,.84)),

@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: cursor-release-v1-3-2
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   publish:

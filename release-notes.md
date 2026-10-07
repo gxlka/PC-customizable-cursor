@@ -1,21 +1,13 @@
-# Wingline Cursor Pack — Animated States
+# Wingline Cursor Pack — Visibility Fixes
 
-Five distinct styles: Wingline, Windows Smooth, Hand, macOS, and I-Beam, each in light and dark themes.
+Five distinct styles in light and dark themes: Wingline, Windows Smooth, Hand, macOS, and I-Beam.
 
-All 17 cursor roles now animate at 30 fps. Normal selection, text selection, links, resizing, precision, help, and other states use a subtle moving sheen, preserving their shape, thin outlines, and click hotspots. Busy and Working keep their distinct progress animations.
+Outlines are stronger on every main pointer and non-pointer across all families, with improved contrast at normal desktop size. Animation sheen affects the fill while keeping the contrasting border steady. Text-selection cursors and the I-Beam main pointer have clearer stems and borders.
 
-Windows selects the current role in applications that use system cursors. Loops play while that role is visible; they do not react to individual clicks or keystrokes. No background app or service is needed. The installer selects smaller 64 px source animations for normal sizes, with 256 px versions for larger settings. Static CUR alternatives are included for manual selection.
+Selected awkward non-pointer symbols have been simplified: continuous rounded Windows Text Select, clearer handwriting nibs, the Hand avatar, and the I-Beam family's precision, text, unavailable, link, and avatar icons. Every macOS icon keeps its existing vector design; only its outline visibility improves. The macOS main pointer retains its broad shape and fingertip click point.
 
-Download Wingline-Cursor-Pack.zip, extract a theme, and run Install-Wingline.cmd. Re-run the installer to update an existing installation.
+All 17 roles use smooth native 30 fps state loops. No background app or service is installed. Normal-size animations use smaller source bitmaps, with large-size fallbacks and static CUR alternatives included.
 
-The release requires passing artwork and loop tests, archive integrity, installer checks, native Windows loading of every asset and frame, and a native drawing benchmark covering all 17 roles.
+Download Wingline-Cursor-Pack.zip, extract a theme, and run Install-Wingline.cmd again to apply the update.
 
-## Hand pointer refinement
-
-The Hand family's main pointer has a slimmer rounded index finger, staggered folded knuckles, a curved thumb and a softer palm. It keeps its original fingertip click point, visible size, thin outline and smooth state animation. All loop continuity checks now cover both light and dark themes, alongside native loading checks of every exported frame and the all-role drawing benchmark.
-
-## Contrast and role artwork fixes
-
-Non-pointer outlines are stronger at normal cursor size in both palettes, and animation sheen is restricted to the fill so it cannot wash out contrasting edges. Text-selection cursors and the I-Beam main pointer have a clearer stem and border. Windows Smooth Text Select now has a continuous stem and rounded serifs; the I-Beam family's text and precision shapes and the Hand quill have been cleaned up. The macOS main pointer retains its existing silhouette, outline and click point.
-
-The release includes a new native-size contrast regression check on light and dark backgrounds throughout the loop, alongside smooth-loop, corruption, native Windows loading and all-role performance checks.
+Release checks cover every cursor's contrasting border on matching light and dark backgrounds, smooth loop seams, fixed dimensions and hotspots, distinct silhouettes, ZIP integrity, native Windows loading of every frame at seven sizes, and an all-role drawing benchmark.

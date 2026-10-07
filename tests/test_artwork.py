@@ -184,12 +184,10 @@ class ArtworkTests(unittest.TestCase):
                         self.assertEqual(hotspot, actual_hotspot)
                         self.assertEqual(first.getchannel("A").tobytes(), image.getchannel("A").tobytes())
 
-    def test_non_pointer_edges_remain_visible_on_matching_backgrounds(self):
+    def test_all_cursors_have_visible_edges_on_matching_backgrounds(self):
         for theme in THEMES.values():
             light = theme.key.endswith("-White")
             for role in ROLE_ORDER:
-                if role.key == "arrow" and theme.style != "beam":
-                    continue
                 for frame in (0, 8, 16, 24):
                     with self.subTest(theme=theme.key, role=role.key, frame=frame):
                         image, _ = render_cursor(role, theme, 32, frame)

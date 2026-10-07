@@ -108,7 +108,7 @@ def _rounded_line(
 def _draw_arrow(draw: ImageDraw.ImageDraw, theme: Theme, scale: int) -> None:
     path = _windows_arrow_path() if theme.style == "windows" else _arrow_path()
     pixels = [_point(point, scale) for point in path]
-    outline = max(2, round(scale * 0.022))
+    outline = max(2, round(scale * 0.040))
     draw.polygon(pixels, fill=theme.fill)
     _rounded_line(draw, pixels + [pixels[0]], theme.edge, outline, 1)
 
