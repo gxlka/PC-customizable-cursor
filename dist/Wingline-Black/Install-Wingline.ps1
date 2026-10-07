@@ -79,4 +79,4 @@ finally { $schemesKey.Dispose() }
 if (-not [WinglineCursor.NativeMethods]::SystemParametersInfo(0x0057, 0, [IntPtr]::Zero, 0)) {
     throw "Windows saved the theme but could not reload the cursor settings."
 }
-[System.Windows.Forms.MessageBox]::Show("$schemeName was reapplied and is active.", "Wingline Cursor Pack") | Out-Null
+[System.Windows.Forms.MessageBox]::Show("$schemeName was reapplied and is active. All 17 roles now use animated .ani files. Sites and games that supply their own cursors may override this scheme.", "Wingline Cursor Pack") | Out-Null
