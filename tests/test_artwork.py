@@ -163,8 +163,6 @@ class ArtworkTests(unittest.TestCase):
     def test_animations_change_and_have_no_discontinuous_loop_seam(self):
         from PIL import ImageChops, ImageStat
         for theme in THEMES.values():
-            if not theme.key.endswith("-White"):
-                continue
             for role in ROLE_ORDER:
                 with self.subTest(theme=theme.key, role=role.key):
                     frames=[render_cursor(role,theme,64,frame=i)[0] for i in range(ANIMATION_FRAMES)]
