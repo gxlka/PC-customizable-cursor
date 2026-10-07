@@ -25,7 +25,7 @@ def read_chunk(data, offset):
 
 
 class AniEncodingTests(unittest.TestCase):
-    def test_ani_has_eight_frames_seven_jiffy_steps_and_looping_sequence(self):
+    def test_ani_has_32_frames_two_jiffy_steps_and_looping_sequence(self):
         frames = sample_frames()
 
         data = encode_ani(frames)
@@ -77,10 +77,25 @@ class AniEncodingTests(unittest.TestCase):
         frames = sample_frames()
         frames[0] = bytes(frame[:-1])
 
-        with self.assertRaisesRegex(ValueError, "complete 256x256 CUR image"):
+        with self.assertRaisesRegex(ValueError, "complete 64px or 256px CUR image"):
             encode_ani(frames)
+
+    def test_small_animations_reduce_source_bitmap_bytes_without_reducing_frames(self):
+        image = Image.new("RGBA", (64, 64), (255, 255, 255, 255))
+        frame = encode_cur([(image, (32, 32))])
+        small = encode_ani([frame]*ANIMATION_FRAMES)
+        large_frame = encode_cur([(image.resize((256,256)), (128,128))])
+        large = encode_ani([large_frame]*ANIMATION_FRAMES)
+        self.assertLess(len(small), len(large)/15)
+        header = read_chunk(small,12)[1]
+        self.assertEqual((ANIMATION_FRAMES,ANIMATION_FRAMES,64,64),struct.unpack("<9I",header)[1:5])
+
+    def test_ani_rejects_mixed_source_sizes(self):
+        small = encode_cur([(Image.new("RGBA", (64,64)), (32,32))])
+        large = encode_cur([(Image.new("RGBA", (256,256)), (128,128))])
+        with self.assertRaisesRegex(ValueError,"consistent canvas size"):
+            encode_ani([small]*(ANIMATION_FRAMES-1)+[large])
 
 
 if __name__ == "__main__":
     unittest.main()
-

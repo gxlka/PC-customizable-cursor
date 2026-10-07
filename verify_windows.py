@@ -33,7 +33,7 @@ def verify(root):
     gdi32.DeleteObject.argtypes=[wintypes.HANDLE]
     gdi32.DeleteObject.restype=wintypes.BOOL
     files=sorted(list(root.glob('*/*.cur'))+list(root.glob('*/*.ani')))
-    expected = len(THEMES)*len(ROLE_ORDER)
+    expected = len(THEMES)*(len(ROLE_ORDER)+2)
     if len(files)!=expected:
         raise ValueError(f'Expected {expected} cursor assets across {len(THEMES)} schemes; found {len(files)}.')
     checks=0

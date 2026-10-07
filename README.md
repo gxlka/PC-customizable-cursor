@@ -16,6 +16,8 @@ All ten schemes include 17 distinct roles, animated Busy and Working in Backgrou
 
 The pack contains a preview and `INSTALL.txt` in each theme folder.
 
+Normal-size animations use small bitmap frames; the installer chooses larger versions when your DPI or cursor size requires them. Animation remains at 30 fps. After installation, Windows handles the cursor files directly; the installer does not keep an app, service, or scheduled task running.
+
 ## Build and verify
 
 Python 3.11 or later is required.

@@ -37,11 +37,11 @@ def cursor_filename(theme: Theme, role: CursorRole) -> str:
     return f"{theme.key}-{role.key}{extension}"
 
 
-def _role_cursor_bytes(role: CursorRole, theme: Theme) -> bytes:
+def _role_cursor_bytes(role: CursorRole, theme: Theme, animation_size: int = 64) -> bytes:
     if role.key in ANIMATED_ROLES:
         frames = []
         for frame_index in range(ANIMATION_FRAMES):
-            image, hotspot = render_cursor(role, theme, max(SUPPORTED_SIZES), frame=frame_index)
+            image, hotspot = render_cursor(role, theme, animation_size, frame=frame_index)
             frames.append(encode_cur([(image, hotspot)]))
         return encode_ani(frames)
 
@@ -168,6 +168,10 @@ def build_theme(theme: Theme, output_dir: Path) -> list[Path]:
         path.write_bytes(_role_cursor_bytes(role, theme))
         generated.append(path)
         filenames.append(filename)
+        if role.key in ANIMATED_ROLES:
+            large = output_dir / f"{theme.key}-{role.key}-large.ani"
+            large.write_bytes(_role_cursor_bytes(role, theme, animation_size=256))
+            generated.append(large)
 
     inf_path = output_dir / f"{theme.key}.inf"
     inf_path.write_text(_installer_text(theme, filenames), encoding="ascii", newline="\n")
@@ -291,7 +295,7 @@ def _read_riff_chunks(data: bytes, start: int, end: int) -> list[tuple[bytes, by
     return chunks
 
 
-def _check_ani(data: bytes) -> None:
+def _check_ani(data: bytes, expected_size: int = 64) -> None:
     _require(len(data) >= 12 and data[:4] == b"RIFF", "ANI RIFF header is invalid.")
     _require(struct.unpack_from("<I", data, 4)[0] == len(data) - 8, "ANI RIFF length is invalid.")
     _require(data[8:12] == b"ACON", "ANI form type is not ACON.")
@@ -305,7 +309,7 @@ def _check_ani(data: bytes) -> None:
     _, frame_count, step_count, width, height, bit_count, planes, _, flags = struct.unpack(
         "<9I", headers[0]
     )
-    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (ANIMATION_FRAMES, ANIMATION_FRAMES, max(SUPPORTED_SIZES), max(SUPPORTED_SIZES), 32, 1, 3), "ANI header values are invalid.")
+    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (ANIMATION_FRAMES, ANIMATION_FRAMES, expected_size, expected_size, 32, 1, 3), "ANI header values are invalid.")
     _require(len(rates[0]) == 4*ANIMATION_FRAMES and len(sequences[0]) == 4*ANIMATION_FRAMES, "ANI timing chunks have invalid lengths.")
     _require(struct.unpack(f"<{ANIMATION_FRAMES}I", rates[0]) == (FRAME_JIFFIES,) * ANIMATION_FRAMES, "ANI frame rates are invalid.")
     _require(struct.unpack(f"<{ANIMATION_FRAMES}I", sequences[0]) == tuple(range(ANIMATION_FRAMES)), "ANI sequence is invalid.")
@@ -314,7 +318,7 @@ def _check_ani(data: bytes) -> None:
     frames = _read_riff_chunks(frame_list, 4, len(frame_list))
     _require(len(frames) == ANIMATION_FRAMES and all(chunk_id == b"icon" for chunk_id, _ in frames), "ANI frame list is invalid.")
     for _, frame in frames:
-        _check_cur(frame, {max(SUPPORTED_SIZES)})
+        _check_cur(frame, {expected_size})
 
 
 def _scheme_paths(inf_text: str) -> list[str]:
@@ -380,6 +384,7 @@ def _expected_archive_entries(theme: Theme) -> set[str]:
         prefix + "preview.png",
     }
     names.update(prefix + cursor_filename(theme, role) for role in ROLE_ORDER)
+    names.update(prefix + f"{theme.key}-{key}-large.ani" for key in ANIMATED_ROLES)
     return names
 
 
@@ -457,6 +462,9 @@ def verify_pack(output_root: Path) -> bool:
             role_payloads.add(payload)
             if role.key in ANIMATED_ROLES:
                 _check_ani(payload)
+                large = theme_dir / f"{theme.key}-{role.key}-large.ani"
+                _require(large.is_file(), f"Missing high-DPI animation: {large.name}")
+                _check_ani(large.read_bytes(), expected_size=256)
             else:
                 _check_cur(payload, set(SUPPORTED_SIZES))
         _require((theme_dir / "INSTALL.txt").is_file(), f"{theme.key} install notes are missing.")

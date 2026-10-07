@@ -5,7 +5,7 @@ from collections.abc import Sequence
 
 
 from .timing import ANIMATION_FRAMES as _FRAME_COUNT, FRAME_JIFFIES
-_FRAME_SIZE = 256
+_FRAME_SIZES = (64, 256)
 _ANI_HEADER_SIZE = 36
 _FLAG_ICON = 0x1
 _FLAG_SEQUENCE = 0x2
@@ -22,10 +22,10 @@ def _chunk(chunk_id: bytes, payload: bytes) -> bytes:
 
 def _validate_cursor_frame(frame: bytes) -> None:
     if len(frame) < 22:
-        raise ValueError("ANI frames must contain a single 256x256 CUR image.")
+        raise ValueError("ANI frames must contain a single 64px or 256px CUR image.")
     reserved, file_type, image_count = struct.unpack_from("<HHH", frame, 0)
     if reserved != 0 or file_type != 2 or image_count != 1:
-        raise ValueError("ANI frames must contain a single 256x256 CUR image.")
+        raise ValueError("ANI frames must contain a single 64px or 256px CUR image.")
 
     width, height, _, _, hot_x, hot_y, data_length, data_offset = struct.unpack_from(
         "<BBBBHHII", frame, 6
@@ -33,26 +33,26 @@ def _validate_cursor_frame(frame: bytes) -> None:
     width = width or 256
     height = height or 256
     if (
-        width != _FRAME_SIZE
-        or height != _FRAME_SIZE
+        width not in _FRAME_SIZES
+        or height != width
         or not (0 <= hot_x < width and 0 <= hot_y < height)
         or data_offset < 22
         or data_length == 0
         or data_offset + data_length > len(frame)
     ):
-        raise ValueError("ANI frames must contain a valid single 256x256 CUR image.")
+        raise ValueError("ANI frames must contain a valid single 64px or 256px CUR image.")
     if data_offset + 40 > len(frame):
-        raise ValueError("ANI frames must contain a complete 256x256 CUR image.")
+        raise ValueError("ANI frames must contain a complete 64px or 256px CUR image.")
     dib_size, dib_width, doubled_height, planes, bit_count = struct.unpack_from(
         "<IiiHH", frame, data_offset
     )
-    if (dib_size, dib_width, doubled_height, planes, bit_count) != (40, 256, 512, 1, 32):
-        raise ValueError("ANI frames must contain a complete 256x256 CUR image.")
-    xor_stride = ((_FRAME_SIZE * bit_count + 31) // 32) * 4
-    mask_stride = ((_FRAME_SIZE + 31) // 32) * 4
-    expected_data_length = dib_size + (xor_stride + mask_stride) * _FRAME_SIZE
+    if (dib_size, dib_width, doubled_height, planes, bit_count) != (40, width, width*2, 1, 32):
+        raise ValueError("ANI frames must contain a complete 64px or 256px CUR image.")
+    xor_stride = ((width * bit_count + 31) // 32) * 4
+    mask_stride = ((width + 31) // 32) * 4
+    expected_data_length = dib_size + (xor_stride + mask_stride) * width
     if data_length != expected_data_length:
-        raise ValueError("ANI frames must contain a complete 256x256 CUR image.")
+        raise ValueError("ANI frames must contain a complete 64px or 256px CUR image.")
 
 
 def encode_ani(frames: Sequence[bytes], frame_jiffies: int = FRAME_JIFFIES) -> bytes:
@@ -67,14 +67,18 @@ def encode_ani(frames: Sequence[bytes], frame_jiffies: int = FRAME_JIFFIES) -> b
         raise ValueError("Frame delay must be a positive 32-bit integer.")
     for frame in frames:
         _validate_cursor_frame(frame)
+    sizes = {frame[6] or 256 for frame in frames}
+    if len(sizes) != 1:
+        raise ValueError("ANI frames must use one consistent canvas size.")
+    frame_size = sizes.pop()
 
     header = struct.pack(
         "<9I",
         _ANI_HEADER_SIZE,
         _FRAME_COUNT,
         _FRAME_COUNT,
-        _FRAME_SIZE,
-        _FRAME_SIZE,
+        frame_size,
+        frame_size,
         32,
         1,
         frame_jiffies,
