@@ -19,8 +19,19 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -r requirements.txt
-      - run: python -m unittest discover -s tests -v
-      - run: python build.py
+      - name: Reuse published files when cursor sources match
+        id: published
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/restore_release_pack.py
+      - name: Build cursor packs
+        if: steps.published.outputs.restored != 'true'
+        run: python build.py
+      - name: Verify all styles and exports
+        if: steps.published.outputs.restored != 'true'
+        env:
+          WINGLINE_TEST_PACK: dist
+        run: python -m unittest discover -s tests -v
       - run: python build.py --check
       - run: python verify_windows.py dist
       - name: Commit built downloads
@@ -29,10 +40,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f dist/
+          git rm --cached --ignore-unmatch dist/Wingline-Cursor-Pack.zip
           if git diff --cached --quiet; then
             echo "Built downloads are already current."
           else
-            git commit -m "Build high resolution cursor packs"
+            git commit -m "Update verified cursor packs; full ZIP is in Releases"
             git push
           fi
-
