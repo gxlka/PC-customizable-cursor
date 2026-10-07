@@ -35,7 +35,7 @@ def main():
         if not reusable([file["filename"] for file in comparison["files"]]):
             print("Cursor sources changed; generate and test a new pack.")
             return
-        archive_name = "Wingline-Cursor-Pack.zip"
+        archive_name = "curs0r-pack.zip"
         if not any(asset["name"] == archive_name for asset in release["assets"]):
             return
         output = Path("dist")

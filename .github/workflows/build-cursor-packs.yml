@@ -40,7 +40,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f dist/
-          git rm --cached --ignore-unmatch dist/Wingline-Cursor-Pack.zip
+          git rm --cached --ignore-unmatch dist/curs0r-pack.zip
           if git diff --cached --quiet; then
             echo "Built downloads are already current."
           else

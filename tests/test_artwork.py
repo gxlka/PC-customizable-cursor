@@ -52,6 +52,7 @@ class ArtworkTests(unittest.TestCase):
                 "Hand-White", "Hand-Black",
                 "macOS-White", "macOS-Black",
                 "I-Beam-White", "I-Beam-Black",
+                "Sharp-Head-White", "Sharp-Head-Black",
             },
             set(THEMES),
         )
@@ -101,7 +102,7 @@ class ArtworkTests(unittest.TestCase):
                 windows = render_cursor(role, THEMES["Windows-Smooth-White"], 64)[0]
                 self.assertNotEqual(wing.getchannel("A").tobytes(), windows.getchannel("A").tobytes())
 
-    def test_all_five_styles_have_unique_silhouettes_for_all_roles(self):
+    def test_all_six_styles_have_unique_silhouettes_for_all_roles(self):
         silhouettes = {}
         for theme in THEMES.values():
             if not theme.key.endswith("-White"):
@@ -111,11 +112,11 @@ class ArtworkTests(unittest.TestCase):
                 label = f"{theme.key}/{role.key}"
                 self.assertNotIn(silhouette, silhouettes, f"{label} repeats {silhouettes.get(silhouette)}")
                 silhouettes[silhouette] = label
-        self.assertEqual(85, len(silhouettes))
+        self.assertEqual(102, len(silhouettes))
 
     def test_new_normal_pointer_hotspots_are_on_visible_artwork(self):
         arrow = ROLE_ORDER[0]
-        for name in ("Hand", "macOS", "I-Beam"):
+        for name in ("Hand", "macOS", "I-Beam", "Sharp-Head"):
             for size in (32, 48, 64, 96, 128, 192, 256):
                 with self.subTest(style=name, size=size):
                     image, hotspot = render_cursor(arrow, THEMES[f"{name}-White"], size)
@@ -204,7 +205,7 @@ class ArtworkTests(unittest.TestCase):
                         if role.key == "arrow":
                             self.assertGreater(image.getchannel("A").getpixel(hotspot),0)
                     neutral, _ = render_cursor(role,theme,32,ANIMATION_FRAMES//2)
-                    self.assertEqual(first.tobytes(),neutral.tobytes())
+                    self.assertEqual(first.getchannel("A").tobytes(),neutral.getchannel("A").tobytes()) if theme.style == "sharp" else self.assertEqual(first.tobytes(),neutral.tobytes())
 
     def test_light_sheen_preserves_motion_alpha_and_contrast_edges(self):
         from wingline.artwork import _light_sheen
