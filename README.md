@@ -1,18 +1,19 @@
-# Wingline Cursor Pack
+# curs0r pack
 
-Five complete Windows cursor styles, each with independent artwork and white and black themes.
+Six complete Windows cursor styles, each with independent artwork and white and black themes.
 
 - **Wingline:** an angled wing-shaped pointer.
 - **Windows Smooth:** a familiar Windows-style arrow with smooth curves.
 - **Hand:** a fingertip main pointer, with separate role icons including a chain for links.
 - **macOS:** a macOS-inspired arrow and matching icons for Windows.
+- **Sharp Head:** swept head from the supplied sketch, a shorter stem, tip-anchored wiggle, a slow yellow sweep from the right, and 16 independently drawn role icons.
 - **I-Beam:** a text-selection main pointer, with a separate insertion caret and unique role icons.
 
-All ten schemes include 17 distinct roles, animated Busy and Working in Background cursors, consistent visible sizes, thin outlines, and sharp 32–256 px variants for different display scales.
+All twelve schemes include 17 distinct roles, animated Busy and Working in Background cursors, consistent visible sizes, thin outlines, and sharp 32–256 px variants for different display scales.
 
 ## Download and install
 
-[Download the full cursor pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/Wingline-Cursor-Pack.zip), extract it, open your preferred theme folder, and double-click `Install-Wingline.cmd`. It copies the files to your user profile, updates your cursor scheme, and tells Windows to reload the cursors immediately. It does not require administrator access. The `.inf` is included for manual import through Windows; Windows may require selecting Apply in Mouse Properties after an INF install.
+[Download the full cursor pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/curs0r-pack.zip), extract it, open your preferred theme folder, and double-click `Install-Wingline.cmd`. It copies the files to your user profile, updates your cursor scheme, and tells Windows to reload the cursors immediately. It does not require administrator access. The `.inf` is included for manual import through Windows; Windows may require selecting Apply in Mouse Properties after an INF install.
 
 The pack contains a preview and `INSTALL.txt` in each theme folder.
 

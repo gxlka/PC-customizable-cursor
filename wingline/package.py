@@ -18,7 +18,7 @@ from .roles import ROLE_ORDER, THEMES, CursorRole, Theme
 
 ANIMATED_ROLES = {role.key for role in ROLE_ORDER}
 STATIC_ROLES = ANIMATED_ROLES - {"appstarting", "wait"}
-INSTALL_TEXT = """Wingline Cursor Pack — Windows install
+INSTALL_TEXT = """curs0r pack — Windows install
 
 Extract this folder and double-click Install-Wingline.cmd. It copies the
 cursor files into your user profile, reapplies the scheme even if Windows
@@ -228,7 +228,7 @@ def build_pack(output_root: Path) -> list[Path]:
             _archive_theme(archive, theme, theme_dirs[theme.key])
         generated.append(archive_path)
 
-    combined_path = output_root / "Wingline-Cursor-Pack.zip"
+    combined_path = output_root / "curs0r-pack.zip"
     with zipfile.ZipFile(combined_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for theme in THEMES.values():
             _archive_theme(archive, theme, theme_dirs[theme.key])
@@ -496,7 +496,7 @@ def verify_pack(output_root: Path) -> bool:
         archive_path = output_root / f"{theme.key}.zip"
         _check_archive(archive_path, _expected_archive_files(theme, theme_dir))
 
-    combined_path = output_root / "Wingline-Cursor-Pack.zip"
+    combined_path = output_root / "curs0r-pack.zip"
     combined_files = {}
     for theme in THEMES.values():
         combined_files.update(

@@ -68,7 +68,8 @@ THEMES = {
 }
 
 # Additional complete families, each with light and dark palettes.
-for style, name in (("hand", "Hand"), ("macos", "macOS"), ("beam", "I-Beam")):
+for style, name in (("hand", "Hand"), ("macos", "macOS"), ("beam", "I-Beam"), ("sharp", "Sharp-Head")):
     for variant, fill, edge in (("White", "#FCFDFF", "#151922"), ("Black", "#171A20", "#F8F9FC")):
         key=f"{name}-{variant}"
-        THEMES[key]=Theme(key, f"{name} {variant}", fill, edge, style)
+        label = name.replace("-", " ") if style == "sharp" else name
+        THEMES[key]=Theme(key, f"{label} {variant}", fill, edge, style)

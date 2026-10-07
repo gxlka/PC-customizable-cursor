@@ -198,7 +198,7 @@ class PackageTests(unittest.TestCase):
                 self.assertTrue(expected <= names)
                 expected_combined.update(expected)
 
-        combined_path = self.output_root / "Wingline-Cursor-Pack.zip"
+        combined_path = self.output_root / "curs0r-pack.zip"
         with zipfile.ZipFile(combined_path) as archive:
             self.assertIsNone(archive.testzip())
             self.assertTrue(expected_combined <= set(archive.namelist()))
@@ -234,7 +234,7 @@ class PackageTests(unittest.TestCase):
     def test_verifier_rejects_archive_content_that_differs_from_built_files(self):
         cases = (
             ("Wingline-White.zip", "Wingline-White/Wingline-White.inf"),
-            ("Wingline-Cursor-Pack.zip", "Wingline-White/Wingline-White-arrow.cur"),
+            ("curs0r-pack.zip", "Wingline-White/Wingline-White-arrow.cur"),
         )
         for archive_name, member_name in cases:
             with self.subTest(archive=archive_name, member=member_name):

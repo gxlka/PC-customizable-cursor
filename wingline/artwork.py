@@ -131,7 +131,7 @@ def _render_base_cursor(
     image = Image.new("RGBA", (canvas, canvas), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image, "RGBA")
     custom_hotspot = None
-    if theme.style in {"hand", "macos", "beam"}:
+    if theme.style in {"hand", "macos", "beam", "sharp"}:
         image, custom_hotspot = render_role(role.glyph, theme, canvas, frame, with_hotspot=True)
     elif role.glyph == "arrow":
         _draw_arrow(draw, theme, canvas)
@@ -168,16 +168,25 @@ def _sheen_band(size: int, frame: int) -> Image.Image:
 
 def _light_sheen(image: Image.Image, theme: Theme, frame: int) -> Image.Image:
     """A soft periodic fill-only sheen, preserving alpha and contrast edges."""
-    if frame in (0, ANIMATION_FRAMES//2):
+    if frame == 0 or (theme.style != "sharp" and frame == ANIMATION_FRAMES//2):
         return image.copy()
     channels = image.split()
     light = theme.key.endswith("-White")
     tone = ImageChops.lighter(ImageChops.lighter(channels[0],channels[1]),channels[2]) if light else ImageChops.darker(ImageChops.darker(channels[0],channels[1]),channels[2])
     interior = tone.point(lambda value: 255 if (value >= 110 if light else value <= 180) else 0)
     eligible = ImageChops.multiply(interior, channels[3].point(lambda value: 255 if value >= 160 else 0))
-    mask = ImageChops.multiply(eligible, _sheen_band(image.width, frame))
+    band = _sheen_band(image.width, frame)
+    if theme.style == "sharp":
+        # One slow right-to-left gold sweep; smoothly absent at the seam.
+        phase = frame / ANIMATION_FRAMES
+        center = 1.15 - 1.45 * phase
+        envelope = math.sin(math.pi * phase) ** 2
+        band = Image.new("L", image.size)
+        band.putdata([round(165 * envelope * math.exp(-((x/image.width-center)/.26)**2))
+                      for y in range(image.height) for x in range(image.width)])
+    mask = ImageChops.multiply(eligible, band)
     shade = 0 if theme.key.endswith("-White") else 255
-    result = Image.composite(Image.new("RGBA", image.size, (shade, shade, shade, 255)), image, mask)
+    result = Image.composite(Image.new("RGBA", image.size, (244, 194, 48, 255) if theme.style == "sharp" else (shade, shade, shade, 255)), image, mask)
     result.putalpha(channels[3])
     return result
 
@@ -192,14 +201,14 @@ def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
     base, hotspot = _render_base_cursor(role, theme, size, 0)
     wave = math.sin(frame * math.tau / ANIMATION_FRAMES)
     if abs(wave) < 1e-10:
-        return base.copy(), hotspot
+        return _light_sheen(base.copy(), theme, frame), hotspot
     sx = sy = 1.0
     angle = 0.0
     if role.key == "arrow":
         if theme.style == "beam":
             sx += .085 * wave  # A small serif opening, not a tint sweep.
         else:
-            angle = 2.1 * wave  # Tip-anchored settle; no hotspot drift.
+            angle = (1.7 if theme.style == "sharp" else 2.1) * wave  # Tip-anchored settle; no hotspot drift.
     elif role.key == "ibeam":
         sx += .085 * wave
     elif role.key in {"sizens", "sizewe", "sizenwse", "sizenesw", "sizeall", "uparrow"}:
