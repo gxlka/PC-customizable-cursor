@@ -180,7 +180,7 @@ class ArtworkTests(unittest.TestCase):
                     rest, _ = render_cursor(role, theme, 32, 0)
                     # Symmetric spinners can repeat at a quarter turn.
                     changes = []
-                    for frame in (4, 8, 12):
+                    for frame in (ANIMATION_FRAMES//8, ANIMATION_FRAMES//4, 3*ANIMATION_FRAMES//8):
                         peak, _ = render_cursor(role, theme, 32, frame)
                         difference = ImageChops.difference(rest, peak) if role.key in {"wait", "appstarting"} else ImageChops.difference(rest.getchannel("A"), peak.getchannel("A"))
                         changes.append(sum(ImageStat.Stat(difference).sum))
@@ -203,7 +203,7 @@ class ArtworkTests(unittest.TestCase):
                         self.assertLess(bounds[3],32)
                         if role.key == "arrow":
                             self.assertGreater(image.getchannel("A").getpixel(hotspot),0)
-                    neutral, _ = render_cursor(role,theme,32,16)
+                    neutral, _ = render_cursor(role,theme,32,ANIMATION_FRAMES//2)
                     self.assertEqual(first.tobytes(),neutral.tobytes())
 
     def test_light_sheen_preserves_motion_alpha_and_contrast_edges(self):
@@ -212,13 +212,13 @@ class ArtworkTests(unittest.TestCase):
             for role in ROLE_ORDER:
                 with self.subTest(theme=theme.key, role=role.key):
                     with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
-                        original, hotspot = render_cursor(role, theme, 64, 8)
-                    animated, actual_hotspot = render_cursor(role, theme, 64, 8)
+                        original, hotspot = render_cursor(role, theme, 64, ANIMATION_FRAMES//4)
+                    animated, actual_hotspot = render_cursor(role, theme, 64, ANIMATION_FRAMES//4)
                     self.assertEqual(hotspot, actual_hotspot)
                     self.assertEqual(original.getchannel("A").tobytes(), animated.getchannel("A").tobytes())
                     with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
-                        other, _ = render_cursor(role, theme, 64, 24)
-                    other_animated, _ = render_cursor(role, theme, 64, 24)
+                        other, _ = render_cursor(role, theme, 64, 3*ANIMATION_FRAMES//4)
+                    other_animated, _ = render_cursor(role, theme, 64, 3*ANIMATION_FRAMES//4)
                     self.assertTrue(original.tobytes() != animated.tobytes() or other.tobytes() != other_animated.tobytes(), "Sheen missing from exported animation frames")
                     light = theme.key.endswith("-White")
                     for before, after in zip(zip(*[iter(original.tobytes())]*4), zip(*[iter(animated.tobytes())]*4)):
@@ -226,11 +226,25 @@ class ArtworkTests(unittest.TestCase):
                             self.assertEqual(before, after)
                     self.assertEqual(original.tobytes(), _light_sheen(original, theme, 0).tobytes())
 
+    def test_sheen_has_noticeable_fill_contrast_at_32px(self):
+        from PIL import ImageChops
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                with self.subTest(theme=theme.key, role=role.key):
+                    peaks = []
+                    for frame in (ANIMATION_FRAMES//4, 3*ANIMATION_FRAMES//4):
+                        with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
+                            original, _ = render_cursor(role, theme, 32, frame)
+                        animated, _ = render_cursor(role, theme, 32, frame)
+                        difference = ImageChops.difference(original, animated)
+                        peaks.append(max(upper for lower, upper in difference.getextrema()[:3]))
+                    self.assertGreaterEqual(max(peaks), 20)
+
     def test_all_cursors_have_visible_edges_on_matching_backgrounds(self):
         for theme in THEMES.values():
             light = theme.key.endswith("-White")
             for role in ROLE_ORDER:
-                for frame in (0, 8, 16, 24):
+                for frame in (0, ANIMATION_FRAMES//4, ANIMATION_FRAMES//2, 3*ANIMATION_FRAMES//4):
                     with self.subTest(theme=theme.key, role=role.key, frame=frame):
                         image, _ = render_cursor(role, theme, 32, frame)
                         pixels = zip(*[iter(image.tobytes())]*4)

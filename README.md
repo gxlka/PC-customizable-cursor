@@ -35,6 +35,6 @@ The build writes theme folders, individual ZIPs, the combined ZIP, and a combine
 
 Windows and the active application select Text Select over text fields, Link Select over links, Resize at supported edges, and Busy/Working during work. All 17 roles animate at 30 fps. These are state loops, not reactions to individual clicks or keystrokes. Some applications hide the pointer while typing or supply their own cursors. No companion app runs in the background. Static CUR alternatives are included for manual selection through Mouse Properties.
 
-State motion is visible at normal 32 px desktop size and rests for 0.4 seconds between loops. Each theme folder contains only its named color; its preview shows that variant only. Files ending in -large.ani use the same colors at a larger resolution, and .cur files are optional static versions. Rerun Install-Wingline.cmd after every update to activate the new .ani files.
+State motion uses a slower 2.13-second cycle with 64 frames at 30 fps, visible at normal 32 px desktop size and rests for 0.4 seconds between loops. Each theme folder contains only its named color; its preview shows that variant only. Files ending in -large.ani use the same colors at a larger resolution, and .cur files are optional static versions. Rerun Install-Wingline.cmd after every update to activate the new .ani files.
 
-A soft moving sheen now complements the existing shape motion and loading loops in every role. It affects only the fill, preserving the contrasting outlines and click points.
+A clearer moving sheen now complements the existing shape motion and loading loops in every role. It affects only the fill, preserving the contrasting outlines and click points.

@@ -25,7 +25,7 @@ def read_chunk(data, offset):
 
 
 class AniEncodingTests(unittest.TestCase):
-    def test_ani_has_32_frames_two_jiffy_steps_and_looping_sequence(self):
+    def test_ani_has_64_frames_two_jiffy_steps_and_looping_sequence(self):
         frames = sample_frames()
 
         data = encode_ani(frames)
@@ -59,6 +59,10 @@ class AniEncodingTests(unittest.TestCase):
             icons.append(payload)
         self.assertEqual(frames, icons)
         self.assertEqual(len(frames_list), offset)
+
+    def test_motion_cycle_is_slower_without_lowering_frame_rate(self):
+        self.assertEqual(30, 60 / FRAME_JIFFIES)
+        self.assertGreaterEqual(ANIMATION_FRAMES * FRAME_JIFFIES / 60, 2.0)
 
     def test_ani_rejects_empty_or_incomplete_frame_sets(self):
         with self.assertRaises(ValueError):
@@ -102,7 +106,7 @@ class AniEncodingTests(unittest.TestCase):
         steps = ANIMATION_FRAMES + STATE_IDLE_STEPS
         self.assertEqual((ANIMATION_FRAMES, steps), header[1:3])
         sequence=struct.unpack(f"<{steps}I",dict(chunks)[b"seq "])
-        self.assertEqual((0,)*STATE_IDLE_STEPS+tuple(range(32)),sequence)
+        self.assertEqual((0,)*STATE_IDLE_STEPS+tuple(range(ANIMATION_FRAMES)),sequence)
         self.assertEqual((FRAME_JIFFIES,)*steps,struct.unpack(f"<{steps}I",dict(chunks)[b"rate"]))
         with self.assertRaises(ValueError):
             encode_ani([frame]*ANIMATION_FRAMES, idle_steps=-1)
