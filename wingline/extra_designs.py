@@ -67,9 +67,10 @@ def draw_hand(p, glyph, frame):
         p.line([(.57,.13),(.68,.13),(.68,.87),(.57,.87)],.028)
         p.line([(.5,.29),(.5,.71)],.025)
     elif glyph=='pen':
-        pts=curve((.17,.82),(.20,.56),(.47,.26),(.73,.14))
-        pts+=curve((.73,.14),(.88,.42),(.56,.69),(.17,.82))[1:]
-        p.shape(pts);p.line([(.17,.82),(.68,.28)],.021)
+        # A slim curved quill with an unmistakable pointed writing tip.
+        pts=curve((.15,.87),(.20,.58),(.47,.25),(.78,.13))
+        pts+=curve((.78,.13),(.86,.40),(.57,.68),(.15,.87))[1:]
+        p.shape(pts);p.line([(.15,.87),(.67,.29)],.023)
     elif glyph=='no':
         p.shape([(.30,.12),(.70,.12),(.88,.30),(.88,.70),(.70,.88),(.30,.88),(.12,.70),(.12,.30)])
         p.line([(.34,.34),(.66,.66)],.033);p.line([(.66,.34),(.34,.66)],.033)
@@ -192,13 +193,16 @@ def draw_beam(p, glyph, frame):
             p.line(turn([(.10,.26),(.10,.10),(.26,.10)],angle),.022)
         p.shape([(.43,.43),(.57,.43),(.57,.57),(.43,.57)])
     elif glyph=='crosshair':
-        p.line([(.12,.12),(.88,.88)],.025);p.line([(.88,.12),(.12,.88)],.025)
-        p.ring(.5,.5,.12,width=.027)
+        # Open precision ticks and a small diamond: no confusing diagonal X.
+        for a in (0,math.pi/2,math.pi,3*math.pi/2):
+            p.line(turn([(.10,.5),(.34,.5)],a),.028)
+        p.shape([(.5,.40),(.60,.5),(.5,.60),(.40,.5)])
     elif glyph=='ibeam':
-        # Separate insertion caret, rather than repeating Normal Select.
-        p.line([(.5,.12),(.5,.88)],.031)
-        p.shape([(.32,.10),(.68,.10),(.5,.29)])
-        p.shape([(.32,.90),(.68,.90),(.5,.71)])
+        # A readable insertion caret with outward curved serifs, distinct
+        # from the inward curved serifs of the normal beam pointer.
+        p.line([(.5,.17),(.5,.83)],.054)
+        p.line(curve((.27,.14),(.41,.24),(.59,.24),(.73,.14)),.050)
+        p.line(curve((.27,.86),(.41,.76),(.59,.76),(.73,.86)),.050)
     elif glyph=='pen':
         p.line([(.19,.81),(.73,.19)],.071)
         p.shape([(.12,.9),(.19,.68),(.34,.81)])

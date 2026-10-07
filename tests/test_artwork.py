@@ -184,6 +184,22 @@ class ArtworkTests(unittest.TestCase):
                         self.assertEqual(hotspot, actual_hotspot)
                         self.assertEqual(first.getchannel("A").tobytes(), image.getchannel("A").tobytes())
 
+    def test_non_pointer_edges_remain_visible_on_matching_backgrounds(self):
+        for theme in THEMES.values():
+            light = theme.key.endswith("-White")
+            for role in ROLE_ORDER:
+                if role.key == "arrow" and theme.style != "beam":
+                    continue
+                for frame in (0, 8, 16, 24):
+                    with self.subTest(theme=theme.key, role=role.key, frame=frame):
+                        image, _ = render_cursor(role, theme, 32, frame)
+                        pixels = zip(*[iter(image.tobytes())]*4)
+                        # Count visible, strongly contrasting border pixels at
+                        # actual desktop size, including every loop quarter.
+                        count = sum(a >= 160 and (max(r,g,b) < 110 if light else min(r,g,b) > 180)
+                                    for r,g,b,a in pixels)
+                        self.assertGreaterEqual(count, 10)
+
     def test_arrow_hotspot_is_at_the_top_corner(self):
         self.assertIsNotNone(render_cursor)
         arrow = next(role for role in ROLE_ORDER if role.key == "arrow")

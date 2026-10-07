@@ -17,8 +17,10 @@ def curve(a, b, c, d, steps=24):
 
 
 class Pen:
-    def __init__(self, image, theme):
+    def __init__(self, image, theme, glyph=None):
         self.draw=ImageDraw.Draw(image); self.n=image.width; self.theme=theme
+        self.strong_edge = glyph != "arrow" or theme.style == "beam"
+        self.text = glyph == "ibeam" or (theme.style == "beam" and glyph == "arrow")
     def pixels(self, pts):
         return [(round(x*self.n),round(y*self.n)) for x,y in pts]
     def rawline(self, pts, color, width):
@@ -28,12 +30,13 @@ class Pen:
         for x,y in (p[0],p[-1]):
             self.draw.ellipse((round(x-r),round(y-r),round(x+r),round(y+r)),fill=color)
     def line(self, pts, width=.032):
-        self.rawline(pts,self.theme.edge,width+.024)
+        if self.text: width = max(width, .050)
+        self.rawline(pts,self.theme.edge,width+(.052 if self.strong_edge else .024))
         self.rawline(pts,self.theme.fill,width)
     def shape(self, pts):
         p=self.pixels(pts)
         self.draw.polygon(p,fill=self.theme.fill)
-        self.draw.line(p+[p[0]],fill=self.theme.edge,width=max(1,round(.018*self.n)),joint='curve')
+        self.draw.line(p+[p[0]],fill=self.theme.edge,width=max(1,round((.042 if self.strong_edge else .018)*self.n)),joint='curve')
     def disk(self,x,y,r):
         self.shape([(x+math.cos(i*math.tau/80)*r,y+math.sin(i*math.tau/80)*r) for i in range(80)])
     def ring(self,x,y,r,start=0,end=360,width=.032):
@@ -41,7 +44,7 @@ class Pen:
               y+math.sin(math.radians(start+(end-start)*i/100))*r) for i in range(101)]
         self.line(pts,width)
     def capsule(self,box,r=.08):
-        x0,y0,x1,y1=box; n=self.n; edge=max(1,round(n*.018))
+        x0,y0,x1,y1=box; n=self.n; edge=max(1,round(n*(.030 if self.strong_edge else .018)))
         coords=tuple(round(v*n) for v in box)
         self.draw.rounded_rectangle(coords,radius=round(r*n),fill=self.theme.edge)
         self.draw.rounded_rectangle((coords[0]+edge,coords[1]+edge,coords[2]-edge,coords[3]-edge),
@@ -153,13 +156,10 @@ def draw_windows(p, glyph, frame):
             p.line(pts,.023)
         p.disk(.5,.5,.028)
     elif glyph=='ibeam':
-        # Curved serifs and a slim waist, unlike Wingline's straight I-bar.
-        pts=curve((.22,.14),(.48,.24),(.48,.25),(.48,.5))
-        pts+=curve((.48,.5),(.48,.75),(.48,.76),(.22,.86))[1:]
-        p.line(pts,.037)
-        pts=curve((.78,.14),(.52,.24),(.52,.25),(.52,.5))
-        pts+=curve((.52,.5),(.52,.75),(.52,.76),(.78,.86))[1:]
-        p.line(pts,.037)
+        # A continuous stem with rounded outward serifs: no crossing waist.
+        p.line([(.5,.19),(.5,.81)],.056)
+        p.line(curve((.23,.12),(.37,.20),(.63,.20),(.77,.12)),.048)
+        p.line(curve((.23,.88),(.37,.80),(.63,.80),(.77,.88)),.048)
     elif glyph=='pen':
         p.shape([(.14,.86),(.30,.35),(.70,.14),(.86,.30),(.65,.70)])
         p.line([(.14,.86),(.55,.45)],.022);p.disk(.55,.45,.043)
@@ -211,7 +211,7 @@ def draw_windows(p, glyph, frame):
 
 def render_role(glyph: str, theme: Theme, canvas: int, frame: int, with_hotspot=False):
     image=Image.new('RGBA',(canvas,canvas))
-    p=Pen(image,theme)
+    p=Pen(image,theme,glyph)
     from .extra_designs import DRAW_STYLES, NORMAL_HOTSPOTS
     renderer = DRAW_STYLES.get(theme.style, draw_windows if theme.style=='windows' else draw_wingline)
     renderer(p,glyph,frame*8/ANIMATION_FRAMES)
@@ -244,7 +244,7 @@ def animation_bounds(style, glyph):
     boxes=[]
     for frame in range(ANIMATION_FRAMES):
         source=Image.new('RGBA',(512,512))
-        renderer(Pen(source,theme),glyph,frame*8/ANIMATION_FRAMES)
+        renderer(Pen(source,theme,glyph),glyph,frame*8/ANIMATION_FRAMES)
         boxes.append(source.getchannel('A').getbbox())
     # All phases use one transform: no per-frame resizing or center drift.
     return (min(b[0] for b in boxes)/512, min(b[1] for b in boxes)/512,

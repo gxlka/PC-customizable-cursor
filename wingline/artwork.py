@@ -4,7 +4,7 @@ import math
 from typing import Iterable
 from functools import lru_cache
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageChops
 
 from .roles import CursorRole, ROLE_ORDER, Theme
 from .designs import render_role
@@ -176,6 +176,10 @@ def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
     if role.key in {"ibeam", "sizens", "uparrow", "nwpen"}:
         mask = mask.transpose(Image.Transpose.TRANSPOSE)
     rgb = base.convert("RGB")
+    # Animate fill only. The contrasting outline must never fade with sheen.
+    light = theme.fill == "#FCFDFF"
+    weight = rgb.convert("L").point(lambda v: max(0, min(255, (v-128)*2 if light else (128-v)*2)))
+    mask = ImageChops.multiply(mask, weight)
     tint = Image.blend(rgb, Image.new("RGB", base.size, (112, 145, 177)), .22)
     image = Image.composite(tint, rgb, mask).convert("RGBA")
     image.putalpha(base.getchannel("A"))
