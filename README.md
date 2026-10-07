@@ -29,7 +29,7 @@ python build.py --check
 python -m unittest discover -s tests -v
 ```
 
-The build writes theme folders, individual ZIPs, the combined ZIP, and a combined preview under `dist/`. The check command validates role mappings, installer files, CUR hotspots and bitmap data, ANI frame structure, previews, and ZIP integrity. Windows CI also loads every CUR and ANI through the Windows native cursor API at all seven included sizes, validates the dimensions and hotspots, and releases the ZIPs only after that check passes. Applying the scheme to a desktop is not automated by the build.
+The build writes theme folders, individual ZIPs, the combined ZIP, and a combined preview under `dist/`. The full ZIP is distributed through GitHub Releases because it exceeds GitHub’s repository file limit; individual theme downloads remain in the repository. Repository-only maintenance can reuse a published pack when all cursor sources match its release tag. The check command validates role mappings, installer files, CUR hotspots and bitmap data, ANI frame structure, previews, and ZIP integrity. Windows CI also loads every CUR and ANI through the Windows native cursor API at all seven included sizes, validates the dimensions and hotspots, and releases the ZIPs only after that check passes. Applying the scheme to a desktop is not automated by the build.
 
 ## Animated cursor states
 
