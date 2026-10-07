@@ -99,10 +99,11 @@ class AniEncodingTests(unittest.TestCase):
         while offset<len(data):
             cid,payload,offset=read_chunk(data,offset); chunks.append((cid,payload))
         header=struct.unpack("<9I",dict(chunks)[b"anih"])
-        self.assertEqual((32,80), header[1:3])
-        sequence=struct.unpack("<80I",dict(chunks)[b"seq "])
+        steps = ANIMATION_FRAMES + STATE_IDLE_STEPS
+        self.assertEqual((ANIMATION_FRAMES, steps), header[1:3])
+        sequence=struct.unpack(f"<{steps}I",dict(chunks)[b"seq "])
         self.assertEqual((0,)*STATE_IDLE_STEPS+tuple(range(32)),sequence)
-        self.assertEqual((FRAME_JIFFIES,)*80,struct.unpack("<80I",dict(chunks)[b"rate"]))
+        self.assertEqual((FRAME_JIFFIES,)*steps,struct.unpack(f"<{steps}I",dict(chunks)[b"rate"]))
         with self.assertRaises(ValueError):
             encode_ani([frame]*ANIMATION_FRAMES, idle_steps=-1)
 

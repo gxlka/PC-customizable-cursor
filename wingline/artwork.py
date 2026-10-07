@@ -171,26 +171,26 @@ def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
     angle = 0.0
     if role.key == "arrow":
         if theme.style == "beam":
-            sx += .035 * wave  # A small serif opening, not a tint sweep.
+            sx += .085 * wave  # A small serif opening, not a tint sweep.
         else:
-            angle = .85 * wave  # Tip-anchored settle; no hotspot drift.
+            angle = 2.1 * wave  # Tip-anchored settle; no hotspot drift.
     elif role.key == "ibeam":
-        sx += .040 * wave
+        sx += .085 * wave
     elif role.key in {"sizens", "sizewe", "sizenwse", "sizenesw", "sizeall", "uparrow"}:
         # Extend along the role's direction, leaving the center anchored.
-        if role.key == "sizewe": sx += .024 * wave
-        elif role.key in {"sizens", "uparrow"}: sy += .024 * wave
-        else: sx += .016 * wave; sy += .016 * wave
+        if role.key == "sizewe": sx += .060 * wave
+        elif role.key in {"sizens", "uparrow"}: sy += .060 * wave
+        else: sx += .040 * wave; sy += .040 * wave
     elif role.key == "nwpen":
-        angle = 1.1 * wave
+        angle = 2.2 * wave
     elif role.key == "hand":
-        angle = .7 * wave
-        sy += .008 * wave
+        angle = 1.8 * wave
+        sy += .022 * wave
     elif role.key in {"help", "person", "pin"}:
-        sy += .014 * wave
+        sy += .045 * wave
     else:
-        sx += .012 * wave
-        sy += .012 * wave
+        sx += .035 * wave
+        sy += .035 * wave
     # Warp a high-resolution neutral render, never repeatedly resample the
     # previous frame. Both palettes keep the original fill and border colors.
     source, _ = _render_base_cursor(role, theme, 256, 0)

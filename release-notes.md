@@ -1,13 +1,9 @@
-# Wingline Cursor Pack — Quiet Motion
+# Wingline Cursor Pack v1.4.1
 
-Five distinct styles in light and dark themes: Wingline, Windows Smooth, Hand, macOS, and I-Beam.
+Five complete cursor families — Wingline, Windows Smooth, Hand, macOS-inspired, and I-Beam — in white and black.
 
-The sweeping color-wave effect has been replaced with restrained role-specific shape motion. Main pointers settle gently around their click tip, text cursors subtly open their serifs, resize and move cursors extend in their direction, and link and handwriting cursors use a small controlled tilt. Other states use a slight change in shape rather than flashing, sparkles, or color sweeps.
+All 17 Windows roles animate at 30 fps. Restrained tip-anchored pointer motion, text serif movement, link and resize motion are now clearer at normal desktop size, with a shorter 0.4-second rest. Busy and Working continue to animate continuously. No flashing, tint waves, or background app.
 
-State cursors rest for 1.6 seconds between short smooth movements. Busy and Working retain their continuous progress animations. Movement frames remain at 30 fps. All click hotspots stay fixed, and the improved light/dark outlines and existing cursor designs are retained.
+Each theme folder and its preview contain only its own color variant. Normal animations, large-resolution animations, and static alternatives use the same palette.
 
-The resting interval reuses frame zero in the native ANI sequence rather than storing extra bitmap frames. No background app or service is needed. Normal-size animations use smaller source bitmaps, with large-size fallbacks and static alternatives included.
-
-Download Wingline-Cursor-Pack.zip, extract your theme, and run Install-Wingline.cmd again.
-
-Release checks cover smooth loop seams, neutral-frame recovery, fixed click points, visible contrast throughout the motion, correct native idle sequences, ZIP integrity, native Windows loading of every frame, and a drawing benchmark covering the full sequence.
+Extract the ZIP, open your chosen color folder, and rerun Install-Wingline.cmd to replace any older installed files and activate all 17 animations. Windows and applications choose cursor states; browser grab cursors and game-supplied artwork remain controlled by those applications.

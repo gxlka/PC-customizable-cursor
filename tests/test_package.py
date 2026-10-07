@@ -197,6 +197,19 @@ class PackageTests(unittest.TestCase):
         self.assertTrue((self.output_root / "preview.png").is_file())
         self.assertTrue(verify_pack(self.output_root))
 
+    def test_theme_folders_never_contain_the_opposite_color(self):
+        for theme in THEMES.values():
+            for asset in (self.output_root / theme.key).iterdir():
+                if asset.suffix in {".cur", ".ani", ".inf"}:
+                    self.assertTrue(asset.name.startswith(theme.key + "-") or asset.name == theme.key + ".inf")
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output_root = Path(temporary_directory) / "dist"
+            shutil.copytree(self.output_root, output_root)
+            shutil.copy2(output_root / "macOS-White" / "macOS-White-arrow.ani",
+                         output_root / "macOS-Black" / "macOS-White-arrow.ani")
+            with self.assertRaisesRegex(ValueError, "Wrong color or family"):
+                verify_pack(output_root)
+
     def test_build_check_command_verifies_the_existing_pack(self):
         previous_output_dir = build.OUTPUT_DIR
         output = StringIO()

@@ -29,13 +29,15 @@ The .inf remains available for manual import. If Windows reports that an INF
 is already installed, run Install-Wingline.cmd to reapply and activate it.
 All 17 active roles are animated at 30 fps. Text Select, Link Select, resize
 and other states use restrained role-specific motion around a stable click hotspot.
-State motions pause for 1.6 seconds between loops; no flashing or tint waves.
+State motions pause for 0.4 seconds between loops; no flashing or tint waves.
 Windows selects the active role; loops do not react to individual clicks or
 keystrokes. The installer exits; no background application is needed.
 Normal animations use 64 px source frames, with 256 px large-size fallbacks.
 Static .cur alternatives are included for manual selection in Mouse settings.
 
-The included preview.png shows the 48 px artwork on light and dark backgrounds.
+The included preview.png shows only this folder's color variant at 48 px.
+.ani files are animated; -large.ani files are the same color at a larger
+resolution, and .cur files are static alternatives, not a second color theme.
 """
 
 
@@ -123,15 +125,14 @@ def _draw_theme_preview(theme: Theme, output_path: Path) -> Image.Image:
     label_font = _font(12)
     small_font = _font(10)
     draw.text((18, 16), theme.label, fill="#151922", font=title_font)
-    draw.text((18, 48), "48 px cursor previews on light and dark surfaces", fill="#4A5362", font=small_font)
-    draw.text((225, 72), "LIGHT", fill="#394252", font=small_font)
-    draw.text((282, 72), "DARK", fill="#394252", font=small_font)
+    draw.text((18, 48), "48 px — this folder's color variant only", fill="#4A5362", font=small_font)
+    draw.text((244, 72), theme.key.rsplit("-", 1)[-1].upper(), fill="#394252", font=small_font)
 
     for index, role in enumerate(ROLE_ORDER):
         top = header_height + index * row_height
         draw.rounded_rectangle((12, top, width - 12, top + row_height - 4), radius=8, fill="#FFFFFF")
         draw.text((22, top + 21), role.label, fill="#202633", font=label_font)
-        for x, background in ((222, "#F8FAFC"), (278, "#171A20")):
+        for x, background in ((250, "#171A20" if theme.key.endswith("-White") else "#F8FAFC"),):
             draw.rounded_rectangle((x, top + 5, x + 48, top + 53), radius=6, fill=background)
             cursor, _ = render_cursor(role, theme, 48, frame=0)
             image.alpha_composite(cursor, (x, top + 5)) if image.mode == "RGBA" else image.paste(
@@ -431,6 +432,10 @@ def verify_pack(output_root: Path) -> bool:
     for theme in THEMES.values():
         theme_dir = output_root / theme.key
         _require(theme_dir.is_dir(), f"Theme output is missing: {theme.key}.")
+        for asset in theme_dir.iterdir():
+            if asset.suffix in {".cur", ".ani", ".inf"}:
+                _require(asset.name.startswith(theme.key + "-") or asset.name == theme.key + ".inf",
+                         f"Wrong color or family in {theme.key}: {asset.name}")
         filenames = [cursor_filename(theme, role) for role in ROLE_ORDER]
         inf_path = theme_dir / f"{theme.key}.inf"
         _require(inf_path.is_file(), f"Installer is missing: {inf_path.name}.")

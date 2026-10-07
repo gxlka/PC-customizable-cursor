@@ -172,6 +172,20 @@ class ArtworkTests(unittest.TestCase):
                     self.assertGreater(sum(changes),0)
                     self.assertLessEqual(changes[-1],max(changes[:-1])*1.25+.1)
 
+    def test_motion_is_visible_at_actual_desktop_size(self):
+        from PIL import ImageChops, ImageStat
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                with self.subTest(theme=theme.key, role=role.key):
+                    rest, _ = render_cursor(role, theme, 32, 0)
+                    # Symmetric spinners can repeat at a quarter turn.
+                    changes = []
+                    for frame in (4, 8, 12):
+                        peak, _ = render_cursor(role, theme, 32, frame)
+                        difference = ImageChops.difference(rest, peak) if role.key in {"wait", "appstarting"} else ImageChops.difference(rest.getchannel("A"), peak.getchannel("A"))
+                        changes.append(sum(ImageStat.Stat(difference).sum))
+                    self.assertGreater(max(changes), 500)
+
     def test_state_motion_keeps_hotspots_and_neutral_frame_stable(self):
         for theme in THEMES.values():
             for role in ROLE_ORDER:
