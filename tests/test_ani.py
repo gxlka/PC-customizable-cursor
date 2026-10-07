@@ -90,6 +90,22 @@ class AniEncodingTests(unittest.TestCase):
         header = read_chunk(small,12)[1]
         self.assertEqual((ANIMATION_FRAMES,ANIMATION_FRAMES,64,64),struct.unpack("<9I",header)[1:5])
 
+    def test_idle_sequence_pauses_without_duplicating_bitmap_frames(self):
+        from wingline.timing import STATE_IDLE_STEPS
+        image = Image.new("RGBA", (64,64), (255,255,255,255))
+        frame = encode_cur([(image,(32,32))])
+        data = encode_ani([frame]*ANIMATION_FRAMES, idle_steps=STATE_IDLE_STEPS)
+        chunks=[]; offset=12
+        while offset<len(data):
+            cid,payload,offset=read_chunk(data,offset); chunks.append((cid,payload))
+        header=struct.unpack("<9I",dict(chunks)[b"anih"])
+        self.assertEqual((32,80), header[1:3])
+        sequence=struct.unpack("<80I",dict(chunks)[b"seq "])
+        self.assertEqual((0,)*STATE_IDLE_STEPS+tuple(range(32)),sequence)
+        self.assertEqual((FRAME_JIFFIES,)*80,struct.unpack("<80I",dict(chunks)[b"rate"]))
+        with self.assertRaises(ValueError):
+            encode_ani([frame]*ANIMATION_FRAMES, idle_steps=-1)
+
     def test_ani_rejects_mixed_source_sizes(self):
         small = encode_cur([(Image.new("RGBA", (64,64)), (32,32))])
         large = encode_cur([(Image.new("RGBA", (256,256)), (128,128))])

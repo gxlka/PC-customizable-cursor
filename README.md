@@ -34,3 +34,9 @@ The build writes theme folders, individual ZIPs, the combined ZIP, and a combine
 ## Animated cursor states
 
 Windows and the active application select Text Select over text fields, Link Select over links, Resize at supported edges, and Busy/Working during work. All 17 roles animate at 30 fps. These are state loops, not reactions to individual clicks or keystrokes. Some applications hide the pointer while typing or supply their own cursors. No companion app runs in the background. Static CUR alternatives are included for manual selection through Mouse Properties.
+
+## Quiet motion
+
+The cursor states use small role-specific movements around fixed hotspots, followed by 1.6 seconds of rest. Text serifs open slightly, resize symbols extend in their direction, and pointers, links and handwriting use a restrained settle or tilt. Busy and Working remain continuous. Motion frames run at 30 fps, without color waves, flashing or sparkles. The resting interval reuses the existing neutral frame in the ANI sequence, so it adds no bitmap frames or background process.
+
+Browser-provided cursor states such as grab and grabbing can use bundled browser artwork instead of Windows cursor scheme files. Those states are outside the native scheme's 17 roles; this pack does not install a browser helper or replace browser resources.

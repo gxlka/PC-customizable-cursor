@@ -1,13 +1,13 @@
-# Wingline Cursor Pack — Visibility Fixes
+# Wingline Cursor Pack — Quiet Motion
 
 Five distinct styles in light and dark themes: Wingline, Windows Smooth, Hand, macOS, and I-Beam.
 
-Outlines are stronger on every main pointer and non-pointer across all families, with improved contrast at normal desktop size. Animation sheen affects the fill while keeping the contrasting border steady. Text-selection cursors and the I-Beam main pointer have clearer stems and borders.
+The sweeping color-wave effect has been replaced with restrained role-specific shape motion. Main pointers settle gently around their click tip, text cursors subtly open their serifs, resize and move cursors extend in their direction, and link and handwriting cursors use a small controlled tilt. Other states use a slight change in shape rather than flashing, sparkles, or color sweeps.
 
-Selected awkward non-pointer symbols have been simplified: continuous rounded Windows Text Select, clearer handwriting nibs, the Hand avatar, and the I-Beam family's precision, text, unavailable, link, and avatar icons. Every macOS icon keeps its existing vector design; only its outline visibility improves. The macOS main pointer retains its broad shape and fingertip click point.
+State cursors rest for 1.6 seconds between short smooth movements. Busy and Working retain their continuous progress animations. Movement frames remain at 30 fps. All click hotspots stay fixed, and the improved light/dark outlines and existing cursor designs are retained.
 
-All 17 roles use smooth native 30 fps state loops. No background app or service is installed. Normal-size animations use smaller source bitmaps, with large-size fallbacks and static CUR alternatives included.
+The resting interval reuses frame zero in the native ANI sequence rather than storing extra bitmap frames. No background app or service is needed. Normal-size animations use smaller source bitmaps, with large-size fallbacks and static alternatives included.
 
-Download Wingline-Cursor-Pack.zip, extract a theme, and run Install-Wingline.cmd again to apply the update.
+Download Wingline-Cursor-Pack.zip, extract your theme, and run Install-Wingline.cmd again.
 
-Release checks cover every cursor's contrasting border on matching light and dark backgrounds, smooth loop seams, fixed dimensions and hotspots, distinct silhouettes, ZIP integrity, native Windows loading of every frame at seven sizes, and an all-role drawing benchmark.
+Release checks cover smooth loop seams, neutral-frame recovery, fixed click points, visible contrast throughout the motion, correct native idle sequences, ZIP integrity, native Windows loading of every frame, and a drawing benchmark covering the full sequence.

@@ -4,7 +4,7 @@ import math
 from typing import Iterable
 from functools import lru_cache
 
-from PIL import Image, ImageDraw, ImageChops
+from PIL import Image, ImageDraw
 
 from .roles import CursorRole, ROLE_ORDER, Theme
 from .designs import render_role
@@ -157,33 +157,62 @@ def _render_base_cursor(
 
 
 def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
-    """Animate the active native role without moving its silhouette or hotspot."""
+    """Render quiet, role-specific motion around a stationary click point."""
     if not 0 <= frame < ANIMATION_FRAMES:
         raise ValueError(f"Animated cursor frame must be between 0 and {ANIMATION_FRAMES-1}.")
     if role.glyph in ("wait", "appstarting"):
         image, hotspot = _render_base_cursor(role, theme, size, frame)
         return image.copy(), hotspot
     base, hotspot = _render_base_cursor(role, theme, size, 0)
-    # A restrained traveling sheen, clipped to the original alpha. It changes
-    # color only: tip, outlines, size and hit testing stay exactly stationary.
-    phase = frame * math.tau / ANIMATION_FRAMES
-    offset = ROLE_ORDER.index(role) * .37
-    values = [round(255 * ((1 + math.cos(i / max(1, size-1) * math.tau - phase + offset)) / 2)**4)
-              for i in range(size)]
-    mask = Image.new("L", (size, 1))
-    mask.putdata(values)
-    mask = mask.resize((size, size))
-    if role.key in {"ibeam", "sizens", "uparrow", "nwpen"}:
-        mask = mask.transpose(Image.Transpose.TRANSPOSE)
-    rgb = base.convert("RGB")
-    # Animate fill only. The contrasting outline must never fade with sheen.
-    light = theme.fill == "#FCFDFF"
-    weight = rgb.convert("L").point(lambda v: max(0, min(255, (v-128)*2 if light else (128-v)*2)))
-    mask = ImageChops.multiply(mask, weight)
-    tint = Image.blend(rgb, Image.new("RGB", base.size, (112, 145, 177)), .22)
-    image = Image.composite(tint, rgb, mask).convert("RGBA")
-    image.putalpha(base.getchannel("A"))
-    # Keep RGB in fully transparent pixels zero as in the source CUR renderer.
-    transparent = base.getchannel("A").point(lambda a: 255 if a == 0 else 0)
-    image.paste((0, 0, 0, 0), mask=transparent)
-    return image, hotspot
+    wave = math.sin(frame * math.tau / ANIMATION_FRAMES)
+    if abs(wave) < 1e-10:
+        return base.copy(), hotspot
+    sx = sy = 1.0
+    angle = 0.0
+    if role.key == "arrow":
+        if theme.style == "beam":
+            sx += .035 * wave  # A small serif opening, not a tint sweep.
+        else:
+            angle = .85 * wave  # Tip-anchored settle; no hotspot drift.
+    elif role.key == "ibeam":
+        sx += .040 * wave
+    elif role.key in {"sizens", "sizewe", "sizenwse", "sizenesw", "sizeall", "uparrow"}:
+        # Extend along the role's direction, leaving the center anchored.
+        if role.key == "sizewe": sx += .024 * wave
+        elif role.key in {"sizens", "uparrow"}: sy += .024 * wave
+        else: sx += .016 * wave; sy += .016 * wave
+    elif role.key == "nwpen":
+        angle = 1.1 * wave
+    elif role.key == "hand":
+        angle = .7 * wave
+        sy += .008 * wave
+    elif role.key in {"help", "person", "pin"}:
+        sy += .014 * wave
+    else:
+        sx += .012 * wave
+        sy += .012 * wave
+    # Warp a high-resolution neutral render, never repeatedly resample the
+    # previous frame. Both palettes keep the original fill and border colors.
+    source, _ = _render_base_cursor(role, theme, 256, 0)
+    hx, hy = (value * 256 / size for value in hotspot)
+    t = math.radians(angle)
+    a, b = math.cos(t)/sx, math.sin(t)/sx
+    d, e = -math.sin(t)/sy, math.cos(t)/sy
+    matrix = (a, b, hx-a*hx-b*hy, d, e, hy-d*hx-e*hy)
+    image = source.transform(source.size, Image.Transform.AFFINE, matrix,
+                             resample=Image.Resampling.BICUBIC)
+    if size != 256:
+        image = image.resize((size,size), Image.Resampling.LANCZOS)
+    if role.key == "arrow" and theme.style != "beam":
+        # Keep the fingertip region completely still, with a soft transition
+        # into the moving body. This also protects the small top margin.
+        limit = hotspot[1] + max(1, round(size*.025))
+        fade = max(2, round(size*.08))
+        mask = Image.new("L", (1,size))
+        mask.putdata([max(0,min(255,round(255*(limit+fade-y)/fade))) for y in range(size)])
+        mask = mask.resize((size,size),Image.Resampling.NEAREST)
+        image = Image.composite(base,image,mask)
+    pixels = bytearray(image.tobytes())
+    for i in range(0,len(pixels),4):
+        if pixels[i+3] < 8: pixels[i:i+4] = b"\x00\x00\x00\x00"
+    return Image.frombytes("RGBA",(size,size),bytes(pixels)), hotspot

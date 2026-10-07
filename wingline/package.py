@@ -10,7 +10,7 @@ from pathlib import Path, PureWindowsPath
 from PIL import Image, ImageDraw, ImageFont
 
 from .ani import encode_ani
-from .timing import FRAME_JIFFIES
+from .timing import FRAME_JIFFIES, STATE_IDLE_STEPS
 from .artwork import ANIMATION_FRAMES, SUPPORTED_SIZES, render_cursor, _render_base_cursor
 from .cur import encode_cur
 from .roles import ROLE_ORDER, THEMES, CursorRole, Theme
@@ -28,7 +28,8 @@ not need administrator access.
 The .inf remains available for manual import. If Windows reports that an INF
 is already installed, run Install-Wingline.cmd to reapply and activate it.
 All 17 active roles are animated at 30 fps. Text Select, Link Select, resize
-and other states use a subtle moving sheen with a stable shape and hotspot.
+and other states use restrained role-specific motion around a stable click hotspot.
+State motions pause for 1.6 seconds between loops; no flashing or tint waves.
 Windows selects the active role; loops do not react to individual clicks or
 keystrokes. The installer exits; no background application is needed.
 Normal animations use 64 px source frames, with 256 px large-size fallbacks.
@@ -49,7 +50,7 @@ def _role_cursor_bytes(role: CursorRole, theme: Theme, animation_size: int = 64)
         for frame_index in range(ANIMATION_FRAMES):
             image, hotspot = render_cursor(role, theme, animation_size, frame=frame_index)
             frames.append(encode_cur([(image, hotspot)]))
-        return encode_ani(frames)
+        return encode_ani(frames, idle_steps=0 if role.key in {"wait", "appstarting"} else STATE_IDLE_STEPS)
 
     images = [render_cursor(role, theme, size) for size in SUPPORTED_SIZES]
     return encode_cur(images)
@@ -305,7 +306,7 @@ def _read_riff_chunks(data: bytes, start: int, end: int) -> list[tuple[bytes, by
     return chunks
 
 
-def _check_ani(data: bytes, expected_size: int = 64) -> None:
+def _check_ani(data: bytes, expected_size: int = 64, idle_steps: int = 0) -> None:
     _require(len(data) >= 12 and data[:4] == b"RIFF", "ANI RIFF header is invalid.")
     _require(struct.unpack_from("<I", data, 4)[0] == len(data) - 8, "ANI RIFF length is invalid.")
     _require(data[8:12] == b"ACON", "ANI form type is not ACON.")
@@ -319,10 +320,10 @@ def _check_ani(data: bytes, expected_size: int = 64) -> None:
     _, frame_count, step_count, width, height, bit_count, planes, _, flags = struct.unpack(
         "<9I", headers[0]
     )
-    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (ANIMATION_FRAMES, ANIMATION_FRAMES, expected_size, expected_size, 32, 1, 3), "ANI header values are invalid.")
-    _require(len(rates[0]) == 4*ANIMATION_FRAMES and len(sequences[0]) == 4*ANIMATION_FRAMES, "ANI timing chunks have invalid lengths.")
-    _require(struct.unpack(f"<{ANIMATION_FRAMES}I", rates[0]) == (FRAME_JIFFIES,) * ANIMATION_FRAMES, "ANI frame rates are invalid.")
-    _require(struct.unpack(f"<{ANIMATION_FRAMES}I", sequences[0]) == tuple(range(ANIMATION_FRAMES)), "ANI sequence is invalid.")
+    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (ANIMATION_FRAMES, ANIMATION_FRAMES+idle_steps, expected_size, expected_size, 32, 1, 3), "ANI header values are invalid.")
+    _require(len(rates[0]) == 4*step_count and len(sequences[0]) == 4*step_count, "ANI timing chunks have invalid lengths.")
+    _require(struct.unpack(f"<{step_count}I", rates[0]) == (FRAME_JIFFIES,) * step_count, "ANI frame rates are invalid.")
+    _require(struct.unpack(f"<{step_count}I", sequences[0]) == (0,)*idle_steps + tuple(range(ANIMATION_FRAMES)), "ANI sequence is invalid.")
     frame_list = frame_lists[0]
     _require(frame_list[:4] == b"fram", "ANI frame list has an invalid type.")
     frames = _read_riff_chunks(frame_list, 4, len(frame_list))
@@ -472,10 +473,11 @@ def verify_pack(output_root: Path) -> bool:
             )
             role_payloads.add(payload)
             if role.key in ANIMATED_ROLES:
-                _check_ani(payload)
+                idle = 0 if role.key in {"wait", "appstarting"} else STATE_IDLE_STEPS
+                _check_ani(payload, idle_steps=idle)
                 large = theme_dir / f"{theme.key}-{role.key}-large.ani"
                 _require(large.is_file(), f"Missing high-DPI animation: {large.name}")
-                _check_ani(large.read_bytes(), expected_size=256)
+                _check_ani(large.read_bytes(), expected_size=256, idle_steps=idle)
             if role.key in STATIC_ROLES:
                 _check_cur((theme_dir / f"{theme.key}-{role.key}.cur").read_bytes(), set(SUPPORTED_SIZES))
 

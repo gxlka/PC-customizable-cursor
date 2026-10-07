@@ -55,7 +55,7 @@ def _validate_cursor_frame(frame: bytes) -> None:
         raise ValueError("ANI frames must contain a complete 64px or 256px CUR image.")
 
 
-def encode_ani(frames: Sequence[bytes], frame_jiffies: int = FRAME_JIFFIES) -> bytes:
+def encode_ani(frames: Sequence[bytes], frame_jiffies: int = FRAME_JIFFIES, idle_steps: int = 0) -> bytes:
     """Wrap smooth single-image 256 px CUR frames in a looping RIFF ANI file."""
     if len(frames) != _FRAME_COUNT:
         raise ValueError(f"ANI files require exactly {_FRAME_COUNT} cursor frames.")
@@ -71,12 +71,16 @@ def encode_ani(frames: Sequence[bytes], frame_jiffies: int = FRAME_JIFFIES) -> b
     if len(sizes) != 1:
         raise ValueError("ANI frames must use one consistent canvas size.")
     frame_size = sizes.pop()
+    if not isinstance(idle_steps, int) or isinstance(idle_steps, bool) or not 0 <= idle_steps <= 600:
+        raise ValueError("Idle steps must be an integer between 0 and 600.")
+    steps = [0] * idle_steps + list(range(_FRAME_COUNT))
+
 
     header = struct.pack(
         "<9I",
         _ANI_HEADER_SIZE,
         _FRAME_COUNT,
-        _FRAME_COUNT,
+        len(steps),
         frame_size,
         frame_size,
         32,
@@ -84,8 +88,8 @@ def encode_ani(frames: Sequence[bytes], frame_jiffies: int = FRAME_JIFFIES) -> b
         frame_jiffies,
         _FLAG_ICON | _FLAG_SEQUENCE,
     )
-    rates = struct.pack(f"<{_FRAME_COUNT}I", *(frame_jiffies for _ in frames))
-    sequence = struct.pack(f"<{_FRAME_COUNT}I", *range(_FRAME_COUNT))
+    rates = struct.pack(f"<{len(steps)}I", *(frame_jiffies for _ in steps))
+    sequence = struct.pack(f"<{len(steps)}I", *steps)
     animation_frames = b"".join(_chunk(b"icon", frame) for frame in frames)
     frame_list = _chunk(b"LIST", b"fram" + animation_frames)
     body = b"ACON" + _chunk(b"anih", header) + _chunk(b"rate", rates)
