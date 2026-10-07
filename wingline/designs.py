@@ -1,6 +1,8 @@
 """Independent vector artwork for the Wingline and Windows Smooth role sets."""
 from __future__ import annotations
 import math
+from functools import lru_cache
+from .timing import ANIMATION_FRAMES
 from PIL import Image, ImageDraw
 from .roles import Theme
 
@@ -76,11 +78,11 @@ def draw_wingline(p, glyph, frame):
         p.line(pts,.048); p.disk(.49,.84,.045)
     elif glyph=='appstarting':
         p.capsule((.10,.32,.90,.68),.09)
-        x=.17+.48*frame/7
+        x=.17+.48*(.5-.5*math.cos(frame*math.tau/8))
         p.capsule((x,.40,x+.17,.60),.05)
     elif glyph=='wait':
         for i in range(8):
-            a=i*math.tau/8; r=.047+.02*((i-frame)%8)/7
+            a=i*math.tau/8; r=.047+.02*(.5+.5*math.cos((i-frame)*math.tau/8))
             p.disk(.5+math.cos(a)*.30,.5+math.sin(a)*.30,r)
     elif glyph=='crosshair':
         p.ring(.5,.5,.18)
@@ -138,7 +140,7 @@ def draw_windows(p, glyph, frame):
         p.line(q,.026);p.disk(.51,.57,.018)
     elif glyph=='appstarting':
         for i,x in enumerate((.20,.50,.80)):
-            r=.12+.055*((frame+i*2)%8)/7
+            r=.12+.055*(.5+.5*math.cos((frame+i*2)*math.tau/8))
             p.disk(x,.5,r)
     elif glyph=='wait':
         a=frame*45
@@ -212,12 +214,14 @@ def render_role(glyph: str, theme: Theme, canvas: int, frame: int, with_hotspot=
     p=Pen(image,theme)
     from .extra_designs import DRAW_STYLES, NORMAL_HOTSPOTS
     renderer = DRAW_STYLES.get(theme.style, draw_windows if theme.style=='windows' else draw_wingline)
-    renderer(p,glyph,frame)
+    renderer(p,glyph,frame*8/ANIMATION_FRAMES)
     # Fit actual opaque artwork, not the empty source canvas. Each role gets
     # a fixed 24px visible extent on a 32px Windows cursor canvas.
     bounds=image.getchannel('A').getbbox()
     if bounds is None:
         raise ValueError(f'No artwork for {theme.style}/{glyph}')
+    if glyph in {'wait', 'appstarting'}:
+        bounds=tuple(round(value*canvas) for value in animation_bounds(theme.style,glyph))
     cropped=image.crop(bounds)
     extent=round(canvas*.75)
     ratio=extent/max(cropped.size)
@@ -230,3 +234,18 @@ def render_role(glyph: str, theme: Theme, canvas: int, frame: int, with_hotspot=
                  (canvas-fitted.height)//2 + (y*canvas-bounds[1])*fitted.height/cropped.height)
         return result, hotspot
     return result
+
+
+@lru_cache(maxsize=10)
+def animation_bounds(style, glyph):
+    from .extra_designs import DRAW_STYLES
+    theme=Theme('bounds','bounds','#FFFFFF','#000000',style)
+    renderer=DRAW_STYLES.get(style, draw_windows if style=='windows' else draw_wingline)
+    boxes=[]
+    for frame in range(ANIMATION_FRAMES):
+        source=Image.new('RGBA',(512,512))
+        renderer(Pen(source,theme),glyph,frame*8/ANIMATION_FRAMES)
+        boxes.append(source.getchannel('A').getbbox())
+    # All phases use one transform: no per-frame resizing or center drift.
+    return (min(b[0] for b in boxes)/512, min(b[1] for b in boxes)/512,
+            max(b[2] for b in boxes)/512, max(b[3] for b in boxes)/512)

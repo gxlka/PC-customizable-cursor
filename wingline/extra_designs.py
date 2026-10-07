@@ -44,12 +44,12 @@ def draw_hand(p, glyph, frame):
     elif glyph=='appstarting':
         p.line([(.13,.74),(.87,.74)],.024)
         for i in range(4):
-            height=.16+.36*((frame+i*2)%8)/7
+            height=.16+.36*(.5+.5*math.cos((frame+i*2)*math.tau/8))
             p.capsule((.16+i*.19,.66-height,.26+i*.19,.66),.045)
     elif glyph=='wait':
         # An animated hourglass, rather than a ring or dot wheel.
         p.shape([(.20,.13),(.80,.13),(.76,.31),(.58,.5),(.76,.69),(.80,.87),(.20,.87),(.24,.69),(.42,.5),(.24,.31)])
-        y=.25+.020*frame
+        y=.25+.14*(.5-.5*math.cos(frame*math.tau/8))
         p.line([(.34,y),(.66,y)],.026)
         p.line([(.34,.77),(.66,.77)],.026)
     elif glyph=='crosshair':
@@ -109,7 +109,7 @@ def draw_macos(p, glyph, frame):
     elif glyph=='wait':
         for i in range(12):
             a=i*math.tau/12
-            r=.17+.07*((i-frame*1.5)%12)/12
+            r=.17+.07*(.5+.5*math.cos(i*math.tau/12-frame*math.tau/8))
             p.line([(.5+math.cos(a)*r,.5+math.sin(a)*r),(.5+math.cos(a)*.36,.5+math.sin(a)*.36)],.035)
     elif glyph=='crosshair':
         for a in (0,math.pi/2,math.pi,3*math.pi/2):
@@ -175,13 +175,15 @@ def draw_beam(p, glyph, frame):
         question(p,scale=.85)
     elif glyph=='appstarting':
         p.line([(.14,.29),(.14,.71)],.030);p.line([(.86,.29),(.86,.71)],.030)
-        x=.29+.06*frame
+        x=.29+.42*(.5-.5*math.cos(frame*math.tau/8))
         p.line([(.25,.5),(.75,.5)],.021)
         p.shape([(x-.055,.38),(x+.055,.38),(x+.055,.62),(x-.055,.62)])
     elif glyph=='wait':
         # Animated three-sided orbit around a central square.
         a=frame*math.pi/4
-        p.line(turn([(.18,.30),(.18,.70),(.82,.70),(.82,.30)],a),.033)
+        p.line(turn([(.22,.32),(.22,.68),(.78,.68),(.78,.32)],a),.033)
+        for angle in (0,math.pi/2,math.pi,3*math.pi/2):
+            p.line(turn([(.10,.26),(.10,.10),(.26,.10)],angle),.022)
         p.shape([(.43,.43),(.57,.43),(.57,.57),(.43,.57)])
     elif glyph=='crosshair':
         p.line([(.12,.12),(.88,.88)],.025);p.line([(.88,.12),(.12,.88)],.025)

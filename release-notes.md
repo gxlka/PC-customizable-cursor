@@ -6,6 +6,6 @@ A complete Windows cursor pack with **five distinct styles**, each in white and 
 - **macOS:** a broad, sharp-edged arrow with a deep notch and short stem, plus an independent set of role icons for Windows.
 - **I-Beam:** a text-selection shape as the main pointer, with separate insertion, link, resize, and other role icons.
 
-All ten schemes include **17 distinct cursor roles**, animated Busy and Working in Background cursors, thin outlines, consistent visible sizes, and sharp **32–256 px** artwork. The three new families have separate silhouettes from the existing styles.
+All ten schemes include **17 distinct cursor roles**, smooth 30 fps Busy and Working in Background animations (32 frames per loop), thin outlines, consistent visible sizes, and sharp **32–256 px** artwork. All animation loops use periodic motion and a fixed size and position to prevent reset jumps and size jitter. Other cursor roles use static artwork.
 
 **Install:** download `Wingline-Cursor-Pack.zip`, extract it, open your preferred theme folder, and double-click `Install-Wingline.cmd`. No administrator access is needed.

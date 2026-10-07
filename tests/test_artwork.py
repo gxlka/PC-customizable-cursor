@@ -9,6 +9,7 @@ except ImportError:
 
 try:
     from wingline.artwork import render_cursor
+    from wingline.timing import ANIMATION_FRAMES
 except ImportError:
     render_cursor = None
 
@@ -154,12 +155,28 @@ class ArtworkTests(unittest.TestCase):
             for role in ROLE_ORDER:
                 if role.key not in {"wait", "appstarting"}:
                     continue
-                for frame in range(8):
+                for frame in range(ANIMATION_FRAMES):
                     with self.subTest(theme=theme.key, role=role.key, frame=frame):
                         image, _ = render_cursor(role, theme, 32, frame=frame)
                         x0, y0, x1, y1 = image.getchannel("A").getbbox()
                         self.assertGreaterEqual(max(x1-x0, y1-y0), 23)
                         self.assertLessEqual(max(x1-x0, y1-y0), 28)
+
+    def test_animations_change_and_have_no_discontinuous_loop_seam(self):
+        from PIL import ImageChops, ImageStat
+        for theme in THEMES.values():
+            if not theme.key.endswith("-White"):
+                continue
+            for role in ROLE_ORDER:
+                if role.key not in {"wait", "appstarting"}:
+                    continue
+                with self.subTest(theme=theme.key, role=role.key):
+                    frames=[render_cursor(role,theme,64,frame=i)[0] for i in range(ANIMATION_FRAMES)]
+                    self.assertGreater(len({image.tobytes() for image in frames}),8)
+                    changes=[sum(ImageStat.Stat(ImageChops.difference(frames[i],frames[(i+1)%ANIMATION_FRAMES])).mean)
+                             for i in range(ANIMATION_FRAMES)]
+                    self.assertGreater(sum(changes),0)
+                    self.assertLessEqual(changes[-1],max(changes[:-1])*1.25+.1)
 
     def test_arrow_hotspot_is_at_the_top_corner(self):
         self.assertIsNotNone(render_cursor)

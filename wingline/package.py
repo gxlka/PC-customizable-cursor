@@ -10,6 +10,7 @@ from pathlib import Path, PureWindowsPath
 from PIL import Image, ImageDraw, ImageFont
 
 from .ani import encode_ani
+from .timing import FRAME_JIFFIES
 from .artwork import ANIMATION_FRAMES, SUPPORTED_SIZES, render_cursor
 from .cur import encode_cur
 from .roles import ROLE_ORDER, THEMES, CursorRole, Theme
@@ -304,14 +305,14 @@ def _check_ani(data: bytes) -> None:
     _, frame_count, step_count, width, height, bit_count, planes, _, flags = struct.unpack(
         "<9I", headers[0]
     )
-    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (8, 8, max(SUPPORTED_SIZES), max(SUPPORTED_SIZES), 32, 1, 3), "ANI header values are invalid.")
-    _require(len(rates[0]) == 32 and len(sequences[0]) == 32, "ANI timing chunks have invalid lengths.")
-    _require(struct.unpack("<8I", rates[0]) == (7,) * 8, "ANI frame rates are invalid.")
-    _require(struct.unpack("<8I", sequences[0]) == tuple(range(8)), "ANI sequence is invalid.")
+    _require((frame_count, step_count, width, height, bit_count, planes, flags) == (ANIMATION_FRAMES, ANIMATION_FRAMES, max(SUPPORTED_SIZES), max(SUPPORTED_SIZES), 32, 1, 3), "ANI header values are invalid.")
+    _require(len(rates[0]) == 4*ANIMATION_FRAMES and len(sequences[0]) == 4*ANIMATION_FRAMES, "ANI timing chunks have invalid lengths.")
+    _require(struct.unpack(f"<{ANIMATION_FRAMES}I", rates[0]) == (FRAME_JIFFIES,) * ANIMATION_FRAMES, "ANI frame rates are invalid.")
+    _require(struct.unpack(f"<{ANIMATION_FRAMES}I", sequences[0]) == tuple(range(ANIMATION_FRAMES)), "ANI sequence is invalid.")
     frame_list = frame_lists[0]
     _require(frame_list[:4] == b"fram", "ANI frame list has an invalid type.")
     frames = _read_riff_chunks(frame_list, 4, len(frame_list))
-    _require(len(frames) == 8 and all(chunk_id == b"icon" for chunk_id, _ in frames), "ANI frame list is invalid.")
+    _require(len(frames) == ANIMATION_FRAMES and all(chunk_id == b"icon" for chunk_id, _ in frames), "ANI frame list is invalid.")
     for _, frame in frames:
         _check_cur(frame, {max(SUPPORTED_SIZES)})
 

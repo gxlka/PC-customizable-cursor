@@ -11,7 +11,7 @@ from .designs import render_role
 
 SUPPORTED_SIZES = (32, 48, 64, 96, 128, 192, 256)
 SUPERSAMPLE = 8
-ANIMATION_FRAMES = 8
+from .timing import ANIMATION_FRAMES
 ARROW_SCALE = 0.84
 WINDOWS_ARROW_SCALE = 0.77
 
@@ -123,7 +123,7 @@ def render_cursor(
     if role not in ROLE_ORDER:
         raise ValueError(f"Unknown cursor role: {role.key}")
     if role.glyph in ("wait", "appstarting") and not 0 <= frame < ANIMATION_FRAMES:
-        raise ValueError("Animated cursor frame must be between 0 and 7.")
+        raise ValueError(f"Animated cursor frame must be between 0 and {ANIMATION_FRAMES-1}.")
 
     canvas = size * SUPERSAMPLE
     image = Image.new("RGBA", (canvas, canvas), (0, 0, 0, 0))

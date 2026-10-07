@@ -4,7 +4,7 @@ import struct
 from collections.abc import Sequence
 
 
-_FRAME_COUNT = 8
+from .timing import ANIMATION_FRAMES as _FRAME_COUNT, FRAME_JIFFIES
 _FRAME_SIZE = 256
 _ANI_HEADER_SIZE = 36
 _FLAG_ICON = 0x1
@@ -55,10 +55,10 @@ def _validate_cursor_frame(frame: bytes) -> None:
         raise ValueError("ANI frames must contain a complete 256x256 CUR image.")
 
 
-def encode_ani(frames: Sequence[bytes], frame_jiffies: int = 7) -> bytes:
-    """Wrap eight single-image 256 px CUR frames in a looping RIFF ANI file."""
+def encode_ani(frames: Sequence[bytes], frame_jiffies: int = FRAME_JIFFIES) -> bytes:
+    """Wrap smooth single-image 256 px CUR frames in a looping RIFF ANI file."""
     if len(frames) != _FRAME_COUNT:
-        raise ValueError("ANI files require exactly eight cursor frames.")
+        raise ValueError(f"ANI files require exactly {_FRAME_COUNT} cursor frames.")
     if (
         not isinstance(frame_jiffies, int)
         or isinstance(frame_jiffies, bool)
@@ -80,8 +80,8 @@ def encode_ani(frames: Sequence[bytes], frame_jiffies: int = 7) -> bytes:
         frame_jiffies,
         _FLAG_ICON | _FLAG_SEQUENCE,
     )
-    rates = struct.pack("<8I", *(frame_jiffies for _ in frames))
-    sequence = struct.pack("<8I", *range(_FRAME_COUNT))
+    rates = struct.pack(f"<{_FRAME_COUNT}I", *(frame_jiffies for _ in frames))
+    sequence = struct.pack(f"<{_FRAME_COUNT}I", *range(_FRAME_COUNT))
     animation_frames = b"".join(_chunk(b"icon", frame) for frame in frames)
     frame_list = _chunk(b"LIST", b"fram" + animation_frames)
     body = b"ACON" + _chunk(b"anih", header) + _chunk(b"rate", rates)

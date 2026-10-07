@@ -4,12 +4,13 @@ import unittest
 from PIL import Image
 
 from wingline.ani import encode_ani
+from wingline.timing import ANIMATION_FRAMES, FRAME_JIFFIES
 from wingline.cur import encode_cur
 
 
 def sample_frames():
     frames = []
-    for index in range(8):
+    for index in range(ANIMATION_FRAMES):
         image = Image.new("RGBA", (256, 256), (20 + index, 30, 40, 255))
         frames.append(encode_cur([(image, (128, 128))]))
     return frames
@@ -41,12 +42,12 @@ class AniEncodingTests(unittest.TestCase):
         self.assertEqual(len(data), offset)
 
         anih = next(payload for chunk_id, payload in chunks if chunk_id == b"anih")
-        self.assertEqual((36, 8, 8, 256, 256, 32, 1, 7, 3), struct.unpack("<9I", anih))
+        self.assertEqual((36, ANIMATION_FRAMES, ANIMATION_FRAMES, 256, 256, 32, 1, FRAME_JIFFIES, 3), struct.unpack("<9I", anih))
 
         rate = next(payload for chunk_id, payload in chunks if chunk_id == b"rate")
-        self.assertEqual((7,) * 8, struct.unpack("<8I", rate))
+        self.assertEqual((FRAME_JIFFIES,) * ANIMATION_FRAMES, struct.unpack(f"<{ANIMATION_FRAMES}I", rate))
         sequence = next(payload for chunk_id, payload in chunks if chunk_id == b"seq ")
-        self.assertEqual(tuple(range(8)), struct.unpack("<8I", sequence))
+        self.assertEqual(tuple(range(ANIMATION_FRAMES)), struct.unpack(f"<{ANIMATION_FRAMES}I", sequence))
 
         frames_list = next(payload for chunk_id, payload in chunks if chunk_id == b"LIST")
         self.assertEqual(b"fram", frames_list[:4])

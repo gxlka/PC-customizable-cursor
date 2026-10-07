@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cursor-release-v1-1-1
+  group: cursor-release-v1-2
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.1.1
+          RELEASE_TAG: v1.2.0
         run: |
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" dist/Wingline-Cursor-Pack.zip --clobber
