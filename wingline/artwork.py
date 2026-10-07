@@ -156,12 +156,12 @@ def _render_base_cursor(
     return image, hotspot
 
 
-@lru_cache(maxsize=96)
+@lru_cache(maxsize=192)
 def _sheen_band(size: int, frame: int) -> Image.Image:
     phase = frame * math.tau / ANIMATION_FRAMES
     envelope = math.sin(phase) ** 2
     mask = Image.new("L", (size, size))
-    mask.putdata([round(22 * envelope * max(0.0, math.cos(math.tau * (x + .45*y) / size - phase)) ** 2)
+    mask.putdata([round(60 * envelope * max(0.0, math.cos(math.tau * (x + .45*y) / size - phase)) ** 2)
                   for y in range(size) for x in range(size)])
     return mask
 
