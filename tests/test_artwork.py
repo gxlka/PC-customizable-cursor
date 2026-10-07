@@ -206,6 +206,26 @@ class ArtworkTests(unittest.TestCase):
                     neutral, _ = render_cursor(role,theme,32,16)
                     self.assertEqual(first.tobytes(),neutral.tobytes())
 
+    def test_light_sheen_preserves_motion_alpha_and_contrast_edges(self):
+        from wingline.artwork import _light_sheen
+        for theme in THEMES.values():
+            for role in ROLE_ORDER:
+                with self.subTest(theme=theme.key, role=role.key):
+                    with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
+                        original, hotspot = render_cursor(role, theme, 64, 8)
+                    animated, actual_hotspot = render_cursor(role, theme, 64, 8)
+                    self.assertEqual(hotspot, actual_hotspot)
+                    self.assertEqual(original.getchannel("A").tobytes(), animated.getchannel("A").tobytes())
+                    with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
+                        other, _ = render_cursor(role, theme, 64, 24)
+                    other_animated, _ = render_cursor(role, theme, 64, 24)
+                    self.assertTrue(original.tobytes() != animated.tobytes() or other.tobytes() != other_animated.tobytes(), "Sheen missing from exported animation frames")
+                    light = theme.key.endswith("-White")
+                    for before, after in zip(zip(*[iter(original.tobytes())]*4), zip(*[iter(animated.tobytes())]*4)):
+                        if before[3] >= 160 and (max(before[:3]) < 110 if light else min(before[:3]) > 180):
+                            self.assertEqual(before, after)
+                    self.assertEqual(original.tobytes(), _light_sheen(original, theme, 0).tobytes())
+
     def test_all_cursors_have_visible_edges_on_matching_backgrounds(self):
         for theme in THEMES.values():
             light = theme.key.endswith("-White")

@@ -1,4 +1,5 @@
 import csv
+import os
 import re
 import shutil
 import struct
@@ -61,13 +62,20 @@ def read_copy_files(inf_text):
 class PackageTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.temporary_directory = tempfile.TemporaryDirectory()
-        cls.output_root = Path(cls.temporary_directory.name)
-        build_pack(cls.output_root)
+        existing_pack = os.environ.get("WINGLINE_TEST_PACK")
+        if existing_pack:
+            cls.temporary_directory = None
+            cls.output_root = Path(existing_pack)
+            verify_pack(cls.output_root)
+        else:
+            cls.temporary_directory = tempfile.TemporaryDirectory()
+            cls.output_root = Path(cls.temporary_directory.name)
+            build_pack(cls.output_root)
 
     @classmethod
     def tearDownClass(cls):
-        cls.temporary_directory.cleanup()
+        if cls.temporary_directory is not None:
+            cls.temporary_directory.cleanup()
 
     def test_each_installer_maps_all_roles_in_windows_order(self):
         for theme in THEMES.values():

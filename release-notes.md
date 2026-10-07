@@ -1,8 +1,8 @@
-# Wingline Cursor Pack v1.4.1
+# Wingline Cursor Pack v1.4.2
 
 Five complete cursor families — Wingline, Windows Smooth, Hand, macOS-inspired, and I-Beam — in white and black.
 
-All 17 Windows roles animate at 30 fps. Restrained tip-anchored pointer motion, text serif movement, link and resize motion are now clearer at normal desktop size, with a shorter 0.4-second rest. Busy and Working continue to animate continuously. No flashing, tint waves, or background app.
+All 17 Windows roles animate at 30 fps. Restrained tip-anchored pointer motion, text serif movement, link and resize motion are now clearer at normal desktop size, with a shorter 0.4-second rest. Busy and Working continue to animate continuously. A faint fill-only moving sheen accompanies every role, including the main pointers, while preserving existing shape motion and loading loops. Outlines stay unchanged. No flashing or background app.
 
 Each theme folder and its preview contain only its own color variant. Normal animations, large-resolution animations, and static alternatives use the same palette.
 

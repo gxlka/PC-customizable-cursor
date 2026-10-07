@@ -4,7 +4,7 @@ import math
 from typing import Iterable
 from functools import lru_cache
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageChops
 
 from .roles import CursorRole, ROLE_ORDER, Theme
 from .designs import render_role
@@ -156,13 +156,39 @@ def _render_base_cursor(
     return image, hotspot
 
 
+@lru_cache(maxsize=96)
+def _sheen_band(size: int, frame: int) -> Image.Image:
+    phase = frame * math.tau / ANIMATION_FRAMES
+    envelope = math.sin(phase) ** 2
+    mask = Image.new("L", (size, size))
+    mask.putdata([round(22 * envelope * max(0.0, math.cos(math.tau * (x + .45*y) / size - phase)) ** 2)
+                  for y in range(size) for x in range(size)])
+    return mask
+
+
+def _light_sheen(image: Image.Image, theme: Theme, frame: int) -> Image.Image:
+    """A soft periodic fill-only sheen, preserving alpha and contrast edges."""
+    if frame in (0, ANIMATION_FRAMES//2):
+        return image.copy()
+    channels = image.split()
+    light = theme.key.endswith("-White")
+    tone = ImageChops.lighter(ImageChops.lighter(channels[0],channels[1]),channels[2]) if light else ImageChops.darker(ImageChops.darker(channels[0],channels[1]),channels[2])
+    interior = tone.point(lambda value: 255 if (value >= 110 if light else value <= 180) else 0)
+    eligible = ImageChops.multiply(interior, channels[3].point(lambda value: 255 if value >= 160 else 0))
+    mask = ImageChops.multiply(eligible, _sheen_band(image.width, frame))
+    shade = 0 if theme.key.endswith("-White") else 255
+    result = Image.composite(Image.new("RGBA", image.size, (shade, shade, shade, 255)), image, mask)
+    result.putalpha(channels[3])
+    return result
+
+
 def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
     """Render quiet, role-specific motion around a stationary click point."""
     if not 0 <= frame < ANIMATION_FRAMES:
         raise ValueError(f"Animated cursor frame must be between 0 and {ANIMATION_FRAMES-1}.")
     if role.glyph in ("wait", "appstarting"):
         image, hotspot = _render_base_cursor(role, theme, size, frame)
-        return image.copy(), hotspot
+        return _light_sheen(image, theme, frame), hotspot
     base, hotspot = _render_base_cursor(role, theme, size, 0)
     wave = math.sin(frame * math.tau / ANIMATION_FRAMES)
     if abs(wave) < 1e-10:
@@ -215,4 +241,4 @@ def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
     pixels = bytearray(image.tobytes())
     for i in range(0,len(pixels),4):
         if pixels[i+3] < 8: pixels[i:i+4] = b"\x00\x00\x00\x00"
-    return Image.frombytes("RGBA",(size,size),bytes(pixels)), hotspot
+    return _light_sheen(Image.frombytes("RGBA",(size,size),bytes(pixels)), theme, frame), hotspot

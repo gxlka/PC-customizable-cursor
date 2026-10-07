@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cursor-release-v1-4-1
+  group: cursor-release-v1-4-2
   cancel-in-progress: true
 
 jobs:
@@ -26,10 +26,12 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - name: Verify installer selection and background behavior
         run: powershell -NoProfile -ExecutionPolicy Bypass -File verify_installer.ps1
-      - name: Verify all styles and exports
-        run: python -m unittest discover -s tests -v
       - name: Build the full download
         run: python build.py
+      - name: Verify all styles and exports
+        env:
+          WINGLINE_TEST_PACK: dist
+        run: python -m unittest discover -s tests -v
       - name: Verify the built download
         run: python build.py --check
       - name: Verify native Windows loading
@@ -40,7 +42,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.4.1
+          RELEASE_TAG: v1.4.2
         run: |
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" dist/Wingline-Cursor-Pack.zip --clobber

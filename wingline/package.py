@@ -29,7 +29,7 @@ The .inf remains available for manual import. If Windows reports that an INF
 is already installed, run Install-Wingline.cmd to reapply and activate it.
 All 17 active roles are animated at 30 fps. Text Select, Link Select, resize
 and other states use restrained role-specific motion around a stable click hotspot.
-State motions pause for 0.4 seconds between loops; no flashing or tint waves.
+State motions pause for 0.4 seconds between loops; with a light fill-only sheen and no flashing.
 Windows selects the active role; loops do not react to individual clicks or
 keystrokes. The installer exits; no background application is needed.
 Normal animations use 64 px source frames, with 256 px large-size fallbacks.
