@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import time
 
-from wingline.timing import ANIMATION_FRAMES, FRAME_JIFFIES
+from wingline.timing import ANIMATION_FRAMES, FRAME_JIFFIES, STATE_IDLE_STEPS
 from wingline.roles import THEMES, ROLE_ORDER
 
 
@@ -48,12 +48,13 @@ def verify(root):
                 if not cursor:
                     raise ctypes.WinError(ctypes.get_last_error())
                 try:
-                    for step in range(ANIMATION_FRAMES):
+                    steps = ANIMATION_FRAMES if path.stem.endswith(("-wait", "-appstarting")) else ANIMATION_FRAMES + STATE_IDLE_STEPS
+                    for step in range(steps):
                         if not user32.DrawIconEx(dc,0,0,cursor,size,size,step,None,3):
                             raise ctypes.WinError(ctypes.get_last_error())
                     start = time.perf_counter()
                     for step in range(320):
-                        if not user32.DrawIconEx(dc,0,0,cursor,size,size,step%ANIMATION_FRAMES,None,3):
+                        if not user32.DrawIconEx(dc,0,0,cursor,size,size,step%steps,None,3):
                             raise ctypes.WinError(ctypes.get_last_error())
                     average = (time.perf_counter()-start)/320
                     if average >= FRAME_JIFFIES/60:

@@ -172,7 +172,7 @@ class ArtworkTests(unittest.TestCase):
                     self.assertGreater(sum(changes),0)
                     self.assertLessEqual(changes[-1],max(changes[:-1])*1.25+.1)
 
-    def test_state_sheen_keeps_shape_hotspot_and_alpha_constant(self):
+    def test_state_motion_keeps_hotspots_and_neutral_frame_stable(self):
         for theme in THEMES.values():
             for role in ROLE_ORDER:
                 if role.key in {"wait", "appstarting"}:
@@ -182,7 +182,15 @@ class ArtworkTests(unittest.TestCase):
                     for frame in range(ANIMATION_FRAMES):
                         image, actual_hotspot = render_cursor(role, theme, 32, frame)
                         self.assertEqual(hotspot, actual_hotspot)
-                        self.assertEqual(first.getchannel("A").tobytes(), image.getchannel("A").tobytes())
+                        bounds = image.getchannel("A").getbbox()
+                        self.assertGreater(bounds[0],0)
+                        self.assertGreater(bounds[1],0)
+                        self.assertLess(bounds[2],32)
+                        self.assertLess(bounds[3],32)
+                        if role.key == "arrow":
+                            self.assertGreater(image.getchannel("A").getpixel(hotspot),0)
+                    neutral, _ = render_cursor(role,theme,32,16)
+                    self.assertEqual(first.tobytes(),neutral.tobytes())
 
     def test_all_cursors_have_visible_edges_on_matching_backgrounds(self):
         for theme in THEMES.values():
