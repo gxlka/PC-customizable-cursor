@@ -1,41 +1,39 @@
 # curs0r pack
 
-Six complete Windows cursor styles, each with independent artwork and white and black themes.
+Six cursor styles for Windows, each in white and black. Every set includes 17 animated cursors, clear outlines, and sizes for different display scales.
 
-- **Wingline:** an angled wing-shaped pointer.
-- **Windows Smooth:** a familiar Windows-style arrow with smooth curves.
-- **Hand:** a fingertip main pointer, with separate role icons including a chain for links.
-- **macOS:** a macOS-inspired arrow and matching icons for Windows.
-- **Sharp Head:** swept head from the supplied sketch, a shorter stem, tip-anchored wiggle, a slow yellow sweep from the right, and 16 independently drawn role icons.
-- **I-Beam:** a text-selection main pointer, with a separate insertion caret and unique role icons.
+**[Download curs0r pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/curs0r-pack.zip)**
 
-All twelve schemes include 17 distinct roles, animated Busy and Working in Background cursors, consistent visible sizes, thin outlines, and sharp 32–256 px variants for different display scales.
+## Find your style
 
-## Download and install
+Sharp Head adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
 
-[Download the full cursor pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/curs0r-pack.zip), extract it, open your preferred theme folder, and double-click `Install-Wingline.cmd`. It copies the files to your user profile, updates your cursor scheme, and tells Windows to reload the cursors immediately. It does not require administrator access. The `.inf` is included for manual import through Windows; Windows may require selecting Apply in Mouse Properties after an INF install.
+| White | Black |
+| --- | --- |
+| **Sharp Head**<br><img src="dist/Sharp-Head-White/preview.png" alt="Sharp Head white cursor set" width="380"> | **Sharp Head**<br><img src="dist/Sharp-Head-Black/preview.png" alt="Sharp Head black cursor set" width="380"> |
+| **macOS**<br><img src="dist/macOS-White/preview.png" alt="macOS white cursor set" width="380"> | **macOS**<br><img src="dist/macOS-Black/preview.png" alt="macOS black cursor set" width="380"> |
+| **Windows Smooth**<br><img src="dist/Windows-Smooth-White/preview.png" alt="Windows Smooth white cursor set" width="380"> | **Windows Smooth**<br><img src="dist/Windows-Smooth-Black/preview.png" alt="Windows Smooth black cursor set" width="380"> |
+| **Hand**<br><img src="dist/Hand-White/preview.png" alt="Hand white cursor set" width="380"> | **Hand**<br><img src="dist/Hand-Black/preview.png" alt="Hand black cursor set" width="380"> |
+| **Wingline**<br><img src="dist/Wingline-White/preview.png" alt="Wingline white cursor set" width="380"> | **Wingline**<br><img src="dist/Wingline-Black/preview.png" alt="Wingline black cursor set" width="380"> |
+| **I-Beam**<br><img src="dist/I-Beam-White/preview.png" alt="I-Beam white cursor set" width="380"> | **I-Beam**<br><img src="dist/I-Beam-Black/preview.png" alt="I-Beam black cursor set" width="380"> |
 
-The pack contains a preview and `INSTALL.txt` in each theme folder.
+## Install
 
-Normal-size animations use small bitmap frames; the installer chooses larger versions when your DPI or cursor size requires them. Animation remains at 30 fps. After installation, Windows handles the cursor files directly; the installer does not keep an app, service, or scheduled task running.
+1. Extract the ZIP.
+2. Open the folder for your preferred style and color.
+3. Double-click `Install-Wingline.cmd`.
 
-## Build and verify
+Run the installer again after updating. No administrator access or background app is needed. Static `.cur` files are included if you prefer no animation.
 
-Python 3.11 or later is required.
+<details>
+<summary>Build it yourself</summary>
+
+Requires Python 3.11 or later.
 
 ```powershell
 python -m pip install -r requirements.txt
 python build.py
 python build.py --check
-python -m unittest discover -s tests -v
 ```
 
-The build writes theme folders, individual ZIPs, the combined ZIP, and a combined preview under `dist/`. The full ZIP is distributed through GitHub Releases because it exceeds GitHub’s repository file limit; individual theme downloads remain in the repository. Repository-only maintenance can reuse a published pack when all cursor sources match its release tag. The check command validates role mappings, installer files, CUR hotspots and bitmap data, ANI frame structure, previews, and ZIP integrity. Windows CI also loads every CUR and ANI through the Windows native cursor API at all seven included sizes, validates the dimensions and hotspots, and releases the ZIPs only after that check passes. Applying the scheme to a desktop is not automated by the build.
-
-## Animated cursor states
-
-Windows and the active application select Text Select over text fields, Link Select over links, Resize at supported edges, and Busy/Working during work. All 17 roles animate at 30 fps. These are state loops, not reactions to individual clicks or keystrokes. Some applications hide the pointer while typing or supply their own cursors. No companion app runs in the background. Static CUR alternatives are included for manual selection through Mouse Properties.
-
-State motion uses a slower 2.13-second cycle with 64 frames at 30 fps, visible at normal 32 px desktop size and rests for 0.4 seconds between loops. Each theme folder contains only its named color; its preview shows that variant only. Files ending in -large.ani use the same colors at a larger resolution, and .cur files are optional static versions. Rerun Install-Wingline.cmd after every update to activate the new .ani files.
-
-A clearer moving sheen now complements the existing shape motion and loading loops in every role. It affects only the fill, preserving the contrasting outlines and click points.
+</details>
