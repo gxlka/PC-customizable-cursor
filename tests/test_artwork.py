@@ -53,6 +53,7 @@ class ArtworkTests(unittest.TestCase):
                 "macOS-White", "macOS-Black",
                 "I-Beam-White", "I-Beam-Black",
                 "Pen-White", "Pen-Black",
+                "Nib-White", "Nib-Black",
             },
             set(THEMES),
         )
@@ -102,7 +103,7 @@ class ArtworkTests(unittest.TestCase):
                 windows = render_cursor(role, THEMES["Windows-Smooth-White"], 64)[0]
                 self.assertNotEqual(wing.getchannel("A").tobytes(), windows.getchannel("A").tobytes())
 
-    def test_all_six_styles_have_unique_silhouettes_for_all_roles(self):
+    def test_all_styles_have_unique_silhouettes_for_all_roles(self):
         silhouettes = {}
         for theme in THEMES.values():
             if not theme.key.endswith("-White"):
@@ -112,11 +113,11 @@ class ArtworkTests(unittest.TestCase):
                 label = f"{theme.key}/{role.key}"
                 self.assertNotIn(silhouette, silhouettes, f"{label} repeats {silhouettes.get(silhouette)}")
                 silhouettes[silhouette] = label
-        self.assertEqual(102, len(silhouettes))
+        self.assertEqual(len(THEMES)//2*len(ROLE_ORDER), len(silhouettes))
 
     def test_new_normal_pointer_hotspots_are_on_visible_artwork(self):
         arrow = ROLE_ORDER[0]
-        for name in ("Hand", "macOS", "I-Beam", "Pen"):
+        for name in ("Hand", "macOS", "I-Beam", "Pen", "Nib"):
             for size in (32, 48, 64, 96, 128, 192, 256):
                 with self.subTest(style=name, size=size):
                     image, hotspot = render_cursor(arrow, THEMES[f"{name}-White"], size)
@@ -144,8 +145,8 @@ class ArtworkTests(unittest.TestCase):
                         self.assertIsNotNone(bounds)
                         left, top, right, bottom = bounds
                         extent = max(right-left, bottom-top)
-                        self.assertGreaterEqual(extent, round(size*(.84 if theme.style=='pen' else .70))-1)
-                        self.assertLessEqual(extent, round(size*(.90 if theme.style=='pen' else .80))+1)
+                        self.assertGreaterEqual(extent, round(size*(.84 if theme.style in {'pen','nib'} else .70))-1)
+                        self.assertLessEqual(extent, round(size*(.90 if theme.style in {'pen','nib'} else .80))+1)
                         self.assertGreater(left, 0)
                         self.assertGreater(top, 0)
                         self.assertLess(right, size)
@@ -159,7 +160,7 @@ class ArtworkTests(unittest.TestCase):
                         image, _ = render_cursor(role, theme, 32, frame=frame)
                         x0, y0, x1, y1 = image.getchannel("A").getbbox()
                         self.assertGreaterEqual(max(x1-x0, y1-y0), 23)
-                        self.assertLessEqual(max(x1-x0, y1-y0), 31 if theme.style=='pen' else 28)
+                        self.assertLessEqual(max(x1-x0, y1-y0), 31 if theme.style in {'pen','nib'} else 28)
 
     def test_animations_change_and_have_no_discontinuous_loop_seam(self):
         from PIL import ImageChops, ImageStat
@@ -183,7 +184,7 @@ class ArtworkTests(unittest.TestCase):
                     changes = []
                     for frame in (ANIMATION_FRAMES//8, ANIMATION_FRAMES//4, 3*ANIMATION_FRAMES//8):
                         peak, _ = render_cursor(role, theme, 32, frame)
-                        difference = ImageChops.difference(rest, peak) if role.key in {"wait", "appstarting"} else ImageChops.difference(rest.getchannel("A"), peak.getchannel("A"))
+                        difference = ImageChops.difference(rest, peak) if role.key in {"wait", "appstarting"} or theme.style=="nib" else ImageChops.difference(rest.getchannel("A"), peak.getchannel("A"))
                         changes.append(sum(ImageStat.Stat(difference).sum))
                     self.assertGreater(max(changes), 500)
 
@@ -312,7 +313,7 @@ class ArtworkTests(unittest.TestCase):
                     image, _ = render_cursor(role, theme, 32, frame=0)
                     left, top, right, bottom = image.getchannel("A").getbbox()
                     self.assertGreaterEqual(max(right - left, bottom - top), 23)
-                    self.assertLessEqual(max(right - left, bottom - top), 31 if theme.style=='pen' else 28)
+                    self.assertLessEqual(max(right - left, bottom - top), 31 if theme.style in {'pen','nib'} else 28)
 
     def test_non_pointer_roles_render_near_main_pointer_scale_at_64px(self):
         for theme in THEMES.values():
@@ -324,7 +325,7 @@ class ArtworkTests(unittest.TestCase):
                     left, top, right, bottom = image.getchannel("A").getbbox()
                     largest_dimension = max(right - left, bottom - top)
                     self.assertGreaterEqual(largest_dimension, 40)
-                    self.assertLessEqual(largest_dimension, 61 if theme.style=='pen' else 56)
+                    self.assertLessEqual(largest_dimension, 61 if theme.style in {'pen','nib'} else 56)
 
     def test_working_in_background_remains_a_horizontal_progress_cursor(self):
         role = next(role for role in ROLE_ORDER if role.key == "appstarting")

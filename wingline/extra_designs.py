@@ -251,6 +251,7 @@ def draw_beam(p, glyph, frame):
 
 
 from .pen_designs import draw_pen
+from .nib_designs import draw_nib
 
-DRAW_STYLES={'pen':draw_pen,'hand':draw_hand,'macos':draw_macos,'beam':draw_beam}
-NORMAL_HOTSPOTS={'pen':(.12,.10),'hand':(.42,.09),'macos':(.17,.08),'beam':(.5,.5)}
+DRAW_STYLES={'nib':draw_nib,'pen':draw_pen,'hand':draw_hand,'macos':draw_macos,'beam':draw_beam}
+NORMAL_HOTSPOTS={'nib':(.12,.10),'pen':(.12,.10),'hand':(.42,.09),'macos':(.17,.08),'beam':(.5,.5)}

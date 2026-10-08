@@ -131,7 +131,7 @@ def _render_base_cursor(
     image = Image.new("RGBA", (canvas, canvas), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image, "RGBA")
     custom_hotspot = None
-    if theme.style in {"hand", "macos", "beam", "pen"}:
+    if theme.style in {"hand", "macos", "beam", "pen", "nib"}:
         image, custom_hotspot = render_role(role.glyph, theme, canvas, frame, with_hotspot=True)
     elif role.glyph == "arrow":
         _draw_arrow(draw, theme, canvas)
@@ -199,6 +199,9 @@ def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
         image, hotspot = _render_base_cursor(role, theme, size, frame)
         return _light_sheen(image, theme, frame), hotspot
     base, hotspot = _render_base_cursor(role, theme, size, 0)
+    if theme.style == "nib":
+        # Nib stays geometrically steady: only its fill light loops.
+        return _light_sheen(base.copy(), theme, frame), hotspot
     wave = math.sin(frame * math.tau / ANIMATION_FRAMES)
     if abs(wave) < 1e-10:
         return _light_sheen(base.copy(), theme, frame), hotspot

@@ -1,7 +1,7 @@
-# curs0r pack v1.6.1 — Filled Pen icons
+# curs0r pack v1.7.0 — Nib
 
-Pen's hollow-looking non-pointer states have been redrawn as solid, smooth white or black silhouettes: a filled hourglass for Busy, a solid tray for Working, a filled target, a rounded I-beam, connected resize grips, a solid move pad, a hooked ribbon, and a filled pointing hand.
+Adds Nib in white and black: a compact solid droplet-shaped pointer with a precise upper-left click tip and smooth rounded back. No swinging, rotation, or scaling animations. The pointer and ordinary state icons keep steady geometry with a gentle fill-only loop.
 
-These shapes have clear interiors and thin contrasting borders instead of open wire outlines. The pen pointer, large visible size, steady hotspots, slow yellow slash, and looping animations remain.
+All 16 non-pointers are independently drawn: orbiting solid pebbles, breathing pillars, a rounded precision tile, curved I-beam, paintbrush, stop shield, bulb-ended resize grips, soft petal move pad, alternate-select badge, horizontal pointing hand, folded map, and portrait badge. All use large readable filled interiors and thin contrasting edges.
 
-Extract curs0r-pack.zip and run Install-Wingline.cmd in Pen-White or Pen-Black. One current download is published, with older downloads removed after successful publication.
+Includes all seven families, both palettes, 17 roles per set, static alternatives and high-resolution animations. Extract curs0r-pack.zip and run Install-Wingline.cmd in Nib-White or Nib-Black. One current download is published; older downloads are removed after successful publication.

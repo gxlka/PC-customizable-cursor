@@ -68,7 +68,7 @@ THEMES = {
 }
 
 # Additional complete families, each with light and dark palettes.
-for style, name in (("hand", "Hand"), ("macos", "macOS"), ("beam", "I-Beam"), ("pen", "Pen")):
+for style, name in (("hand", "Hand"), ("macos", "macOS"), ("beam", "I-Beam"), ("pen", "Pen"), ("nib", "Nib")):
     for variant, fill, edge in (("White", "#FCFDFF", "#151922"), ("Black", "#171A20", "#F8F9FC")):
         key=f"{name}-{variant}"
         label = name.replace("-", " ") if style == "pen" else name
