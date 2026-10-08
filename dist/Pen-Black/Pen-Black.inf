@@ -1,0 +1,78 @@
+[Version]
+Signature="$Windows NT$"
+
+[DefaultInstall]
+CopyFiles=CursorFiles
+AddReg=CursorScheme,ActiveCursors
+
+[SourceDisksNames]
+1=%DiskName%,,,.
+
+[SourceDisksFiles]
+Pen-Black-arrow.ani=1
+Pen-Black-help.ani=1
+Pen-Black-appstarting.ani=1
+Pen-Black-wait.ani=1
+Pen-Black-crosshair.ani=1
+Pen-Black-ibeam.ani=1
+Pen-Black-nwpen.ani=1
+Pen-Black-no.ani=1
+Pen-Black-sizens.ani=1
+Pen-Black-sizewe.ani=1
+Pen-Black-sizenwse.ani=1
+Pen-Black-sizenesw.ani=1
+Pen-Black-sizeall.ani=1
+Pen-Black-uparrow.ani=1
+Pen-Black-hand.ani=1
+Pen-Black-pin.ani=1
+Pen-Black-person.ani=1
+
+[DestinationDirs]
+CursorFiles=10,"Cursors\Pen-Black"
+
+[CursorFiles]
+Pen-Black-arrow.ani
+Pen-Black-help.ani
+Pen-Black-appstarting.ani
+Pen-Black-wait.ani
+Pen-Black-crosshair.ani
+Pen-Black-ibeam.ani
+Pen-Black-nwpen.ani
+Pen-Black-no.ani
+Pen-Black-sizens.ani
+Pen-Black-sizewe.ani
+Pen-Black-sizenwse.ani
+Pen-Black-sizenesw.ani
+Pen-Black-sizeall.ani
+Pen-Black-uparrow.ani
+Pen-Black-hand.ani
+Pen-Black-pin.ani
+Pen-Black-person.ani
+
+[CursorScheme]
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-arrow.ani,%10%\Cursors\Pen-Black\Pen-Black-help.ani,%10%\Cursors\Pen-Black\Pen-Black-appstarting.ani,%10%\Cursors\Pen-Black\Pen-Black-wait.ani,%10%\Cursors\Pen-Black\Pen-Black-crosshair.ani,%10%\Cursors\Pen-Black\Pen-Black-ibeam.ani,%10%\Cursors\Pen-Black\Pen-Black-nwpen.ani,%10%\Cursors\Pen-Black\Pen-Black-no.ani,%10%\Cursors\Pen-Black\Pen-Black-sizens.ani,%10%\Cursors\Pen-Black\Pen-Black-sizewe.ani,%10%\Cursors\Pen-Black\Pen-Black-sizenwse.ani,%10%\Cursors\Pen-Black\Pen-Black-sizenesw.ani,%10%\Cursors\Pen-Black\Pen-Black-sizeall.ani,%10%\Cursors\Pen-Black\Pen-Black-uparrow.ani,%10%\Cursors\Pen-Black\Pen-Black-hand.ani,%10%\Cursors\Pen-Black\Pen-Black-pin.ani,%10%\Cursors\Pen-Black\Pen-Black-person.ani"
+
+[ActiveCursors]
+HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
+HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-arrow.ani"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-help.ani"
+HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-appstarting.ani"
+HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-wait.ani"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-crosshair.ani"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-ibeam.ani"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-nwpen.ani"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-no.ani"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-sizens.ani"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-sizewe.ani"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-sizenwse.ani"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-sizenesw.ani"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-sizeall.ani"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-uparrow.ani"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-hand.ani"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-pin.ani"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Pen-Black\Pen-Black-person.ani"
+
+[Strings]
+DiskName="Pen Black Cursor Pack"
+SchemeName="Pen Black"
