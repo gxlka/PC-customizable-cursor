@@ -5,6 +5,35 @@ from wingline.roles import THEMES, ROLE_ORDER
 
 
 class SharpHeadTests(unittest.TestCase):
+    def test_exported_frames_have_large_solid_palette_interiors_at_desktop_size(self):
+        import struct
+        from PIL import Image
+        from wingline.cur import encode_cur
+        for variant in ('White', 'Black'):
+            for role in ROLE_ORDER:
+                for size in (32,64):
+                    with self.subTest(variant=variant,role=role.key,size=size):
+                        frame=encode_cur([render_cursor(role,THEMES['Sharp-Head-'+variant],size)])
+                        offset=struct.unpack_from('<I',frame,18)[0]+40
+                        # Decode Windows' premultiplied BGRA bitmap, including
+                        # its bottom-up rows, then simulate normal desktop size.
+                        pixels=bytearray()
+                        for y in range(size-1,-1,-1):
+                            for x in range(size):
+                                b,g,r,a=frame[offset+(y*size+x)*4:offset+(y*size+x+1)*4]
+                                pixels.extend((min(255,round(r*255/a)) if a else 0,
+                                               min(255,round(g*255/a)) if a else 0,
+                                               min(255,round(b*255/a)) if a else 0,a))
+                        image=Image.frombytes('RGBA',(size,size),bytes(pixels)).resize((32,32),Image.Resampling.LANCZOS)
+                        alpha=image.getchannel('A')
+                        bounds=alpha.point(lambda a:255 if a>=128 else 0).getbbox()
+                        self.assertGreaterEqual(max(bounds[2]-bounds[0],bounds[3]-bounds[1]),27)
+                        colors=list(zip(*[iter(image.tobytes())]*4))
+                        solid=sum(a>=200 for r,g,b,a in colors)
+                        fill=sum(a>=200 and (min(r,g,b)>200 if variant=='White' else max(r,g,b)<65) for r,g,b,a in colors)
+                        self.assertGreaterEqual(fill,50)
+                        self.assertGreaterEqual(fill,solid*.30)
+
     def test_all_frames_keep_visible_outline_size_hotspot_and_smooth_loop(self):
         for variant in ('White', 'Black'):
             theme = THEMES['Sharp-Head-'+variant]
@@ -18,8 +47,8 @@ class SharpHeadTests(unittest.TestCase):
                         bounds=image.getchannel('A').getbbox()
                         self.assertTrue(0 < bounds[0] < bounds[2] < 32)
                         self.assertTrue(0 < bounds[1] < bounds[3] < 32)
-                        self.assertGreaterEqual(max(bounds[2]-bounds[0],bounds[3]-bounds[1]),23)
-                        self.assertLessEqual(max(bounds[2]-bounds[0],bounds[3]-bounds[1]),28)
+                        self.assertGreaterEqual(max(bounds[2]-bounds[0],bounds[3]-bounds[1]),27)
+                        self.assertLessEqual(max(bounds[2]-bounds[0],bounds[3]-bounds[1]),31)
                         pixels=zip(*[iter(image.tobytes())]*4)
                         contrast=sum(a>=160 and (max(r,g,b)<110 if variant=='White' else min(r,g,b)>180) for r,g,b,a in pixels)
                         self.assertGreaterEqual(contrast,10)

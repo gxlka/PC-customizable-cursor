@@ -35,6 +35,9 @@ def draw_sharp(p, glyph, frame):
         outline+=curve((.49,.78),(.45,.69),(.42,.60),(.39,.55))[1:]
         outline+=curve((.39,.55),(.36,.50),(.23,.60),(.18,.66))[1:]
         outline+=curve((.18,.66),(.26,.43),(.25,.23),(.18,.08))[1:]
+        # A shorter stem lets the actual arrow head occupy more of the fitted
+        # Windows canvas instead of spending its height on the narrow tail.
+        outline=[(x, y if y<=.55 else .55+(y-.55)*.70) for x,y in outline]
         p.shape(outline)
     elif glyph=='help':
         rounded(p,[(.14,.18),(.82,.18),(.87,.65),(.59,.65),(.39,.85),(.39,.65),(.14,.65)],.28)

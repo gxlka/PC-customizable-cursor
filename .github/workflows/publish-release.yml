@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cursor-release-v1-5-4
+  group: cursor-release-v1-5-5
   cancel-in-progress: true
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.5.4
+          RELEASE_TAG: v1.5.5
         run: |
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" dist/curs0r-pack.zip --clobber
@@ -54,7 +54,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.5.4
+          RELEASE_TAG: v1.5.5
         run: |
           set -euo pipefail
           gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" --jq '.assets[] | select(.name != "curs0r-pack.zip") | .id' > extra-assets.txt
