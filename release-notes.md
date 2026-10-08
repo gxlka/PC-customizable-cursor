@@ -1,7 +1,7 @@
-# curs0r pack v1.5.2 — Connected Sharp Head
+# curs0r pack v1.5.3 — Thin outlines and yellow slash
 
-Sharp Head is now one continuous vector shape. The head flows smoothly into its stem and short rounded base, with no gaps and no internal stroke cutting through the head. The top-corner hotspot, gentle wiggle, and slow yellow sweep are preserved.
+Sharp Head keeps its white or black base color. The animation now uses a narrow, soft-edged yellow slash moving slowly from right to left, instead of washing most of the cursor in yellow. Contrasting outlines remain steady.
 
-The rounded non-pointer artwork and loading loops from v1.5.1 are retained. Other cursor families are unchanged.
+Sharp Head outlines are thinner across its pointer and rounded non-pointer icons. The single connected head, stem, and short curved base have no gaps. Existing motion, loading loops, fixed hotspots, and the other five families are preserved.
 
-Extract curs0r-pack.zip, choose a theme, and run Install-Wingline.cmd to activate the updated files. No background app is installed.
+Extract curs0r-pack.zip and run Install-Wingline.cmd in your chosen theme to activate the update.

@@ -212,20 +212,20 @@ class ArtworkTests(unittest.TestCase):
         for theme in THEMES.values():
             for role in ROLE_ORDER:
                 with self.subTest(theme=theme.key, role=role.key):
-                    with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
-                        original, hotspot = render_cursor(role, theme, 64, ANIMATION_FRAMES//4)
-                    animated, actual_hotspot = render_cursor(role, theme, 64, ANIMATION_FRAMES//4)
-                    self.assertEqual(hotspot, actual_hotspot)
-                    self.assertEqual(original.getchannel("A").tobytes(), animated.getchannel("A").tobytes())
-                    with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
-                        other, _ = render_cursor(role, theme, 64, 3*ANIMATION_FRAMES//4)
-                    other_animated, _ = render_cursor(role, theme, 64, 3*ANIMATION_FRAMES//4)
-                    self.assertTrue(original.tobytes() != animated.tobytes() or other.tobytes() != other_animated.tobytes(), "Sheen missing from exported animation frames")
-                    light = theme.key.endswith("-White")
-                    for before, after in zip(zip(*[iter(original.tobytes())]*4), zip(*[iter(animated.tobytes())]*4)):
-                        if before[3] >= 160 and (max(before[:3]) < 110 if light else min(before[:3]) > 180):
-                            self.assertEqual(before, after)
-                    self.assertEqual(original.tobytes(), _light_sheen(original, theme, 0).tobytes())
+                    changed=False
+                    for frame in (ANIMATION_FRAMES//4, ANIMATION_FRAMES//2, 3*ANIMATION_FRAMES//4):
+                        with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
+                            original, hotspot = render_cursor(role, theme, 64, frame)
+                        animated, actual_hotspot = render_cursor(role, theme, 64, frame)
+                        self.assertEqual(hotspot, actual_hotspot)
+                        self.assertEqual(original.getchannel("A").tobytes(), animated.getchannel("A").tobytes())
+                        changed |= original.tobytes() != animated.tobytes()
+                        light = theme.key.endswith("-White")
+                        for before, after in zip(zip(*[iter(original.tobytes())]*4), zip(*[iter(animated.tobytes())]*4)):
+                            if before[3] >= 160 and (max(before[:3]) < 110 if light else min(before[:3]) > 180):
+                                self.assertEqual(before, after)
+                        self.assertEqual(original.tobytes(), _light_sheen(original, theme, 0).tobytes())
+                    self.assertTrue(changed, "Sheen missing from exported animation frames")
 
     def test_sheen_has_noticeable_fill_contrast_at_32px(self):
         from PIL import ImageChops
@@ -233,7 +233,7 @@ class ArtworkTests(unittest.TestCase):
             for role in ROLE_ORDER:
                 with self.subTest(theme=theme.key, role=role.key):
                     peaks = []
-                    for frame in (ANIMATION_FRAMES//4, 3*ANIMATION_FRAMES//4):
+                    for frame in (ANIMATION_FRAMES//4, ANIMATION_FRAMES//2, 3*ANIMATION_FRAMES//4):
                         with patch("wingline.artwork._light_sheen", side_effect=lambda image, theme, frame: image):
                             original, _ = render_cursor(role, theme, 32, frame)
                         animated, _ = render_cursor(role, theme, 32, frame)
