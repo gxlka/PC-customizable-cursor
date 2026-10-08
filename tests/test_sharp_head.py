@@ -48,6 +48,18 @@ class SharpHeadTests(unittest.TestCase):
                                 pending.append(point)
             self.assertEqual(1,components,f"Gap in connected pointer frame {frame}")
 
+    def test_yellow_slash_leaves_most_of_the_base_color_visible(self):
+        from PIL import Image
+        from wingline.artwork import _light_sheen
+        for color in ((252,253,255,255),(23,26,32,255)):
+            theme=THEMES['Sharp-Head-White' if color[0]>128 else 'Sharp-Head-Black']
+            original=Image.new('RGBA',(64,64),color)
+            animated=_light_sheen(original,theme,32)
+            differences=ImageChops.difference(original,animated)
+            changed=sum(max(pixel[:3])>=15 for pixel in zip(*[iter(differences.tobytes())]*4))
+            self.assertGreater(changed,0)
+            self.assertLess(changed,64*64*.4)
+
     def test_gold_band_moves_from_right_to_left(self):
         theme=THEMES['Sharp-Head-White']
         from PIL import Image

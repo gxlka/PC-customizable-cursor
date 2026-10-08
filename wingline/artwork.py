@@ -179,10 +179,10 @@ def _light_sheen(image: Image.Image, theme: Theme, frame: int) -> Image.Image:
     if theme.style == "sharp":
         # One slow right-to-left gold sweep; smoothly absent at the seam.
         phase = frame / ANIMATION_FRAMES
-        center = 1.15 - 1.45 * phase
+        center = 1.35 - 1.65 * phase
         envelope = math.sin(math.pi * phase) ** 2
         band = Image.new("L", image.size)
-        band.putdata([round(165 * envelope * math.exp(-((x/image.width-center)/.26)**2))
+        band.putdata([round(145 * envelope * math.exp(-((x/image.width+.25*y/image.height-center)/.06)**2))
                       for y in range(image.height) for x in range(image.width)])
     mask = ImageChops.multiply(eligible, band)
     shade = 0 if theme.key.endswith("-White") else 255

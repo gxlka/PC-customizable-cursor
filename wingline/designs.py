@@ -31,12 +31,12 @@ class Pen:
             self.draw.ellipse((round(x-r),round(y-r),round(x+r),round(y+r)),fill=color)
     def line(self, pts, width=.032):
         if self.text: width = max(width, .050)
-        self.rawline(pts,self.theme.edge,width+(.052 if self.strong_edge else .024))
+        self.rawline(pts,self.theme.edge,width+(.040 if self.theme.style == "sharp" else (.052 if self.strong_edge else .024)))
         self.rawline(pts,self.theme.fill,width)
     def shape(self, pts):
         p=self.pixels(pts)
         self.draw.polygon(p,fill=self.theme.fill)
-        self.draw.line(p+[p[0]],fill=self.theme.edge,width=max(1,round((.042 if self.strong_edge else .018)*self.n)),joint='curve')
+        self.draw.line(p+[p[0]],fill=self.theme.edge,width=max(1,round((.030 if self.theme.style == "sharp" else (.042 if self.strong_edge else .018))*self.n)),joint='curve')
     def disk(self,x,y,r):
         self.shape([(x+math.cos(i*math.tau/80)*r,y+math.sin(i*math.tau/80)*r) for i in range(80)])
     def ring(self,x,y,r,start=0,end=360,width=.032):
@@ -44,7 +44,7 @@ class Pen:
               y+math.sin(math.radians(start+(end-start)*i/100))*r) for i in range(101)]
         self.line(pts,width)
     def capsule(self,box,r=.08):
-        x0,y0,x1,y1=box; n=self.n; edge=max(1,round(n*(.030 if self.strong_edge else .018)))
+        x0,y0,x1,y1=box; n=self.n; edge=max(1,round(n*(.027 if self.theme.style == "sharp" else (.030 if self.strong_edge else .018))))
         coords=tuple(round(v*n) for v in box)
         self.draw.rounded_rectangle(coords,radius=round(r*n),fill=self.theme.edge)
         self.draw.rounded_rectangle((coords[0]+edge,coords[1]+edge,coords[2]-edge,coords[3]-edge),
