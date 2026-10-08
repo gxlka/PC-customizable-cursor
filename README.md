@@ -1,15 +1,16 @@
 # curs0r pack
 
-Six cursor styles for Windows, each in white and black. Every set includes 17 animated cursors, clear outlines, and sizes for different display scales.
+Seven cursor styles for Windows, each in white and black. Every set includes 17 animated cursors, clear outlines, and sizes for different display scales.
 
 **[Download curs0r pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/curs0r-pack.zip)**
 
 ## Find your style
 
-Pen adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
+Nib stays steady with a gentle fill loop and smooth loading animations. Pen adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
 
 | White | Black |
 | --- | --- |
+| **Nib**<br><img src="dist/Nib-White/preview.png" alt="Nib white cursor set" width="380"> | **Nib**<br><img src="dist/Nib-Black/preview.png" alt="Nib black cursor set" width="380"> |
 | **Pen**<br><img src="dist/Pen-White/preview.png" alt="Pen white cursor set" width="380"> | **Pen**<br><img src="dist/Pen-Black/preview.png" alt="Pen black cursor set" width="380"> |
 | **macOS**<br><img src="dist/macOS-White/preview.png" alt="macOS white cursor set" width="380"> | **macOS**<br><img src="dist/macOS-Black/preview.png" alt="macOS black cursor set" width="380"> |
 | **Windows Smooth**<br><img src="dist/Windows-Smooth-White/preview.png" alt="Windows Smooth white cursor set" width="380"> | **Windows Smooth**<br><img src="dist/Windows-Smooth-Black/preview.png" alt="Windows Smooth black cursor set" width="380"> |

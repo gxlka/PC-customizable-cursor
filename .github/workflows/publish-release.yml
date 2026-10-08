@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cursor-release-v1-6-1
+  group: cursor-release-v1-7-0
   cancel-in-progress: true
 
 jobs:
@@ -42,19 +42,19 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.6.1
+          RELEASE_TAG: v1.7.0
         run: |
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" dist/curs0r-pack.zip --clobber
-            gh release edit "$RELEASE_TAG" --title "curs0r pack — Six Styles" --notes-file release-notes.md --latest
+            gh release edit "$RELEASE_TAG" --title "curs0r pack — Seven Styles" --notes-file release-notes.md --latest
           else
-            gh release create "$RELEASE_TAG" dist/curs0r-pack.zip --target "$GITHUB_SHA" --title "curs0r pack — Six Styles" --notes-file release-notes.md --latest
+            gh release create "$RELEASE_TAG" dist/curs0r-pack.zip --target "$GITHUB_SHA" --title "curs0r pack — Seven Styles" --notes-file release-notes.md --latest
           fi
       - name: Keep only the new pack download
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.6.1
+          RELEASE_TAG: v1.7.0
         run: |
           set -euo pipefail
           gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" --jq '.assets[] | select(.name != "curs0r-pack.zip") | .id' > extra-assets.txt

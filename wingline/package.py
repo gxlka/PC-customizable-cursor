@@ -31,6 +31,8 @@ All 17 active roles are animated at 30 fps. Text Select, Link Select, resize
 and other states use restrained role-specific motion around a stable click hotspot.
 Each motion cycle takes 2.13 seconds at 30 fps, with a 0.4-second rest.
 A clearer fill-only sheen preserves outlines, without flashing.
+Nib has no swinging or scaling: its state silhouettes stay steady.
+Its Busy pebbles orbit continuously and its Working pillars loop smoothly.
 Windows selects the active role; loops do not react to individual clicks or
 keystrokes. The installer exits; no background application is needed.
 Normal animations use 64 px source frames, with 256 px large-size fallbacks.
