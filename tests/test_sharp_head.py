@@ -30,7 +30,7 @@ class SharpHeadTests(unittest.TestCase):
                     self.assertGreater(sum(changes),0)
                     self.assertLessEqual(changes[-1],max(changes[:-1])*1.25+.1)
 
-    def test_pointer_head_stem_and_short_base_stay_separate(self):
+    def test_pointer_head_stem_and_short_base_are_one_connected_shape(self):
         for frame in range(ANIMATION_FRAMES):
             image,_=render_cursor(ROLE_ORDER[0],THEMES['Sharp-Head-White'],32,frame)
             remaining={(x,y) for y in range(32) for x in range(32) if image.getpixel((x,y))[3]>=128}
@@ -46,7 +46,7 @@ class SharpHeadTests(unittest.TestCase):
                             if point in remaining:
                                 remaining.remove(point)
                                 pending.append(point)
-            self.assertEqual(3,components,f"Strokes touch in frame {frame}")
+            self.assertEqual(1,components,f"Gap in connected pointer frame {frame}")
 
     def test_gold_band_moves_from_right_to_left(self):
         theme=THEMES['Sharp-Head-White']
