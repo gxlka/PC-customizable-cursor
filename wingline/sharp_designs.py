@@ -1,4 +1,4 @@
-"""Sharp Head: a swept sail pointer and independently drawn angular role icons."""
+"""Sharp Head: detached pointer strokes and a smooth, independent ribbon family."""
 import math
 
 
@@ -7,74 +7,108 @@ def rotate(points, angle):
     return [(.5+(x-.5)*c-(y-.5)*s, .5+(x-.5)*s+(y-.5)*c) for x,y in points]
 
 
+def rounded(p, points, softness=.22):
+    """Round each polygon corner with an actual quadratic curve."""
+    path=[]
+    for i,corner in enumerate(points):
+        previous, following=points[i-1],points[(i+1)%len(points)]
+        start=tuple(c+(a-c)*softness for c,a in zip(corner,previous))
+        end=tuple(c+(b-c)*softness for c,b in zip(corner,following))
+        for step in range(13):
+            t=step/12;u=1-t
+            path.append(tuple(u*u*a+2*u*t*c+t*t*b for a,c,b in zip(start,corner,end)))
+    p.shape(path)
+
+
 def draw_sharp(p, glyph, frame):
     from .designs import curve
-    if glyph == 'arrow':
-        # Sketch's swept head, concave left edge, shorter stem and curved foot.
-        head = curve((.18,.08),(.35,.27),(.60,.45),(.80,.55))
-        head += curve((.80,.55),(.62,.39),(.35,.46),(.18,.66))[1:]
-        head += curve((.18,.66),(.26,.43),(.25,.23),(.18,.08))[1:]
+    phase=frame*math.tau/8
+    if glyph=='arrow':
+        head=curve((.18,.08),(.35,.27),(.60,.45),(.80,.55))
+        head+=curve((.80,.55),(.62,.39),(.35,.46),(.18,.66))[1:]
+        head+=curve((.18,.66),(.26,.43),(.25,.23),(.18,.08))[1:]
         p.shape(head)
-        p.line([(.43,.48),(.57,.79)],.048)
-        p.line(curve((.40,.85),(.51,.85),(.66,.82),(.73,.77)),.040)
-    elif glyph == 'help':
-        # Open folded information ribbon, never a pointer with a badge.
-        p.shape([(.16,.18),(.72,.18),(.87,.33),(.73,.47),(.87,.63),(.72,.82),(.16,.82),(.28,.50)])
-        p.line([(.51,.39),(.51,.64)],.042)
-        p.disk(.51,.29,.030)
-    elif glyph == 'wait':
-        # Three revolving, tapered turbine vanes and a stationary hub.
+        # Both strokes are detached: no stem or outline enters the head.
+        p.line(curve((.50,.64),(.53,.69),(.55,.71),(.57,.75)),.035)
+        p.line(curve((.53,.93),(.58,.93),(.63,.91),(.66,.89)),.030)
+    elif glyph=='help':
+        rounded(p,[(.14,.18),(.82,.18),(.87,.65),(.59,.65),(.39,.85),(.39,.65),(.14,.65)],.28)
+        p.line(curve((.37,.35),(.37,.22),(.68,.25),(.58,.41)),.028)
+        p.line(curve((.58,.41),(.53,.46),(.48,.42),(.48,.50)),.028)
+        p.disk(.48,.58,.020)
+    elif glyph=='wait':
+        # A flowing infinity track, with two orbiting beads and no spinner ring.
+        track=curve((.50,.50),(.06,.05),(.06,.95),(.50,.50),48)
+        track+=curve((.50,.50),(.94,.05),(.94,.95),(.50,.50),48)[1:]
+        p.line(track,.060)
+        for offset in (0,.5):
+            at=((frame/8+offset)%1)*(len(track)-1)
+            index=int(at);fraction=at-index
+            a,b=track[index],track[min(index+1,len(track)-1)]
+            x,y=(a[i]+(b[i]-a[i])*fraction for i in (0,1))
+            p.disk(x,y,.049)
+    elif glyph=='appstarting':
+        # Three soft pebbles rock inside a steady open cradle.
+        p.line(curve((.11,.59),(.10,.88),(.90,.88),(.89,.59)),.034)
         for i in range(3):
-            angle = frame*math.tau/8 + i*math.tau/3
-            p.shape(rotate([(.55,.35),(.62,.12),(.79,.21),(.74,.40),(.61,.47)],angle))
-        p.shape([(.50,.43),(.57,.50),(.50,.57),(.43,.50)])
-    elif glyph == 'appstarting':
-        # A scanning, stepped equalizer with a detached baseline.
-        for i in range(5):
-            x = .16+i*.14
-            h = .20+.23*(.5+.5*math.cos(frame*math.tau/8-i*.8))
-            p.shape([(x,.66),(x,.66-h),(x+.075,.61-h),(x+.075,.66)])
-        p.line([(.12,.79),(.88,.79)],.034)
-    elif glyph == 'crosshair':
+            y=.45+.055*math.sin(phase-i*math.tau/3)
+            p.capsule((.19+i*.22,y-.14,.33+i*.22,y+.14),.065)
+    elif glyph=='crosshair':
         for angle in (0,math.pi/2,math.pi,3*math.pi/2):
-            p.line(rotate([(.34,.12),(.12,.12),(.12,.34)],angle),.045)
-        p.line([(.50,.38),(.50,.62)],.034)
-        p.line([(.38,.50),(.62,.50)],.034)
-    elif glyph == 'ibeam':
-        p.shape([(.45,.14),(.55,.14),(.55,.86),(.45,.86)])
-        for angle in (0,math.pi):
-            p.line(rotate([(.23,.24),(.23,.13),(.77,.13),(.77,.24)],angle),.040)
-    elif glyph == 'pen':
-        p.shape([(.16,.86),(.24,.62),(.69,.13),(.85,.28),(.40,.76)])
-        p.line([(.31,.65),(.65,.29)],.018)
-        p.shape([(.70,.09),(.80,.09),(.91,.20),(.91,.29)])
-    elif glyph == 'no':
-        p.shape([(.29,.12),(.71,.12),(.88,.50),(.71,.88),(.29,.88),(.12,.50)])
-        p.line([(.30,.50),(.70,.50)],.068)
+            hook=curve((.18,.12),(.12,.28),(.17,.40),(.34,.40))
+            p.line(rotate(hook,angle),.040)
+        p.disk(.5,.5,.036)
+    elif glyph=='ibeam':
+        p.line([(.5,.22),(.5,.78)],.050)
+        top=curve((.21,.19),(.32,.07),(.66,.29),(.79,.16))
+        p.line(top,.038)
+        p.line(rotate(top,math.pi),.038)
+    elif glyph=='pen':
+        nib=curve((.22,.70),(.12,.36),(.59,.10),(.82,.17))
+        nib+=curve((.82,.17),(.89,.39),(.59,.75),(.22,.70))[1:]
+        p.shape(nib)
+        p.line(curve((.21,.82),(.34,.59),(.44,.50),(.66,.30)),.026)
+        p.disk(.17,.88,.038)
+    elif glyph=='no':
+        p.capsule((.13,.13,.87,.87),.23)
+        p.line([(.33,.59),(.49,.33)],.047)
+        p.line([(.51,.67),(.67,.41)],.047)
     elif glyph.startswith('resize_'):
         angle={'resize_horizontal':0,'resize_vertical':math.pi/2,'resize_nwse':math.pi/4,'resize_nesw':-math.pi/4}[glyph]
-        for mirror in (False,True):
-            blade=[(.09,.50),(.32,.26),(.29,.44),(.40,.44),(.40,.56),(.29,.56),(.32,.74)]
-            if mirror: blade=[(1-x,y) for x,y in blade]
-            p.shape(rotate(blade,angle))
-        p.shape(rotate([(.46,.46),(.54,.46),(.54,.54),(.46,.54)],angle))
-    elif glyph == 'move':
+        # Rounded opposed grips, without conventional arrow heads.
+        grip=curve((.31,.22),(.08,.23),(.08,.77),(.31,.78))
+        p.line(rotate(grip,angle),.061)
+        p.line(rotate([(1-x,y) for x,y in grip],angle),.061)
+        p.line(rotate([(.31,.50),(.69,.50)],angle),.045)
+        p.disk(.5,.5,.047)
+    elif glyph=='move':
         for angle in (0,math.pi/2,math.pi,3*math.pi/2):
-            p.shape(rotate([(.50,.07),(.65,.27),(.50,.36),(.35,.27)],angle))
-        p.shape([(.43,.43),(.57,.43),(.57,.57),(.43,.57)])
-    elif glyph == 'up':
-        p.shape([(.50,.10),(.78,.37),(.62,.34),(.62,.72),(.79,.89),(.21,.89),(.38,.72),(.38,.34),(.22,.37)])
-    elif glyph == 'hand':
-        # Link selection: interlocking folded ribbons, not another family's hand.
-        p.shape([(.12,.29),(.49,.13),(.67,.29),(.54,.42),(.43,.31),(.25,.40),(.25,.60),(.40,.66),(.30,.80),(.12,.69)])
-        p.shape([(.88,.71),(.51,.87),(.33,.71),(.46,.58),(.57,.69),(.75,.60),(.75,.40),(.60,.34),(.70,.20),(.88,.31)])
-        p.line([(.38,.60),(.62,.40)],.045)
-    elif glyph == 'pin':
-        p.shape([(.50,.08),(.79,.27),(.76,.53),(.50,.91),(.24,.53),(.21,.27)])
-        p.shape([(.50,.22),(.62,.35),(.50,.48),(.38,.35)])
-    elif glyph == 'person':
-        p.shape([(.36,.13),(.64,.13),(.71,.30),(.62,.48),(.38,.48),(.29,.30)])
-        p.shape([(.30,.56),(.70,.56),(.86,.86),(.14,.86)])
-        p.line([(.50,.60),(.50,.77)],.032)
+            lobe=curve((.41,.37),(.23,.10),(.77,.10),(.59,.37))
+            p.line(rotate(lobe,angle),.048)
+        p.disk(.5,.5,.048)
+    elif glyph=='up':
+        p.line(curve((.23,.78),(.77,.91),(.67,.20),(.50,.15)),.064)
+        p.line(curve((.27,.34),(.38,.15),(.53,.14),(.73,.28)),.038)
+    elif glyph=='hand':
+        # Tap target with a soft bent finger stroke; no chain or copied palm.
+        p.ring(.41,.59,.27,15,315,.036)
+        stroke=curve((.40,.63),(.41,.35),(.40,.10),(.51,.13))
+        stroke+=curve((.51,.13),(.63,.13),(.55,.44),(.67,.47))[1:]
+        stroke+=curve((.67,.47),(.84,.49),(.83,.65),(.76,.79))[1:]
+        p.line(stroke,.060)
+    elif glyph=='pin':
+        p.line(curve((.28,.85),(.27,.56),(.25,.24),(.29,.12)),.047)
+        flag=curve((.31,.16),(.54,.05),(.60,.34),(.81,.22))
+        flag+=curve((.81,.22),(.77,.50),(.53,.48),(.31,.38))[1:]
+        p.shape(flag)
+        p.line(curve((.17,.88),(.34,.97),(.57,.94),(.65,.84)),.027)
+    elif glyph=='person':
+        # Side profile with a continuous curved neck, rather than a front bust.
+        profile=curve((.22,.84),(.21,.69),(.48,.63),(.43,.51))
+        profile+=curve((.43,.51),(.13,.28),(.45,.05),(.66,.18))[1:]
+        profile+=curve((.66,.18),(.73,.23),(.65,.34),(.80,.41))[1:]
+        profile+=[(.69,.47),(.70,.58),(.59,.62)]
+        profile+=curve((.59,.62),(.56,.77),(.82,.74),(.84,.86))[1:]
+        p.shape(profile)
     else:
         raise ValueError(f'Unknown Sharp Head role: {glyph}')

@@ -1,7 +1,7 @@
-# curs0r pack v1.5.0 — Sharp Head
+# curs0r pack v1.5.1 — Sharp Head refined
 
-Adds Sharp Head in white and black: a swept, curved head based on the supplied sketch, a shortened stem and curved foot, a fixed top-corner hotspot, gentle tip-anchored wiggle, and a restrained yellow sweep moving slowly from right to left. All 16 non-pointer roles have independent new artwork, with no copied cursor silhouettes from the other five families. Busy and Working use new turbine and scanning loops.
+Sharp Head's stem now stays clearly below its head, and the curved bottom stroke is much shorter. The fingertip hotspot, gentle wiggle, and slow right-to-left yellow sweep remain.
 
-All twelve themes include 17 animated Windows roles at 30 fps, normal and large-resolution files, static alternatives, clear contrasting outlines, previews, and one-click installation without a background app. Existing families keep their artwork and animations.
+All 16 Sharp Head non-pointer roles have been redrawn with smooth curves and rounded corners: an infinity loading track with moving beads, rocking pebbles, curved precision guides, flowing text serifs, a quill, rounded resize grips, a clover move icon, a tap target, a curved flag, and a side-profile person. These are independent paths, with no copied silhouettes from the other families.
 
-The full download is now named curs0r-pack.zip. Extract it, choose a theme, and run Install-Wingline.cmd. Browser and game cursors supplied by those applications remain application-controlled.
+The other five families are unchanged. Extract curs0r-pack.zip, choose your theme, and run Install-Wingline.cmd to activate the updated files. No background app is installed.
