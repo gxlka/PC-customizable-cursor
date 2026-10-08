@@ -6,11 +6,11 @@ Six cursor styles for Windows, each in white and black. Every set includes 17 an
 
 ## Find your style
 
-Sharp Head adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
+Pen adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
 
 | White | Black |
 | --- | --- |
-| **Sharp Head**<br><img src="dist/Sharp-Head-White/preview.png" alt="Sharp Head white cursor set" width="380"> | **Sharp Head**<br><img src="dist/Sharp-Head-Black/preview.png" alt="Sharp Head black cursor set" width="380"> |
+| **Pen**<br><img src="dist/Pen-White/preview.png" alt="Pen white cursor set" width="380"> | **Pen**<br><img src="dist/Pen-Black/preview.png" alt="Pen black cursor set" width="380"> |
 | **macOS**<br><img src="dist/macOS-White/preview.png" alt="macOS white cursor set" width="380"> | **macOS**<br><img src="dist/macOS-Black/preview.png" alt="macOS black cursor set" width="380"> |
 | **Windows Smooth**<br><img src="dist/Windows-Smooth-White/preview.png" alt="Windows Smooth white cursor set" width="380"> | **Windows Smooth**<br><img src="dist/Windows-Smooth-Black/preview.png" alt="Windows Smooth black cursor set" width="380"> |
 | **Hand**<br><img src="dist/Hand-White/preview.png" alt="Hand white cursor set" width="380"> | **Hand**<br><img src="dist/Hand-Black/preview.png" alt="Hand black cursor set" width="380"> |

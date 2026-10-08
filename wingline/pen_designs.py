@@ -1,4 +1,4 @@
-"""Sharp Head: a continuous pointer outline and a smooth, independent ribbon family."""
+"""Pen: a continuous pointer outline and a smooth, independent ribbon family."""
 import math
 
 
@@ -20,25 +20,21 @@ def rounded(p, points, softness=.22):
     p.shape(path)
 
 
-def draw_sharp(p, glyph, frame):
+def draw_pen(p, glyph, frame):
     from .designs import curve
     phase=frame*math.tau/8
     if glyph=='arrow':
-        # One external contour joins the head, neck, stem and short rounded foot.
-        # No separately stroked line can cross the head or leave a seam.
-        outline=curve((.18,.08),(.35,.27),(.60,.45),(.80,.55))
-        outline+=curve((.80,.55),(.66,.44),(.47,.42),(.48,.51))[1:]
-        outline+=curve((.48,.51),(.49,.60),(.55,.73),(.60,.83))[1:]
-        outline+=curve((.60,.83),(.65,.81),(.69,.81),(.66,.85))[1:]
-        outline+=curve((.66,.85),(.63,.89),(.51,.91),(.49,.88))[1:]
-        outline+=curve((.49,.88),(.47,.85),(.52,.85),(.49,.78))[1:]
-        outline+=curve((.49,.78),(.45,.69),(.42,.60),(.39,.55))[1:]
-        outline+=curve((.39,.55),(.36,.50),(.23,.60),(.18,.66))[1:]
-        outline+=curve((.18,.66),(.26,.43),(.25,.23),(.18,.08))[1:]
-        # A shorter stem lets the actual arrow head occupy more of the fitted
-        # Windows canvas instead of spending its height on the narrow tail.
-        outline=[(x, y if y<=.55 else .55+(y-.55)*.70) for x,y in outline]
+        # A solid, rounded barrel with one continuous outline and a writing
+        # tip at the click hotspot. No arrow head or separate stem.
+        outline=curve((.12,.10),(.20,.12),(.30,.14),(.36,.18))
+        outline+=curve((.36,.18),(.50,.32),(.67,.49),(.80,.63))[1:]
+        outline+=curve((.80,.63),(.91,.74),(.86,.84),(.77,.85))[1:]
+        outline+=curve((.77,.85),(.72,.86),(.67,.83),(.64,.80))[1:]
+        outline+=curve((.64,.80),(.50,.66),(.33,.49),(.20,.36))[1:]
+        outline+=curve((.20,.36),(.16,.29),(.14,.17),(.12,.10))[1:]
         p.shape(outline)
+        # A single fine cap seam keeps the icon recognizably a pen.
+        p.rawline([(.69,.53),(.54,.69)],p.theme.edge,.018)
     elif glyph=='help':
         rounded(p,[(.14,.18),(.82,.18),(.87,.65),(.59,.65),(.39,.85),(.39,.65),(.14,.65)],.28)
         p.line(curve((.37,.35),(.37,.22),(.68,.25),(.58,.41)),.028)
@@ -119,4 +115,4 @@ def draw_sharp(p, glyph, frame):
         profile+=curve((.59,.62),(.56,.77),(.82,.74),(.84,.86))[1:]
         p.shape(profile)
     else:
-        raise ValueError(f'Unknown Sharp Head role: {glyph}')
+        raise ValueError(f'Unknown Pen role: {glyph}')

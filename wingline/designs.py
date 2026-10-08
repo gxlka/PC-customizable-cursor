@@ -31,22 +31,22 @@ class Pen:
             self.draw.ellipse((round(x-r),round(y-r),round(x+r),round(y+r)),fill=color)
     def line(self, pts, width=.032):
         if self.text: width = max(width, .050)
-        if self.theme.style == 'sharp': width = max(width, .070)
-        self.rawline(pts,self.theme.edge,width+(.040 if self.theme.style == "sharp" else (.052 if self.strong_edge else .024)))
+        if self.theme.style == 'pen': width = max(width, .070)
+        self.rawline(pts,self.theme.edge,width+(.040 if self.theme.style == "pen" else (.052 if self.strong_edge else .024)))
         self.rawline(pts,self.theme.fill,width)
     def shape(self, pts):
         p=self.pixels(pts)
         self.draw.polygon(p,fill=self.theme.fill)
-        self.draw.line(p+[p[0]],fill=self.theme.edge,width=max(1,round((.030 if self.theme.style == "sharp" else (.042 if self.strong_edge else .018))*self.n)),joint='curve')
+        self.draw.line(p+[p[0]],fill=self.theme.edge,width=max(1,round((.030 if self.theme.style == "pen" else (.042 if self.strong_edge else .018))*self.n)),joint='curve')
     def disk(self,x,y,r):
-        if self.theme.style == 'sharp': r = max(r, .052)
+        if self.theme.style == 'pen': r = max(r, .052)
         self.shape([(x+math.cos(i*math.tau/80)*r,y+math.sin(i*math.tau/80)*r) for i in range(80)])
     def ring(self,x,y,r,start=0,end=360,width=.032):
         pts=[(x+math.cos(math.radians(start+(end-start)*i/100))*r,
               y+math.sin(math.radians(start+(end-start)*i/100))*r) for i in range(101)]
         self.line(pts,width)
     def capsule(self,box,r=.08):
-        x0,y0,x1,y1=box; n=self.n; edge=max(1,round(n*(.027 if self.theme.style == "sharp" else (.030 if self.strong_edge else .018))))
+        x0,y0,x1,y1=box; n=self.n; edge=max(1,round(n*(.027 if self.theme.style == "pen" else (.030 if self.strong_edge else .018))))
         coords=tuple(round(v*n) for v in box)
         self.draw.rounded_rectangle(coords,radius=round(r*n),fill=self.theme.edge)
         self.draw.rounded_rectangle((coords[0]+edge,coords[1]+edge,coords[2]-edge,coords[3]-edge),
@@ -221,14 +221,14 @@ def render_role(glyph: str, theme: Theme, canvas: int, frame: int, with_hotspot=
     renderer = DRAW_STYLES.get(theme.style, draw_windows if theme.style=='windows' else draw_wingline)
     renderer(p,glyph,frame*8/ANIMATION_FRAMES)
     # Fit actual opaque artwork, not the empty source canvas. Each role gets
-    # Sharp Head fills 28px at normal Windows size; reserve room for its motion.
+    # Pen fills 28px at normal Windows size; reserve room for its motion.
     bounds=image.getchannel('A').getbbox()
     if bounds is None:
         raise ValueError(f'No artwork for {theme.style}/{glyph}')
     if glyph in {'wait', 'appstarting'}:
         bounds=tuple(round(value*canvas) for value in animation_bounds(theme.style,glyph))
     cropped=image.crop(bounds)
-    extent=round(canvas*(.875 if theme.style=='sharp' else .75))
+    extent=round(canvas*(.875 if theme.style=='pen' else .75))
     ratio=extent/max(cropped.size)
     fitted=cropped.resize((max(1,round(cropped.width*ratio)),max(1,round(cropped.height*ratio))),Image.Resampling.LANCZOS)
     result=Image.new('RGBA',(canvas,canvas))

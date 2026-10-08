@@ -250,7 +250,7 @@ def draw_beam(p, glyph, frame):
         p.line([(.35,.76),(.65,.76)],.022)
 
 
-from .sharp_designs import draw_sharp
+from .pen_designs import draw_pen
 
-DRAW_STYLES={'sharp':draw_sharp,'hand':draw_hand,'macos':draw_macos,'beam':draw_beam}
-NORMAL_HOTSPOTS={'sharp':(.18,.08),'hand':(.42,.09),'macos':(.17,.08),'beam':(.5,.5)}
+DRAW_STYLES={'pen':draw_pen,'hand':draw_hand,'macos':draw_macos,'beam':draw_beam}
+NORMAL_HOTSPOTS={'pen':(.12,.10),'hand':(.42,.09),'macos':(.17,.08),'beam':(.5,.5)}

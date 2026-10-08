@@ -131,7 +131,7 @@ def _render_base_cursor(
     image = Image.new("RGBA", (canvas, canvas), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image, "RGBA")
     custom_hotspot = None
-    if theme.style in {"hand", "macos", "beam", "sharp"}:
+    if theme.style in {"hand", "macos", "beam", "pen"}:
         image, custom_hotspot = render_role(role.glyph, theme, canvas, frame, with_hotspot=True)
     elif role.glyph == "arrow":
         _draw_arrow(draw, theme, canvas)
@@ -168,7 +168,7 @@ def _sheen_band(size: int, frame: int) -> Image.Image:
 
 def _light_sheen(image: Image.Image, theme: Theme, frame: int) -> Image.Image:
     """A soft periodic fill-only sheen, preserving alpha and contrast edges."""
-    if frame == 0 or (theme.style != "sharp" and frame == ANIMATION_FRAMES//2):
+    if frame == 0 or (theme.style != "pen" and frame == ANIMATION_FRAMES//2):
         return image.copy()
     channels = image.split()
     light = theme.key.endswith("-White")
@@ -176,7 +176,7 @@ def _light_sheen(image: Image.Image, theme: Theme, frame: int) -> Image.Image:
     interior = tone.point(lambda value: 255 if (value >= 110 if light else value <= 180) else 0)
     eligible = ImageChops.multiply(interior, channels[3].point(lambda value: 255 if value >= 160 else 0))
     band = _sheen_band(image.width, frame)
-    if theme.style == "sharp":
+    if theme.style == "pen":
         # One slow right-to-left gold sweep; smoothly absent at the seam.
         phase = frame / ANIMATION_FRAMES
         center = 1.35 - 1.65 * phase
@@ -186,7 +186,7 @@ def _light_sheen(image: Image.Image, theme: Theme, frame: int) -> Image.Image:
                       for y in range(image.height) for x in range(image.width)])
     mask = ImageChops.multiply(eligible, band)
     shade = 0 if theme.key.endswith("-White") else 255
-    result = Image.composite(Image.new("RGBA", image.size, (244, 194, 48, 255) if theme.style == "sharp" else (shade, shade, shade, 255)), image, mask)
+    result = Image.composite(Image.new("RGBA", image.size, (244, 194, 48, 255) if theme.style == "pen" else (shade, shade, shade, 255)), image, mask)
     result.putalpha(channels[3])
     return result
 
@@ -208,7 +208,7 @@ def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
         if theme.style == "beam":
             sx += .085 * wave  # A small serif opening, not a tint sweep.
         else:
-            angle = (1.7 if theme.style == "sharp" else 2.1) * wave  # Tip-anchored settle; no hotspot drift.
+            angle = (1.7 if theme.style == "pen" else 2.1) * wave  # Tip-anchored settle; no hotspot drift.
     elif role.key == "ibeam":
         sx += .085 * wave
     elif role.key in {"sizens", "sizewe", "sizenwse", "sizenesw", "sizeall", "uparrow"}:
