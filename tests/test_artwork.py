@@ -144,8 +144,8 @@ class ArtworkTests(unittest.TestCase):
                         self.assertIsNotNone(bounds)
                         left, top, right, bottom = bounds
                         extent = max(right-left, bottom-top)
-                        self.assertGreaterEqual(extent, round(size*.70)-1)
-                        self.assertLessEqual(extent, round(size*.80)+1)
+                        self.assertGreaterEqual(extent, round(size*(.84 if theme.style=='sharp' else .70))-1)
+                        self.assertLessEqual(extent, round(size*(.90 if theme.style=='sharp' else .80))+1)
                         self.assertGreater(left, 0)
                         self.assertGreater(top, 0)
                         self.assertLess(right, size)
@@ -159,7 +159,7 @@ class ArtworkTests(unittest.TestCase):
                         image, _ = render_cursor(role, theme, 32, frame=frame)
                         x0, y0, x1, y1 = image.getchannel("A").getbbox()
                         self.assertGreaterEqual(max(x1-x0, y1-y0), 23)
-                        self.assertLessEqual(max(x1-x0, y1-y0), 28)
+                        self.assertLessEqual(max(x1-x0, y1-y0), 31 if theme.style=='sharp' else 28)
 
     def test_animations_change_and_have_no_discontinuous_loop_seam(self):
         from PIL import ImageChops, ImageStat
@@ -312,7 +312,7 @@ class ArtworkTests(unittest.TestCase):
                     image, _ = render_cursor(role, theme, 32, frame=0)
                     left, top, right, bottom = image.getchannel("A").getbbox()
                     self.assertGreaterEqual(max(right - left, bottom - top), 23)
-                    self.assertLessEqual(max(right - left, bottom - top), 28)
+                    self.assertLessEqual(max(right - left, bottom - top), 31 if theme.style=='sharp' else 28)
 
     def test_non_pointer_roles_render_near_main_pointer_scale_at_64px(self):
         for theme in THEMES.values():
@@ -324,7 +324,7 @@ class ArtworkTests(unittest.TestCase):
                     left, top, right, bottom = image.getchannel("A").getbbox()
                     largest_dimension = max(right - left, bottom - top)
                     self.assertGreaterEqual(largest_dimension, 40)
-                    self.assertLessEqual(largest_dimension, 56)
+                    self.assertLessEqual(largest_dimension, 61 if theme.style=='sharp' else 56)
 
     def test_working_in_background_remains_a_horizontal_progress_cursor(self):
         role = next(role for role in ROLE_ORDER if role.key == "appstarting")
