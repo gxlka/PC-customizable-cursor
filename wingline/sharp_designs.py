@@ -1,4 +1,4 @@
-"""Sharp Head: detached pointer strokes and a smooth, independent ribbon family."""
+"""Sharp Head: a continuous pointer outline and a smooth, independent ribbon family."""
 import math
 
 
@@ -24,13 +24,19 @@ def draw_sharp(p, glyph, frame):
     from .designs import curve
     phase=frame*math.tau/8
     if glyph=='arrow':
-        head=curve((.18,.08),(.35,.27),(.60,.45),(.80,.55))
-        head+=curve((.80,.55),(.62,.39),(.35,.46),(.18,.66))[1:]
-        head+=curve((.18,.66),(.26,.43),(.25,.23),(.18,.08))[1:]
-        p.shape(head)
-        # Both strokes are detached: no stem or outline enters the head.
-        p.line(curve((.50,.64),(.53,.69),(.55,.71),(.57,.75)),.035)
-        p.line(curve((.53,.93),(.58,.93),(.63,.91),(.66,.89)),.030)
+        # One external contour joins the head, neck, stem and short rounded foot.
+        # No separately stroked line can cross the head or leave a seam.
+        outline=curve((.18,.08),(.35,.27),(.60,.45),(.80,.55))
+        outline+=curve((.80,.55),(.66,.44),(.57,.43),(.48,.48))[1:]
+        outline+=curve((.48,.48),(.48,.57),(.55,.72),(.60,.83))[1:]
+        outline+=curve((.60,.83),(.63,.82),(.66,.81),(.68,.82))[1:]
+        outline+=curve((.68,.82),(.72,.84),(.65,.88),(.57,.90))[1:]
+        outline+=curve((.57,.90),(.47,.93),(.46,.88),(.51,.87))[1:]
+        outline+=curve((.51,.87),(.55,.85),(.54,.82),(.52,.76))[1:]
+        outline+=curve((.52,.76),(.48,.66),(.43,.54),(.41,.52))[1:]
+        outline+=curve((.41,.52),(.30,.55),(.23,.60),(.18,.66))[1:]
+        outline+=curve((.18,.66),(.26,.43),(.25,.23),(.18,.08))[1:]
+        p.shape(outline)
     elif glyph=='help':
         rounded(p,[(.14,.18),(.82,.18),(.87,.65),(.59,.65),(.39,.85),(.39,.65),(.14,.65)],.28)
         p.line(curve((.37,.35),(.37,.22),(.68,.25),(.58,.41)),.028)
