@@ -1,12 +1,12 @@
 # curs0r pack
 
-Seven cursor styles for Windows, each in white and black. Every set includes 17 animated cursors, clear outlines, and sizes for different display scales.
+Seven cursor styles for Windows, each in white and black. Every set includes 17 cursor roles, clear outlines, and sizes for different display scales. Nib animates only its two loading states.
 
 **[Download curs0r pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/curs0r-pack.zip)**
 
 ## Find your style
 
-Nib stays steady with a gentle fill loop and smooth loading animations. Pen adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
+Nib uses completely static everyday cursors and smooth loading loops—no sweeps or swinging. Pen adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
 
 | White | Black |
 | --- | --- |

@@ -14,15 +14,14 @@ from unittest.mock import call, patch
 import build
 from PIL import ImageFont
 
-from wingline.package import _font, build_pack, verify_pack
+from wingline.package import _font, build_pack, verify_pack, cursor_filename
 from wingline.roles import ROLE_ORDER, THEMES
 
 
 def expected_cursor_files(theme):
     files = []
     for role in ROLE_ORDER:
-        extension = ".ani"
-        files.append(f"{theme.key}-{role.key}{extension}")
+        files.append(cursor_filename(theme, role))
     return files
 
 
@@ -129,8 +128,7 @@ class PackageTests(unittest.TestCase):
                 self.assertEqual(("0x00010001", "1"), settings["Scheme Source"])
                 self.assertEqual(17, len(settings) - 2)
                 for role in ROLE_ORDER:
-                    extension = ".ani"
-                    filename = f"{theme.key}-{role.key}{extension}"
+                    filename = cursor_filename(theme, role)
                     self.assertEqual(
                         (
                             "0x00000000",
