@@ -1,13 +1,7 @@
-# curs0r pack v1.5.5 — Larger Sharp Head
+# curs0r pack v1.6.0 — Pen
 
-Sharp Head keeps its white or black base color. The animation now uses a narrow, soft-edged yellow slash moving slowly from right to left, instead of washing most of the cursor in yellow. Contrasting outlines remain steady.
+Pen replaces Sharp Head in white and black. Its main pointer is a simple solid pen with smooth rounded edges, a thin contrasting border, and a writing tip aligned with the click hotspot. Large visible artwork keeps it easy to see at normal Windows cursor size.
 
-Sharp Head's pointer and all 16 non-pointer icons are enlarged in both white and black. Visible artwork now fills 28 pixels of a normal 32-pixel Windows cursor canvas, instead of 24. The pointer's stem is shorter so the arrow head itself is substantially larger and easier to see. Animated files, large-resolution alternatives, and static files all use the enlarged artwork.
+All 17 roles retain their independent rounded designs, solid white or black interiors, slow motion, yellow slash from the right, and continuous animation loops. Static alternatives and high-resolution animations are included.
 
-Smooth connected edges, white and black bases, thin contrasting outlines, the slow yellow slash, and looping animations remain. Extract the new download and run Install-Wingline.cmd from your chosen Sharp Head folder to replace and reload the installed cursors.
-
-Sharp Head's narrow strokes and small dots now have wider solid white or black interiors, so non-pointer states no longer disappear into their outlines at desktop size.
-
-One download: curs0r-pack.zip. Older release downloads are removed after this new pack publishes successfully.
-
-Extract curs0r-pack.zip and run Install-Wingline.cmd in your chosen theme to activate the update.
+Extract curs0r-pack.zip and run Install-Wingline.cmd in the Pen-White or Pen-Black folder. One current pack download is published; older downloads are removed after successful publication.

@@ -4,7 +4,7 @@ from wingline.artwork import render_cursor, ANIMATION_FRAMES
 from wingline.roles import THEMES, ROLE_ORDER
 
 
-class SharpHeadTests(unittest.TestCase):
+class PenTests(unittest.TestCase):
     def test_exported_frames_have_large_solid_palette_interiors_at_desktop_size(self):
         import struct
         from PIL import Image
@@ -13,7 +13,7 @@ class SharpHeadTests(unittest.TestCase):
             for role in ROLE_ORDER:
                 for size in (32,64):
                     with self.subTest(variant=variant,role=role.key,size=size):
-                        frame=encode_cur([render_cursor(role,THEMES['Sharp-Head-'+variant],size)])
+                        frame=encode_cur([render_cursor(role,THEMES['Pen-'+variant],size)])
                         offset=struct.unpack_from('<I',frame,18)[0]+40
                         # Decode Windows' premultiplied BGRA bitmap, including
                         # its bottom-up rows, then simulate normal desktop size.
@@ -36,7 +36,7 @@ class SharpHeadTests(unittest.TestCase):
 
     def test_all_frames_keep_visible_outline_size_hotspot_and_smooth_loop(self):
         for variant in ('White', 'Black'):
-            theme = THEMES['Sharp-Head-'+variant]
+            theme = THEMES['Pen-'+variant]
             for role in ROLE_ORDER:
                 with self.subTest(variant=variant,role=role.key):
                     frames = []
@@ -59,9 +59,9 @@ class SharpHeadTests(unittest.TestCase):
                     self.assertGreater(sum(changes),0)
                     self.assertLessEqual(changes[-1],max(changes[:-1])*1.25+.1)
 
-    def test_pointer_head_stem_and_short_base_are_one_connected_shape(self):
+    def test_pen_is_one_connected_shape(self):
         for frame in range(ANIMATION_FRAMES):
-            image,_=render_cursor(ROLE_ORDER[0],THEMES['Sharp-Head-White'],32,frame)
+            image,_=render_cursor(ROLE_ORDER[0],THEMES['Pen-White'],32,frame)
             remaining={(x,y) for y in range(32) for x in range(32) if image.getpixel((x,y))[3]>=128}
             components=0
             while remaining:
@@ -81,7 +81,7 @@ class SharpHeadTests(unittest.TestCase):
         from PIL import Image
         from wingline.artwork import _light_sheen
         for color in ((252,253,255,255),(23,26,32,255)):
-            theme=THEMES['Sharp-Head-White' if color[0]>128 else 'Sharp-Head-Black']
+            theme=THEMES['Pen-White' if color[0]>128 else 'Pen-Black']
             original=Image.new('RGBA',(64,64),color)
             animated=_light_sheen(original,theme,32)
             differences=ImageChops.difference(original,animated)
@@ -90,7 +90,7 @@ class SharpHeadTests(unittest.TestCase):
             self.assertLess(changed,64*64*.4)
 
     def test_gold_band_moves_from_right_to_left(self):
-        theme=THEMES['Sharp-Head-White']
+        theme=THEMES['Pen-White']
         from PIL import Image
         image=Image.new('RGBA',(64,64),(252,253,255,255))
         from wingline.artwork import _light_sheen
