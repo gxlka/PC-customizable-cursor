@@ -166,6 +166,7 @@ class ArtworkTests(unittest.TestCase):
         from PIL import ImageChops, ImageStat
         for theme in THEMES.values():
             for role in ROLE_ORDER:
+                if theme.style == "nib" and role.key not in {"wait","appstarting"}: continue
                 with self.subTest(theme=theme.key, role=role.key):
                     frames=[render_cursor(role,theme,64,frame=i)[0] for i in range(ANIMATION_FRAMES)]
                     self.assertGreater(len({image.tobytes() for image in frames}),8)
@@ -178,6 +179,7 @@ class ArtworkTests(unittest.TestCase):
         from PIL import ImageChops, ImageStat
         for theme in THEMES.values():
             for role in ROLE_ORDER:
+                if theme.style == "nib" and role.key not in {"wait","appstarting"}: continue
                 with self.subTest(theme=theme.key, role=role.key):
                     rest, _ = render_cursor(role, theme, 32, 0)
                     # Symmetric spinners can repeat at a quarter turn.
@@ -211,6 +213,7 @@ class ArtworkTests(unittest.TestCase):
     def test_light_sheen_preserves_motion_alpha_and_contrast_edges(self):
         from wingline.artwork import _light_sheen
         for theme in THEMES.values():
+            if theme.style == "nib": continue
             for role in ROLE_ORDER:
                 with self.subTest(theme=theme.key, role=role.key):
                     changed=False
@@ -231,6 +234,7 @@ class ArtworkTests(unittest.TestCase):
     def test_sheen_has_noticeable_fill_contrast_at_32px(self):
         from PIL import ImageChops
         for theme in THEMES.values():
+            if theme.style == "nib": continue
             for role in ROLE_ORDER:
                 with self.subTest(theme=theme.key, role=role.key):
                     peaks = []

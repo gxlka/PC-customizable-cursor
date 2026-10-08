@@ -168,6 +168,8 @@ def _sheen_band(size: int, frame: int) -> Image.Image:
 
 def _light_sheen(image: Image.Image, theme: Theme, frame: int) -> Image.Image:
     """A soft periodic fill-only sheen, preserving alpha and contrast edges."""
+    if theme.style == "nib":
+        return image.copy()
     if frame == 0 or (theme.style != "pen" and frame == ANIMATION_FRAMES//2):
         return image.copy()
     channels = image.split()
@@ -200,7 +202,7 @@ def render_cursor(role: CursorRole, theme: Theme, size: int, frame: int = 0):
         return _light_sheen(image, theme, frame), hotspot
     base, hotspot = _render_base_cursor(role, theme, size, 0)
     if theme.style == "nib":
-        # Nib stays geometrically steady: only its fill light loops.
+        # Nib is entirely static outside the two loading roles.
         return _light_sheen(base.copy(), theme, frame), hotspot
     wave = math.sin(frame * math.tau / ANIMATION_FRAMES)
     if abs(wave) < 1e-10:

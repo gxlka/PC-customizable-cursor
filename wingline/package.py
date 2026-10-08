@@ -27,12 +27,13 @@ not need administrator access.
 
 The .inf remains available for manual import. If Windows reports that an INF
 is already installed, run Install-Wingline.cmd to reapply and activate it.
-All 17 active roles are animated at 30 fps. Text Select, Link Select, resize
+Most families animate all 17 roles at 30 fps. Text Select, Link Select, resize
 and other states use restrained role-specific motion around a stable click hotspot.
 Each motion cycle takes 2.13 seconds at 30 fps, with a 0.4-second rest.
 A clearer fill-only sheen preserves outlines, without flashing.
-Nib has no swinging or scaling: its state silhouettes stay steady.
-Its Busy pebbles orbit continuously and its Working pillars loop smoothly.
+Nib uses static .cur files for all ordinary states: no swinging, scaling,
+color sweeps or slashes. Only Busy and Working use animated files.
+Its Busy tiles and Working bars loop smoothly without rotating.
 Windows selects the active role; loops do not react to individual clicks or
 keystrokes. The installer exits; no background application is needed.
 Normal animations use 64 px source frames, with 256 px large-size fallbacks.
@@ -44,13 +45,17 @@ resolution, and .cur files are static alternatives, not a second color theme.
 """
 
 
+def is_animated_role(role: CursorRole, theme: Theme) -> bool:
+    return role.key in ANIMATED_ROLES and (theme.style != "nib" or role.key in {"wait", "appstarting"})
+
+
 def cursor_filename(theme: Theme, role: CursorRole) -> str:
-    extension = ".ani" if role.key in ANIMATED_ROLES else ".cur"
+    extension = ".ani" if is_animated_role(role, theme) else ".cur"
     return f"{theme.key}-{role.key}{extension}"
 
 
 def _role_cursor_bytes(role: CursorRole, theme: Theme, animation_size: int = 64) -> bytes:
-    if role.key in ANIMATED_ROLES:
+    if is_animated_role(role, theme):
         frames = []
         for frame_index in range(ANIMATION_FRAMES):
             image, hotspot = render_cursor(role, theme, animation_size, frame=frame_index)
@@ -179,11 +184,11 @@ def build_theme(theme: Theme, output_dir: Path) -> list[Path]:
         path.write_bytes(_role_cursor_bytes(role, theme))
         generated.append(path)
         filenames.append(filename)
-        if role.key in ANIMATED_ROLES:
+        if is_animated_role(role, theme):
             large = output_dir / f"{theme.key}-{role.key}-large.ani"
             large.write_bytes(_role_cursor_bytes(role, theme, animation_size=256))
             generated.append(large)
-        if role.key in STATIC_ROLES:
+        if role.key in STATIC_ROLES and is_animated_role(role, theme):
             static = output_dir / f"{theme.key}-{role.key}.cur"
             static.write_bytes(encode_cur([_render_base_cursor(role, theme, size) for size in SUPPORTED_SIZES]))
             generated.append(static)
@@ -399,7 +404,7 @@ def _expected_archive_entries(theme: Theme) -> set[str]:
         prefix + "preview.png",
     }
     names.update(prefix + cursor_filename(theme, role) for role in ROLE_ORDER)
-    names.update(prefix + f"{theme.key}-{key}-large.ani" for key in ANIMATED_ROLES)
+    names.update(prefix + f"{theme.key}-{role.key}-large.ani" for role in ROLE_ORDER if is_animated_role(role, theme))
     names.update(prefix + f"{theme.key}-{key}.cur" for key in STATIC_ROLES)
     return names
 
@@ -480,7 +485,7 @@ def verify_pack(output_root: Path) -> bool:
                 f"{theme.key} assigns identical cursor artwork to more than one role.",
             )
             role_payloads.add(payload)
-            if role.key in ANIMATED_ROLES:
+            if is_animated_role(role, theme):
                 idle = 0 if role.key in {"wait", "appstarting"} else STATE_IDLE_STEPS
                 _check_ani(payload, idle_steps=idle)
                 large = theme_dir / f"{theme.key}-{role.key}-large.ani"

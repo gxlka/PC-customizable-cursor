@@ -1,7 +1,7 @@
-# curs0r pack v1.7.0 — Nib
+# curs0r pack v1.7.1 — Static Nib and new state icons
 
-Adds Nib in white and black: a compact solid droplet-shaped pointer with a precise upper-left click tip and smooth rounded back. No swinging, rotation, or scaling animations. The pointer and ordinary state icons keep steady geometry with a gentle fill-only loop.
+Nib's ordinary states now use genuinely static CUR files. All gray slashes, sweeps, swinging and scaling are removed. Only Busy and Working retain smooth loading loops.
 
-All 16 non-pointers are independently drawn: orbiting solid pebbles, breathing pillars, a rounded precision tile, curved I-beam, paintbrush, stop shield, bulb-ended resize grips, soft petal move pad, alternate-select badge, horizontal pointing hand, folded map, and portrait badge. All use large readable filled interiors and thin contrasting edges.
+All 16 non-pointers are redrawn independently with rounded solid interiors. Resize states have blunt rectangular grips with no droplet or nib-shaped tips. Other states use help tickets, corner pads, a serif spindle, flat marker, stop badge, square-shouldered move control, lifting handle, tap control, location beacon and rounded profile.
 
-Includes all seven families, both palettes, 17 roles per set, static alternatives and high-resolution animations. Extract curs0r-pack.zip and run Install-Wingline.cmd in Nib-White or Nib-Black. One current download is published; older downloads are removed after successful publication.
+Extract curs0r-pack.zip and run Install-Wingline.cmd in Nib-White or Nib-Black to replace the earlier animated ordinary states.
