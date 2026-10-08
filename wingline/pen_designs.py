@@ -41,32 +41,25 @@ def draw_pen(p, glyph, frame):
         p.line(curve((.58,.41),(.53,.46),(.48,.42),(.48,.50)),.028)
         p.disk(.48,.58,.020)
     elif glyph=='wait':
-        # A flowing infinity track, with two orbiting beads and no spinner ring.
-        track=curve((.50,.50),(.06,.05),(.06,.95),(.50,.50),48)
-        track+=curve((.50,.50),(.94,.05),(.94,.95),(.50,.50),48)[1:]
-        p.line(track,.060)
-        for offset in (0,.5):
-            at=((frame/8+offset)%1)*(len(track)-1)
-            index=int(at);fraction=at-index
-            a,b=track[index],track[min(index+1,len(track)-1)]
-            x,y=(a[i]+(b[i]-a[i])*fraction for i in (0,1))
-            p.disk(x,y,.049)
+        # Filled hourglass with moving sand inside a steady solid silhouette.
+        rounded(p,[(.20,.13),(.80,.13),(.83,.28),(.61,.50),(.83,.72),
+                   (.80,.87),(.20,.87),(.17,.72),(.39,.50),(.17,.28)],.27)
+        y=.50+.20*math.sin(phase)
+        p.rawline([(.50,y),(.50,y)],p.theme.edge,.055)
     elif glyph=='appstarting':
-        # Three soft pebbles rock inside a steady open cradle.
-        p.line(curve((.11,.59),(.10,.88),(.90,.88),(.89,.59)),.034)
+        # A solid rounded tray supporting three gently moving filled tiles.
+        p.capsule((.10,.57,.90,.85),.14)
         for i in range(3):
-            y=.45+.055*math.sin(phase-i*math.tau/3)
+            y=.43+.055*math.sin(phase-i*math.tau/3)
             p.capsule((.19+i*.22,y-.14,.33+i*.22,y+.14),.065)
     elif glyph=='crosshair':
-        for angle in (0,math.pi/2,math.pi,3*math.pi/2):
-            hook=curve((.18,.12),(.12,.28),(.17,.40),(.34,.40))
-            p.line(rotate(hook,angle),.040)
-        p.disk(.5,.5,.036)
+        rounded(p,[(.50,.10),(.90,.50),(.50,.90),(.10,.50)],.23)
+        p.rawline([(.36,.50),(.64,.50)],p.theme.edge,.024)
+        p.rawline([(.50,.36),(.50,.64)],p.theme.edge,.024)
     elif glyph=='ibeam':
-        p.line([(.5,.22),(.5,.78)],.050)
-        top=curve((.21,.19),(.32,.07),(.66,.29),(.79,.16))
-        p.line(top,.038)
-        p.line(rotate(top,math.pi),.038)
+        rounded(p,[(.23,.12),(.77,.12),(.77,.27),(.60,.27),(.60,.73),
+                   (.77,.73),(.77,.88),(.23,.88),(.23,.73),(.40,.73),
+                   (.40,.27),(.23,.27)],.22)
     elif glyph=='pen':
         nib=curve((.22,.70),(.12,.36),(.59,.10),(.82,.17))
         nib+=curve((.82,.17),(.89,.39),(.59,.75),(.22,.70))[1:]
@@ -79,27 +72,36 @@ def draw_pen(p, glyph, frame):
         p.line([(.51,.67),(.67,.41)],.047)
     elif glyph.startswith('resize_'):
         angle={'resize_horizontal':0,'resize_vertical':math.pi/2,'resize_nwse':math.pi/4,'resize_nesw':-math.pi/4}[glyph]
-        # Rounded opposed grips, without conventional arrow heads.
-        grip=curve((.31,.22),(.08,.23),(.08,.77),(.31,.78))
-        p.line(rotate(grip,angle),.061)
-        p.line(rotate([(1-x,y) for x,y in grip],angle),.061)
-        p.line(rotate([(.31,.50),(.69,.50)],angle),.045)
-        p.disk(.5,.5,.047)
+        # A single filled handle with rounded end grips and a solid bridge.
+        points=[(.12,.22),(.31,.22),(.31,.40),(.69,.40),(.69,.22),(.88,.22),
+                (.88,.78),(.69,.78),(.69,.60),(.31,.60),(.31,.78),(.12,.78)]
+        rounded(p,rotate(points,angle),.28)
     elif glyph=='move':
+        # Filled four-lobed pad, with no transparent center or arrow heads.
+        path=[]
         for angle in (0,math.pi/2,math.pi,3*math.pi/2):
-            lobe=curve((.41,.37),(.23,.10),(.77,.10),(.59,.37))
-            p.line(rotate(lobe,angle),.048)
-        p.disk(.5,.5,.048)
+            lobe=curve((.35,.35),(.24,.02),(.76,.02),(.65,.35))
+            path+=rotate(lobe,angle)
+        p.shape(path)
+        p.rawline([(.44,.50),(.56,.50)],p.theme.edge,.022)
+        p.rawline([(.50,.44),(.50,.56)],p.theme.edge,.022)
     elif glyph=='up':
-        p.line(curve((.23,.78),(.77,.91),(.67,.20),(.50,.15)),.064)
-        p.line(curve((.27,.34),(.38,.15),(.53,.14),(.73,.28)),.038)
+        # A solid hooked ribbon replaces the open wire shape.
+        path=curve((.22,.77),(.45,.90),(.72,.82),(.69,.48))
+        path+=curve((.69,.48),(.66,.17),(.50,.07),(.29,.26))[1:]
+        path+=curve((.29,.26),(.39,.40),(.45,.30),(.48,.35))[1:]
+        path+=curve((.48,.35),(.58,.62),(.46,.71),(.24,.59))[1:]
+        path+=curve((.24,.59),(.19,.63),(.18,.72),(.22,.77))[1:]
+        p.shape(path)
     elif glyph=='hand':
-        # Tap target with a soft bent finger stroke; no chain or copied palm.
-        p.ring(.41,.59,.27,15,315,.036)
-        stroke=curve((.40,.63),(.41,.35),(.40,.10),(.51,.13))
-        stroke+=curve((.51,.13),(.63,.13),(.55,.44),(.67,.47))[1:]
-        stroke+=curve((.67,.47),(.84,.49),(.83,.65),(.76,.79))[1:]
-        p.line(stroke,.060)
+        # A continuous side-on pointing hand with a rounded filled palm.
+        path=curve((.38,.57),(.38,.42),(.35,.14),(.44,.13))
+        path+=curve((.44,.13),(.59,.09),(.55,.38),(.59,.44))[1:]
+        path+=curve((.59,.44),(.85,.43),(.88,.60),(.78,.82))[1:]
+        path+=curve((.78,.82),(.70,.94),(.43,.93),(.35,.82))[1:]
+        path+=curve((.35,.82),(.28,.72),(.13,.66),(.17,.56))[1:]
+        path+=curve((.17,.56),(.21,.47),(.32,.54),(.38,.57))[1:]
+        p.shape(path)
     elif glyph=='pin':
         p.line(curve((.28,.85),(.27,.56),(.25,.24),(.29,.12)),.047)
         flag=curve((.31,.16),(.54,.05),(.60,.34),(.81,.22))

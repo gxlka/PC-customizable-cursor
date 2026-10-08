@@ -5,6 +5,15 @@ from wingline.roles import THEMES, ROLE_ORDER
 
 
 class PenTests(unittest.TestCase):
+    def test_formerly_hollow_roles_have_solid_centers(self):
+        filled={'wait','crosshair','ibeam','sizens','sizewe','sizenwse','sizenesw','sizeall','hand'}
+        for variant in ('White','Black'):
+            for role in ROLE_ORDER:
+                if role.key not in filled: continue
+                image,_=render_cursor(role,THEMES['Pen-'+variant],32)
+                r,g,b,a=image.getpixel((16,16))
+                self.assertGreaterEqual(a,230,(variant,role.key,'transparent center'))
+
     def test_exported_frames_have_large_solid_palette_interiors_at_desktop_size(self):
         import struct
         from PIL import Image
