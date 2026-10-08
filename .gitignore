@@ -4,4 +4,4 @@ __pycache__/
 .superpowers/
 .worktrees/
 
-/dist/curs0r-pack.zip
+/dist/*.zip
