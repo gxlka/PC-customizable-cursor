@@ -1,10 +1,19 @@
 """Unpublished Windows Flow concept: new geometry for all seventeen roles."""
 import math
-from PIL import Image, ImageDraw
+from functools import lru_cache
+from PIL import Image, ImageDraw, ImageChops, ImageFilter
 from .designs import curve
 from .pen_designs import rotate
 
 FRAMES=48
+
+@lru_cache(maxsize=16)
+def _solid_masks(n, points, width):
+    mask=Image.new('L',(n,n));ImageDraw.Draw(mask).polygon(points,fill=255)
+    inside=mask
+    for _ in range(width):
+        inside=inside.filter(ImageFilter.MinFilter(3))
+    return mask,inside
 
 def render(glyph,size=64,frame=0,dark=False):
     n=size*4; im=Image.new('RGBA',(n,n));d=ImageDraw.Draw(im)
@@ -18,7 +27,11 @@ def render(glyph,size=64,frame=0,dark=False):
         for x,y in (px[0],px[-1]):d.ellipse((x-wid/2,y-wid/2,x+wid/2,y+wid/2),fill=color)
     def stroke(pts,w=.07):line(pts,w+.045,edge);line(pts,w,fill)
     def shape(pts):
-        px=coords(pts);d.polygon(px,fill=fill);d.line(px+[px[0]],fill=edge,width=round(.026*n),joint='curve')
+        # One continuous filled silhouette and an inward solid border.
+        # No separate outline segments or transparent seams at joins.
+        width=max(1,round(.021*n))
+        mask,inside=_solid_masks(n,tuple(coords(pts)),width)
+        im.paste(edge,(0,0,n,n),mask);im.paste(fill,(0,0,n,n),inside)
     def roundpoly(pts,r=.18):
         path=[]
         for i,c in enumerate(pts):
@@ -55,7 +68,7 @@ def render(glyph,size=64,frame=0,dark=False):
         # Two softly stacked document cards, with a travelling progress dot.
         box((.31,.15,.85,.68),.08);box((.15,.33,.69,.85),.08)
         line([(.26,.48),(.57,.48)],.026,edge);line([(.26,.59),(.48,.59)],.026,edge)
-        disk(.29+.26*wave,.73,.045,accent)
+        disk(.29+.26*wave,.73,.060,accent)
     elif glyph=='wait':
         # Three curved beans circulate around a stable empty center.
         for i in range(3):
@@ -92,7 +105,7 @@ def render(glyph,size=64,frame=0,dark=False):
             pts+=curve((.38,.30),(.30,.43),(.30,.57),(.38,.70))[1:]
             pts+=curve((.38,.70),(.35,.75),(.23,.74),(.12,.5))[1:];shape(rotate(pts,a+side))
         roundpoly(rotate([(.5,.40),(.60,.5),(.5,.60),(.40,.5)],a),.28)
-        x=.5+.026*math.sin(phase)
+        x=.5  # Tiny center mark stays fixed, avoiding subpixel dot skips.
         xx,yy=rotate([(x,.5)],a)[0];disk(xx,yy,.027,accent)
     elif glyph=='move':
         # Four smooth compass fins surround a filled central circular hub.

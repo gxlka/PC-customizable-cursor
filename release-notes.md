@@ -1,9 +1,7 @@
-# curs0r pack v1.8.0 — Windows Flow
+# curs0r pack v1.8.1 — Windows Flow outline fixes
 
-Adds the approved Windows Flow family in white and black. Each set contains 17 independently drawn roles with solid fills, rounded corners and thin contrasting outlines. Non-pointer artwork was compared against all seven existing families; no old silhouettes are reused.
+Windows Flow now uses continuous filled silhouettes with an inward contrast border, eliminating thin outline seams at tight joins. Tiny resize dots remain stationary to avoid subpixel skips, and the Working dot is larger. Both white and black sets retain the approved shapes, fixed click hotspots and smooth approximately 1.92-second loops.
 
-Animations use a continuous 48-frame, approximately 1.92-second loop. Busy orbits smoothly, Working moves its progress dot, and ordinary states breathe gently inside steady silhouettes. There is no pointer swinging or slashing. Click points stay fixed; the main pointer clicks at its upper-left tip. Every role is fitted to a consistent visible size.
+Nib's Working bars are enlarged to remain readable at every supported size. Windows loading and performance checks now count Nib's static ordinary roles correctly. Both workflows run the visibility check before the expensive build; redundant build runs are cancelled.
 
-Includes native 64 px animations, 256 px high-DPI animations, and seven-size static alternatives. Extract the ZIP and run Install-Wingline.cmd in Windows-Flow-White or Windows-Flow-Black. Installation needs no administrator access or background process.
-
-The single curs0r-pack.zip download now includes all eight families in both colors. Existing families retain their behavior, including Nib's static ordinary states.
+Includes all eight families in white and black, 17 roles per scheme, native 64 px and high-DPI 256 px animations, static alternatives and the installer. Extract curs0r-pack.zip and run Install-Wingline.cmd inside your preferred folder. No administrator access or background app is needed.
