@@ -1,15 +1,16 @@
 # curs0r pack
 
-Seven cursor styles for Windows, each in white and black. Every set includes 17 cursor roles, clear outlines, and sizes for different display scales. Nib animates only its two loading states.
+Eight cursor styles for Windows, each in white and black. Every set includes 17 cursor roles, clear outlines, and sizes for different display scales. Nib animates only its two loading states.
 
 **[Download curs0r pack](https://github.com/gxlka/PC-customizable-cursor/releases/latest/download/curs0r-pack.zip)**
 
 ## Find your style
 
-Nib uses completely static everyday cursors and smooth loading loops—no sweeps or swinging. Pen adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
+Windows Flow adds a rounded Windows-style pointer, newly drawn state icons, and slow loops without swinging. Nib uses completely static everyday cursors and smooth loading loops—no sweeps or swinging. Pen adds a gentle wiggle and a slow yellow sweep. Click any preview for a closer look.
 
 | White | Black |
 | --- | --- |
+| **Windows Flow**<br><img src="previews/Windows-Flow-White.png" alt="Windows Flow white cursor set" width="380"> | **Windows Flow**<br><img src="previews/Windows-Flow-Black.png" alt="Windows Flow black cursor set" width="380"> |
 | **Nib**<br><img src="dist/Nib-White/preview.png" alt="Nib white cursor set" width="380"> | **Nib**<br><img src="dist/Nib-Black/preview.png" alt="Nib black cursor set" width="380"> |
 | **Pen**<br><img src="dist/Pen-White/preview.png" alt="Pen white cursor set" width="380"> | **Pen**<br><img src="dist/Pen-Black/preview.png" alt="Pen black cursor set" width="380"> |
 | **macOS**<br><img src="dist/macOS-White/preview.png" alt="macOS white cursor set" width="380"> | **macOS**<br><img src="dist/macOS-Black/preview.png" alt="macOS black cursor set" width="380"> |
@@ -35,6 +36,7 @@ Requires Python 3.11 or later.
 python -m pip install -r requirements.txt
 python build.py
 python build.py --check
+python build_windows_flow.py --append-pack dist/curs0r-pack.zip
 ```
 
 </details>

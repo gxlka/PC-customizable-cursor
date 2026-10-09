@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cursor-release-v1-7-1
+  group: cursor-release-v1-8-0
   cancel-in-progress: true
 
 jobs:
@@ -38,23 +38,25 @@ jobs:
         run: python verify_windows.py dist
       - name: Benchmark native animated cursor drawing
         run: python verify_performance.py dist
+      - name: Build and verify approved Windows Flow, then add it to the full pack
+        run: python build_windows_flow.py --output dist-flow --append-pack dist/curs0r-pack.zip
       - name: Publish full cursor pack
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.7.1
+          RELEASE_TAG: v1.8.0
         run: |
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" dist/curs0r-pack.zip --clobber
-            gh release edit "$RELEASE_TAG" --title "curs0r pack — Seven Styles" --notes-file release-notes.md --latest
+            gh release edit "$RELEASE_TAG" --title "curs0r pack — Eight Styles" --notes-file release-notes.md --latest
           else
-            gh release create "$RELEASE_TAG" dist/curs0r-pack.zip --target "$GITHUB_SHA" --title "curs0r pack — Seven Styles" --notes-file release-notes.md --latest
+            gh release create "$RELEASE_TAG" dist/curs0r-pack.zip --target "$GITHUB_SHA" --title "curs0r pack — Eight Styles" --notes-file release-notes.md --latest
           fi
       - name: Keep only the new pack download
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: v1.7.1
+          RELEASE_TAG: v1.8.0
         run: |
           set -euo pipefail
           gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" --jq '.assets[] | select(.name != "curs0r-pack.zip") | .id' > extra-assets.txt
