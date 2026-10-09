@@ -1,7 +1,9 @@
-# curs0r pack v1.7.1 — Static Nib and new state icons
+# curs0r pack v1.8.0 — Windows Flow
 
-Nib's ordinary states now use genuinely static CUR files. All gray slashes, sweeps, swinging and scaling are removed. Only Busy and Working retain smooth loading loops.
+Adds the approved Windows Flow family in white and black. Each set contains 17 independently drawn roles with solid fills, rounded corners and thin contrasting outlines. Non-pointer artwork was compared against all seven existing families; no old silhouettes are reused.
 
-All 16 non-pointers are redrawn independently with rounded solid interiors. Resize states have blunt rectangular grips with no droplet or nib-shaped tips. Other states use help tickets, corner pads, a serif spindle, flat marker, stop badge, square-shouldered move control, lifting handle, tap control, location beacon and rounded profile.
+Animations use a continuous 48-frame, approximately 1.92-second loop. Busy orbits smoothly, Working moves its progress dot, and ordinary states breathe gently inside steady silhouettes. There is no pointer swinging or slashing. Click points stay fixed; the main pointer clicks at its upper-left tip. Every role is fitted to a consistent visible size.
 
-Extract curs0r-pack.zip and run Install-Wingline.cmd in Nib-White or Nib-Black to replace the earlier animated ordinary states.
+Includes native 64 px animations, 256 px high-DPI animations, and seven-size static alternatives. Extract the ZIP and run Install-Wingline.cmd in Windows-Flow-White or Windows-Flow-Black. Installation needs no administrator access or background process.
+
+The single curs0r-pack.zip download now includes all eight families in both colors. Existing families retain their behavior, including Nib's static ordinary states.
