@@ -19,30 +19,15 @@ def _dib_image(image: Image.Image) -> bytes:
     if width != height:
         raise ValueError("CUR images must be square.")
 
-    xor_stride = width * 4
-    xor_mask = bytearray()
-    pixels = rgba.load()
-    for y in range(height - 1, -1, -1):
-        for x in range(width):
-            red, green, blue, alpha = pixels[x, y]
-            # Windows alpha cursor bitmaps use premultiplied BGRA. This also
-            # clears color from fully transparent pixels to prevent fringes.
-            xor_mask.extend(
-                (
-                    (blue * alpha + 127) // 255,
-                    (green * alpha + 127) // 255,
-                    (red * alpha + 127) // 255,
-                    alpha,
-                )
-            )
-
+    # Pillow's native premultiplication matches the rounded BGRA arithmetic,
+    # avoiding two Python pixel loops for every high-DPI animation frame.
+    xor_mask = rgba.convert("RGBa").transpose(Image.Transpose.FLIP_TOP_BOTTOM).tobytes("raw", "BGRa")
     and_stride = ((width + 31) // 32) * 4
-    and_mask = bytearray(and_stride * height)
-    for y in range(height):
-        row = height - 1 - y
-        for x in range(width):
-            if pixels[x, y][3] == 0:
-                and_mask[row * and_stride + x // 8] |= 0x80 >> (x % 8)
+    row_bytes = (width + 7) // 8
+    transparent = rgba.getchannel("A").point(lambda alpha: 255 if alpha == 0 else 0)
+    packed = transparent.convert("1", dither=Image.Dither.NONE).transpose(Image.Transpose.FLIP_TOP_BOTTOM).tobytes()
+    padding = bytes(and_stride - row_bytes)
+    and_mask = b"".join(packed[y*row_bytes:(y+1)*row_bytes] + padding for y in range(height))
 
     info = struct.pack(
         "<IiiHHIIiiII",

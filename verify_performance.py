@@ -7,6 +7,7 @@ import time
 
 from wingline.timing import ANIMATION_FRAMES, FRAME_JIFFIES, STATE_IDLE_STEPS
 from wingline.roles import THEMES, ROLE_ORDER
+from wingline.package import is_animated_role
 
 
 def verify(root):
@@ -31,8 +32,8 @@ def verify(root):
     gdi32.DeleteObject.argtypes = [wintypes.HANDLE]
     gdi32.DeleteDC.argtypes = [wintypes.HDC]
     paths = [p for p in sorted(root.glob("*/*.ani")) if not p.stem.endswith("-large")]
-    if len(paths) != len(THEMES)*len(ROLE_ORDER):
-        raise ValueError("Performance check must cover all 17 roles in every theme.")
+    if len(paths) != sum(is_animated_role(role, theme) for theme in THEMES.values() for role in ROLE_ORDER):
+        raise ValueError("Performance check must cover every animated role in every theme.")
     worst = 0
     count = 0
     for size in (32,64):

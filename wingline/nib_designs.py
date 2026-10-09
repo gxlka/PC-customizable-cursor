@@ -27,8 +27,8 @@ def draw_nib(p, glyph, frame):
     elif glyph=='appstarting':
         # Two broad parallel bars slide gently in opposite directions.
         for i in range(2):
-            x=.5+(.075 if i==0 else -.075)*math.sin(phase)
-            p.capsule((x-.30,.20+i*.35,x+.30,.43+i*.35),.115)
+            x=.5+(.014 if i==0 else -.014)*math.sin(phase)
+            p.capsule((x-.40,.20+i*.35,x+.40,.43+i*.35),.115)
     elif glyph=='crosshair':
         # Four blunt filled corner pads and a solid center dot.
         for x,y in ((.14,.14),(.61,.14),(.14,.61),(.61,.61)):
