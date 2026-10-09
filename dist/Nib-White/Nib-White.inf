@@ -1,0 +1,78 @@
+[Version]
+Signature="$Windows NT$"
+
+[DefaultInstall]
+CopyFiles=CursorFiles
+AddReg=CursorScheme,ActiveCursors
+
+[SourceDisksNames]
+1=%DiskName%,,,.
+
+[SourceDisksFiles]
+Nib-White-arrow.cur=1
+Nib-White-help.cur=1
+Nib-White-appstarting.ani=1
+Nib-White-wait.ani=1
+Nib-White-crosshair.cur=1
+Nib-White-ibeam.cur=1
+Nib-White-nwpen.cur=1
+Nib-White-no.cur=1
+Nib-White-sizens.cur=1
+Nib-White-sizewe.cur=1
+Nib-White-sizenwse.cur=1
+Nib-White-sizenesw.cur=1
+Nib-White-sizeall.cur=1
+Nib-White-uparrow.cur=1
+Nib-White-hand.cur=1
+Nib-White-pin.cur=1
+Nib-White-person.cur=1
+
+[DestinationDirs]
+CursorFiles=10,"Cursors\Nib-White"
+
+[CursorFiles]
+Nib-White-arrow.cur
+Nib-White-help.cur
+Nib-White-appstarting.ani
+Nib-White-wait.ani
+Nib-White-crosshair.cur
+Nib-White-ibeam.cur
+Nib-White-nwpen.cur
+Nib-White-no.cur
+Nib-White-sizens.cur
+Nib-White-sizewe.cur
+Nib-White-sizenwse.cur
+Nib-White-sizenesw.cur
+Nib-White-sizeall.cur
+Nib-White-uparrow.cur
+Nib-White-hand.cur
+Nib-White-pin.cur
+Nib-White-person.cur
+
+[CursorScheme]
+HKCU,"Control Panel\Cursors\Schemes","%SchemeName%",0x00000000,"%10%\Cursors\Nib-White\Nib-White-arrow.cur,%10%\Cursors\Nib-White\Nib-White-help.cur,%10%\Cursors\Nib-White\Nib-White-appstarting.ani,%10%\Cursors\Nib-White\Nib-White-wait.ani,%10%\Cursors\Nib-White\Nib-White-crosshair.cur,%10%\Cursors\Nib-White\Nib-White-ibeam.cur,%10%\Cursors\Nib-White\Nib-White-nwpen.cur,%10%\Cursors\Nib-White\Nib-White-no.cur,%10%\Cursors\Nib-White\Nib-White-sizens.cur,%10%\Cursors\Nib-White\Nib-White-sizewe.cur,%10%\Cursors\Nib-White\Nib-White-sizenwse.cur,%10%\Cursors\Nib-White\Nib-White-sizenesw.cur,%10%\Cursors\Nib-White\Nib-White-sizeall.cur,%10%\Cursors\Nib-White\Nib-White-uparrow.cur,%10%\Cursors\Nib-White\Nib-White-hand.cur,%10%\Cursors\Nib-White\Nib-White-pin.cur,%10%\Cursors\Nib-White\Nib-White-person.cur"
+
+[ActiveCursors]
+HKCU,"Control Panel\Cursors",,0x00000000,"%SchemeName%"
+HKCU,"Control Panel\Cursors","Scheme Source",0x00010001,1
+HKCU,"Control Panel\Cursors","Arrow",0x00000000,"%10%\Cursors\Nib-White\Nib-White-arrow.cur"
+HKCU,"Control Panel\Cursors","Help",0x00000000,"%10%\Cursors\Nib-White\Nib-White-help.cur"
+HKCU,"Control Panel\Cursors","AppStarting",0x00000000,"%10%\Cursors\Nib-White\Nib-White-appstarting.ani"
+HKCU,"Control Panel\Cursors","Wait",0x00000000,"%10%\Cursors\Nib-White\Nib-White-wait.ani"
+HKCU,"Control Panel\Cursors","Crosshair",0x00000000,"%10%\Cursors\Nib-White\Nib-White-crosshair.cur"
+HKCU,"Control Panel\Cursors","IBeam",0x00000000,"%10%\Cursors\Nib-White\Nib-White-ibeam.cur"
+HKCU,"Control Panel\Cursors","NWPen",0x00000000,"%10%\Cursors\Nib-White\Nib-White-nwpen.cur"
+HKCU,"Control Panel\Cursors","No",0x00000000,"%10%\Cursors\Nib-White\Nib-White-no.cur"
+HKCU,"Control Panel\Cursors","SizeNS",0x00000000,"%10%\Cursors\Nib-White\Nib-White-sizens.cur"
+HKCU,"Control Panel\Cursors","SizeWE",0x00000000,"%10%\Cursors\Nib-White\Nib-White-sizewe.cur"
+HKCU,"Control Panel\Cursors","SizeNWSE",0x00000000,"%10%\Cursors\Nib-White\Nib-White-sizenwse.cur"
+HKCU,"Control Panel\Cursors","SizeNESW",0x00000000,"%10%\Cursors\Nib-White\Nib-White-sizenesw.cur"
+HKCU,"Control Panel\Cursors","SizeAll",0x00000000,"%10%\Cursors\Nib-White\Nib-White-sizeall.cur"
+HKCU,"Control Panel\Cursors","UpArrow",0x00000000,"%10%\Cursors\Nib-White\Nib-White-uparrow.cur"
+HKCU,"Control Panel\Cursors","Hand",0x00000000,"%10%\Cursors\Nib-White\Nib-White-hand.cur"
+HKCU,"Control Panel\Cursors","Pin",0x00000000,"%10%\Cursors\Nib-White\Nib-White-pin.cur"
+HKCU,"Control Panel\Cursors","Person",0x00000000,"%10%\Cursors\Nib-White\Nib-White-person.cur"
+
+[Strings]
+DiskName="Nib White Cursor Pack"
+SchemeName="Nib White"

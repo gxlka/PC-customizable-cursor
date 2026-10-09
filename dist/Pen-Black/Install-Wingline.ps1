@@ -56,7 +56,7 @@ $schemePaths = @()
 $cursorKey = [Microsoft.Win32.Registry]::CurrentUser.CreateSubKey("Control Panel\Cursors")
 try {
     foreach ($entry in $roles.GetEnumerator()) {
-        $suffix = Get-WinglineAnimationSuffix $requiredSize
+        $suffix = if ($themeKey -like "Nib-*" -and $entry.Value -notin @("wait", "appstarting")) { ".cur" } else { Get-WinglineAnimationSuffix $requiredSize }
         $matches = Get-Item -LiteralPath (Join-Path $PSScriptRoot ($themeKey + "-" + $entry.Value + $suffix)) -ErrorAction SilentlyContinue
         if (-not $matches) { throw ("Missing cursor for role " + $entry.Key) }
         $destination = Join-Path $target $matches.Name
@@ -79,4 +79,4 @@ finally { $schemesKey.Dispose() }
 if (-not [WinglineCursor.NativeMethods]::SystemParametersInfo(0x0057, 0, [IntPtr]::Zero, 0)) {
     throw "Windows saved the theme but could not reload the cursor settings."
 }
-[System.Windows.Forms.MessageBox]::Show("$schemeName was reapplied and is active. All 17 roles now use animated .ani files. Sites and games that supply their own cursors may override this scheme.", "curs0r pack") | Out-Null
+[System.Windows.Forms.MessageBox]::Show("$schemeName was reapplied and is active. The cursor set is now active. Sites and games that supply their own cursors may override this scheme.", "curs0r pack") | Out-Null
